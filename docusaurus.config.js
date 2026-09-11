@@ -29,7 +29,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ScreenStaring',
-  projectName: 'help.screenstarig.com',
+  projectName: 'help.screenstaring.com',
 
   clientModules: ['./src/clientModules/shop.js'],
 
