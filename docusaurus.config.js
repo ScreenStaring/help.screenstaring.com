@@ -69,6 +69,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'algolia-site-verification', content: '05FFAF85647F1EFA'},
+      ],
 
       colorMode: {
         respectPrefersColorScheme: true,
