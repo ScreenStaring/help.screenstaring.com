@@ -80,7 +80,7 @@ const config = {
       algolia: {
         appId: 'Y6FL5XCVCH',
         apiKey: 'cedc0c6fe1ec05bc126389d2fcf279fa',
-        indexName: 'screenstaring-docs',
+        indexName: 'help.screenstaring.com',
       },
       navbar: {
         title: 'ScreenStaring Documentation',
