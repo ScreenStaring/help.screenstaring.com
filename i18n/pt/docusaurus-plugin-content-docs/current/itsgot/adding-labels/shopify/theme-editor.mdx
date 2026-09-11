@@ -1,0 +1,65 @@
+---
+sidebar_position: 2
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Editor de Temas do Shopify
+
+Usando o [editor de temas do Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(personalização do tema), você pode adicionar rótulos
+[como uma seção ou bloco](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+a um modelo de produto, ou conectá-los a uma seção ou bloco existente
+[por meio de um metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(fonte dinâmica).
+
+## Adicionar Rótulo Como um Bloco
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Vá para *Temas* no Admin do Shopify</ShopifyLink>
+2. Encontre o tema que você deseja atualizar e clique em *Personalizar*
+3. No editor de temas, selecione o modelo de produto ao qual você gostaria de adicionar os rótulos:
+
+   <img src="/shopify/images/nf-theme-editor-select-template.jpg" width="500" alt="Selecione o modelo de produto" />
+
+4. Selecione o local desejado dentro do modelo de produto. Isso pode ser feito passando o cursor sobre a área de inserção desejada:
+
+   <img src="/shopify/images/nf-theme-editor-add-block-button.jpg" height="500" alt="Botão adicionar bloco" />
+
+5. Clique no botão <kbd>Adicionar bloco</kbd> e selecione *Nutrition Facts* na seção *Apps*:
+
+   <img src="/shopify/images/nf-theme-editor-add-block-app.jpg" height="500" alt="Botão do bloco do aplicativo Nutrition Facts" />
+
+6. Isso adicionará um bloco de *Nutrition Facts* ao modelo selecionado:
+
+   <img src="/shopify/images/nf-theme-editor-block-added.jpg" height="500" alt="Configure o bloco do aplicativo Nutrition Facts" />
+
+7. Clique no bloco de *Nutrition Facts* para acessar opções de configuração adicionais
+8. Clique em <kbd>Salvar</kbd>
+
+Os rótulos dos produtos agora serão exibidos em seu site.
+
+## Adicionar Rótulo via Metafield
+
+Isso só funciona se a seção ou o bloco de destino suportar fontes dinâmicas.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Vá para *Temas* no Admin do Shopify</ShopifyLink>
+2. Encontre o tema que você deseja atualizar e clique em *Personalizar*
+3. No editor de temas, encontre a seção ou o bloco ao qual você deseja adicionar os rótulos e clique nele. Neste exemplo, nós os adicionamos a um bloco de *Texto*:
+
+   <img src="/shopify/images/nf-theme-editor-dynamic-source-select-block.jpg" width="500" alt="Seleção de seção ou bloco" />
+
+4. Dentro das configurações do bloco de *Texto*, clique no botão *Conectar fonte dinâmica*:
+
+   <img src="/shopify/images/nf-theme-editor-dynamic-source-button.jpg" width="500" alt="Botão de fonte dinâmica" />
+
+5. Na lista de fontes dinâmicas, pesquise e selecione *Nutrition Facts app label embed code*:
+
+   <img src="/shopify/images/nf-theme-editor-dynamic-source-label-embed-code.jpg" width="500" alt="Fonte dinâmica do rótulo de Nutrition Facts" />
+
+6. Uma vez selecionado, você o verá como uma fonte no campo associado:
+
+   <img src="/shopify/images/nf-theme-editor-dynamic-source-label-embed-code-selected.jpg" width="500" alt="Rótulo de Nutrition Facts selecionado" />
+
+7. Clique em <kbd>Salvar</kbd>
+
+Os rótulos dos produtos agora serão exibidos em seu site.

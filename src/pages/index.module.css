@@ -1,0 +1,142 @@
+.hero {
+  padding: 6rem 0 5rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      60% 50% at 50% 0%,
+      color-mix(in srgb, var(--ifm-color-primary) 10%, transparent),
+      transparent 70%
+    ),
+    var(--ifm-background-color);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 auto 1.25rem;
+  max-width: 42rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: var(--ifm-font-color-secondary);
+  max-width: 34rem;
+  margin: 0 auto 2.25rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base-inverse);
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow:
+    0 1px 2px rgba(16, 16, 20, 0.1),
+    0 8px 24px color-mix(in srgb, var(--ifm-color-primary) 25%, transparent);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+.primaryButton:hover {
+  color: var(--ifm-font-color-base-inverse);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(16, 16, 20, 0.12),
+    0 12px 32px color-mix(in srgb, var(--ifm-color-primary) 32%, transparent);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-heading-color);
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: var(--ifm-global-border-width) solid
+    var(--ifm-color-emphasis-300);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition:
+    border-color 0.12s ease,
+    transform 0.12s ease;
+}
+.secondaryButton:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 1rem 0 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.appCard {
+  border: var(--ifm-global-border-width) solid
+    var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.appCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ifm-global-shadow-md);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.appCardBody {
+  padding: 1.6rem;
+}
+
+.appCardTitle {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.appCardText {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+
+.appCardLink {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 0.93rem;
+}
+.appCardLink:hover {
+  color: var(--ifm-link-hover-color);
+  text-decoration: none;
+}

@@ -1,0 +1,17 @@
+---
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Inventory Transfers
+
+***Inventory transfer support is only available under the <Link path="/charges/recurring/new">Premium and Platinum plans</Link>***
+
+To enable support for [Shopify inventory transfers](https://help.shopify.com/en/manual/products/inventory/inventory-transfers):
+
+-   Go to the <Link path="/settings#inventory">Inventory tab on the settings page</Link>
+-   Check "Move inventory batches when Shopify inventory transfers occur"
+-   Click "Update"
+
+Now when an inventory transfer occurs in Shopify inventory batches for the tranfered quantity will be moved from the transfer's source location to its destination location. Quantities are moved starting with the soonest expiring inventory batch. If you need a different algorithm contact support.

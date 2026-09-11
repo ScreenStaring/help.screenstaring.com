@@ -1,0 +1,185 @@
+---
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# API Integration
+
+
+**API integration is only available under the <Link path="/app/plans">Premium plan</Link>.**
+
+API requests are authenticated using your API key.
+Include your API key in the `X-API-Key` header with each request.
+Contact support to obtain yours.
+
+## Base URL
+
+All API endpoints are relative to: `https://itsgot.com`
+
+## Pagination
+
+For endpoints that support pagination the next and previous page URLs can be found in the HTTP `Link` header.
+
+## Retrieve Products
+
+### GET /api/products
+
+**Query Parameters:**
+
+- `sku` - The variant's SKU (optional)
+- `barcode` - The variant's barcode (optional)
+- `external_product_id` - Shopify product ID (optional)
+- `external_variant_id` - Shopify product ID (optional)
+- `page` - Page to retrieve (optional)
+- `per_page` - Number of products returned per page, must be one of `10`, `25`, `50`, `100` (optional, defaults to 10)
+
+**Example using curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
+```
+
+**Response (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Jar of Food",
+    "rating": 0.0,
+    "external_product_id": 123123123,
+    "variants": [
+      {
+        "name": "Spicy",
+        "size": null,
+        "servings_per_container": "1",
+        "serving_size": null,
+        "ingredients": null,
+        "barcode": "834325",
+        "external_variant_id": 789789789,
+        "warnings": null,
+        "instructions": null,
+        "claims": null,
+        "sku": "JARFOOD",
+        "origin_countries": null,
+        "allergens": null,
+        "created_at": "2026-07-30T13:32:38Z",
+        "updated_at": "2026-07-30T13:36:08Z",
+        "kosher": false,
+        "halal": false,
+        "glatt_kosher": true,
+        "organic": false,
+        "dairy": false,
+        "parve": true,
+        "vegan": true,
+        "vegetarian": true,
+        "gmos": null,
+        "gluten": null,
+        "wheat": null,
+        "preservatives": null,
+        "artificial_colors": null,
+        "artificial_flavors": null,
+        "casein": null,
+        "egg": null,
+        "soy": null,
+        "shellfish": null,
+        "tree_nuts": null,
+        "peanuts": null,
+        "fish": null,
+        "seeds": null,
+        "milk": null,
+        "nitrates": null,
+        "nitrites": null,
+        "sesame": null,
+        "coconut": null,
+        "rbst": null,
+        "rbgh": null,
+        "celery": null,
+        "translations": {},
+        "nutrition": [
+          {
+            "id": 1,
+            "calories": 28,
+            "calories_from_fat": null,
+            "calories_from_saturated_fat": null,
+            "comments": "Per 100g",
+            "number": 1,
+            "kilojoules": 114,
+            "created_at": "2026-08-04T18:48:07Z",
+            "updated_at": "2026-08-04T18:48:07Z",
+            "data": [
+              {
+                "id": 1,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "1",
+                  "unit": "mg"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 10,
+                  "name": "Iron",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              },
+              {
+                "id": 2,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "2",
+                  "unit": "g"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 8,
+                  "name": "Protein",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              }
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": 10,
+            "format": "au_nutrition_facts_vertical",
+            "locale": "en-AU",
+            "target_device": null
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Export a Label to a Specified Format
+
+### GET /api/products/PRODUCT_ID/labels/LABEL_ID/export.FORMAT
+
+**Required parameters:**
+
+- `PRODUCT_ID` - Product ID of the label you want to export
+- `LABEL_ID` - ID of the label you want to export
+- `FORMAT` - Format to export. One of `png`, `jpg`, `pdf`, or `html`
+
+**Optional query parameters:**
+
+- `width` - Image only. Export the label to the given width. Defaults to the label's width x 2.
+- `height` - Image only. Export the label to the given height. By default the aspect ratio is maintained and the height is based on the given width.
+- `background_color` - Image only. Background color to use if the label is resized and no longer maintains its aspect ratio
+
+**Example using curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products/123/labels/789/export.jpg' > product.jpg
+```

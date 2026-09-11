@@ -1,0 +1,23 @@
+---
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Order Inventory Batch Location Assignment
+
+The Product Expiration Dates app allows you to configure when inventory batches are assigned to an order: either when the order is placed or, when an order line is fulfilled. See [Adding Expiration Data to Products](/docs/product-expiration-dates/adding-expiration-data).
+
+By default a product's soonest expiring inventory batch from across all locations is assigned to the order line (FEFO: First Expired, First Out management strategy) If the incoming order has a location assigned (typically [Shopify Point of Sale (POS) orders](/docs/product-expiration-dates/pos-integration)), that location will be used. You can change your management strategy to First In, First Out (FIFO) management strategy on <Link path="/settings#inventory">the settings' page Inventory tab</Link>.
+
+## Shopify Order Routing Rules
+
+***Support for Shopify Order Routing Rules is only available under the <Link path="/charges/recurring/new">Pro Plan</Link>***
+
+To assign an inventory batch from a location determined by Shopify Order Routing rules select "Assign inventory batches based on Shopify Order Routing" from <Link path="/settings#inventory">the Settings page's Inventory tab</Link>. Shopify Order Routing can be configured in the Shopify Admin here
+
+## Assign Inventory Batches from a Specific Location {/* #order-placed-allocation-location */}
+
+**Do not set this if you use [prioritized fulfillment locations](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+
+If you're using "order placed" for a Product's ["Assign inventory batches when"](/docs/product-expiration-dates/adding-expiration-data) setting and have multiple locations in Shopify **but only fulfill from one**, you must <Link path="/settings#inventory">set "Assign inventory batches from this location"</Link> to match your default location in Shopify (Shopify does not share this with 3rd-party apps so it must be explicitly set). When this is set and an order is placed without a location the Product Expiration Dates app will only allocate the soonest expirting expiration date from this location. If this is not set the app will allocate the soonest expiring expiration date across all locations.

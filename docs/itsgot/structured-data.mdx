@@ -1,0 +1,55 @@
+---
+sidebar_position: 8
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Using Structured Data for Improved SEO
+
+
+If your subscription includes <Link path="/app/plans">Premium plan features</Link> each product will have
+[Schema.org nutrition information](https://schema.org/NutritionInformation) added as
+variant [metafields](https://help.shopify.com/en/manual/metafields).
+If the product does not have variants it will be added as a metafield on the default variant.
+This allows you to add structured nutrition data to your site by outputting the appropriate metafield(s) in your theme.
+
+The following example outputs the nutrition data for each variant as JSON-LD structured data. This works even if the product has no variants:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script type="application/ld+json">
+     {{ variant.metafields.itsgot.schema-org | json }}
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+If you need to add additional information to the structured data before it's output you can use the following example as a guide.
+Here we add [offer data](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
+describing the price of each variant. The example uses a combination of Liquid and JavaScript code. We use JavaScript instead of pure
+Liquid because JavaScript makes it easier to update the nutrition information structure:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script>
+      (function() {
+        var schema = {{ variant.metafields.itsgot.schema-org | json }};
+        schema.offers = {
+          '@type': 'Offer',
+          price: {{ variant.price | json }},
+          priceCurrency: {{ shop.currency | json }},
+          sku: {{ variant.sku | json }},
+          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
+        };
+
+        var script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.textContent = JSON.stringify(schema);
+        document.body.appendChild(script);
+      })();
+    </script>
+  {% endif %}
+{% endfor %}
+```

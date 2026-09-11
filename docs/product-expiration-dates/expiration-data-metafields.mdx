@@ -1,0 +1,34 @@
+---
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Expiration Data Metafields
+
+Also see: ***[Notifications, Order Printing, and Packing Slips](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+The Product Expiration Dates app adds metafields to a product's variant(s) under the `expiration_dates` namespace. If the product has no variants the default variant is used.
+
+**Do not add metafield definitions in the Shopify Admin using the `expiration_dates` namespace with any of the below keys.** This is not necessary and prevents the app from functioning correctly. Metafields set by the app are readonly and cannot be set via the Shopify Admin.
+
+If you need to export expiration dates to external applications that only support metafield integration (and do not support JSON metafields) see the `soonest_expiring` key.
+
+The following metafields are available:
+
+| Key | Description |
+| --- | --- |
+| `allocations` | An array of expiration dates and quantities assigned to the variant. The array is sorted by expiration date, soonest to latest so `allocations[0]` will return data for the soonest expiring date. |
+| `allocations[N].time` | The expiration date. Format is: `YYYY-MM-DDT00:00`. For example: `2025-01-22T00:00`. Currently the time is always `00:00`. This value can be formatted using the [Liquid `date` filter](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | The remaining inventory quantity |
+| `allocations[N].batch_number` | The assigned batch number |
+| `allocations[N].location_id` | The Shopify ID of the assigned location |
+| `use_within` | An object containing use within information |
+| `use_within.use_within_value` | The numeric portion of the use within data. For example, if `30 days` was assigned this will contain `30`. |
+| `use_within.use_within_unit` | The unit of time portion of the use within data. For example, if `30 days` was assigned this will contain `days`. |
+| `use_within.use_within_value_in_days` | The use within value in days. For example, if `6 months` was assigned, this will contain `180`. We use 30 days per month: 6 \* 30 = 180. |
+| `bundled_inventory` | An array of the products that are in the bundle and their expiration data/batch numbers. Only set if the product is a bundle. |
+| `bundled_inventory[N].title` | The title of the bundled product |
+| `bundled_inventory[N].allocations` | An array of expiration dates and quantities assigned to the variant. Refer to `allocations[N]`'s documentation. |
+| `soonest_expiring` | String representation of the soonest expiring inventory batch. Usefull if you need to export expiration dates to external applications that only support metafield integration. Date format can be set on <Link path="/settings#inventory">the settings page</Link>.   
+ ***Only available under the <Link path="/charges/recurring/new">Premium Plan</Link>*** |

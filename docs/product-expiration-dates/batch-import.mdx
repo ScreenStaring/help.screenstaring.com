@@ -1,0 +1,17 @@
+---
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Importing Expiration Data in Bulk
+
+Multiple expiration dates and quantities can be imported using our batch import CSV. A sample of this can be found here.
+
+The "SKU", "Expiration Date", "Quantity", and "Location Name", columns are required. **Expiration dates must be provided in `YYYY-MM-DD` format.** To use "Barcode" instead of "SKU" select "Identify rows by Barcode" on the batch import page.
+
+For more information on the "Allocate Quantities to Orders When" column see [Adding Expiration Data to Products](/docs/product-expiration-dates/adding-expiration-data).
+
+The CSV must use UTF-8 encoding and use the comma character (",") as a field seperator.
+
+Once ready upload it via <Link path="/import">the import page</Link>.

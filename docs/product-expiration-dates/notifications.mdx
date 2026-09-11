@@ -1,0 +1,30 @@
+---
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Email Notifications
+
+Email notications can be configured to be sent before product expiration dates are reached. They can be configued globally, to apply to any expiration date enteted into the app, by a product's collection, or by a product's product type.
+
+## Enabling
+
+1.  In the app's settings go to <Link path="/settings#email_notifications">email notifications</Link>
+2.  In the "Send notifications" field enter the email address where you want to receive the notifications. Multiple email addresses can be separated by a comma.
+3.  In the "How many days before a product expires would you like to be notified?" field, enter the number of days to be notified before a product expires.  
+ For example, if a product has an expiration date of January 15th and 10 is entered, you will receive a notification for this product staring on January 5th.
+4.  Click the <kbd>Update</kbd> button to save
+
+Notifications are sent once a day. If no products are within your expiration window a notification will not be sent.
+
+If you prefer to receive notifications based on a product's collection or product type you can skip entering a value in "How many days before a product expires would you like to be notified or for the product to be discounted?" and instead add the days to the given collection or product type in the "By Collection" or "By Product Type" section. These fields will only show values for products that have been entered into the app.
+
+## Disabling
+
+1.  In the app's settings go to <Link path="/settings#email_notifications">email notifications</Link>
+2.  In the "How many days before a product expires would you like to be notified?" field remove the value.
+3.  If you have any collection or product type notifications, you must delete them by pressing the red <kbd>X</kbd> button next to the notifcation's settings
+4.  Click the <kbd>Update</kbd> button to save
+
+Notifications will no longer be sent.

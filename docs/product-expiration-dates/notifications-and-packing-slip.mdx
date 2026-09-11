@@ -1,0 +1,111 @@
+---
+sidebar_position: 12
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Notifications, Order Printing, & Packing Slips
+
+This allows you to add expiration dates and batch numbers to:
+
+-   [Shopify Notifications](https://www.shopify.com/admin/settings/notifications) (by default does not apply to order confirmation since the email is sent before the batch is assigned)
+-   [Order Printer](https://apps.shopify.com/order-printer) and [Shopify Order Printer](https://apps.shopify.com/shopify-order-printer)
+-   [Order Printer Pro](https://apps.shopify.com/order-printer-pro)
+-   [Multi-Label Barcodes App](https://apps.shopify.com/multi-label-barcodes)
+-   And more!
+
+To begin you must enable order notes <Link path="/settings#orders">from the settings page</Link> by selecting "Create an order 'additional details' entry for 3rd-party app integration". Once enabled generate a code snippet below for your integration.
+
+## Code Snippet
+
+The resulting code snippet can be added to the appropriate Liquid template for your integration in the location where you want the expiration data displayed. This snippet works **with** the existing template to display expiration data. It is not meant to replace it.
+
+If you do not see your integration in the list and need assistance please contact support.
+
+```liquid
+{% comment %}
+  Code for the Product Expiration Dates app to display a product's expiration date and related
+  informtion in notifications, order printing, & packing slips.
+
+  If you want to hide the expiration date until it's close to a particular number of days
+  set the expires_window_days variable below to the number of desired days instead of blank.
+  For example:
+
+    {% assign expires_window_days = 30 %}
+
+  For assistance contact support at help@screenstaring.com
+{% endcomment %}
+
+{% assign expires_window_days = blank %}
+
+{% capture key %}Expiration Dates {{ line_item.sku }}{% endcapture %}
+{% if attributes[key] != blank %}
+    {% assign batches = attributes[key] | split: "|" %}
+    {% for batch in batches %}
+        {% assign batch_data = batch | split: "," %}
+        {% assign expires_date = batch_data[0] %}
+        {% assign expires_qty = batch_data[1] %}
+        {% assign expires_batch = batch_data[2] %}
+
+        {% assign now = "now" | date: "%s" %}
+        {% assign seconds_in_a_day = 86400 %}
+        {% assign expires_at = expires_date | date: "%s" | plus: seconds_in_day | minus: 1 %}
+        {% assign diff = expires_at | minus: now | divided_by: seconds_in_a_day %}
+        {% assign show_date = false %}
+
+        {% if expires_window_days == blank  %}
+          {% assign show_date = true %}
+        {% elsif diff >= 0 and diff < expires_window_days %}
+          {% assign show_date = true %}
+        {% endif %}
+
+        {% if show_date %}
+          {% comment %}
+            The date format can be adjust by changing the '%d/%m/%Y' portion below
+            to the desired date format codes. See: https://shopify.dev/api/liquid/filters#date
+            To use a tranlated date see: https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files
+          {% endcomment %}
+          Expires:
+          {{ expires_date | date: "%d/%m/%Y" }}
+
+          {% comment %}
+            Remove the following if you do not want the quantity and batch name displayed
+          {% endcomment %}
+          ({{ expires_qty }})
+          {% if expires_batch != blank %}
+              {{ expires_batch }}
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+```
+
+You may have to change the `line_item` or `line` variable to match what's used in your existing code.
+
+The date format is based on the [Liquid `date` filter](https://shopify.dev/api/liquid/filters#date). It can be adjust by changing the `"%d/%m/%Y"` portion to use the desired date format codes. See the `date` filter's documentation for a list. To use a translated date specify a date format [from your theme's locale files](https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files). For example, if the format `month_day_year` existed (it may), you can change:
+
+```liquid
+{{ expires_date | date: "%d/%m/%Y" }}
+```
+
+In the above snippet to:
+
+```liquid
+{{ expires_date | date: format: "month_day_year" }}
+```
+
+## Technical Details
+
+An attribute will be added to the order for each line item. The attribute will be named `"Expiration Dates [ID]"` where `[ID]` is the line item's: SKU, barcode, or the Shopify variant ID. What is used depends on your store's setup. If you use SKUs it will always be the SKU. If you only use barcode it will be the barcoce, etc...
+
+The attribute's value is a comma-separated string containing the assigned expiration date, quantity, and batch number:
+
+```
+2023-04-22,2,BATCH-NUMBER
+```
+
+If there are multiple assignments for a line item each assignment will be seperated by the pipe character (`|`):
+
+```
+2023-04-22,2,BATCH-NUMBER-1|2023-12-25,1,BATCH-NUMBER-2
+```

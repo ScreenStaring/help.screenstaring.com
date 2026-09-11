@@ -1,0 +1,105 @@
+---
+sidebar_position: 6
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Combinando Componentes de Refeição para Gerar um Rótulo
+
+
+Se você tem um site de refeições preparadas ou restaurante, provavelmente vai querer inserir os componentes da refeição uma vez e exibir um rótulo
+com base na seleção do cliente. Por exemplo, se você oferece uma proteína com um carboidrato, deseja
+gerar um rótulo com base na seleção de cada um deles. Se o usuário selecionar frango e arroz, o rótulo deve conter os
+nutrientes combinados de frango e arroz. Se ele selecionar frango e batata assada, o rótulo deve conter os
+nutrientes combinados de frango e batata assada. Etc.
+
+Isso pode ser feito através das seguintes etapas:
+
+1. [Criar rótulos que não estão associados a um produto do Shopify](#combine-api-create-component-label)
+2. [Criar um rótulo para o produto pai do Shopify](#combine-api-create-product-label)
+3. [Adicionar o código da API Combine ao seu site](#combine-api-add-code)
+
+## Criar Rótulos Que Não Estão Associados a um Produto do Shopify {/* #combine-api-create-component-label */}
+
+Para poder usar componentes de refeição, você deve criar um rótulo com a opção *Não associado a um produto do Shopify* marcada:
+
+<img src="/shopify/images/combine-api-not-associated-with-product.jpg" alt="Não associado a um produto do Shopify" />
+
+Em *Nome*, insira o nome do componente da refeição *exatamente* como ele aparece no seu site, por exemplo *Batata Doce Frita (Grande)*.
+Depois, insira as informações nutricionais e salve o rótulo.
+
+## Criar um Rótulo para o Produto Pai do Shopify {/* #combine-api-create-product-label */}
+
+Se o produto for um pacote ou contêiner, ou seja, algo que não contém dados nutricionais, por exemplo, *plano de almoço de 10 dias*, você pode pular esta parte.
+Se o produto for um prato ou componente de refeição, você também deve inserir as informações nutricionais para ele.
+
+Neste cenário, você não deve marcar *Não associado a um produto do Shopify*. Em vez disso, digite os primeiros caracteres do nome do produto,
+selecione-o na lista, insira as informações nutricionais e salve.
+
+## Adicionar o Código da API Combine ao Seu Site {/* #combine-api-add-code */}
+
+Depois de inserir as informações nutricionais no aplicativo, você deve adicionar código ao seu site para recuperar e inserir o rótulo com base na seleção do cliente.
+Esse código deve recuperar as variantes selecionadas e passá-las para a API combine do It's Got. Isso envolve duas etapas:
+
+### 1. Carregar a API Combine e o Snippet
+
+O snippet pode ser encontrado na <Link path="/settings/edit#combine-api-snippet">página de configurações</Link>. Onde quer que esse snippet
+seja colocado é onde o rótulo será exibido. Ele pode ser inserido em qualquer lugar do seu site. Veja [este exemplo](/docs/itsgot/adding-labels/embed-code).
+
+### 2. Recuperar as Variantes Selecionadas e Chamar a API Combine
+
+Isso é o que carregará o rótulo com base nas variantes selecionadas no snippet adicionado na etapa 1 acima.
+Como obter as variantes selecionadas depende do seu tema. Não há uma solução única para todos os casos.
+Você pode [contatar o suporte](https://screenstaring.com/#contact) para orientação, mas primeiro tente o [exemplo abaixo](#combine-api-example).
+
+A API Combine requer a seguinte chamada JavaScript:
+
+`ItsGot.combine(components, options)`
+
+| Argumento    | Descrição |
+| ------------ | --------- |
+| `components` | Um array de strings contendo os componentes da refeição para os quais construir o rótulo. Esses valores virão das variantes atualmente selecionadas. |
+| `options`    | Opcional. Um objeto que pode conter as seguintes propriedades: |
+|              | `format` - Formato do rótulo a ser renderizado. O padrão é `us:2016:nutrition_facts:emblems`. Outros formatos suportados são: `ca:legacy:nutrition_facts:vertical`, `de:eu:nutrition_facts:vertical`, `dk:eu:nutrition_facts:vertical`, `se:eu:nutrition_facts:vertical`, `uk:eu:nutrition_facts:vertical`, `us:2016:nutrition_facts:tabular`, `us:2016:nutrition_facts:vertical`, `us:legacy:nutrition_facts:vertical`, `us:legacy:supplement_facts:vertical_columns`, `us:legacy:supplement_facts:vertical`, `us:2016:supplement_facts:vertical_columns`, e `us:2016:supplement_facts:vertical` |
+|              | `only` - Um array de nutrientes a serem exibidos. Quando especificado, apenas os valores nutricionais dos nutrientes fornecidos serão exibidos. ex.: `sodium`, `calories`. Válido apenas para o formato `us:2016:nutrition_facts:emblems`. |
+
+### Exemplo da API Combine {/* #combine-api-example */}
+
+Adicione isso à descrição do produto ou ao arquivo Liquid apropriado no local onde deseja que o rótulo apareça
+(observe que o snippet da sua conta pode ser encontrado na <Link path="/settings/edit#combine-api-snippet">página de configurações</Link>):
+
+```html
+<script async="async" src="//itsgot.com/embed.js"></script>
+<div data-itsgot-user="YOUR_ID" data-itsgot-combine></div>
+```
+
+Em seguida, adicione isso ao template Liquid do produto (ou similar):
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', _ => {
+    // ====================
+    // NOTICE: getSelectedVariants() is an example and will not work with all Shopify themes.
+    // How to get the selected variants is dependent on your theme. There is no one-size-fits-all solution.
+    // ====================
+    function getSelectedVariants() {
+      return document.querySelectorAll('[class^=single-option-selector]');
+    }
+
+    function showLabel() {
+      const components = [];
+
+      getSelectedVariants().forEach(element => {
+        if(element.value) components.push(element.value);
+      });
+
+      ItsGot.combineLabels(components, {
+        format: 'us:2016:nutrition_facts:emblems',
+        only: ['calories', 'protein', 'total carbohydrate', 'total fat', 'dietary fiber', 'total sugars']
+      });
+    }
+
+    getSelectedVariants().forEach(element => element.addEventListener('change', showLabel));
+  });
+</script>
+```

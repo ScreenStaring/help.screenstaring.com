@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Shopify Theme Editor
+
+Using the [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(theme customization) you can add labels
+[as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+to a product template or connect them to an existing section or block
+[via a metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(dynamic source).
+
+## Add Label as a Block
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Go to *Themes* in the Shopify Admin</ShopifyLink>
+2. Find the theme you want to update and click <kbd>Customize</kbd>
+3. In the theme editor, select the product template you'd like to add labels to:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-select-template.jpg" width="500" alt="Select product template" />
+
+4. Select the desired location within the product template. This can be done by hovering your cursor over the desired insertion area:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-button.jpg" height="500" alt="Add block button" />
+
+5. Click on the add block button and select *Nutrition Facts* from the *Apps* section:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-app.jpg" height="500" alt="Add Nutrition Facts app block button" />
+
+6. This will add a *Nutrition Facts* block to the selected template:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-block-added.jpg" height="500" alt="Configure Nutrition Facts app block" />
+
+7. Click on the *Nutrition Facts* block to access additional configuration options
+8. Click <kbd>Save</kbd>
+
+Product labels will now be shown on your site.
+
+## Add Label via a Metafield
+
+This only works if the target section or block supports dynamic sources.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Go to *Themes* in the Shopify Admin</ShopifyLink>
+2. Find the theme you want to update and click <kbd>Customize</kbd>
+3. In the theme editor, find the section or block you want to add labels to and click on it. In this example we add them to a *Text* block:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-select-block.jpg" width="500" alt="Section or block selection" />
+
+4. From within the *Text* block's configuration click the <kbd>Connect dynamic source</kbd> button:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-button.jpg" width="500" alt="Dynamic source button" />
+
+5. Make sure the product template's sources are selected:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-heading.jpg" width="500" alt="Dynamic source section" />
+
+   If it's not selected click on the currently selected heading and change the source to the product template
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-categories.jpg" width="500" alt="Dynamic source categories" />
+
+6. From the list of dynamic sources search for and choose *Nutrition Facts app label embed code*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code.jpg" width="500" alt="Nutrition facts label dynamic source" />
+
+7. Once selected you will see it as a source in the associated field:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code-selected.jpg" width="500" alt="Nutrition facts label selected" />
+
+8. Click <kbd>Save</kbd>
+
+Product labels will now be shown on your site.
+
+## Elsewhere
+
+If you want to add labels to a location outside of the product template or, anywhere else on your site, try one of the following:
+
+- [Liquid snippet](/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Label embed code](/docs/itsgot/adding-labels/embed-code)
