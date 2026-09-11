@@ -1,0 +1,7 @@
+SKU,Barcode,Batch Number,Expiration Date,Quantity,Location Name,Use Within,Invoice Number,Allocate Quantities to Orders When
+234555E,,,2021-02-22,43,Some location's name,,,Order placed
+353551E,,,2020-12-30,11,Some location's name,,,Order placed
+353543E,,,2020-11-21,,,,,
+353544E,,,2021-08-18,83,Another location's name,180 days,INV-001,Order item fulfilled
+234345F,,,2021-08-18,,,,,
+992342E,,,2021-09-22,,,1 year,INV-002,

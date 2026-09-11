@@ -1,0 +1,200 @@
+{% comment %}
+Code for Nutrtion Facts app by ScreenStaring.
+For support email us at help@screenstaring.com
+
+Add this file to your theme's snippets directory as product-label.liquid
+You must also add the itsgot-product-label-embed-code.liquid file to your theme's snippets directory.
+
+This file will render a product's label. If the product has variants then it will show the labels
+for the selected variant. If the variant changes it will show its label, if any.
+
+You can forgo this functionality and display a seperate dropdown using the display_variant_dropdown: option.
+Or use a dropdown that you've created via the use_variant_dropdown: option and providing a CSS selctor that can be
+use to retrieve it.
+
+See below examples.
+
+Usage:
+
+  {% render "itsgot-product-label", product: product %}
+
+Show a dropdown that allows the variant to be selected:
+
+  {% render "itsgot-product-label", product: product, display_variant_dropdown: true %}
+
+The dropdown will be rendered with a DOM ID of itsgot-variant-select
+
+  {% render "itsgot-product-label", product: product, use_variant_dropdown: "#my_dropdown" %}
+
+{% endcomment %}
+
+<style>
+  .itsgot-label-hidden {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      position: absolute;
+  }
+
+  .itsgot-label-visible {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      position: static;
+  }
+</style>
+
+{% assign label = product.metafields.itsgot.label %}
+{% if label.bundled_products.size > 0 %}
+   {% assign have_label = true %}
+   {% render "product-label-bundle", label: label, use_bundle_dropdown: use_bundle_dropdown %}
+{% elsif product.has_only_default_variant %}
+   {% comment %}New style, metafields are on the variant{% endcomment %}
+   {% if product.variants[0].metafields.itsgot.labels.value.size > 0 %}
+     {% assign have_label = true %}
+     {% assign labels = product.variants[0].metafields.itsgot.labels.value %}
+     {% for l in labels %}
+       {% render "itsgot-product-label-embed-code", user: l.user, label: l.id, variant: product.variants[0].id, variant_selected: true, locale: l.locale, min_screen_width: l.min_screen_width, max_screen_width: l.max_screen_width, data: l.data %}
+     {% endfor %}
+   {% else %}
+     {% comment %}We use capture to convert the id to a string{% endcomment %}
+     {% capture product_id %}{{ product.id }}{% endcapture %}
+     {% if label.labels.size > 0 %}
+       {% assign have_label = true %}
+       {% for l in label.labels %}
+         {% render "itsgot-product-label-embed-code", user: label.user, label: l.id, locale: l.locale, min_screen_width: l.min_screen_width, max_screen_width: l.max_screen_width, label_number: l.number, data: label.data[product_id] %}
+       {% endfor %}
+     {% elsif label.product %}
+       {% assign have_label = true %}
+       {% render "itsgot-product-label-embed-code", user: label.user, product_id: label.product, data: label.data[product_id] %}
+     {% endif %}
+   {% endif %}
+{% else %}
+  <script>
+   window.ItsGot = window.ItsGot || {};
+   ItsGot.lastVariant = null;
+   ItsGot.initialVariant = {{ product.selected_or_first_available_variant.id | json }};
+   ItsGot.__variantSelected = function(id) {
+     const labels = document.querySelectorAll('[data-itsgot-external-variant-id]');
+     labels.forEach(e => e.classList.remove('itsgot-label-visible'));
+
+     const selected = document.querySelector(`[data-itsgot-external-variant-id="${id}"]`);
+     if(selected) selected.classList.add('itsgot-label-visible');
+   };
+  </script>
+
+  {% assign variant_with_label = false %}
+  {% for variant in product.variants %}
+    {% capture variant_id %}{{ variant.id }}{% endcapture %}
+    {% if label.variants.labels[variant_id].size > 0 or label.variants[variant_id] %}
+      {% assign variant_with_label = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if display_variant_dropdown and variant_with_label %}
+    <div id="itsgot-variant-select-container">
+      <select id="itsgot-variant-select">
+        {% for variant in product.variants %}
+          {% comment %}Need this to use the id as a hash key{% endcomment %}
+          {% capture variant_id %}{{ variant.id }}{% endcapture %}
+
+          {% if label.variants.labels[variant_id].size > 0 or label.variants[variant_id] %}
+            <option value="{{ variant.id }}" {% if variant.id == product.selected_or_first_available_variant.id %}selected{% endif %}>
+              {{ variant.title }}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+    <script>
+     (function() {
+         const variantSelect = document.getElementById('itsgot-variant-select');
+         variantSelect.onchange = function(e) {
+          if(this.selectedIndex === -1) return;
+          ItsGot.__variantSelected(this.options[this.selectedIndex].value);
+        };
+     })();
+    </script>
+  {% elsif use_variant_dropdown != blank %}
+    <script>
+     (function() {
+         function error(message) {
+             console.error(`Nutrition Facts App: ${message}`);
+         }
+
+         try {
+             const variantSelect = document.querySelector({{ use_variant_dropdown | json }});
+             if(!variantSelect) {
+                 error('cannot find a dropdown with the given CSS selector: {{ use_variant_dropdown | json }}');
+             }
+             else {
+                 {% comment %}We use addEventListener as there may be other handlers{% endcomment %}
+                 variantSelect.addEventListener('change', function(e) {
+                     if(this.selectedIndex === -1) return;
+
+                     const id = this.options[this.selectedIndex].value;
+                     if(!id.match(/^\d+$/)) error(`option value must be the variant id, found: ${id}`);
+
+                     ItsGot.__variantSelected(id);
+                 });
+             }
+         }
+         catch(e) {
+             error(e.message);
+         }
+     })();
+    </script>
+  {% else %}
+    {% comment %}Can't rely on location.href because this may be called before it changes so we do this on every change{% endcomment %}
+    <script>
+     (function() {
+       new MutationObserver(_ => {
+         const id = new URL(location.href).searchParams.get('variant');
+         if(id && id !== ItsGot.lastVariant) {
+           ItsGot.__variantSelected(id);
+           ItsGot.lastVariant = id;
+         }
+       }).observe(document, {subtree: true, childList: true});
+     })();
+    </script>
+  {% endif %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if(ItsGot.initialVariant)
+        ItsGot.__variantSelected(ItsGot.initialVariant);
+      else {
+        const labels = document.querySelectorAll('[data-itsgot-user]');
+        if(labels.length) labels[0].classList.add('itsgot-label-visible');
+      }
+    });
+  </script>
+
+  {% for variant in product.variants %}
+    {% comment %}New style, metafields are on the variant{% endcomment %}
+    {% if variant.metafields.itsgot.labels.value.size > 0 %}
+      {% assign have_label = true %}
+      {% for l in variant.metafields.itsgot.labels.value %}
+        {% render "itsgot-product-label-embed-code", user: l.user, label: l.id, variant: variant.id, variant_selected: variant.selected, locale: l.locale, min_screen_width: l.min_screen_width, max_screen_width: l.max_screen_width, data: l.data %}
+      {% endfor %}
+    {% else %}
+      {% comment %}Need this to use the id as a hash key{% endcomment %}
+      {% capture variant_id %}{{ variant.id }}{% endcapture %}
+
+      {% if label.variants.labels[variant_id].size > 0 %}
+        {% assign have_label = true %}
+        {% for l in label.variants.labels[variant_id] %}
+          {% render "itsgot-product-label-embed-code", user: label.user, label: l.id, locale: l.locale, min_screen_width: l.min_screen_width, max_screen_width: l.max_screen_width, label_number: l.number, variant: variant.id, variant_selected: variant_selected, data: label.data[variant_id] %}
+        {% endfor %}
+      {% elsif label.variants[variant_id] %}
+        {% assign have_label = true %}
+        {% render "itsgot-product-label-embed-code", user: label.user, product_id: label.variants[variant_id], variant: variant_id, variant_selected: variant_selected, data: label.data[variant_id] %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if have_label %}
+  <script async="async" src="//itsgot.com/embed.js"{% if localize %} data-localize="true"{% endif %}></script>
+{% endif %}
