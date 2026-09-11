@@ -28,16 +28,10 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-Using SSH:
+Using GitHub Pages for hosting. This will push to the `gh-pages` branch:
 
 ```bash
 USE_SSH=true npm run deploy
 ```
 
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Changing the branch can be done in the repo's settings page.  Not clear how to specify a different branch using this command.
