@@ -69,7 +69,7 @@ If you're using the [Shopify theme editor](/docs/itsgot/adding-labels/shopify/th
 If you're not using the Shopify Theme editor you can add the `data-localize="true"` attribute to the embed code's script tag. For example:
 
 ```html
-<div data-itsgot-user="1234" data-itsgot-product="9999"></div>
+<div data-itsgot-user="1234" data-itsgot-label="9999"></div>
 <script src="//itsgot.com/embed.js" data-localize="true" async></script>
 ```
 

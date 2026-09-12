@@ -70,7 +70,7 @@ você pode habilitar traduções selecionando *Habilitar* na seção Traduções
 Se você não estiver usando o editor de temas do Shopify, pode adicionar o atributo `data-localize="true"` à tag de script do código de incorporação. Por exemplo:
 
 ```html
-<div data-itsgot-user="1234" data-itsgot-product="9999"></div>
+<div data-itsgot-user="1234" data-itsgot-label="9999"></div>
 <script src="//itsgot.com/embed.js" data-localize="true" async></script>
 ```
 

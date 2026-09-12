@@ -147,7 +147,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ScreenStaring.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ScreenStaring`,
       },
       prism: {
         theme: prismThemes.github,

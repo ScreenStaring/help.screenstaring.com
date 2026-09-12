@@ -51,16 +51,12 @@ A summary of notable changes to It's Got.
 ### March 20th
 
 - Support for image uploads in the rich text editor
-- Improvements to inserting labels into product descriptions
 
-### March 15th
+### February 25th
 
 - Change all footnotes inputs into now rich text editors
 - Support for linking nutrients and dietary ingredients to web pages
 - Support for changing the appearance of dietary ingredients
-
-### February 25th
-
 - Support for setting a user-defined label headings on EU supplement facts
 - Support for setting a nutrition panel's font size
 - Support for adding custom nutrients in nutrition facts labels
