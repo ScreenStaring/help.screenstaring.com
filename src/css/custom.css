@@ -351,3 +351,17 @@ kbd {
   color: var(--ifm-footer-color);
   font-size: 0.85rem;
 }
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.footer__social-link {
+  display: inline-flex;
+  color: var(--ifm-footer-link-color);
+  transition: color var(--ifm-transition-fast) ease;
+}
+.footer__social-link:hover {
+  color: var(--ifm-footer-link-hover-color);
+}
