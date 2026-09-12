@@ -4,7 +4,8 @@ sidebar_position: 0
 description: How to use the Product Expiration Dates app for Shopify.
 ---
 
-This guide covers adding expiration data to your products, importing it in bulk, email notifications, displaying expiration data on your site, discounts, the API, and more. If you need help, [contact support](https://screenstaring.com/#contact).
+The Product Expiration Dates app is a full-featured inventory management system for your perishable products that allows you to track sell-by, batch numbers, and materials from intake to sale.
+Expiration information can be presented to consumers in a variety of ways. Supports FEFO, FIFO, & custom inventory management methods.
 
 - [Adding Expiration Data to Products](/docs/product-expiration-dates/adding-expiration-data)
 - [Importing Expiration Data in Bulk](/docs/product-expiration-dates/batch-import)
