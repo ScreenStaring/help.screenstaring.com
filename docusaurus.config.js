@@ -140,10 +140,10 @@ const config = {
           {
             title: 'Apps',
             items: [
-              {label: 'Nutrition Facts', href: 'https://apps.shopify.com/nutrition-facts'},
-              {label: 'Product Expiration Dates', href: 'https://apps.shopify.com/expiration-dates'},
-              {label: 'Customer Gender', href: 'https://apps.shopify.com/customer-gender'},
-              {label: 'Toggle Description', href: 'http://apps.shopify.com/product-description-show-more-show-less/'},
+              {label: 'Nutrition Facts', href: 'https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link'},
+              {label: 'Product Expiration Dates', href: 'https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link'},
+              {label: 'Customer Gender', href: 'https://apps.shopify.com/customer-gender?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link'},
+              {label: 'Toggle Description', href: 'http://apps.shopify.com/product-description-show-more-show-less?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link'},
             ],
           },
         ],

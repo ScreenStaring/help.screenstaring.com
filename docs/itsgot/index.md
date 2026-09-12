@@ -4,7 +4,7 @@ sidebar_position: 0
 description: How to use the It's Got Nutrition Facts app for Shopify.
 ---
 
-[It's Got](https://apps.shopify.com/nutrition-facts) manages product nutrition data, and allows one to
+[It's Got](https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) manages product nutrition data, and allows one to
 add supplement, drug, pet, and nutrition information panels to their site.
 Labels can be generated in well-known formats for multiple countries & languages.
 
