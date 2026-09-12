@@ -16,3 +16,4 @@ Este guia cobre a adição de rótulos ao seu site, a alteração do design dele
 - [Usando Dados Estruturados para Melhorar o SEO](/docs/itsgot/structured-data)
 - [Desinstalando o Aplicativo](/docs/itsgot/uninstalling)
 - [Perguntas Frequentes](/docs/itsgot/faq)
+- [Registro de Alterações](/docs/itsgot/changelog)

@@ -20,3 +20,4 @@ Labels can be generated in well-known formats for multiple countries & languages
 - [API Integration](/docs/itsgot/api-integration)
 - [Uninstalling the App](/docs/itsgot/uninstalling)
 - [Frequently Asked Questions](/docs/itsgot/faq)
+- [Changelog](/docs/itsgot/changelog)
