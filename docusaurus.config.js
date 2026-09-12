@@ -102,6 +102,10 @@ const config = {
             position: 'right',
           },
           {
+            type: 'localeDropdown',
+            position: 'right',
+          },
+          {
             to: supportURL,
             label: 'Support',
             position: 'right',
