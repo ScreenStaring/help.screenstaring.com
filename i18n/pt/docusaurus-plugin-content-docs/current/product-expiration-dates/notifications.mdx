@@ -1,0 +1,30 @@
+---
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Notificações por E-mail
+
+Notificações por e-mail podem ser configuradas para serem enviadas antes que as datas de validade dos produtos sejam atingidas. Elas podem ser configuradas globalmente, para se aplicar a qualquer data de validade inserida no aplicativo, por coleção de um produto ou por tipo de produto.
+
+## Habilitando
+
+1.  Nas configurações do aplicativo, vá para <Link path="/settings#email_notifications">email notifications</Link>
+2.  No campo "Send notifications", insira o endereço de e-mail onde você quer receber as notificações. Vários endereços de e-mail podem ser separados por vírgula.
+3.  No campo "How many days before a product expires would you like to be notified?", insira o número de dias para ser notificado antes que um produto vença.  
+ Por exemplo, se um produto tem uma data de validade de 15 de janeiro e 10 for inserido, você receberá uma notificação para esse produto a partir de 5 de janeiro.
+4.  Clique no botão <kbd>Update</kbd> para salvar
+
+As notificações são enviadas uma vez por dia. Se nenhum produto estiver dentro da sua janela de validade, nenhuma notificação será enviada.
+
+Se você preferir receber notificações com base na coleção ou no tipo de produto, pode deixar o campo "How many days before a product expires would you like to be notified or for the product to be discounted?" sem valor e, em vez disso, adicionar os dias à coleção ou ao tipo de produto na seção "By Collection" ou "By Product Type". Esses campos só mostrarão valores para produtos que foram inseridos no aplicativo.
+
+## Desabilitando
+
+1.  Nas configurações do aplicativo, vá para <Link path="/settings#email_notifications">email notifications</Link>
+2.  No campo "How many days before a product expires would you like to be notified?", remova o valor.
+3.  Se você tiver notificações por coleção ou tipo de produto, você deve excluí-las pressionando o botão <kbd>X</kbd> vermelho ao lado das configurações da notificação
+4.  Clique no botão <kbd>Update</kbd> para salvar
+
+As notificações não serão mais enviadas.

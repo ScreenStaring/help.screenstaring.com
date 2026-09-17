@@ -1,0 +1,79 @@
+---
+sidebar_position: 11
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Inventory Push
+
+***O Inventory Push está disponível apenas no <Link path="/charges/recurring/new">Plano Pro</Link>***
+
+O Inventory Push faz do aplicativo Product Expiration Dates a "fonte da verdade" do estoque da sua loja, evitando que você precise inserir o estoque no Admin da Shopify e depois inseri-lo novamente no aplicativo com a divisão de datas de validade/quantidades.
+
+Com o Inventory Push habilitado, você [insere suas quantidades de estoque](/docs/product-expiration-dates/adding-expiration-data) uma vez no aplicativo Product Expiration Dates e ele ajustará as contagens de estoque dos produtos na Shopify. Quando as quantidades no aplicativo são adicionadas, atualizadas ou excluídas, o aplicativo fará os ajustes apropriados na Shopify.
+
+Alterações no estoque dos produtos por meio de um novo pedido ou de uma mudança de status do pedido (reembolsado, devolvido ao estoque, etc...) fazem parte do comportamento padrão do aplicativo Product Expiration Dates. **Uma assinatura do plano Pro não é necessária para que isso funcione.**
+
+Quando o Inventory Push está habilitado, **o estoque deve ser inserido apenas no aplicativo Product Expiration Dates. Não modifique o estoque pelo Admin da Shopify**. Valores inseridos no Admin da Shopify não serão vistos pelo aplicativo, porque datas de validade e/ou números de lote não podem ser inseridos no Admin da Shopify. Por exemplo, se você inseriu os seguintes dados no aplicativo Product Expiration Dates para o Produto A:
+
+-   Expires: `2021-11-10`, Quantity: `7`
+-   Expires: `2022-01-01`, Quantity: `12`
+
+Esses valores serão enviados para a Shopify e você verá uma quantidade total **disponível** de 19 no Admin da Shopify. Se você mudar isso para 30 no Admin da Shopify, o aplicativo Product Expiration Dates não sabe a quais datas os novos 11 devem ser associados. Eles são 10 de novembro, 1º de janeiro ou outra data? É por isso que o Inventory Push não pode sincronizar quantidades inseridas no Admin da Shopify.
+
+## Habilitando
+
+1.  Certifique-se de estar inscrito no <Link path="/charges/recurring/new">Plano Pro</Link> ou superior
+2.  Acesse a <Link path="/settings#inventory">página de configurações</Link>
+3.  Selecione "Push edits made to inventory batch quantities to Shopify"
+4.  Clique no botão <kbd>Update</kbd> para salvar suas configurações
+
+Para enviar o estoque para a Shopify, as datas de validade devem ter seu local definido.
+
+## Quantidades Disponíveis e em Mãos
+
+Por padrão, o Inventory Push define a quantidade disponível na Shopify. Se você estiver inscrito no <Link path="/charges/recurring/new">plano Premium</Link>, pode configurá-lo para definir as quantidades em mãos. Isso pode ser feito na <Link path="/settings#inventory">aba Inventory da página de configurações</Link>, selecionando "Set on hand quantity instead of available quantity".
+
+## Atribuição de Lotes de Estoque {/* #inventory-syncing-inventory-batch-assignment */}
+
+Ao usar o Inventory Push, você não pode [atribuir lotes de estoque a um produto](/docs/product-expiration-dates/adding-expiration-data) quando um item do pedido é atendido. Somente quando um pedido é realizado. Isso se deve à forma como a Shopify gerencia as quantidades de estoque. Ela as atribui a um item do pedido quando ele é realizado. Vejamos um exemplo abaixo.
+
+Se você inserir uma quantidade de 10 no aplicativo, atribuímos 10 à quantidade disponível na Shopify. Quando um pedido de quantidade 2 é realizado, a Shopify reduz a quantidade para 8, mas no aplicativo essa quantidade permanece 10 até que o produto seja atendido. Se você então entrar no aplicativo antes que isso ocorra e inserir uma quantidade de 12, atualizaremos a quantidade disponível na Shopify para 12, o que estaria incorreto.
+
+## Variantes
+
+Quando o Inventory Push está habilitado para um produto com variantes, qualquer variante do produto que não tenha sido inserida no aplicativo Product Expiration Dates terá seu estoque definido como 0 na Shopify.
+
+## Kits (Bundles)
+
+Enviar kits de estoque definirá a quantidade do kit, bem como as quantidades dos produtos que ele contém. Por exemplo, dados os seguintes produtos:
+
+| Produto | SKU | Estoque Disponível |
+| --- | --- | --- |
+| Produto A | X123 | 5 |
+| Produto B | Y456 | 10 |
+
+Se você criar um kit contendo esses produtos com a seguinte configuração:
+
+| Produto | SKU | Quantidade no Kit |
+| --- | --- | --- |
+| Produto A | X123 | 1 |
+| Produto B | Y456 | 3 |
+
+O resultado é o seguinte:
+
+| Produto | SKU | Estoque Disponível |
+| --- | --- | --- |
+| Meu Kit | B999 | 3 |
+| Produto A | X123 | 5 |
+| Produto B | Y456 | 10 |
+
+A quantidade do kit é definida como a quantidade mínima que pode ser comprada com base nas quantidades dos produtos que ele agrupa. Se um cliente fizesse uma compra do Produto B com quantidade 6, os estoques seriam sincronizados para o seguinte:
+
+| Produto | SKU | Estoque Disponível |
+| --- | --- | --- |
+| Meu Kit | B999 | 1 |
+| Produto A | X123 | 5 |
+| Produto B | Y456 | 4 |
+
+Como Meu Kit tem uma Quantidade no Kit de 3 para o Produto B, e o Produto B tem apenas 4 de Estoque Disponível, o Estoque Disponível de Meu Kit é definido como 1.

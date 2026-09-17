@@ -1,0 +1,17 @@
+---
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Importando Dados de Validade em Massa
+
+Várias datas de validade e quantidades podem ser importadas usando nosso CSV de importação em massa. Um exemplo pode ser encontrado [aqui](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+As colunas "SKU", "Expiration Date", "Quantity" e "Location Name" são obrigatórias. **As datas de validade devem ser fornecidas no formato `YYYY-MM-DD`.** Para usar "Barcode" em vez de "SKU", selecione "Identify rows by Barcode" na página de importação em massa.
+
+Para mais informações sobre a coluna "Allocate Quantities to Orders When", veja [Adicionando Dados de Validade aos Produtos](/docs/product-expiration-dates/adding-expiration-data).
+
+O CSV deve usar codificação UTF-8 e usar o caractere vírgula (",") como separador de campos.
+
+Quando estiver pronto, faça o upload pela <Link path="/import">página de importação</Link>.

@@ -1,0 +1,140 @@
+---
+sidebar_position: 7
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Vendendo Produtos a Vencer com Desconto
+
+Os produtos podem ser vendidos com desconto quando contêm um lote de estoque dentro de uma janela de validade. Há duas maneiras de configurar descontos: 1) [o método legado](/docs/product-expiration-dates/discounts#legacy-discounts) 2) [rulesets](/docs/product-expiration-dates/discounts#rulesets). Os rulesets são o método preferido e permitem configurar descontos em várias fases. Por exemplo, dar 10% de desconto em um produto 100 dias antes da validade e depois 30% de desconto 5 dias antes da validade.
+
+Veja a documentação abaixo para cada tipo.
+
+## Rulesets {/* #rulesets */}
+
+***Os rulesets estão disponíveis apenas no <Link path="/charges/recurring/new">Plano Platinum</Link>***
+
+Os rulesets permitem definir um conjunto de critérios para aplicar a um produto e executar ações quando os critérios correspondem. Os rulesets não servem apenas para descontos: eles podem ser usados para adicionar ou remover tags, alterar o título de um produto e muito mais! Vejamos um exemplo. Digamos que você queira dar desconto em um produto com base no seguinte:
+
+-   100 dias antes da validade: desconto de 10%
+-   14 dias antes da validade: desconto de 30%
+-   No dia da validade: desconto de 50%
+-   5 dias após a validade: remover os lotes vencidos
+
+Isso pode ser feito criando um único ruleset com 4 regras. Cada regra conterá os critérios desejados (100 dias antes, 14 dias antes, etc...) e as ações (desconto de 10%, desconto de 30% etc...). Quando os critérios de uma regra corresponderem, as ações associadas serão executadas.
+
+**Nota:** as porcentagens de desconto são baseadas no preço do produto no momento em que o desconto é aplicado. Se você quiser basear no preço original, antes do desconto, você deve adicionar uma ação "Remove Discount" junto com a ação "Add Discount" em cada fase.
+
+### 100 dias antes da validade: desconto de 10%
+
+1.  Vá para a <Link path="/inventory_rules/rule_sets">página de rulesets</Link>
+2.  Clique em "Add ruleset"
+3.  Na página New Inventory Ruleset, você pode dar um nome ao ruleset
+4.  Clique em <kbd>Save</kbd>
+5.  Isso vai levar você à página do novo ruleset, onde as regras de desconto podem ser adicionadas
+6.  Clique em "Add rule"
+7.  No campo Criteria, selecione "Before an Inventory Batch Expires"
+8.  No campo "Days before expiration", insira 100
+9.  Abaixo, na seção Actions, selecione "Add Discount"
+10.  No campo "Discount percentage", insira 10. Para definir o preço "compare at" na Shopify como o preço antes do desconto, marque "Use regular price as compare at price"
+11.  Clique em <kbd>Save</kbd>
+12.  Agora o ruleset tem uma única regra; precisamos adicionar mais 3
+
+### 14 dias antes da validade: desconto de 30%
+
+1.  Na página Edit Ruleset do ruleset, clique em "Add rule"
+2.  No campo Criteria, selecione "Before an Inventory Batch Expires"
+3.  No campo "Days before expiration", insira 14
+4.  Na seção Actions, selecione "Add Discount"
+5.  No campo "Discount percentage", insira 30
+6.  Clique em <kbd>Save</kbd>
+7.  Agora o ruleset tem 2 regras; precisamos adicionar mais 2
+
+### No dia da validade: desconto de 50%
+
+1.  Na página Edit Ruleset do ruleset, clique em "Add rule"
+2.  No campo Criteria, selecione "After an Inventory Batch Expires"
+3.  No campo "Days after expiration", insira 0. Isso define os critérios para o dia em que o produto vence
+4.  Na seção Actions, selecione "Add Discount"
+5.  No campo "Discount percentage", insira 50
+6.  Clique em <kbd>Save</kbd>
+7.  O ruleset tem 3 regras, falta 1!
+
+### 5 dias após a validade: remover os lotes vencidos
+
+1.  Na página Edit Ruleset do ruleset, clique em "Add rule"
+2.  No campo Criteria, selecione "After an Inventory Batch Expires"
+3.  No campo "Days after expiration", insira 5. Isso define os critérios para o dia em que o produto vence
+4.  Na seção Actions, selecione "Remove Inventory Batch"
+5.  Clique em <kbd>Save</kbd>
+
+O ruleset resultante deve ficar assim:
+
+<img src="/product-expiration-dates/images/multi-phased-discount-ruleset.jpg" width="1000" alt="Ruleset de desconto em várias fases" />
+
+Este ruleset será aplicado a todos os produtos da sua loja. Você pode limitá-lo a produtos ou variantes específicos selecionando o critério "With Matching Product" ao criar uma regra. Se as quantidades do lote a vencer forem vendidas, o ruleset será revertido e o produto/variante restaurado ao preço do momento em que a Regra 1 correspondeu.
+
+A menos que a opção "Apply retroactively" esteja selecionada (veja abaixo), **as regras de um ruleset devem corresponder na ordem em que estão definidas.** Por exemplo, a Regra 3 não corresponderá a menos que as Regras 1 e 2 tenham correspondido.
+
+## Correspondência Retroativa {/* #ruleset-retroactive-matching */}
+
+Normalmente, um ruleset só pode começar a ser aplicado a um lote de estoque correspondendo à sua primeira regra. Se um lote já passou do momento dessa regra —por exemplo, o ruleset foi criado depois que o lote foi adicionado— o ruleset nunca será aplicado a ele.
+
+Selecionar a opção "Apply retroactively" permite que um lote entre no ruleset na regra que corresponder à sua data atual, e aplica as ações de todas as regras anteriores ao mesmo tempo. Dado o ruleset do exemplo acima, um produto a 10 dias da validade terá as Regras 1 e 2 e suas ações associadas aplicadas em uma única passagem. Um lote que venceu há 2 dias terá as Regras 1, 2 e 3 aplicadas, mesmo que as Regras 1 e 2 não correspondam mais sozinhas.
+
+Após essas correspondências iniciais, as regras serão aplicadas normalmente, ou seja, como seriam se a opção "Apply retroactively" não estivesse selecionada.
+
+## Método de Desconto Legado {/* #legacy-discounts */}
+
+***Os descontos legados estão disponíveis apenas no <Link path="/charges/recurring/new">Plano Pro</Link>***
+
+Os descontos legados podem ser configurados pela coleção de um produto, pelo seu tipo de produto ou no próprio produto. Quando um desconto está ativo, ele dura até que todas as quantidades a vencer sejam vendidas ou até que as datas de validade aplicáveis sejam alteradas de modo que não estejam mais dentro da janela de desconto configurada.
+
+**Por padrão, o desconto será aplicado a todas as quantidades disponíveis.** Por exemplo, se você tem 10 produtos e apenas 3 estão a vencer, oferecer um desconto ainda permitirá que o usuário compre **10** pelo preço com desconto. Isso se deve ao funcionamento dos preços de produtos da Shopify. Se você deseja oferecer desconto apenas para a quantidade a vencer, há várias opções. Por favor, [contate o suporte](https://screenstaring.com/#contact) para discutir as opções e determinar o que funcionará melhor para a sua loja.
+
+Pode levar vários minutos para o desconto ou o preço restaurado aparecer no seu site.
+
+## Habilitando por Produto
+
+1.  Para o produto que você quer descontar, [insira suas datas de validade](/docs/product-expiration-dates/adding-expiration-data) no aplicativo
+2.  Na página do produto no aplicativo, clique na aba "Discounts"
+3.  Na aba "Discounts", marque "Offer a discount when an inventory batch is within its expiration window"
+4.  No campo "Discount percentage", insira a porcentagem pela qual você quer descontar o preço normal do produto.  
+ Por exemplo, se um produto tem um preço de 50 e 10 for inserido, o produto será vendido por 45 quando o desconto estiver ativo.
+5.  No campo "Discount days before expiration", insira o número de dias antes da validade do produto em que você quer ativar o desconto.  
+ Por exemplo, se um produto tem uma data de validade de 15 de janeiro e 10 for inserido, o produto será vendido com desconto a partir de 5 de janeiro.
+6.  Clique no botão <kbd>Save</kbd>
+
+## Habilitando por Coleção
+
+1.  Para o produto que você quer descontar, [insira suas datas de validade](/docs/product-expiration-dates/adding-expiration-data) no aplicativo
+2.  Na página do produto no aplicativo, clique na aba "Discounts"
+3.  Na aba "Discounts", marque "Offer a discount when an inventory batch is within its expiration window"
+4.  No campo "Discount percentage", insira a porcentagem pela qual você quer descontar o preço normal do produto.  
+ Por exemplo, se um produto tem um preço de 50 e 10 for inserido, o produto será vendido por 45 quando o desconto estiver ativo.
+5.  Não insira um valor no campo "Discount days before expiration". Isso será inserido em uma etapa posterior, ao configurar a coleção
+6.  Clique no botão <kbd>Save</kbd>
+7.  Nas configurações do aplicativo, vá para <Link path="/settings#discounts">discounts</Link>
+8.  Vá para a seção "By Collection"
+9.  No campo "Title", selecione a coleção para a qual você quer configurar o desconto
+10.  No campo "Days before expiration", insira o número de dias antes da validade dos produtos da coleção. Isso determinará quando ativar o desconto.  
+ Por exemplo, se um produto tem uma data de validade de 15 de janeiro e 10 for inserido, o produto será vendido com desconto a partir de 5 de janeiro.
+11.  Para adicionar outra coleção, clique no link "Add more"
+12.  Clique no botão <kbd>Update</kbd>
+
+## Habilitando por Tipo de Produto
+
+1.  Para o produto que você quer descontar, [insira suas datas de validade](/docs/product-expiration-dates/adding-expiration-data) no aplicativo
+2.  Na página do produto no aplicativo, clique na aba "Discounts"
+3.  Na aba "Discounts", marque "Offer a discount when an inventory batch is within its expiration window"
+4.  No campo "Discount percentage", insira a porcentagem pela qual você quer descontar o preço normal do produto.  
+ Por exemplo, se um produto tem um preço de 50 e 10 for inserido, o produto será vendido por 45 quando o desconto estiver ativo.
+5.  Não insira um valor no campo "Discount days before expiration". Isso será inserido em uma etapa posterior, ao configurar o tipo de produto
+6.  Clique no botão <kbd>Save</kbd>
+7.  Nas configurações do aplicativo, vá para <Link path="/settings#discounts">discounts</Link>
+8.  Vá para a seção "By Product Type"
+9.  No campo "Title", selecione o tipo de produto para o qual você quer configurar o desconto. Apenas os tipos de produto de produtos que foram inseridos no aplicativo são exibidos.
+10.  No campo "Days before expiration", insira o número de dias antes da validade dos produtos com o tipo de produto. Isso determinará quando ativar o desconto.  
+ Por exemplo, se um produto tem uma data de validade de 15 de janeiro e 10 for inserido, o produto será vendido com desconto a partir de 5 de janeiro.
+11.  Para adicionar outro tipo de produto, clique no link "Add more"
+12.  Clique no botão <kbd>Update</kbd>

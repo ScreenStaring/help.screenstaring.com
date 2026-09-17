@@ -1,0 +1,76 @@
+---
+sidebar_position: 1
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Adicionando Dados de Validade aos Produtos
+
+Os dados de validade podem ser adicionados aos seus produtos na <Link path="/inventories/new">página de lotes de estoque</Link> do produto. Você também pode [importar dados de validade em massa](/docs/product-expiration-dates/batch-import) ou [lendo o código de barras do produto](/docs/product-expiration-dates/barcode-scanner). Há 3 conjuntos de dados que podem ser fornecidos:
+
+-   Lotes de Estoque
+-   Prazos de Uso
+-   Descontos de Produto
+
+Você pode assistir a um breve vídeo de introdução [aqui](https://youtu.be/vjLB_v1OHpw).
+
+## Lotes de Estoque
+
+Lotes de Estoque são o conjunto principal de dados de validade. Os valores fornecidos serão atribuídos aos pedidos, usados para enviar notificações de validade e determinar quando um produto será vendido com desconto. Você também pode exibir informações dos lotes de estoque no seu site.
+
+Ao criar lotes de estoque, a primeira coisa a definir é quando você quer que os dados de validade sejam atribuídos aos seus pedidos. Isso pode ser feito quando o pedido é realizado ou quando um item do pedido é atendido. Veja a opção "Assign inventory batches when" abaixo.
+
+Na página Adicionar Produto, a aba Inventory Batches é onde você vai inserir a maior parte dos seus dados de validade. As opções exibidas dependem da <Link path="/charges/recurring/new">sua assinatura</Link>. As mais comuns são:
+
+### Atribuir lotes de estoque quando
+
+A opção "Assign inventory batches when" especifica quando um lote de estoque é atribuído a um pedido: quando o pedido é realizado ou quando um item do pedido é atendido. O padrão é atribuir quando o pedido é realizado. Por exemplo, se você estiver usando o método de gerenciamento de estoque First Expiring, First Out (FEFO) <Link path="/settings#inventory">o lote que vence primeiro será atribuído aos novos pedidos</Link>. Para configurar qual local é escolhido, veja [Atribuição de Local do Lote de Estoque ao Pedido](/docs/product-expiration-dates/order-batch-location-assignment).
+
+### Expires, Batch, Quantity e Location
+
+Expires é a data de validade do lote. Quantity é a quantidade disponível (mas veja *Quantidade disponível vs. em mãos* abaixo). Location é o local da Shopify onde o lote existe. Batch é o número do lote. Ele é opcional. Você pode ver a quantidade disponível na Shopify para o produto ou variante clicando no link "Quantity": <img src="/product-expiration-dates/images/product-view-shopify-quantities.jpg" height="275" alt="Visualizando a quantidade na Shopify" />
+
+Por exemplo, o Produto A tem uma quantidade de 10 na Shopify no local Warehouse. Desses 10, 6 vencem em 2025 e 4 vencem em 2024. Isso resulta nas seguintes entradas no aplicativo:
+
+-   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
+-   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
+
+### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc... {/* #lot-number-etc-assignment */}
+
+Você pode atribuir valores a esses campos habilitando sua exibição na aba Batches:
+
+<img src="/product-expiration-dates/images/inventory-batch-column-config.jpg" height="247" alt="Seleção de colunas dos lotes de estoque" />
+
+Selecione o campo desejado e clique no botão <kbd>Save</kbd>
+
+### Quantidade disponível vs. em mãos
+
+Se você estiver usando o Inventory Push, pode definir a quantidade disponível ou a quantidade em mãos. Veja a documentação do [Inventory Push](/docs/product-expiration-dates/inventory-push) para mais informações.
+
+### Configurando Locais de Atendimento
+
+Veja [Atribuição de Local do Lote de Estoque ao Pedido](/docs/product-expiration-dates/order-batch-location-assignment).
+
+### O que acontece depois?
+
+Vamos supor que você inseriu dados de lotes de estoque para um produto e selecionou "Order is placed" na opção "Assign inventory batches when". Agora, quando um pedido for realizado para esse produto, o aplicativo vai atribuir o lote de estoque que vence primeiro no local atribuído ao pedido (para pedidos na loja física) ou, se o pedido não tiver um local atribuído, o aplicativo vai atribuir o lote de estoque que vence primeiro entre os valores inseridos. Se um item do pedido for devolvido ao estoque/reembolsado/etc..., o lote de estoque que vence primeiro é liberado e fica disponível para ser atribuído a pedidos futuros.
+
+Você pode ver qual lote de estoque foi atribuído a um pedido na <Link path="/order_line_items">página de Pedidos do aplicativo</Link>
+
+Você também pode [exibir as informações de validade no seu site](/docs/product-expiration-dates/shopify-pages) ou [adicioná-las ao seu romaneio ou às notificações](/docs/product-expiration-dates/notifications-and-packing-slip).
+
+## Prazos de Uso
+
+Esta é uma informação extra que pode ser exibida no seu site. Ela representa o tempo que o fabricante recomenda usar ou consumir um produto após ele ter sido aberto. Por exemplo, você pode ter `best by July 1st 2025` dos Lotes de Estoque e `Use within 30 days` daqui.
+
+## Descontos de Produto
+
+***Os descontos de produto estão disponíveis a partir do <Link path="/charges/recurring/new">Plano Premium</Link>***
+
+**Recomendamos usar [Rulesets](/docs/product-expiration-dates/discounts#rulesets) para criar descontos de produto.** Com Rulesets você pode criar descontos em várias fases, o que não é possível com os descontos no estilo "antigo" especificados nas configurações ou na aba Discounts.
+
+Descontos específicos por produto podem ser inseridos na aba Discounts. Quando um lote de estoque se aproxima da sua data de validade, o preço do produto será reduzido pela porcentagem fornecida.
+
+Valores padrão para esses campos podem ser inseridos na página Discount Settings, na seção <Link path="/settings#discounts~product_defaults">Product Defaults</Link>. Ao adicionar novos produtos ao aplicativo, os valores inseridos aqui serão usados para preencher os campos da aba Discounts.
+
+Para configurar descontos globais para usar em todos os produtos, veja [Vendendo Produtos a Vencer com Desconto](/docs/product-expiration-dates/discounts).

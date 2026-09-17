@@ -1,0 +1,38 @@
+---
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Dados de Validade Atribuídos a um Pedido
+
+Os dados de validade atribuídos aos pedidos podem ser disponibilizados para sistemas externos como uma propriedade do pedido. Uma propriedade do pedido é usada porque a Shopify não suporta metacampos para itens de pedido. Para habilitar essa propriedade, marque "Create an order attribute for an order's inventory batches" na aba Orders da <Link path="/settings#orders~product_defaults">página de configurações</Link>.
+
+Pedidos realizados antes de essa opção ser habilitada não conterão a propriedade.
+
+## Formato da Propriedade do Pedido
+
+Uma vez habilitado, atributos de pedido nomeados `Expiration Dates SKU` serão adicionados aos pedidos que contêm dados de validade. `SKU` será substituído pelo valor do SKU do produto. O valor do atributo está no seguinte formato: `BATCH 1|BATCH 2|BATCH 3`.
+
+Por exemplo, se você tem um produto com SKU 123 ao qual é atribuído um único lote, você terá um atributo chamado `Expiration Dates 123` com o valor: `2024-01-01,1,B123`. Aqui `2024-01-01` é a data de validade atribuída, `1` é a quantidade atribuída e `B123` é o número do lote.
+
+Se o item do pedido tiver vários lotes, eles serão incluídos. Por exemplo, se ao SKU 123 foram atribuídos 2 lotes, o valor seria: `2024-01-01,1,B123|2024-11-21,2,X999`. Aqui `2024-01-01` é 1 de 2 datas de validade atribuídas. `1` é a quantidade atribuída e `B123` é o número do lote. `2024-11-21` é a outra data de validade atribuída. `2` é a quantidade atribuída e `X999` é o número do lote.
+
+Se um número de lote (ou qualquer valor) não existir, seu valor será omitido. Aqui está o exemplo de vários lotes sem número de lote: `2024-01-01,1,|2024-11-21,2,`
+
+## Analisando o Valor da Propriedade
+
+A análise do valor pode ser feita em qualquer linguagem, obtendo os atributos do pedido pela [API de Admin da Shopify](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order). Aqui está um exemplo usando Liquid:
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```

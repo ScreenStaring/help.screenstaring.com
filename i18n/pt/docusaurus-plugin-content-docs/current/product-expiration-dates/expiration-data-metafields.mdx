@@ -1,0 +1,34 @@
+---
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Metacampos de Dados de Validade
+
+Veja também: ***[Notificações, Impressão de Pedidos e Romaneios](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+O aplicativo Product Expiration Dates adiciona metacampos à(s) variante(s) de um produto no namespace `expiration_dates`. Se o produto não tiver variantes, a variante padrão é usada.
+
+**Não adicione definições de metacampos no Admin da Shopify usando o namespace `expiration_dates` com nenhuma das chaves abaixo.** Isso não é necessário e impede o funcionamento correto do aplicativo. Os metacampos definidos pelo aplicativo são somente leitura e não podem ser definidos pelo Admin da Shopify.
+
+Se você precisar exportar datas de validade para aplicativos externos que só suportam integração via metacampos (e não suportam metacampos JSON), veja a chave `soonest_expiring`.
+
+Os seguintes metacampos estão disponíveis:
+
+| Chave | Descrição |
+| --- | --- |
+| `allocations` | Um array de datas de validade e quantidades atribuídas à variante. O array é ordenado por data de validade, da mais próxima à mais distante, então `allocations[0]` retornará os dados da data que vence primeiro. |
+| `allocations[N].time` | A data de validade. O formato é: `YYYY-MM-DDT00:00`. Por exemplo: `2025-01-22T00:00`. Atualmente o horário é sempre `00:00`. Este valor pode ser formatado usando o [filtro `date` do Liquid](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | A quantidade de estoque restante |
+| `allocations[N].batch_number` | O número do lote atribuído |
+| `allocations[N].location_id` | O ID da Shopify do local atribuído |
+| `use_within` | Um objeto contendo informações de prazo de uso |
+| `use_within.use_within_value` | A parte numérica dos dados de prazo de uso. Por exemplo, se `30 days` foi atribuído, conterá `30`. |
+| `use_within.use_within_unit` | A parte da unidade de tempo dos dados de prazo de uso. Por exemplo, se `30 days` foi atribuído, conterá `days`. |
+| `use_within.use_within_value_in_days` | O valor do prazo de uso em dias. Por exemplo, se `6 months` foi atribuído, conterá `180`. Usamos 30 dias por mês: 6 \* 30 = 180. |
+| `bundled_inventory` | Um array dos produtos que fazem parte do kit e seus dados de validade/números de lote. Definido apenas se o produto for um kit. |
+| `bundled_inventory[N].title` | O título do produto do kit |
+| `bundled_inventory[N].allocations` | Um array de datas de validade e quantidades atribuídas à variante. Consulte a documentação de `allocations[N]`. |
+| `soonest_expiring` | Representação em string do lote de estoque que vence primeiro. Útil se você precisar exportar datas de validade para aplicativos externos que só suportam integração via metacampos. O formato da data pode ser definido na <Link path="/settings#inventory">página de configurações</Link>.   
+ ***Disponível apenas no <Link path="/charges/recurring/new">Plano Premium</Link>*** |

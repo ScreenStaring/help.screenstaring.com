@@ -1,0 +1,23 @@
+---
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Atribuição de Local do Lote de Estoque ao Pedido
+
+O aplicativo Product Expiration Dates permite configurar quando os lotes de estoque são atribuídos a um pedido: quando o pedido é realizado ou quando um item do pedido é atendido. Veja [Adicionando Dados de Validade aos Produtos](/docs/product-expiration-dates/adding-expiration-data).
+
+Por padrão, o lote de estoque do produto que vence primeiro entre todos os locais é atribuído ao item do pedido (estratégia de gerenciamento FEFO: First Expired, First Out). Se o pedido recebido tiver um local atribuído (normalmente [pedidos do Ponto de Venda (POS) da Shopify](/docs/product-expiration-dates/pos-integration)), esse local será usado. Você pode mudar sua estratégia de gerenciamento para First In, First Out (FIFO) na <Link path="/settings#inventory">aba Inventory da página de configurações</Link>.
+
+## Regras de Roteamento de Pedidos da Shopify
+
+***O suporte às Regras de Roteamento de Pedidos da Shopify está disponível apenas no <Link path="/charges/recurring/new">Plano Pro</Link>***
+
+Para atribuir um lote de estoque a partir de um local determinado pelas regras de Roteamento de Pedidos da Shopify, selecione "Assign inventory batches based on Shopify Order Routing" na <Link path="/settings#inventory">aba Inventory da página de Configurações</Link>. O Roteamento de Pedidos da Shopify pode ser configurado no Admin da Shopify aqui
+
+## Atribuir Lotes de Estoque de um Local Específico {/* #order-placed-allocation-location */}
+
+**Não defina isso se você usa [locais de atendimento priorizados](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+
+Se você está usando "order placed" na configuração ["Assign inventory batches when"](/docs/product-expiration-dates/adding-expiration-data) de um Produto e tem vários locais na Shopify **mas atende a partir de apenas um**, você deve <Link path="/settings#inventory">definir "Assign inventory batches from this location"</Link> para corresponder ao seu local padrão na Shopify (a Shopify não compartilha isso com aplicativos de terceiros, então precisa ser definido explicitamente). Quando isso está definido e um pedido é realizado sem um local, o aplicativo Product Expiration Dates alocará apenas a data de validade que vence primeiro desse local. Se isso não estiver definido, o aplicativo alocará a data de validade que vence primeiro entre todos os locais.

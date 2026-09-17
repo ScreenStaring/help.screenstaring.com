@@ -1,0 +1,104 @@
+---
+sidebar_position: 6
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Adicionando Dados de Validade ao Seu Site
+
+É possível acessar e/ou exibir dados de validade do seu site. Isso inclui datas de validade, suas quantidades e dados de prazo de uso. A maneira mais fácil de exibir essas informações é usar nossa integração com o [editor de temas da Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor), que permite adicionar os dados de validade [como uma seção ou bloco](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
+
+1.  <ShopifyLink href={(shopify) => shopify.themes()}>Vá para seus Temas no Admin da Shopify</ShopifyLink>
+2.  Encontre o tema que você quer atualizar e clique em "Customize"
+3.  No editor de temas, selecione o template ao qual você quer adicionar os dados de validade:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Selecionar o template do tema" />
+    
+4.  Selecione o local desejado dentro do template. Isso pode ser feito passando o cursor sobre a área de inserção desejada:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Botão adicionar bloco" />
+    
+5.  Clique no botão de adicionar bloco e selecione Expiration Data na seção Apps:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-app-block.jpg" height="500" alt="Botão adicionar bloco do aplicativo Expiration Dates" />
+    
+6.  Isso vai adicionar um bloco Expiration Data ao template selecionado:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-block-added.jpg" height="500" alt="Bloco do aplicativo Expiration Dates adicionado" />
+    
+7.  Clique no bloco Expiration Data para acessar opções de configuração adicionais. Para produtos com várias variantes, os dados de validade da variante selecionada serão exibidos. Vários blocos podem ser adicionados para atender a casos de uso diferentes. Por exemplo, você pode adicionar 1 bloco para exibir datas de validade e outro para exibir os dados de prazo de uso.
+8.  Clique em <kbd>Save</kbd>
+
+## Adicionando Nosso Snippet ao Seu Tema {/* #adding-liquid-snippet */}
+
+**Adicionar os dados de validade deve ser feito via [nossa integração com temas da Shopify](/docs/product-expiration-dates/shopify-pages). Adicionar o snippet explicitamente só é necessário em casos especializados.**
+
+1.  <ShopifyLink href={(shopify) => shopify.toString()}>Vá para o Admin da Shopify</ShopifyLink>
+2.  [Abra o editor de código do seu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3.  [Adicione um novo arquivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+    -   Clique no diretório "snippets"
+    -   Clique em "Add new snippet"
+    -   Para o nome do arquivo use `ss-product-expiration-dates`
+    -   Clique em "Done"
+4.  Isso vai abrir uma nova aba em branco no editor com o nome `snippets/ss-product-expiration-dates.liquid`
+5.  Copie o código do [nosso snippet Liquid](/product-expiration-dates/images/ss-product-expiration-dates.txt) e cole na aba
+6.  Clique em <kbd>Save</kbd>
+
+## Exibindo os Dados de Validade
+
+Depois de [adicionar nosso snippet ao seu tema](/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet), o próximo passo é renderizá-lo no local onde você quer que os dados de validade sejam exibidos. Isso pode ser feito no Admin da Shopify, pela página de personalização do tema.
+
+1.  <ShopifyLink href={(shopify) => shopify.themes()}>Vá para seus Temas no Admin da Shopify</ShopifyLink>
+2.  Encontre o tema que você quer atualizar e clique em "Customize"
+3.  No editor de temas, selecione "Products" e depois "Default product" (ou o template desejado)
+4.  Na seção Template, clique em "Add block"
+5.  Selecione "Custom liquid" ou, se não estiver disponível, "HTML" (observe que o bloco "HTML" deve suportar Liquid)
+
+-   Se o seu tema não tiver a opção "Custom liquid" nem "HTML", você deve renderizar o snippet no seu tema manualmente
+-   Isso pode ser feito pelo [editor de código do tema](https://shopify.dev/docs/themes/tools/code-editor)
+-   Se precisar de ajuda, [contate o suporte](https://screenstaring.com/#contact)
+
+7.  Depois de selecionado, você pode mover o bloco Custom Liquid para o local onde quer que os dados de validade sejam exibidos
+8.  Clique no bloco Custom Liquid que você acabou de adicionar
+9.  No campo "Custom liquid" (ou similar), cole o código de renderização desejado, veja Expiration Data Display Options para exemplos
+10.  Clique em <kbd>Save</kbd>
+
+## Exibindo as Datas de Validade com Base no Idioma/Região do Usuário {/* #display-language-region */}
+
+Se você exibe seu site em vários idiomas, pode alterar o formato e o texto da data de validade com base no idioma e/ou na região selecionada no momento. Em vez de renderizar a data de validade com o código padrão:
+
+```liquid
+{% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+```
+
+Você pode usar o código a seguir para verificar o idioma e/ou a região selecionada e exibir a data de validade e o texto em um formato específico:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+Aqui, se o idioma for espanhol (`"es"`), o texto `"Consúmase antes de:"` é exibido e a data é mostrada no formato `DD/MM/YYYY`. Se o idioma for alemão (`"de"`), o texto e a data são exibidos em um formato adequado para falantes de alemão. E, se o idioma não for nenhum dos dois, exibimos a data em um formato adequado para falantes de inglês.
+
+Se você quiser exibir o texto com base no idioma **e** no país do usuário, pode adicionar um caso que verifica a variável `locale`. Neste exemplo, mostramos a data no formato `YYYY/MM/DD` se o usuário estiver na Espanha, e mostramos a data no formato `DD/MM/YYYY` se ele estiver em outro país de língua espanhola:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if locale == "es-ES" %}
+ {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
+{% elsif lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```

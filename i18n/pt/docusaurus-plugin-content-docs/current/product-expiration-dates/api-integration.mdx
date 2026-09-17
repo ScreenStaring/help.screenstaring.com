@@ -1,0 +1,236 @@
+---
+sidebar_position: 20
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Integração via API
+
+***A integração via API está disponível apenas no <Link path="/charges/recurring/new">Plano Platinum</Link>***
+
+O aplicativo Product Expiration Dates fornece uma API que permite gerenciar lotes de estoque de forma programática.
+
+As requisições à API são autenticadas usando a chave de API da sua loja. Você pode encontrar sua chave de API na <Link path="/settings">aba General da página de configurações</Link>. Inclua sua chave de API no cabeçalho `X-API-Key` em cada requisição.
+
+As requisições exigem que você especifique um identificador de produto ou variante. Isso pode ser: `sku`, `barcode`, `variant_id` ou o ID do aplicativo Product Expiration Dates.
+
+## URL Base
+
+Todos os endpoints da API são relativos a: `https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+Recupera os lotes de estoque de um produto ou variante. Você pode consultar por SKU, código de barras ou ID da variante na Shopify
+
+**Parâmetros de Consulta:**
+
+-   `sku` - O SKU da variante (opcional)
+-   `barcode` - O código de barras da variante (opcional)
+-   `variant_id` - ID da variante na Shopify; se um produto não tiver variantes, use o ID da variante padrão (opcional)
+-   `external_location_id` - Filtra os resultados pelo ID do local na Shopify (opcional)
+
+**Exemplo usando curl:**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**Resposta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+Cria ou atualiza um lote de estoque. As atualizações são baseadas no SKU/código de barras combinado com: a) data de validade e local ou b) número do lote e local. Caso contrário, um novo lote é criado.
+
+**Parâmetros da Requisição:**
+
+-   `sku` - O SKU da variante (opcional)
+-   `barcode` - O código de barras da variante (opcional)
+-   `variant_id` - ID da variante na Shopify; se um produto não tiver variantes, use o ID da variante padrão (opcional)
+-   `expires` - Data de validade, **deve estar no formato YYYY-MM-DD** (obrigatório)
+-   `quantity` - Quantidade disponível (obrigatório)
+-   `batch_number` - Número do lote (opcional)
+-   `external_location_id` - O ID do local na Shopify (obrigatório se `location_id` não for fornecido)
+-   `location_id` - ID do local no aplicativo Product Expiration Dates (obrigatório se `external_location_id` não for fornecido)
+-   `inventory_batch_assignment_event` - Quando atribuir os lotes de estoque aos pedidos. Válido apenas ao criar um produto. Pode ser `"order_placed"` ou `"order_item_fulfilled"`. Se você estiver usando o [Inventory Push](/docs/product-expiration-dates/inventory-push), será sempre `"order_placed"`.
+-   `invoice_number` - Número da fatura (opcional)
+-   `lot_number` - Número do lote do fabricante (opcional)
+-   `manufactured_at` - Data de fabricação, **deve estar no formato YYYY-MM-DD** (opcional)
+-   `received_at` - Data de recebimento, **deve estar no formato YYYY-MM-DD** (opcional)
+-   `comments` - Observações livres (opcional)
+-   `batch_unit_cost` - Custo unitário do lote (opcional)
+
+**Exemplo usando curl:**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**Resposta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+Atualiza um lote de estoque existente
+
+**Parâmetros da URL:**
+
+-   `:id` - O ID do lote de estoque no aplicativo Product Expiration Dates (obrigatório)
+
+**Parâmetros da Requisição:**
+
+-   `expires` - Data de validade, **deve estar no formato YYYY-MM-DD** (opcional)
+-   `quantity` - Quantidade disponível (opcional)
+-   `external_location_id` - O ID do local na Shopify (opcional)
+-   `location_id` - ID do Local no aplicativo Product Expiration Dates (opcional)
+-   `batch_number` - Número do lote (opcional)
+-   `invoice_number` - Número da fatura (opcional)
+-   `lot_number` - Número do lote do fabricante (opcional)
+-   `manufactured_at` - Data de fabricação, **deve estar no formato YYYY-MM-DD** (opcional)
+-   `received_at` - Data de recebimento, **deve estar no formato YYYY-MM-DD** (opcional)
+-   `comments` - Observações livres (opcional)
+-   `batch_unit_cost` - Custo unitário do lote (opcional)
+
+**Exemplo usando curl:**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**Resposta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+Exclui um lote de estoque pelo seu ID.
+
+**Parâmetros da URL:**
+
+-   `:id` - O ID do lote de estoque no aplicativo Product Expiration Dates
+
+**Exemplo usando curl:**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**Resposta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## Respostas de Erro
+
+A API retorna os códigos de status HTTP e as mensagens de erro apropriadas:
+
+| Código de Status | Descrição | Exemplo de Resposta |
+| --- | --- | --- |
+| `400` | Bad Request - Parâmetros ausentes ou inválidos | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | Unauthorized - Chave de API inválida ou ausente | `{"errors": ["Shop not found"]}` |
+| `403` | Forbidden - O plano não permite acesso à API | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | Not Found - Produto, variante ou local não encontrado | `{"errors": ["Record not found"]}` |
+| `422` | Unprocessable Entity - Erros de validação | `{"errors": ["Quantity must be greater than 0"]}` |

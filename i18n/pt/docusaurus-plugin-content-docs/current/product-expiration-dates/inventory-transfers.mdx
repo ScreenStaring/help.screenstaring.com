@@ -1,0 +1,17 @@
+---
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Transferências de Estoque
+
+***O suporte a transferências de estoque está disponível apenas nos <Link path="/charges/recurring/new">planos Premium e Platinum</Link>***
+
+Para habilitar o suporte às [transferências de estoque da Shopify](https://help.shopify.com/en/manual/products/inventory/inventory-transfers):
+
+-   Vá para a <Link path="/settings#inventory">aba Inventory da página de configurações</Link>
+-   Marque "Move inventory batches when Shopify inventory transfers occur"
+-   Clique em "Update"
+
+Agora, quando ocorrer uma transferência de estoque na Shopify, os lotes de estoque da quantidade transferida serão movidos do local de origem da transferência para o local de destino. As quantidades são movidas começando pelo lote de estoque que vence primeiro. Se você precisar de um algoritmo diferente, contate o suporte.
