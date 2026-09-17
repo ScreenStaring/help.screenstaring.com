@@ -1,0 +1,26 @@
+.hero {
+  padding: 6rem 0 5rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      60% 50% at 50% 0%,
+      color-mix(in srgb, var(--ifm-color-primary) 10%, transparent),
+      transparent 70%
+    ),
+    var(--ifm-background-color);
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 auto 1.25rem;
+  max-width: 42rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: var(--ifm-font-color-secondary);
+  max-width: 34rem;
+  margin: 0 auto 2.25rem;
+}

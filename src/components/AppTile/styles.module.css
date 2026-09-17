@@ -1,0 +1,43 @@
+.appCard {
+  border: var(--ifm-global-border-width) solid
+    var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.appCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ifm-global-shadow-md);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.appCardBody {
+  padding: 1.6rem;
+}
+
+.appCardTitle {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.appCardText {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+
+.appCardLink {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 0.93rem;
+}
+.appCardLink:hover {
+  color: var(--ifm-link-hover-color);
+  text-decoration: none;
+}
