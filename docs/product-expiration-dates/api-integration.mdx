@@ -91,6 +91,12 @@ Create or update an inventory batch. Updates are based on the SKU/barcode combin
 -   `external_location_id` - The Shopify location ID (required if `location_id` not provided)
 -   `location_id` - Product Expiration Dates app ID (required if `external_location_id` not provided)
 -   `inventory_batch_assignment_event` - When to assign inventory batches to orders. Only valid when creating a product. Either `"order_placed"` or `"order_item_fulfilled"`. If you're using [Inventory Push](/docs/product-expiration-dates/inventory-push) this will always be `"order_placed"`.
+-   `invoice_number` - Invoice number (optional)
+-   `lot_number` - Lot number (optional)
+-   `manufactured_at` - Manufacture date, **must be in YYYY-MM-DD format** (optional)
+-   `received_at` - Date received, **must be in YYYY-MM-DD format** (optional)
+-   `comments` - Free-form notes (optional)
+-   `batch_unit_cost` - Unit cost for the batch (optional)
 
 **Example using curl:**
 
@@ -142,6 +148,12 @@ Update an existing inventory batch
 -   `external_location_id` - The Shopify location ID (optional)
 -   `location_id` - Product Expiration Dates app Location ID (optional)
 -   `batch_number` - Batch number (optional)
+-   `invoice_number` - Invoice number (optional)
+-   `lot_number` - Lot number (optional)
+-   `manufactured_at` - Manufacture date, **must be in YYYY-MM-DD format** (optional)
+-   `received_at` - Date received, **must be in YYYY-MM-DD format** (optional)
+-   `comments` - Free-form notes (optional)
+-   `batch_unit_cost` - Unit cost for the batch (optional)
 
 **Example using curl:**
 
