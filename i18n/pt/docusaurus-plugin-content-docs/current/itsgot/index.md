@@ -7,6 +7,7 @@ description: Como usar o aplicativo It's Got Nutrition Facts para Shopify.
 Este guia cobre a adição de rótulos ao seu site, a alteração do design deles, a tradução, a importação de produtos e muito mais. Se precisar de ajuda, [contate o suporte](https://screenstaring.com/#contact).
 
 - [Adicionando Rótulos ao Seu Site](/docs/itsgot/adding-labels)
+- [Definir a Largura de um Rótulo](/docs/itsgot/label-width)
 - [Alterar as Cores e o Design de um Rótulo](/docs/itsgot/display-settings)
 - [Vinculando Páginas da Web a Nutrientes do Rótulo](/docs/itsgot/display-settings-links)
 - [Traduzindo o Texto dos Rótulos](/docs/itsgot/translations)
