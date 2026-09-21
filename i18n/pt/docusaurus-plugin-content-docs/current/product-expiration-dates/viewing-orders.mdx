@@ -1,0 +1,53 @@
+---
+sidebar_position: 15
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Visualizando Datas e Números de Lote dos Pedidos na Shopify
+
+Há várias maneiras de visualizar números de lote e datas de validade atribuídos a um pedido na [página do pedido no Admin da Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Bloco no Admin
+
+Adicionando o bloco Expiration Dates à página de pedidos:
+
+1.  Abra seu pedido no [Admin da Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  Na página do pedido, role até o final e selecione "Add block"
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-add-block.jpg" width="700" alt="Selecionar o bloco Expiration Dates no Admin da Shopify" />
+
+3.  Selecione "Expiration Dates" no menu que aparece
+4.  Isso mostrará as datas de validade atribuídas aos itens do pedido, se houver. Observe que apenas pedidos **após** 11 de setembro de 2026 terão suas datas exibidas:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-batches-block.jpg" width="700" alt="Datas de validade exibidas no Admin da Shopify" />
+
+5.  Para fazer o bloco aparecer sempre na página do pedido, clique no ícone de fixar:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-pin-block.jpg" width="700" alt="Fixar o bloco Expiration Dates no Admin da Shopify" />
+
+## Seção Additional Details
+
+Os números de lote podem ser adicionados à página do pedido na seção Additional Details:
+
+1.  Nas configurações do aplicativo, vá para a <Link path="/settings#orders">aba Orders</Link>
+1.  Selecione "Create an order "additional details" entry with an order's inventory batches"
+1.  Clique no botão <kbd>Update</kbd> para salvar
+
+Os lotes de estoque de novos pedidos agora serão adicionados à seção Additional Details do pedido no Admin da Shopify:
+
+   <img src="/product-expiration-dates/shopify/images/admin-order-additional-details.jpg" width="400" alt="Atribuição de lote de estoque de um pedido no Admin da Shopify" />
+
+As seguintes informações são incluídas:
+
+- `PB123`: o SKU do item do pedido
+- `B9001`: o número do lote atribuído ao item do pedido
+- `(2)`: a quantidade
+
+## Visualizando o Pedido no Aplicativo
+
+Para abrir a página de um pedido no aplicativo:
+
+1.  Abra seu pedido no Admin da Shopify
+2.  Na página do pedido, selecione "More actions"
+3.  Selecione "Expiration Dates"
