@@ -1,0 +1,53 @@
+---
+sidebar_position: 15
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Viewing Orders' Dates & Batch Numbers in Shopify
+
+There are several ways to view batch numbers and expiry dates assigned to an order from [the order's page in the Shopify admin](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Admin Block
+
+Adding the Expiration Dates block to the orders page:
+
+1.  Open your order in the [the Shopify admin](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  On the order's page scroll to the bottom and select "Add block"
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-add-block.jpg" width="700" alt="Select Expiration Dates block in Shopify Admin" />
+
+3.  Select "Expiration Dates" from the popup menu
+4.  This will show the expiration dates assigned to the order's line items, if any. Note that only orders **after** September 11th, 2026 will have their dates shown:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-batches-block.jpg" width="700" alt="Expiration Dates shown in the Shopify Admin" />
+
+5.  To make the block always appear on the order page click the pin icon:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-pin-block.jpg" width="700" alt="Pin the Expiration Dates block to the Shopify Admin" />
+
+## Additional Details Section
+
+Batch numbers can be added to the orders page under the Additional Details section:
+
+1.  In the app's settings go to <Link path="/settings#orders">Orders tab</Link>
+1.  Select "Create an order "additional details" entry with an order's inventory batches"
+1.  Click the <kbd>Update</kbd> button to save
+
+Inventory batches for new orders will now be added to the order's Additional Details section in the Shopify Admin:
+
+   <img src="/product-expiration-dates/shopify/images/admin-order-additional-details.jpg" width="400" alt="Inventory Batch Assignment for an Order in the Shopify Admin" />
+
+The following information is included:
+
+- `PB123`: the line item SKU
+- `B9001`: the batch number assigned to the line item
+- `(2)`: the quantity
+
+## Viewing the Order in the App
+
+To open an order's page in the app:
+
+1.  Open your order in the Shopify Admin
+2.  On the order's page select "More actions"
+3.  Select "Expiration Dates"
