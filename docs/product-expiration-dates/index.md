@@ -21,7 +21,7 @@ Expiration information can be presented to consumers in a variety of ways. Suppo
 - [Notifications, Order Printing, & Packing Slips](/docs/product-expiration-dates/notifications-and-packing-slip)
 - [Shopify Point of Sale (POS) Integration](/docs/product-expiration-dates/pos-integration)
 - [Entry via Barcode Scanner](/docs/product-expiration-dates/barcode-scanner)
-- [Viewing Orders' Dates & Batch Numbers in Shopify](/docs/product-expiration-dates/viewing-orders)
+- [Viewing Order Expiry Dates & Batch Numbers in Shopify](/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
 - [Sharing Inventory Between Multiple Stores](/docs/product-expiration-dates/sharing-inventory)
 - [Disabled Products](/docs/product-expiration-dates/disabled-products)
 - [Expiration Data Metafields](/docs/product-expiration-dates/expiration-data-metafields)

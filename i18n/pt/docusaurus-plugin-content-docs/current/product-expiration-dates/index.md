@@ -21,7 +21,7 @@ As informações de validade podem ser apresentadas aos consumidores de diversas
 - [Notificações, Impressão de Pedidos e Romaneios](/docs/product-expiration-dates/notifications-and-packing-slip)
 - [Integração com o Ponto de Venda (POS) da Shopify](/docs/product-expiration-dates/pos-integration)
 - [Entrada via Leitor de Código de Barras](/docs/product-expiration-dates/barcode-scanner)
-- [Visualizando Datas e Números de Lote dos Pedidos na Shopify](/docs/product-expiration-dates/viewing-orders)
+- [Visualizando Datas de Validade e Números de Lote dos Pedidos na Shopify](/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
 - [Compartilhando Estoque Entre Várias Lojas](/docs/product-expiration-dates/sharing-inventory)
 - [Produtos Desativados](/docs/product-expiration-dates/disabled-products)
 - [Metacampos de Dados de Validade](/docs/product-expiration-dates/expiration-data-metafields)
