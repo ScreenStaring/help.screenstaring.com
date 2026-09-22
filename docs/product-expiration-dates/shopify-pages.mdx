@@ -9,7 +9,7 @@ import ShopifyLink from '@site/src/components/ShopifyLink';
 It is possible to access and/or display expiration data from your site. This includes expiration dates, their quantities, and use within data. The easiest way to display this information is to use our [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) integration, which allows the expiration data to be added [as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
 
 1.  <ShopifyLink href={(shopify) => shopify.themes()}>Go to your Themes in the Shopify Admin</ShopifyLink>
-2.  Find the theme you want to update and click "Customize"
+2.  Find the theme you want to update and click "Edit theme"
 3.  In the theme editor, select the template you'd like to add expiration data to:
     
     <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Select theme template" />
@@ -49,7 +49,7 @@ It is possible to access and/or display expiration data from your site. This inc
 Once you've [added our snippet to your theme](/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) the next step is to render it in the location you want the expiration data displayed. This can be done from the Shopify Admin via the customize theme page.
 
 1.  <ShopifyLink href={(shopify) => shopify.themes()}>Go to your Themes in the Shopify Admin</ShopifyLink>
-2.  Find the theme you want to update and click "Customize"
+2.  Find the theme you want to update and click "Edit theme"
 3.  In the theme editor, select "Products" then "Default product" (or whatever the desired template is)
 4.  In the Template section click "Add block"
 5.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
