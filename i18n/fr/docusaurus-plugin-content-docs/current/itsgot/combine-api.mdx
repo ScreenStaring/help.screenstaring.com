@@ -1,0 +1,104 @@
+---
+sidebar_position: 7
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Combiner des composants de repas pour générer une étiquette
+
+
+Si vous avez un site de plats préparés ou de restaurant, vous voudrez probablement saisir vos composants de repas une seule fois, puis afficher une étiquette
+en fonction de la sélection du client. Par exemple, si vous proposez une protéine avec un glucide, vous voulez
+générer une étiquette en fonction de la sélection de chacun d'eux. Si l'utilisateur choisit du poulet et du riz, l'étiquette doit contenir les
+nutriments combinés du poulet et du riz. S'il choisit du poulet et une pomme de terre au four, l'étiquette doit contenir les nutriments combinés
+du poulet et de la pomme de terre au four. Etc.
+
+Cela peut être réalisé via les étapes suivantes :
+
+1. [Créer des étiquettes non associées à un produit Shopify](#combine-api-create-component-label)
+2. [Créer une étiquette pour le produit Shopify parent](#combine-api-create-product-label)
+3. [Ajouter le code de la Combine API à votre site](#combine-api-add-code)
+
+## Créer des étiquettes non associées à un produit Shopify {/* #combine-api-create-component-label */}
+
+Pour pouvoir utiliser des composants de repas, vous devez créer une étiquette en cochant *Not associated with a Shopify product* :
+
+<img src="/itsgot/shopify/images/combine-api-not-associated-with-product.jpg" alt="Not associated with a Shopify product" />
+
+Pour *Name*, saisissez le nom du composant de repas *exactement* tel qu'il apparaît sur votre site, par exemple *Sweet Potato Fries (Large)*.
+Ensuite, saisissez les informations nutritionnelles et enregistrez l'étiquette.
+
+## Créer une étiquette pour le produit Shopify parent {/* #combine-api-create-product-label */}
+
+Si le produit est un ensemble ou un contenant, c'est-à-dire quelque chose qui ne contient pas de données nutritionnelles, par exemple *10 day lunch plan*, vous pouvez passer cette partie.
+S'il s'agit d'un plat ou d'un composant de repas, vous devez également saisir ses informations nutritionnelles.
+
+Dans ce cas, vous ne devez pas cocher *Not associated with a Shopify product*. Saisissez plutôt les premiers caractères du nom du produit,
+sélectionnez-le dans la liste, puis saisissez les informations nutritionnelles et enregistrez.
+
+## Ajouter le code de la Combine API à votre site {/* #combine-api-add-code */}
+
+Une fois les informations nutritionnelles saisies dans l'application, vous devez ajouter du code à votre site pour récupérer et insérer l'étiquette en fonction de la sélection du client.
+Ce code doit récupérer les variantes sélectionnées et les transmettre à la Combine API d'It's Got. Cela implique deux étapes :
+
+### 1. Charger la Combine API et l'extrait
+
+L'extrait se trouve sur la <Link path="/settings/edit#combine-api-snippet">page des paramètres</Link>. L'étiquette s'affichera à l'endroit où cet extrait est placé. Il peut être inséré n'importe où sur votre site. Consultez [cet exemple](/docs/itsgot/adding-labels/embed-code).
+
+### 2. Récupérer les variantes sélectionnées et appeler la Combine API
+
+C'est ce qui chargera l'étiquette correspondant aux variantes sélectionnées dans l'extrait ajouté à l'étape 1 ci-dessus.
+La façon de récupérer les variantes sélectionnées dépend de votre thème. Il n'existe pas de solution unique.
+Vous pouvez [contacter le support](https://screenstaring.com/#contact) pour obtenir des conseils, mais essayez d'abord [l'exemple ci-dessous](#combine-api-example).
+
+La Combine API nécessite d'effectuer l'appel JavaScript suivant :
+
+`ItsGot.combine(components, options)`
+
+| Argument    | Description |
+| ----------- | ----------- |
+| `components` | Un tableau de chaînes contenant les composants de repas pour lesquels construire l'étiquette. Ces valeurs proviennent des variantes actuellement sélectionnées. |
+| `options`   | Facultatif. Un objet pouvant contenir les propriétés suivantes : |
+|             | `format` - Format de l'étiquette à afficher. La valeur par défaut est `us:2016:nutrition_facts:emblems`. Les autres formats pris en charge sont : `ca:legacy:nutrition_facts:vertical`, `de:eu:nutrition_facts:vertical`, `dk:eu:nutrition_facts:vertical`, `se:eu:nutrition_facts:vertical`, `uk:eu:nutrition_facts:vertical`, `us:2016:nutrition_facts:tabular`, `us:2016:nutrition_facts:vertical`, `us:legacy:nutrition_facts:vertical`, `us:legacy:supplement_facts:vertical_columns`, `us:legacy:supplement_facts:vertical`, `us:2016:supplement_facts:vertical_columns`, et `us:2016:supplement_facts:vertical` |
+|             | `only` - Un tableau de nutriments à afficher. Lorsqu'il est indiqué, seules les valeurs nutritionnelles des nutriments fournis seront affichées. p. ex. `sodium`, `calories`. Valide uniquement pour le format `us:2016:nutrition_facts:emblems`. |
+
+### Exemple de la Combine API {/* #combine-api-example */}
+
+Ajoutez ceci à la description du produit ou au fichier Liquid approprié, à l'endroit où vous souhaitez que l'étiquette apparaisse
+(notez que l'extrait de votre compte se trouve sur la <Link path="/settings/edit#combine-api-snippet">page des paramètres</Link>) :
+
+```html
+<script async="async" src="//itsgot.com/embed.js"></script>
+<div data-itsgot-user="YOUR_ID" data-itsgot-combine></div>
+```
+
+Ajoutez ensuite ceci au modèle Liquid du produit (ou équivalent) :
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', _ => {
+    // ====================
+    // NOTICE: getSelectedVariants() is an example and will not work with all Shopify themes.
+    // How to get the selected variants is dependent on your theme. There is no one-size-fits-all solution.
+    // ====================
+    function getSelectedVariants() {
+      return document.querySelectorAll('[class^=single-option-selector]');
+    }
+
+    function showLabel() {
+      const components = [];
+
+      getSelectedVariants().forEach(element => {
+        if(element.value) components.push(element.value);
+      });
+
+      ItsGot.combineLabels(components, {
+        format: 'us:2016:nutrition_facts:emblems',
+        only: ['calories', 'protein', 'total carbohydrate', 'total fat', 'dietary fiber', 'total sugars']
+      });
+    }
+
+    getSelectedVariants().forEach(element => element.addEventListener('change', showLabel));
+  });
+</script>
+```

@@ -1,0 +1,79 @@
+---
+sidebar_position: 11
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Inventory Push
+
+***Inventory push n'est disponible qu'avec le <Link path="/charges/recurring/new">forfait Pro</Link>***
+
+Inventory push fait de l'application Product Expiration Dates la « source de vérité » de l'inventaire de votre boutique, ce qui vous évite de devoir saisir l'inventaire dans l'admin Shopify, puis de le ressaisir avec sa répartition par date d'expiration/quantité dans l'application.
+
+Lorsque inventory push est activé, vous [saisissez vos quantités d'inventaire](/docs/product-expiration-dates/adding-expiration-data) une seule fois dans l'application Product Expiration Dates et celle-ci ajustera les comptes d'inventaire des produits dans Shopify. Lorsque les quantités de l'application sont ajoutées, modifiées ou supprimées, l'application effectuera les ajustements appropriés dans Shopify.
+
+Les changements apportés à l'inventaire d'un produit via une nouvelle commande ou un changement de statut de commande (remboursée, remise en stock, etc...) font partie du comportement par défaut de l'application Product Expiration Dates. **Un abonnement au forfait Pro n'est pas requis pour que cela fonctionne.**
+
+Lorsque inventory push est activé, **l'inventaire doit être saisi uniquement dans l'application Product Expiration Dates. Ne modifiez pas l'inventaire via l'admin Shopify**. Les valeurs saisies dans l'admin Shopify ne seront pas vues par l'application, car les dates d'expiration et/ou les numéros de lot ne peuvent pas être saisis dans l'admin Shopify. Par exemple, si vous avez saisi les données suivantes dans l'application Product Expiration Dates pour le produit A :
+
+-   Expires: `2021-11-10`, Quantity: `7`
+-   Expires: `2022-01-01`, Quantity: `12`
+
+Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponible** totale de 19 dans l'admin Shopify. Si vous la remplacez par 30 dans l'admin Shopify, l'application Product Expiration Dates ne sait pas à quelle(s) date(s) les 11 nouveaux doivent être associés. Sont-ils du 10 novembre, du 1er janvier, ou autre chose ? C'est pourquoi inventory push ne peut pas synchroniser les quantités saisies dans l'admin Shopify.
+
+## Activer
+
+1.  Assurez-vous d'être abonné au <Link path="/charges/recurring/new">forfait Pro</Link> ou supérieur
+2.  Visitez la <Link path="/settings#inventory">page des paramètres</Link>
+3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
+4.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer vos paramètres
+
+Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
+
+## Quantités disponibles et en main
+
+Par défaut, Inventory Push définit la quantité disponible dans Shopify. Si vous êtes abonné au <Link path="/charges/recurring/new">forfait Premium</Link>, vous pouvez le configurer pour définir plutôt les quantités en main. Cela peut se faire dans l'onglet Inventory de <Link path="/settings#inventory">la page des paramètres</Link> en sélectionnant "Set on hand quantity instead of available quantity".
+
+## Attribution des lots d'inventaire {/* #inventory-syncing-inventory-batch-assignment */}
+
+Lorsque vous utilisez Inventory Push, vous ne pouvez pas [attribuer des lots d'inventaire à un produit](/docs/product-expiration-dates/adding-expiration-data) lorsqu'une ligne de commande est traitée. Uniquement lorsque la commande est passée. Cela est dû à la façon dont Shopify gère les quantités d'inventaire. Elles sont attribuées à une ligne de commande lorsque celle-ci est passée. Regardons un exemple ci-dessous.
+
+Si vous saisissez une quantité de 10 dans l'application, nous attribuons 10 à la quantité disponible dans Shopify. Lorsqu'une commande d'une quantité de 2 est passée, Shopify réduit la quantité à 8, mais dans l'application cette quantité reste à 10 jusqu'au traitement du produit. Si vous allez ensuite dans l'application avant que cela ne se produise et saisissez une quantité de 12, nous mettrons à jour la quantité disponible de Shopify à 12, ce qui serait incorrect.
+
+## Variantes
+
+Lorsque inventory push est activé pour un produit avec des variantes, toute variante du produit qui n'a pas été saisie dans l'application Product Expiration Dates verra son inventaire défini à 0 dans Shopify.
+
+## Ensembles
+
+La transmission de l'inventaire des ensembles définira la quantité de l'ensemble ainsi que les quantités des produits qu'il contient. Par exemple, avec les produits suivants :
+
+| Produit | SKU | Inventaire disponible |
+| --- | --- | --- |
+| Produit A | X123 | 5 |
+| Produit B | Y456 | 10 |
+
+Si vous créez un ensemble contenant ces produits avec la configuration suivante :
+
+| Produit | SKU | Quantité dans l'ensemble |
+| --- | --- | --- |
+| Produit A | X123 | 1 |
+| Produit B | Y456 | 3 |
+
+Cela donne le résultat suivant :
+
+| Produit | SKU | Inventaire disponible |
+| --- | --- | --- |
+| Mon ensemble | B999 | 3 |
+| Produit A | X123 | 5 |
+| Produit B | Y456 | 10 |
+
+La quantité de l'ensemble est définie comme la quantité minimale pouvant être achetée selon les quantités des produits qu'il regroupe. Si un client achetait le produit B avec une quantité de 6, les inventaires seraient synchronisés comme suit :
+
+| Produit | SKU | Inventaire disponible |
+| --- | --- | --- |
+| Mon ensemble | B999 | 1 |
+| Produit A | X123 | 5 |
+| Produit B | Y456 | 4 |
+
+Comme Mon ensemble a une quantité dans l'ensemble de 3 pour le produit B, et que le produit B n'a que 4 d'inventaire disponible, l'inventaire disponible de Mon ensemble est défini à 1.

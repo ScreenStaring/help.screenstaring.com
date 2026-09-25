@@ -1,0 +1,51 @@
+---
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Importer des produits en masse
+
+
+Pour importer vos produits en masse :
+
+1. [Téléchargez notre modèle CSV](/itsgot/images/product-import-template.csv)
+2. Ajoutez les données de vos produits et de leurs valeurs nutritionnelles
+3. Accédez à la page <Link path="/products/import/new">Importation de produits</Link> et téléversez votre fichier CSV
+4. Notez que le tableur d'exemple ne contient pas tous les nutriments possibles, voir [Ajouter des nutriments au tableur](#adding-nutrients-to-the-spreadsheet)
+
+Le modèle CSV exige des valeurs pour les colonnes suivantes :
+
+- **Format de l'étiquette**
+  Doit être l'un des suivants :
+
+  - `ca:legacy:nutrition_facts:vertical`
+  - `de:eu:nutrition_facts:vertical`
+  - `dk:eu:nutrition_facts:vertical`
+  - `se:eu:nutrition_facts:vertical`
+  - `uk:eu:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:tabular`
+  - `us:2016:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:emblems`
+  - `us:legacy:nutrition_facts:vertical`
+  - `us:legacy:supplement_facts:vertical_columns`
+  - `us:legacy:supplement_facts:vertical`
+  - `us:2016:supplement_facts:vertical_columns`
+  - `us:2016:supplement_facts:vertical`
+
+- **Une colonne d'identifiant de produit**
+  Doit être l'une des suivantes : ID du produit/ID de la variante ou SKU. Elles serviront à associer le produit à un produit Shopify correspondant.
+
+## Ajouter des nutriments au tableur {/* #adding-nutrients-to-the-spreadsheet */}
+
+N'importe quel nutriment peut être importé. Par exemple, pour importer de l'Oméga 3 avec une quantité de 1000 mg, vous ajouteriez une colonne *Omega 3* avec la valeur *1000mg* pour la ligne du produit concerné.
+Si vous souhaitez indiquer un pourcentage de référence, vous ajouteriez une colonne *Omega 3 %* :
+
+<img src="/itsgot/images/extra-nutrient-column-product-import-template.jpg" height="150" alt="Colonne de nutriment supplémentaire dans le modèle d'importation" />
+
+## Données nutritionnelles comportant plusieurs portions
+
+Utilisez une colonne *Comments* pour séparer plusieurs ensembles de données nutritionnelles pour un même produit.
+Par exemple, si vous avez des données nutritionnelles *Par portion* et *Par 100 g*, vous délimiteriez chaque ensemble de données à l'aide de colonnes *Comments* :
+
+<img src="/itsgot/images/per-serving-product-import-template.jpg" height="150" alt="Plusieurs portions dans le modèle d'importation" />

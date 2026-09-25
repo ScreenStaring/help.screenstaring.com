@@ -1,0 +1,34 @@
+---
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Métachamps de données d'expiration
+
+Voir aussi : ***[Notifications, impression de commandes et bordereaux d'expédition](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+L'application Product Expiration Dates ajoute des métachamps aux variante(s) d'un produit sous l'espace de noms `expiration_dates`. Si le produit n'a pas de variantes, la variante par défaut est utilisée.
+
+**N'ajoutez pas de définitions de métachamps dans l'admin Shopify en utilisant l'espace de noms `expiration_dates` avec l'une des clés ci-dessous.** Cela n'est pas nécessaire et empêche l'application de fonctionner correctement. Les métachamps définis par l'application sont en lecture seule et ne peuvent pas être définis via l'admin Shopify.
+
+Si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps (et ne prennent pas en charge les métachamps JSON), voir la clé `soonest_expiring`.
+
+Les métachamps suivants sont disponibles :
+
+| Clé | Description |
+| --- | --- |
+| `allocations` | Un tableau des dates d'expiration et des quantités attribuées à la variante. Le tableau est trié par date d'expiration, de la plus proche à la plus lointaine, donc `allocations[0]` renverra les données de la date d'expiration la plus proche. |
+| `allocations[N].time` | La date d'expiration. Le format est : `YYYY-MM-DDT00:00`. Par exemple : `2025-01-22T00:00`. Actuellement, l'heure est toujours `00:00`. Cette valeur peut être mise en forme à l'aide du [filtre `date` de Liquid](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | La quantité d'inventaire restante |
+| `allocations[N].batch_number` | Le numéro de lot attribué |
+| `allocations[N].location_id` | L'ID Shopify de l'emplacement attribué |
+| `use_within` | Un objet contenant les informations de délai d'utilisation |
+| `use_within.use_within_value` | La portion numérique des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `30`. |
+| `use_within.use_within_unit` | La portion d'unité de temps des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `days`. |
+| `use_within.use_within_value_in_days` | La valeur du délai d'utilisation en jours. Par exemple, si `6 months` a été attribué, ceci contiendra `180`. Nous utilisons 30 jours par mois : 6 \* 30 = 180. |
+| `bundled_inventory` | Un tableau des produits qui composent l'ensemble ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un ensemble. |
+| `bundled_inventory[N].title` | Le titre du produit regroupé |
+| `bundled_inventory[N].allocations` | Un tableau des dates d'expiration et des quantités attribuées à la variante. Reportez-vous à la documentation de `allocations[N]`. |
+| `soonest_expiring` | Représentation sous forme de chaîne du lot d'inventaire qui expire le plus tôt. Utile si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps. Le format de date peut être défini sur <Link path="/settings#inventory">la page des paramètres</Link>.   
+ ***Disponible uniquement avec le <Link path="/charges/recurring/new">forfait Premium</Link>*** |

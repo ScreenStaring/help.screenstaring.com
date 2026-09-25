@@ -1,0 +1,53 @@
+---
+sidebar_position: 15
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Consulter les dates d'expiration et les numéros de lot des commandes dans Shopify
+
+Il existe plusieurs façons de consulter les numéros de lot et les dates d'expiration attribués à une commande depuis [la page de la commande dans l'admin Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Bloc de l'admin
+
+Pour ajouter le bloc Expiration Dates à la page des commandes :
+
+1.  Ouvrez votre commande dans [l'admin Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  Sur la page de la commande, faites défiler vers le bas et sélectionnez "Add block"
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-add-block.jpg" width="700" alt="Sélectionner le bloc Expiration Dates dans l'admin Shopify" />
+
+3.  Sélectionnez "Expiration Dates" dans le menu qui s'affiche
+4.  Cela affichera les dates d'expiration attribuées aux lignes de la commande, s'il y en a. Notez que seules les commandes **après** le 11 septembre 2026 auront leurs dates affichées :
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-batches-block.jpg" width="700" alt="Dates d'expiration affichées dans l'admin Shopify" />
+
+5.  Pour que le bloc apparaisse toujours sur la page de la commande, cliquez sur l'icône d'épingle :
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-pin-block.jpg" width="700" alt="Épingler le bloc Expiration Dates dans l'admin Shopify" />
+
+## Section Additional Details
+
+Les numéros de lot peuvent être ajoutés à la page des commandes dans la section Additional Details :
+
+1.  Dans les paramètres de l'application, allez dans <Link path="/settings#orders">l'onglet Orders</Link>
+1.  Sélectionnez "Create an order "additional details" entry with an order's inventory batches"
+1.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer
+
+Les lots d'inventaire des nouvelles commandes seront maintenant ajoutés à la section Additional Details de la commande dans l'admin Shopify :
+
+   <img src="/product-expiration-dates/shopify/images/admin-order-additional-details.jpg" width="400" alt="Attribution des lots d'inventaire pour une commande dans l'admin Shopify" />
+
+Les informations suivantes sont incluses :
+
+- `PB123` : le SKU de la ligne de commande
+- `B9001` : le numéro de lot attribué à la ligne de commande
+- `(2)` : la quantité
+
+## Consulter la commande dans l'application
+
+Pour ouvrir la page d'une commande dans l'application :
+
+1.  Ouvrez votre commande dans l'admin Shopify
+2.  Sur la page de la commande, sélectionnez "More actions"
+3.  Sélectionnez "Expiration Dates"

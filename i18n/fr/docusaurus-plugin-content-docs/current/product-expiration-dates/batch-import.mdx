@@ -1,0 +1,17 @@
+---
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Importer des données d'expiration en masse
+
+Plusieurs dates d'expiration et quantités peuvent être importées à l'aide de notre CSV d'importation par lots. Un exemple est disponible [ici](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+Les colonnes "SKU", "Expiration Date", "Quantity" et "Location Name" sont obligatoires. **Les dates d'expiration doivent être fournies au format `YYYY-MM-DD`.** Pour utiliser "Barcode" à la place de "SKU", sélectionnez "Identify rows by Barcode" sur la page d'importation par lots.
+
+Pour plus d'informations sur la colonne "Allocate Quantities to Orders When", voir [Ajouter des données d'expiration aux produits](/docs/product-expiration-dates/adding-expiration-data).
+
+Le CSV doit utiliser l'encodage UTF-8 et le caractère virgule (",") comme séparateur de champs.
+
+Une fois prêt, téléversez-le via <Link path="/import">la page d'importation</Link>.

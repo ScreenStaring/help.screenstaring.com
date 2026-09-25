@@ -1,0 +1,17 @@
+---
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Transferts de stock
+
+***La prise en charge des transferts de stock n'est disponible qu'avec les <Link path="/charges/recurring/new">forfaits Premium et Platinum</Link>***
+
+Pour activer la prise en charge des [transferts de stock Shopify](https://help.shopify.com/en/manual/products/inventory/inventory-transfers) :
+
+-   Allez dans <Link path="/settings#inventory">l'onglet Inventory de la page des paramètres</Link>
+-   Cochez "Move inventory batches when Shopify inventory transfers occur"
+-   Cliquez sur "Update"
+
+Maintenant, lorsqu'un transfert de stock se produit dans Shopify, les lots d'inventaire correspondant à la quantité transférée seront déplacés de l'emplacement source du transfert vers son emplacement de destination. Les quantités sont déplacées en commençant par le lot d'inventaire qui expire le plus tôt. Si vous avez besoin d'un algorithme différent, contactez le support.

@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Éditeur de thème Shopify
+
+En utilisant l'[éditeur de thème Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(personnalisation du thème), vous pouvez ajouter des étiquettes
+[comme section ou bloc](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+à un modèle de produit, ou les relier à une section ou un bloc existant
+[via un métachamp](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(source dynamique).
+
+## Ajouter une étiquette comme bloc
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Accédez à *Thèmes* dans l'admin Shopify</ShopifyLink>
+2. Trouvez le thème que vous souhaitez mettre à jour et cliquez sur <kbd>Modifier le thème</kbd>
+3. Dans l'éditeur de thème, sélectionnez le modèle de produit auquel vous souhaitez ajouter des étiquettes :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-select-template.jpg" width="500" alt="Sélectionner le modèle de produit" />
+
+4. Sélectionnez l'emplacement souhaité dans le modèle de produit. Pour ce faire, survolez de votre curseur la zone d'insertion désirée :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-button.jpg" height="500" alt="Bouton d'ajout de bloc" />
+
+5. Cliquez sur le bouton d'ajout de bloc et sélectionnez *Nutrition Facts* dans la section *Applications* :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-app.jpg" height="500" alt="Bouton d'ajout du bloc de l'application Nutrition Facts" />
+
+6. Cela ajoutera un bloc *Nutrition Facts* au modèle sélectionné :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-block-added.jpg" height="500" alt="Configurer le bloc de l'application Nutrition Facts" />
+
+7. Cliquez sur le bloc *Nutrition Facts* pour accéder à des options de configuration supplémentaires
+8. Cliquez sur <kbd>Enregistrer</kbd>
+
+Les étiquettes des produits seront désormais affichées sur votre site.
+
+## Ajouter une étiquette via un métachamp
+
+Cela ne fonctionne que si la section ou le bloc cible prend en charge les sources dynamiques.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Accédez à *Thèmes* dans l'admin Shopify</ShopifyLink>
+2. Trouvez le thème que vous souhaitez mettre à jour et cliquez sur <kbd>Modifier le thème</kbd>
+3. Dans l'éditeur de thème, trouvez la section ou le bloc auquel vous souhaitez ajouter des étiquettes et cliquez dessus. Dans cet exemple, nous les ajoutons à un bloc *Texte* :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-select-block.jpg" width="500" alt="Sélection d'une section ou d'un bloc" />
+
+4. Dans la configuration du bloc *Texte*, cliquez sur le bouton <kbd>Connecter une source dynamique</kbd> :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-button.jpg" width="500" alt="Bouton de source dynamique" />
+
+5. Assurez-vous que les sources du modèle de produit sont sélectionnées :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-heading.jpg" width="500" alt="Section des sources dynamiques" />
+
+   Si ce n'est pas le cas, cliquez sur l'en-tête actuellement sélectionné et changez la source pour le modèle de produit
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-categories.jpg" width="500" alt="Catégories des sources dynamiques" />
+
+6. Dans la liste des sources dynamiques, recherchez et choisissez *Nutrition Facts app label embed code* :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code.jpg" width="500" alt="Source dynamique de l'étiquette Nutrition Facts" />
+
+7. Une fois sélectionnée, elle apparaîtra comme source dans le champ associé :
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code-selected.jpg" width="500" alt="Étiquette Nutrition Facts sélectionnée" />
+
+8. Cliquez sur <kbd>Enregistrer</kbd>
+
+Les étiquettes des produits seront désormais affichées sur votre site.
+
+## Ailleurs
+
+Si vous souhaitez ajouter des étiquettes à un emplacement en dehors du modèle de produit, ou ailleurs sur votre site, essayez l'une des options suivantes :
+
+- [Extrait Liquid](/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Code d'intégration de l'étiquette](/docs/itsgot/adding-labels/embed-code)

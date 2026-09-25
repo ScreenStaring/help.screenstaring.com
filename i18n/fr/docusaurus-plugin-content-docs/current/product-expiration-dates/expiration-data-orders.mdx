@@ -1,0 +1,38 @@
+---
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Données d'expiration attribuées à une commande
+
+Les données d'expiration attribuées aux commandes peuvent être mises à la disposition de systèmes externes sous forme de propriété de commande. Une propriété de commande est utilisée parce que Shopify ne prend pas en charge les métachamps pour les lignes de commande. Pour activer cette propriété, cochez "Create an order attribute for an order's inventory batches" dans l'onglet Orders de <Link path="/settings#orders~product_defaults">la page des paramètres</Link>.
+
+Les commandes passées avant l'activation de cette option ne contiendront pas la propriété.
+
+## Format de la propriété de commande
+
+Une fois activés, les attributs de commande nommés `Expiration Dates SKU` seront ajoutés aux commandes contenant des données d'expiration. `SKU` sera remplacé par la valeur du SKU du produit. La valeur de l'attribut est au format suivant : `BATCH 1|BATCH 2|BATCH 3`.
+
+Par exemple, si vous avez un produit avec le SKU 123 auquel un seul lot est attribué, vous aurez un attribut nommé `Expiration Dates 123` avec la valeur : `2024-01-01,1,B123`. Ici, `2024-01-01` est la date d'expiration attribuée, `1` est la quantité attribuée et `B123` est le numéro de lot.
+
+Si la ligne de commande a plusieurs lots, ils seront inclus. Par exemple, si le SKU 123 s'est vu attribuer 2 lots, la valeur serait : `2024-01-01,1,B123|2024-11-21,2,X999`. Ici, `2024-01-01` est 1 des 2 dates d'expiration attribuées. `1` la quantité attribuée et `B123` son numéro de lot. `2024-11-21` est l'autre date d'expiration attribuée. `2` est sa quantité attribuée et `X999` son numéro de lot.
+
+Si un numéro de lot (ou toute autre valeur) n'existe pas, sa valeur sera omise. Voici l'exemple à plusieurs lots sans numéro de lot : `2024-01-01,1,|2024-11-21,2,`
+
+## Analyser la valeur de la propriété
+
+L'analyse de la valeur peut se faire dans n'importe quel langage en récupérant les attributs de la commande via l'[API Admin de Shopify](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order). Voici un exemple avec Liquid :
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```

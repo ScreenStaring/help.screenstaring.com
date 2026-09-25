@@ -1,0 +1,54 @@
+---
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Vérification du domaine de l'e-mail de demande d'avis
+
+
+Pour envoyer des e-mails de demande d'avis à partir de votre adresse et de votre domaine, vous devez d'abord vérifier que vous êtes bien propriétaire du domaine.
+La vérification de votre domaine permet aux destinataires de constater qu'un e-mail est envoyé directement par vous, et les fournisseurs de messagerie sont plus enclins à lui faire confiance.
+Cela améliore la délivrabilité et augmente la probabilité que vos messages arrivent dans la boîte de réception plutôt que d'être signalés comme pourriel.
+Les captures d'écran suivantes montrent la différence entre des e-mails avec et sans domaine vérifié.
+
+**Sans domaine vérifié**
+
+<img src="/itsgot/images/review-request-reply-to.png" width="500" alt="E-mail sans domaine vérifié" />
+
+Notez que l'adresse *De* utilise celle de l'application et que l'email de votre site sert d'adresse *Répondre à*.
+
+**Avec domaine vérifié**
+
+<img src="/itsgot/images/review-request-custom-domain.png" width="500" alt="E-mail avec domaine vérifié" />
+
+L'utilisation d'un domaine vérifié permet d'utiliser sa propre adresse dans le champ *De*, ce qui élimine le besoin d'une adresse *Répondre à*.
+
+La vérification du domaine de l'e-mail se fait en ajoutant à la configuration de votre site des enregistrements DNS qui autorisent notre infrastructure d'envoi.
+Une fois le domaine vérifié, le champ *E-mail d'envoi* de la <Link path="/app/reviews/email/edit">page des paramètres de l'e-mail de demande d'avis</Link> sera activé.
+
+## Vérifier votre domaine
+
+1. Accédez à la <Link path="/app/reviews/email/edit">page des paramètres de l'e-mail de demande d'avis</Link>
+2. Cliquez sur le bouton <kbd>Vérifier</kbd> à côté du champ *E-mail d'envoi*
+3. Saisissez votre domaine d'envoi (p. ex. `mail.example.com`) et cliquez sur <kbd>Enregistrer le domaine</kbd>.
+4. Cela générera plusieurs enregistrements DNS qui doivent être ajoutés aux paramètres DNS de votre domaine.
+   Les enregistrements peuvent être consultés en cliquant sur le bouton <kbd>Vérifier le domaine</kbd> de la <Link path="/app/reviews/email/edit">page de configuration de l'e-mail</Link>.
+5. Ajoutez les enregistrements générés précédemment à la configuration DNS de votre site.
+   Pour plus d'informations, voir [Ajouter des enregistrements à la configuration DNS de votre site](#adding-dns-records).
+6. Une fois les enregistrements ajoutés, cliquez sur le bouton <kbd>Enregistrements ajoutés</kbd> de la <Link path="/app/reviews/email/edit#verification">page de vérification</Link>
+7. Attendez que les changements DNS se propagent et que la vérification se termine. Cela peut prendre jusqu'à 24 heures.
+   Une fois la vérification effectuée, le champ *De* sera activé et vous pourrez définir une adresse d'envoi personnalisée.
+8. Vous pouvez suivre l'état de la vérification depuis la <Link path="/app/reviews/email/edit">page des paramètres de l'e-mail de demande d'avis</Link>
+
+## Ajouter des enregistrements à la configuration DNS de votre site {/* #adding-dns-records */}
+
+L'authentification de domaine repose sur une poignée d'entrées DNS qui prouvent que vous contrôlez le domaine depuis lequel vous envoyez.
+Ajoutez-les dans le panneau de configuration de votre fournisseur DNS tout en gardant cette application ouverte dans un autre onglet — vous copierez des valeurs de l'un à l'autre.
+
+L'interface de chaque fournisseur DNS est un peu différente, les noms de champs mentionnés ici peuvent donc ne pas correspondre exactement à ce que vous voyez.
+Si vous ne gérez pas habituellement le DNS de votre organisation, faites appel à la personne qui s'en occupe — votre équipe informatique ou votre hébergeur peut généralement ajouter ces enregistrements en quelques minutes.
+
+Une fois les enregistrements ajoutés, laissez quelques minutes aux changements pour prendre effet, puis cliquez sur <kbd>Vérifier les enregistrements</kbd> depuis la <Link path="/app/reviews/email/edit">page des paramètres de l'e-mail de demande d'avis</Link>.
+
+Une fois que l'application confirme que l'enregistrement est en place, cliquez sur <kbd>Terminé</kbd> pour terminer la configuration.

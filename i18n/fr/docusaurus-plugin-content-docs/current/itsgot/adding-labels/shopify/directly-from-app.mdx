@@ -1,0 +1,36 @@
+---
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Bouton Ajouter à la description du produit
+
+Une étiquette nutritionnelle peut être ajoutée en haut, en bas ou à un emplacement personnalisé dans la description de votre produit.
+Vous pouvez définir l'un de ces emplacements par défaut depuis la <Link path="/settings/edit">page des paramètres de votre compte</Link>.
+
+Un emplacement personnalisé est généralement utilisé lorsque la description contient des onglets ou un accordéon et que vous souhaitez
+que l'étiquette soit ajoutée à un panneau précis (voir les instructions ci-dessous pour plus d'informations).
+
+Pour ajouter une étiquette à la description du produit :
+
+1. <Link path="/nutrition_facts/new">Créez une étiquette de produit</Link>. Si le produit existe déjà, retrouvez-le sur la page <Link path="/nutrition_facts">Mes étiquettes</Link> et cliquez sur le nom du produit.
+
+2. Sur la page du produit, repérez la section *Add to Product's Description*
+3. Sélectionnez l'endroit où vous souhaitez ajouter l'étiquette : en haut, en bas ou personnalisé :
+
+   <img src="/itsgot/shopify/images/nf-edit-add-to-product.jpg" alt="Ajouter à la description du produit" />
+
+   La valeur de l'emplacement personnalisé doit être [un sélecteur CSS ou XPath](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html).
+
+4. Cliquez sur le bouton <kbd>Ajouter</kbd>
+
+L'étiquette sera insérée dans la description de votre produit. L'apparition de l'étiquette sur la page du produit peut prendre jusqu'à 1 minute.
+
+:::warning
+
+Veillez à ne pas supprimer le code d'intégration de l'étiquette lorsque vous modifiez la description du produit dans l'admin Shopify
+
+:::
+
+Vous pouvez aussi ajouter des étiquettes aux descriptions de vos produits lors de l'[importation de produits en masse](/docs/itsgot/importing-products).

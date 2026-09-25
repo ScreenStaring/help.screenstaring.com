@@ -1,0 +1,66 @@
+---
+sidebar_position: 3
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Automatiquement en ajoutant notre extrait Liquid à votre thème
+
+:::info
+La meilleure façon d'ajouter des étiquettes de produits à votre site Shopify est [via l'éditeur de thème Shopify](theme-editor).
+Les instructions ci-dessous ne concernent que les cas que l'éditeur de thème ne peut pas gérer.
+:::
+
+Il s'agit d'un processus en deux étapes : 1) ajouter notre extrait de code Liquid à votre thème et 2) afficher l'extrait à l'endroit où vous souhaitez que l'étiquette apparaisse.
+
+## Ajouter notre extrait à votre thème {/* #adding-labels-liquid-snippet-theme */}
+
+1. <ShopifyLink href={(shopify) => shopify.toString()}>Accédez à l'admin Shopify</ShopifyLink>
+2. [Ouvrez l'éditeur de code de votre thème](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3. [Ajoutez un nouveau fichier de thème](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Cliquez sur le répertoire *snippets*
+   - Cliquez sur <kbd>Ajouter un extrait</kbd>
+   - Comme nom de fichier, utilisez `itsgot-product-label-embed-code.liquid`
+   - Cliquez sur <kbd>Terminé</kbd>
+4. Un nouvel onglet vide nommé `snippets/itsgot-product-label-embed-code.liquid` s'ouvrira dans l'éditeur
+5. Copiez le code de [notre extrait Liquid](/itsgot/images/itsgot-product-label-embed-code.txt) et collez-le dans l'onglet
+6. Cliquez sur <kbd>Enregistrer</kbd>
+7. Cliquez de nouveau sur [Ajouter un nouveau fichier de thème](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Cliquez sur le répertoire *snippets*
+   - Cliquez sur <kbd>Ajouter un extrait</kbd>
+   - Comme nom de fichier, utilisez `itsgot-product-label.liquid`
+   - Cliquez sur <kbd>Terminé</kbd>
+8. Un nouvel onglet vide nommé `snippets/itsgot-product-label.liquid` s'ouvrira dans l'éditeur
+9. Copiez le code de [notre extrait Liquid](/itsgot/images/itsgot-product-label.txt) et collez-le dans l'onglet
+10. Cliquez sur <kbd>Enregistrer</kbd>
+
+## Afficher l'étiquette du produit
+
+Une fois [notre extrait ajouté à votre thème](#adding-labels-liquid-snippet-theme), l'étape suivante consiste à l'afficher
+à l'endroit où vous souhaitez que l'étiquette apparaisse. Cela peut se faire depuis l'admin Shopify, via la page de personnalisation du thème.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Accédez à *Thèmes* dans l'admin Shopify</ShopifyLink>
+2. Trouvez le thème que vous souhaitez mettre à jour et cliquez sur <kbd>Modifier le thème</kbd>
+3. Dans l'éditeur de thème, sélectionnez *Produits*, puis *Produit par défaut* (ou le modèle souhaité)
+4. Si vous souhaitez ajouter l'étiquette à une section existante, cliquez sur le bouton d'ajout de bloc dans cette section et sélectionnez *Liquid personnalisé*
+   ou, s'il n'est pas disponible, *HTML* (notez que le bloc *HTML* doit prendre en charge Liquid) :
+
+   <img src="/itsgot/shopify/images/add-liquid-block.png" width="500" alt="Ajouter un bloc Liquid personnalisé" />
+
+5. Si vous souhaitez ajouter l'étiquette dans une nouvelle section, cliquez sur le bouton <kbd>Ajouter une section</kbd> et sélectionnez *Liquid personnalisé* ou *HTML*, selon ce que propose votre thème :
+
+   <img src="/itsgot/shopify/images/add-liquid-section.png" width="500" alt="Ajouter une section Liquid personnalisé" />
+
+6. Si votre thème ne propose ni *Liquid personnalisé* ni *HTML*, vous devez afficher l'extrait manuellement dans votre thème.
+   Cela peut se faire via [l'éditeur de code du thème](https://shopify.dev/docs/themes/tools/code-editor).
+   Si vous avez besoin d'aide, veuillez [contacter le support](https://screenstaring.com/#contact).
+7. Cliquez sur le bloc ou la section *Liquid personnalisé* que vous venez d'ajouter
+8. Dans le champ *Liquid personnalisé* (ou équivalent), collez le code suivant :
+
+   `{% render "itsgot-product-label", product: product %}`
+
+   <img src="/itsgot/shopify/images/custom-liquid-block-contents.png" width="500" alt="Contenu du bloc Liquid personnalisé" />
+
+9. Cliquez sur <kbd>Enregistrer</kbd>
+
+Les étiquettes actuelles et futures apparaîtront désormais automatiquement sur la page des produits.

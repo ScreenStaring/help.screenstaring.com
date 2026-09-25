@@ -1,0 +1,30 @@
+---
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Notifications par e-mail
+
+Les notifications par e-mail peuvent être configurées pour être envoyées avant que les dates d'expiration des produits ne soient atteintes. Elles peuvent être configurées globalement, pour s'appliquer à toute date d'expiration saisie dans l'application, par collection d'un produit ou par type de produit.
+
+## Activer
+
+1.  Dans les paramètres de l'application, allez dans <Link path="/settings#email_notifications">email notifications</Link>
+2.  Dans le champ "Send notifications", saisissez l'adresse e-mail où vous souhaitez recevoir les notifications. Plusieurs adresses e-mail peuvent être séparées par une virgule.
+3.  Dans le champ "How many days before a product expires would you like to be notified?", saisissez le nombre de jours avant l'expiration d'un produit pour lequel vous souhaitez être notifié.  
+ Par exemple, si un produit a une date d'expiration au 15 janvier et que 10 est saisi, vous recevrez une notification pour ce produit à partir du 5 janvier.
+4.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer
+
+Les notifications sont envoyées une fois par jour. Si aucun produit ne se trouve dans votre fenêtre d'expiration, aucune notification ne sera envoyée.
+
+Si vous préférez recevoir des notifications en fonction de la collection ou du type de produit d'un produit, vous pouvez omettre de saisir une valeur dans "How many days before a product expires would you like to be notified or for the product to be discounted?" et plutôt ajouter les jours à la collection ou au type de produit donné dans la section "By Collection" ou "By Product Type". Ces champs n'afficheront de valeurs que pour les produits qui ont été saisis dans l'application.
+
+## Désactiver
+
+1.  Dans les paramètres de l'application, allez dans <Link path="/settings#email_notifications">email notifications</Link>
+2.  Dans le champ "How many days before a product expires would you like to be notified?", supprimez la valeur.
+3.  Si vous avez des notifications de collection ou de type de produit, vous devez les supprimer en appuyant sur le bouton <kbd>X</kbd> rouge à côté des paramètres de la notification
+4.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer
+
+Les notifications ne seront plus envoyées.
