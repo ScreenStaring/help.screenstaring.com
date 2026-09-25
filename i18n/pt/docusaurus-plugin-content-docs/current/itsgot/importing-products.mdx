@@ -1,20 +1,23 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
 
 import Link from '@site/src/components/ItsGot/Link';
 
-# Importando Produtos
+# Importando Produtos em Massa
 
 
-Vários produtos podem ser importados usando nosso modelo de CSV de importação em lote:
+Para importar seus produtos em massa:
 
-- [Modelo de Importação de Nutrition Facts](/itsgot/images/product-import-template.csv)
-- Note que a planilha de exemplo não contém todos os nutrientes possíveis, veja [Adicionando Nutrientes à Planilha](#adding-nutrients-to-the-spreadsheet)
+1. [Baixe nosso modelo de CSV](/itsgot/images/product-import-template.csv)
+2. Adicione os dados do seu produto e de nutrição
+3. Vá para a página <Link path="/products/import/new">Importação de Produtos</Link> e envie seu arquivo CSV
+4. Observe que a planilha de exemplo não contém todos os nutrientes possíveis, veja [Adicionando Nutrientes à Planilha](#adding-nutrients-to-the-spreadsheet)
 
-O modelo requer valores para as seguintes colunas:
+O modelo de CSV exige valores para as seguintes colunas:
 
-- **Formato do Rótulo**, um dos seguintes:
+- **Formato do Rótulo**
+  Deve ser um dos seguintes:
 
   - `ca:legacy:nutrition_facts:vertical`
   - `de:eu:nutrition_facts:vertical`
@@ -30,12 +33,8 @@ O modelo requer valores para as seguintes colunas:
   - `us:2016:supplement_facts:vertical_columns`
   - `us:2016:supplement_facts:vertical`
 
-  **Rótulos canadenses devem ser importados pela nossa equipe de suporte.**
-
-- Um *identificador do produto*, um dos seguintes: ID do Produto/ID da Variante ou SKU é necessário para associar o produto ao Shopify
-- Tamanho da Porção - Necessário apenas para Nutrition Facts
-
-Para importar seus produtos, vá para a <Link path="/products/import/new">página de Importação de Produtos</Link>.
+- **Uma coluna identificadora do produto**
+  Deve ser um dos seguintes: ID do Produto/ID da Variante ou SKU. Estes serão usados para associar o produto a um produto correspondente na Shopify.
 
 ## Adicionando Nutrientes à Planilha {/* #adding-nutrients-to-the-spreadsheet */}
 

@@ -1,0 +1,66 @@
+---
+sidebar_position: 3
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Automaticamente ao Adicionar Nosso Snippet Liquid ao Seu Tema
+
+:::info
+A melhor maneira de adicionar rótulos de produtos ao seu site Shopify é [pelo editor de temas do Shopify](theme-editor).
+As instruções aqui são apenas para os casos que não podem ser tratados pelo editor de temas.
+:::
+
+Este é um processo de duas etapas: 1) adicionar nosso snippet de código Liquid ao seu tema e 2) renderizar o snippet no local onde você deseja que o rótulo seja exibido.
+
+## Adicionando Nosso Snippet ao Seu Tema {/* #adding-labels-liquid-snippet-theme */}
+
+1. <ShopifyLink href={(shopify) => shopify.toString()}>Vá para o Admin do Shopify</ShopifyLink>
+2. [Abra o editor de código do seu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3. [Adicione um novo arquivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Clique no diretório *snippets*
+   - Clique em <kbd>Adicionar novo snippet</kbd>
+   - Para o nome do arquivo use `itsgot-product-label-embed-code.liquid`
+   - Clique em <kbd>Concluído</kbd>
+4. Isso abrirá uma nova aba em branco no editor com o nome `snippets/itsgot-product-label-embed-code.liquid`
+5. Copie o código do [nosso snippet Liquid](/itsgot/images/itsgot-product-label-embed-code.txt) e cole na aba
+6. Clique em <kbd>Salvar</kbd>
+7. Clique novamente em [Adicionar um novo arquivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Clique no diretório *snippets*
+   - Clique em <kbd>Adicionar novo snippet</kbd>
+   - Para o nome do arquivo use `itsgot-product-label.liquid`
+   - Clique em <kbd>Concluído</kbd>
+8. Isso abrirá uma nova aba em branco no editor com o nome `snippets/itsgot-product-label.liquid`
+9. Copie o código do [nosso snippet Liquid](/itsgot/images/itsgot-product-label.txt) e cole na aba
+10. Clique em <kbd>Salvar</kbd>
+
+## Exibindo o Rótulo do Produto
+
+Depois de [adicionar nosso snippet ao seu tema](#adding-labels-liquid-snippet-theme), o próximo passo é renderizá-lo
+no local onde você deseja que o rótulo seja exibido. Isso pode ser feito no Admin do Shopify, pela página de personalização do tema.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Vá para *Temas* no Admin do Shopify</ShopifyLink>
+2. Encontre o tema que você deseja atualizar e clique em <kbd>Editar tema</kbd>
+3. No editor de temas, selecione *Produtos* e depois *Produto padrão* (ou o modelo desejado)
+4. Se você quiser adicionar o rótulo a uma seção existente, clique no botão de adicionar bloco dentro dessa seção e selecione *Liquid personalizado*
+   ou, se não estiver disponível, *HTML* (observe que o bloco *HTML* deve suportar Liquid):
+
+   <img src="/itsgot/shopify/images/add-liquid-block.png" width="500" alt="Adicionar bloco Liquid personalizado" />
+
+5. Se você quiser adicionar o rótulo em uma nova seção, clique no botão <kbd>Adicionar seção</kbd> e selecione *Liquid personalizado* ou *HTML*, o que o seu tema oferecer:
+
+   <img src="/itsgot/shopify/images/add-liquid-section.png" width="500" alt="Adicionar seção Liquid personalizado" />
+
+6. Se o seu tema não tiver a opção *Liquid personalizado* nem *HTML*, você deve renderizar o snippet no seu tema manualmente.
+   Isso pode ser feito pelo [editor de código do tema](https://shopify.dev/docs/themes/tools/code-editor).
+   Se precisar de ajuda, [contate o suporte](https://screenstaring.com/#contact).
+7. Clique no bloco ou na seção *Liquid personalizado* que você acabou de adicionar
+8. No campo *Liquid personalizado* (ou similar), cole o seguinte código:
+
+   `{% render "itsgot-product-label", product: product %}`
+
+   <img src="/itsgot/shopify/images/custom-liquid-block-contents.png" width="500" alt="Conteúdo do bloco Liquid personalizado" />
+
+9. Clique em <kbd>Salvar</kbd>
+
+Rótulos atuais e futuros agora aparecerão automaticamente na página dos produtos.

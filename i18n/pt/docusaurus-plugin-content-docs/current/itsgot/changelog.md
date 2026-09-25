@@ -51,16 +51,12 @@ Um resumo das mudanças notáveis no It's Got.
 ### 20 de março
 
 - Suporte a upload de imagens no editor de texto rico
-- Melhorias na inserção de rótulos nas descrições de produtos
 
-### 15 de março
+### 25 de fevereiro
 
 - Todos os campos de notas de rodapé agora usam editores de texto rico
 - Suporte ao vínculo de nutrientes e ingredientes dietéticos a páginas da web
 - Suporte à alteração da aparência de ingredientes dietéticos
-
-### 25 de fevereiro
-
 - Suporte à definição de títulos de rótulo personalizados em informações de suplemento da UE
 - Suporte à definição do tamanho da fonte do painel de nutrição
 - Suporte à adição de nutrientes personalizados em rótulos de informações nutricionais

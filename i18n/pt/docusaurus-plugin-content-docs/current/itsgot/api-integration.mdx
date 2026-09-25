@@ -4,43 +4,43 @@ sidebar_position: 10
 
 import Link from '@site/src/components/ItsGot/Link';
 
-# Intégration de l'API
+# Integração via API
 
 
-**L'intégration de l'API n'est disponible qu'avec le <Link path="/app/plans">forfait Premium</Link>.**
+**A integração via API está disponível apenas no <Link path="/app/plans">plano Premium</Link>.**
 
-Les requêtes API sont authentifiées à l'aide de votre clé API.
-Incluez votre clé API dans l'en-tête `X-API-Key` de chaque requête.
-Contactez le support pour obtenir la vôtre.
+As requisições à API são autenticadas usando sua chave de API.
+Inclua sua chave de API no cabeçalho `X-API-Key` em cada requisição.
+Contate o suporte para obter a sua.
 
-## URL de base
+## URL Base
 
-Tous les points de terminaison de l'API sont relatifs à : `https://itsgot.com`
+Todos os endpoints da API são relativos a: `https://itsgot.com`
 
-## Pagination
+## Paginação
 
-Pour les points de terminaison qui prennent en charge la pagination, les URL de la page suivante et de la page précédente se trouvent dans l'en-tête HTTP `Link`.
+Para endpoints que suportam paginação, as URLs da próxima página e da página anterior podem ser encontradas no cabeçalho `Link` da resposta HTTP.
 
-## Récupérer les produits
+## Recuperar Produtos
 
 ### GET /api/products
 
-**Paramètres de requête :**
+**Parâmetros de Consulta:**
 
-- `sku` - Le SKU de la variante (facultatif)
-- `barcode` - Le code-barres de la variante (facultatif)
-- `external_product_id` - ID du produit Shopify (facultatif)
-- `external_variant_id` - ID de la variante Shopify (facultatif)
-- `page` - Page à récupérer (facultatif)
-- `per_page` - Nombre de produits renvoyés par page, doit être l'une des valeurs `10`, `25`, `50`, `100` (facultatif, 10 par défaut)
+- `sku` - O SKU da variante (opcional)
+- `barcode` - O código de barras da variante (opcional)
+- `external_product_id` - ID do produto na Shopify (opcional)
+- `external_variant_id` - ID da variante na Shopify (opcional)
+- `page` - Página a recuperar (opcional)
+- `per_page` - Número de produtos retornados por página, deve ser um dos seguintes: `10`, `25`, `50`, `100` (opcional, o padrão é 10)
 
-**Exemple avec curl :**
+**Exemplo usando curl:**
 
 ```bash
 curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
 ```
 
-**Réponse (200 OK) :**
+**Resposta (200 OK):**
 
 ```json
 [
@@ -162,23 +162,23 @@ curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
 ]
 ```
 
-## Exporter une étiquette dans un format donné
+## Exportar um Rótulo para um Formato Específico
 
 ### GET /api/products/PRODUCT_ID/labels/LABEL_ID/export.FORMAT
 
-**Paramètres obligatoires :**
+**Parâmetros obrigatórios:**
 
-- `PRODUCT_ID` - ID du produit dont vous souhaitez exporter l'étiquette
-- `LABEL_ID` - ID de l'étiquette que vous souhaitez exporter
-- `FORMAT` - Format d'exportation. L'un de `png`, `jpg`, `pdf` ou `html`
+- `PRODUCT_ID` - ID do produto cujo rótulo você deseja exportar
+- `LABEL_ID` - ID do rótulo que você deseja exportar
+- `FORMAT` - Formato para exportar. Um dos seguintes: `png`, `jpg`, `pdf` ou `html`
 
-**Paramètres de requête facultatifs :**
+**Parâmetros de consulta opcionais:**
 
-- `width` - Image uniquement. Exporte l'étiquette à la largeur donnée. La valeur par défaut est la largeur de l'étiquette x 2.
-- `height` - Image uniquement. Exporte l'étiquette à la hauteur donnée. Par défaut, le rapport hauteur/largeur est conservé et la hauteur est calculée à partir de la largeur donnée.
-- `background_color` - Image uniquement. Couleur d'arrière-plan à utiliser si l'étiquette est redimensionnée et ne conserve plus son rapport hauteur/largeur
+- `width` - Somente para imagens. Exporta o rótulo com a largura fornecida. O padrão é a largura do rótulo x 2.
+- `height` - Somente para imagens. Exporta o rótulo com a altura fornecida. Por padrão, a proporção é mantida e a altura é baseada na largura fornecida.
+- `background_color` - Somente para imagens. Cor de fundo a usar se o rótulo for redimensionado e não mantiver mais sua proporção
 
-**Exemple avec curl :**
+**Exemplo usando curl:**
 
 ```bash
 curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products/123/labels/789/export.jpg' > product.jpg

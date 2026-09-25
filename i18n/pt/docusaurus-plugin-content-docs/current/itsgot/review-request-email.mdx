@@ -1,0 +1,54 @@
+---
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Verificação de Domínio do E-mail de Solicitação de Avaliação
+
+
+Para enviar e-mails de solicitação de avaliação usando seu endereço e domínio de e-mail, você deve primeiro verificar que é o proprietário do domínio.
+Verificar seu domínio permite que os destinatários vejam que o e-mail é enviado diretamente por você, e os provedores de e-mail são mais propensos a confiar nele.
+Isso melhora a entregabilidade, aumentando a chance de suas mensagens chegarem à caixa de entrada em vez de serem marcadas como spam.
+As capturas de tela a seguir mostram a diferença entre e-mails com e sem um domínio verificado.
+
+**Sem domínio verificado**
+
+<img src="/itsgot/images/review-request-reply-to.png" width="500" alt="E-mail sem domínio verificado" />
+
+Observe que o endereço *De* usa o endereço do aplicativo e o e-mail do seu site é usado como endereço *Responder a*.
+
+**Com domínio verificado**
+
+<img src="/itsgot/images/review-request-custom-domain.png" width="500" alt="E-mail com domínio verificado" />
+
+Usar um domínio verificado permite usar seu próprio endereço no campo *De*, eliminando a necessidade de um endereço *Responder a*.
+
+A verificação do domínio do e-mail é feita adicionando registros DNS à configuração do seu site que autorizam nossa infraestrutura de envio.
+Depois que o domínio for verificado, o campo *E-mail de envio* na <Link path="/app/reviews/email/edit">página de configurações do e-mail de solicitação de avaliação</Link> será habilitado.
+
+## Verifique Seu Domínio
+
+1. Vá para a <Link path="/app/reviews/email/edit">página de configurações do e-mail de solicitação de avaliação</Link>
+2. Clique no botão <kbd>Verificar</kbd> ao lado do campo *E-mail de envio*
+3. Insira seu domínio de envio (ex.: `mail.example.com`) e clique em <kbd>Registrar domínio</kbd>.
+4. Isso gerará vários registros DNS que devem ser adicionados às configurações de DNS do seu domínio.
+   Os registros podem ser vistos clicando no botão <kbd>Verificar domínio</kbd> na <Link path="/app/reviews/email/edit">página de configuração do e-mail</Link>.
+5. Adicione os registros gerados anteriormente à configuração de DNS do seu site.
+   Para mais informações, veja [Adicionando Registros à Configuração de DNS do Seu Site](#adding-dns-records).
+6. Depois que os registros forem adicionados, clique no botão <kbd>Registros adicionados</kbd> na <Link path="/app/reviews/email/edit#verification">página de verificação</Link>
+7. Aguarde a propagação das alterações de DNS e a conclusão da verificação. Isso pode levar até 24 horas.
+   Depois de verificado, o campo *De* será habilitado e você poderá definir um endereço de envio personalizado.
+8. Você pode acompanhar o status da verificação na <Link path="/app/reviews/email/edit">página de configurações do e-mail de solicitação de avaliação</Link>
+
+## Adicionando Registros à Configuração de DNS do Seu Site {/* #adding-dns-records */}
+
+A autenticação de domínio depende de alguns registros DNS que comprovam que você controla o domínio a partir do qual está enviando.
+Adicione-os no painel de controle do seu provedor de DNS mantendo este aplicativo aberto em outra aba — você copiará valores de um para o outro.
+
+A interface de cada provedor de DNS é um pouco diferente, então os nomes de campos mencionados aqui podem não corresponder exatamente ao que você vê.
+Se você normalmente não gerencia o DNS da sua organização, envolva quem faz isso — sua equipe de TI ou provedor de hospedagem geralmente pode adicionar esses registros em alguns minutos.
+
+Depois de adicionados, dê alguns minutos para que as alterações tenham efeito, então clique em <kbd>Verificar registros</kbd> na <Link path="/app/reviews/email/edit">página de configurações do e-mail de solicitação de avaliação</Link>.
+
+Depois que o aplicativo confirmar que o registro está no lugar, clique em <kbd>Concluído</kbd> para finalizar a configuração.
