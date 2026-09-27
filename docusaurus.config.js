@@ -54,7 +54,10 @@ const config = {
   },
 
   // Site-wide JSON-LD (Organization, WebSite) per locale, see plugins/json-ld.
-  plugins: ['./plugins/json-ld'],
+  // Per-page schemas come from src/components/DocJsonLd via the swizzled
+  // DocItem/Layout. Generates llms.txt and llms-full.txt for each locale,
+  // see plugins/llms-txt.
+  plugins: ['./plugins/json-ld', './plugins/llms-txt'],
 
   presets: [
     [
