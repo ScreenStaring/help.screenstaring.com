@@ -1,0 +1,2300 @@
+# ScreenStaring Documentation
+
+> Documentación y soporte para las aplicaciones de Shopify de ScreenStaring: It's Got (etiquetas nutricionales y de suplementos) y Product Expiration Dates (fechas de vencimiento, números de lote e inventario de productos perecederos).
+
+Documentation language: Español. Source: https://help.screenstaring.com/es/docs/
+
+---
+
+# It's Got: The Food Database
+
+## Guía del usuario de It's Got
+
+Source: https://help.screenstaring.com/es/docs/itsgot/
+
+[It's Got](https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) gestiona los datos nutricionales de los productos y te permite
+agregar paneles de información nutricional, de suplementos, de medicamentos y para mascotas a tu sitio.
+Las etiquetas se pueden generar en formatos conocidos para varios países e idiomas.
+
+- [Agregar etiquetas nutricionales a tu sitio](https://help.screenstaring.com/es/docs/itsgot/adding-labels)
+- [Establecer el ancho de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/label-width)
+- [Cambiar los colores y el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings)
+- [Enlazar a páginas web desde los nutrientes de la etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings-links)
+- [Traducir el texto de las etiquetas](https://help.screenstaring.com/es/docs/itsgot/translations)
+- [Importación masiva de productos](https://help.screenstaring.com/es/docs/itsgot/importing-products)
+- [Crear etiquetas en varios idiomas](https://help.screenstaring.com/es/docs/itsgot/multi-language)
+- [Combinar componentes de comida para generar una etiqueta](https://help.screenstaring.com/es/docs/itsgot/combine-api)
+- [Usar datos estructurados para mejorar el SEO](https://help.screenstaring.com/es/docs/itsgot/structured-data)
+- [Verificación de dominio del correo de solicitud de reseñas](https://help.screenstaring.com/es/docs/itsgot/review-request-email)
+- [Integración con la API](https://help.screenstaring.com/es/docs/itsgot/api-integration)
+- [Desinstalar la aplicación](https://help.screenstaring.com/es/docs/itsgot/uninstalling)
+- [Preguntas frecuentes](https://help.screenstaring.com/es/docs/itsgot/faq)
+- [Historial de cambios](https://help.screenstaring.com/es/docs/itsgot/changelog)
+
+---
+
+## Agregar etiquetas nutricionales a tu sitio
+
+Source: https://help.screenstaring.com/es/docs/itsgot/adding-labels/
+
+Hay varias formas de agregar etiquetas nutricionales a tu sitio.
+
+## Shopify
+
+Si usas Shopify, instala nuestra [aplicación Nutrition Facts para Shopify](https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
+
+La mayoría de los usuarios de Shopify debería usar el editor de temas de Shopify para agregar las etiquetas nutricionales.
+
+- [Editor de temas de Shopify](https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/theme-editor)
+- [Botón Agregar a la descripción del producto](https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/directly-from-app)
+
+## Código de inserción de etiquetas
+
+El código de inserción se puede usar para hacer que la etiqueta de un producto aparezca en cualquier lugar.
+
+- [Código de inserción de etiquetas](https://help.screenstaring.com/es/docs/itsgot/adding-labels/embed-code)
+También puedes usar la [Combine API](https://help.screenstaring.com/es/docs/itsgot/combine-api).
+
+---
+
+## Código de inserción de etiquetas
+
+Source: https://help.screenstaring.com/es/docs/itsgot/adding-labels/embed-code/
+
+El código de inserción de etiquetas es un fragmento de HTML que te permite agregar una etiqueta a cualquier página de tu sitio.
+
+Para agregar una etiqueta con el código de inserción:
+
+1. Crea una etiqueta de producto.
+   Si el producto ya existe, búscalo en la página Mis etiquetas y haz clic en el nombre del producto.
+
+2. Haz clic en el botón Copiar código para copiar el código de inserción al portapapeles. Esto
+   te permitirá pegar el código en tu sitio en un paso posterior:
+
+3. Selecciona dónde quieres agregar tu fragmento. La captura de pantalla a continuación usa Entradas del blog y Páginas,
+   pero estas instrucciones también se aplican a Colecciones y Productos:
+
+4. Selecciona una entrada de blog existente (o página, colección o producto) a la que quieras agregar la etiqueta.
+   Si la entrada de blog no existe, crea una nueva:
+
+5. Busca la ubicación dentro del área de contenido donde quieres que se muestre la etiqueta de tu producto. Como
+   cambiarás al modo HTML para insertar el código de inserción, es buena idea insertar un texto marcador que puedas
+   reemplazar después. En este caso, agregamos el texto *REPLACE ME*:
+
+6. Haz clic en el botón para editar en modo HTML:
+
+7. El área de Contenido ahora muestra el código HTML:
+
+8. Elimina el texto *REPLACE ME* y pega el código de inserción que copiaste en el paso 2:
+
+9. Para terminar, haz clic en el botón Guardar:
+
+La etiqueta del producto ahora es parte de la entrada del blog.
+
+---
+
+## Editor de temas de Shopify
+
+Source: https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/theme-editor
+
+Con el [editor de temas de Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(personalización del tema) puedes agregar etiquetas
+[como una sección o un bloque](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+a una plantilla de producto, o conectarlas a una sección o bloque existente
+[a través de un metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(fuente dinámica).
+
+## Agregar una etiqueta como bloque
+
+1.  shopify.themes()}>Ve a *Temas* en el administrador de Shopify
+2. Busca el tema que quieres actualizar y haz clic en Editar tema
+3. En el editor de temas, selecciona la plantilla de producto a la que quieres agregar las etiquetas:
+
+4. Selecciona la ubicación deseada dentro de la plantilla de producto. Puedes hacerlo pasando el cursor sobre el área de inserción deseada:
+
+5. Haz clic en el botón de agregar bloque y selecciona *Nutrition Facts* en la sección *Aplicaciones*:
+
+6. Esto agregará un bloque de *Nutrition Facts* a la plantilla seleccionada:
+
+7. Haz clic en el bloque *Nutrition Facts* para acceder a opciones de configuración adicionales
+8. Haz clic en Guardar
+
+Las etiquetas de los productos ahora se mostrarán en tu sitio.
+
+## Agregar una etiqueta mediante un metafield
+
+Esto solo funciona si la sección o el bloque de destino admite fuentes dinámicas.
+
+1.  shopify.themes()}>Ve a *Temas* en el administrador de Shopify
+2. Busca el tema que quieres actualizar y haz clic en Editar tema
+3. En el editor de temas, busca la sección o el bloque al que quieres agregar las etiquetas y haz clic en él. En este ejemplo, las agregamos a un bloque *Texto*:
+
+4. Dentro de la configuración del bloque *Texto*, haz clic en el botón Conectar fuente dinámica:
+
+5. Asegúrate de que las fuentes de la plantilla de producto estén seleccionadas:
+
+   Si no está seleccionada, haz clic en el encabezado actualmente seleccionado y cambia la fuente a la plantilla de producto
+
+6. En la lista de fuentes dinámicas, busca y elige *Nutrition Facts app label embed code*:
+
+7. Una vez seleccionada, la verás como una fuente en el campo asociado:
+
+8. Haz clic en Guardar
+
+Las etiquetas de los productos ahora se mostrarán en tu sitio.
+
+## En otros lugares
+
+Si quieres agregar etiquetas en una ubicación fuera de la plantilla de producto o en cualquier otro lugar de tu sitio, prueba una de las siguientes opciones:
+
+- [Fragmento de Liquid](https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Código de inserción de etiquetas](https://help.screenstaring.com/es/docs/itsgot/adding-labels/embed-code)
+
+---
+
+## Botón Agregar a la descripción del producto
+
+Source: https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/directly-from-app
+
+Una etiqueta nutricional se puede agregar en la parte superior, en la parte inferior o en una ubicación personalizada de la descripción de tu producto.
+Puedes establecer una de estas ubicaciones como predeterminada desde la página de configuración de tu cuenta.
+
+Una ubicación personalizada se usa normalmente cuando la descripción contiene pestañas o un acordeón y quieres
+que la etiqueta se agregue a un panel específico (consulta las instrucciones a continuación para obtener más información).
+
+Para agregar una etiqueta a la descripción del producto:
+
+1. Crea una etiqueta de producto. Si el producto ya existe, búscalo en la página Mis etiquetas y haz clic en el nombre del producto.
+
+2. En la página del producto, ubica la sección *Agregar a la descripción del producto*
+3. Selecciona dónde quieres agregar la etiqueta: parte superior, parte inferior o personalizada:
+
+   El valor para la ubicación personalizada debe ser [un selector CSS o XPath](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html).
+
+4. Haz clic en el botón Agregar
+
+La etiqueta se insertará en la descripción de tu producto. La etiqueta puede tardar hasta 1 minuto en aparecer en la página del producto.
+
+Ten cuidado de no eliminar el código de inserción de la etiqueta cuando edites la descripción del producto en el administrador de Shopify
+
+También puedes agregar a las descripciones de tus productos cuando [importas productos de forma masiva](https://help.screenstaring.com/es/docs/itsgot/importing-products).
+
+---
+
+## Automáticamente agregando nuestro fragmento de Liquid a tu tema
+
+Source: https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/liquid-snippet
+
+La mejor forma de agregar etiquetas de productos a tu sitio de Shopify es [a través del editor de temas de Shopify](theme-editor).
+Las instrucciones que aparecen aquí son solo para los casos que el editor de temas no puede manejar.
+
+Este es un proceso de dos pasos: 1) agrega nuestro fragmento de código Liquid a tu tema y 2) renderiza el fragmento en la ubicación donde quieres que se muestre la etiqueta.
+
+## Agregar nuestro fragmento a tu tema
+
+1.  shopify.toString()}>Ve al administrador de Shopify
+2. [Abre el editor de código de tu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3. [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Haz clic en el directorio *snippets*
+   - Haz clic en Agregar nuevo fragmento
+   - Como nombre de archivo, usa `itsgot-product-label-embed-code.liquid`
+   - Haz clic en Listo
+4. Esto abrirá una nueva pestaña en blanco en el editor con el nombre `snippets/itsgot-product-label-embed-code.liquid`
+5. Copia el código de [nuestro fragmento de Liquid](https://help.screenstaring.com/es/itsgot/images/itsgot-product-label-embed-code.txt) y pégalo en la pestaña
+6. Haz clic en Guardar
+7. Haz clic de nuevo en [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Haz clic en el directorio *snippets*
+   - Haz clic en Agregar nuevo fragmento
+   - Como nombre de archivo, usa `itsgot-product-label.liquid`
+   - Haz clic en Listo
+8. Esto abrirá una nueva pestaña en blanco en el editor con el nombre `snippets/itsgot-product-label.liquid`
+9. Copia el código de [nuestro fragmento de Liquid](https://help.screenstaring.com/es/itsgot/images/itsgot-product-label.txt) y pégalo en la pestaña
+10. Haz clic en Guardar
+
+## Mostrar la etiqueta del producto
+
+Una vez que hayas [agregado nuestro fragmento a tu tema](#adding-labels-liquid-snippet-theme), el siguiente paso es renderizarlo
+en la ubicación donde quieres que se muestre la etiqueta. Esto se puede hacer desde el administrador de Shopify, a través de la página de personalización del tema.
+
+1.  shopify.themes()}>Ve a *Temas* en el administrador de Shopify
+2. Busca el tema que quieres actualizar y haz clic en Editar tema
+3. En el editor de temas, selecciona *Productos* y luego *Producto predeterminado* (o la plantilla que quieras)
+4. Si quieres agregar la etiqueta a una sección existente, haz clic en el botón de agregar bloque dentro de esa sección y selecciona *Liquid personalizado*
+   o, si no está disponible, *HTML* (ten en cuenta que el bloque *HTML* debe admitir Liquid):
+
+5. Si quieres agregar la etiqueta a una nueva sección, haz clic en el botón Agregar sección y selecciona *Liquid personalizado* o *HTML*, lo que ofrezca tu tema:
+
+6. Si tu tema no tiene una opción *Liquid personalizado* ni *HTML*, debes renderizar el fragmento manualmente en tu tema.
+   Esto se puede hacer a través de [el editor de código del tema](https://shopify.dev/docs/themes/tools/code-editor).
+   Si necesitas ayuda, [comunícate con soporte](https://screenstaring.com/#contact).
+7. Haz clic en el bloque o la sección *Liquid personalizado* que acabas de agregar
+8. En el campo *Liquid personalizado* (o similar), pega el siguiente código:
+
+   `{% render "itsgot-product-label", product: product %}`
+
+9. Haz clic en Guardar
+
+Ahora las etiquetas actuales y futuras aparecerán automáticamente en la página de productos.
+
+---
+
+## Configurar el ancho de una etiqueta
+
+Source: https://help.screenstaring.com/es/docs/itsgot/label-width/
+
+El ancho de una etiqueta puede ser:
+
+- Un valor fijo en píxeles
+- Un porcentaje del tamaño de su elemento HTML padre
+- Variable según el dispositivo del usuario, por ejemplo, tableta o escritorio
+
+Los anchos fijos y porcentuales se pueden establecer en el campo "Ancho" de la etiqueta, ubicado en la sección General de la
+configuración de visualización de la etiqueta. El campo de ancho se compone del valor del ancho y su unidad:
+
+La unidad puede ser píxeles (`px`) o un porcentaje (`%`).
+
+Se puede establecer un ancho predeterminado en la página de configuración de tu cuenta.
+
+Cada opción se describe en las siguientes páginas:
+
+- [Valor fijo en píxeles](fixed-pixel-value.md)
+- [Porcentaje del tamaño de su elemento HTML padre](percentage-of-its-parent-html-elements-size.md)
+- [Variar según el dispositivo del usuario](vary-by-a-users-device.md)
+
+---
+
+## Valor fijo en píxeles
+
+Source: https://help.screenstaring.com/es/docs/itsgot/label-width/fixed-pixel-value
+
+Un ancho fijo se establece en píxeles seleccionando `px` en el menú de unidades. Por ejemplo, para hacer una etiqueta de 400 píxeles de ancho:
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "General"
+1. Completa el campo "Ancho" con el ancho deseado, por ejemplo `400`
+1. Selecciona `px` en el menú de unidades:
+
+1. Haz clic en Actualizar
+
+Si no se establece un ancho, la etiqueta usa tu valor predeterminado. Si no se establece un valor
+predeterminado, se usará el ancho predeterminado para el formato de etiqueta seleccionado. Este es de 400 píxeles para los formatos verticales y de 750 píxeles para los formatos tabulares.
+
+Un ancho fijo se aplica como ancho máximo. Si el espacio disponible para la etiqueta es menor que el ancho de la etiqueta, la etiqueta se
+reduce para ajustarse. Una etiqueta nunca será más ancha que el espacio en el que está insertada, por ejemplo, una columna estrecha en un teléfono.
+
+Para usar un ancho dinámico basado en el contenedor, [usa un porcentaje](percentage-of-its-parent-html-elements-size.md)
+
+---
+
+## Porcentaje del tamaño de su elemento HTML padre
+
+Source: https://help.screenstaring.com/es/docs/itsgot/label-width/percentage-of-its-parent-html-elements-size
+
+Un ancho porcentual hace que la etiqueta sea relativa al elemento en el que está insertada, por ejemplo, un bloque del tema o la columna de una página de producto.
+El ancho cambia cuando cambia el tamaño de ese elemento.
+
+Para hacer que una etiqueta sea tan ancha como el elemento en el que se encuentra:
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "General"
+1. Completa el campo "Ancho" con el porcentaje deseado. En la mayoría de los casos ingresarás `100` para que la etiqueta ocupe todo el ancho de su elemento padre
+1. Selecciona `%` en el menú de unidades:
+
+1. Haz clic en Actualizar
+
+Una etiqueta con un ancho porcentual sigue estando limitada por el espacio que se le asigna. Por ejemplo, una etiqueta con un ancho de `100%` dentro de una
+columna de 300 píxeles de ancho también tendrá 300 píxeles de ancho.
+
+---
+
+## Variar según el dispositivo del usuario
+
+Source: https://help.screenstaring.com/es/docs/itsgot/label-width/vary-by-a-users-device
+
+Se pueden mostrar etiquetas diferentes según el dispositivo que use el visitante. Esto es útil cuando el texto de una etiqueta sería
+demasiado pequeño para leerse en una tableta o un teléfono, o cuando la pantalla de dicho dispositivo no puede mostrar el ancho completo de una etiqueta.
+
+Cada etiqueta tiene un *Dispositivo objetivo*. Para establecerlo:
+
+1. Desde la página del producto, ve a su página Etiquetas
+1. Crea una etiqueta nueva o edita una existente
+1. Ve a la pestaña "Visualización"
+1. Selecciona un dispositivo en el menú "Dispositivo objetivo":
+
+   - **Escritorio** - se muestra en pantallas de 992 píxeles o más
+   - **Tableta** - se muestra en pantallas de entre 577 y 991 píxeles
+   - **Teléfono** - se muestra en pantallas de hasta 576 píxeles
+   - **Personalizado** - se muestra en pantallas dentro del rango establecido por los campos "Ancho de pantalla mínimo" y "Ancho de pantalla máximo"
+   - **Todo** (el valor predeterminado) - se muestra en todas las pantallas, independientemente de su tamaño
+
+1. Haz clic en Actualizar
+
+Para mostrar una etiqueta diferente para cada dispositivo, por ejemplo, una etiqueta para computadoras de escritorio y otra para teléfonos, crea una etiqueta para cada
+dispositivo y establece el *Dispositivo objetivo* de cada una. Solo se muestran las etiquetas adecuadas para la pantalla del visitante; las demás se omiten.
+El dispositivo objetivo de una etiqueta aparece en la columna "Dispositivo objetivo" de la página Etiquetas de un producto.
+
+Se usa el ancho de pantalla del dispositivo, no el ancho de la ventana del navegador. Esto significa que un visitante siempre verá la misma etiqueta en un
+dispositivo determinado, incluso si cambia el tamaño de la ventana de su navegador.
+
+---
+
+## Modificar el diseño de una etiqueta
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/
+
+La configuración se aplica en 2 niveles:
+
+1. Valores predeterminados del sitio que se aplican a todas las etiquetas nuevas
+2. Valores específicos de cada etiqueta
+
+Los valores predeterminados del sitio se pueden configurar en la página de configuración de tu cuenta.
+
+Los valores específicos de cada etiqueta se pueden establecer al crear o editar una etiqueta en la sección Configuración de visualización de la etiqueta.
+Esta configuración se divide en:
+
+1. **General** - Configuración básica que se aplica a todo en la etiqueta. Ancho, tamaño de la fuente, etc.
+2. **Panel de información nutricional** - Configuración que se aplica específicamente al panel. Tamaño del borde, color, grosor, etc.
+3. **CSS personalizado** - CSS específico del sitio para incluir en todas las etiquetas nuevas
+
+Los colores y el diseño de los campos de texto, como los ingredientes y las advertencias, se pueden modificar dentro del propio campo.
+
+La configuración también se puede establecer por fila en el panel de información nutricional. Esto incluye cosas como cambiar la sangría de un nutriente, poner su texto en negrita,
+y agregar enlaces a otros productos o páginas de tu sitio. Para configurar un ajuste de una fila, haz clic en el enlace *Configuración de visualización* después de
+seleccionar o ingresar un valor:
+
+---
+
+## Bordes, colores y sangría
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/borders-colors-and-indentation
+
+Puedes establecer valores predeterminados para estas opciones en la página de configuración de tu cuenta
+
+## Establecer el color del texto
+
+El color de la etiqueta y de su texto se puede establecer en la sección Configuración de visualización de la etiqueta. Los bloques de texto y los nutrientes individuales también pueden tener su propio color.
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "General"
+1. Completa el campo "Color del texto" con el código de color hexadecimal del color deseado:
+
+1. Haz clic en Actualizar
+1. Esto cambiará todo el texto de la etiqueta al color seleccionado
+
+### Bloques de texto
+
+1. Desde la página del producto, ve al bloque de texto deseado
+1. En el menú Formato del bloque, selecciona "Color del texto"
+1. Puedes elegir un color predefinido o un color específico seleccionando el icono de paleta:
+
+1. Haz clic en Actualizar
+1. El color solo se aplicará al bloque de texto. El color predeterminado de la etiqueta no se verá afectado:
+
+### Nutrientes
+
+Usa la configuración de visualización de un nutriente para cambiar su color:
+
+1. En la ventana emergente Configuración de visualización, busca la sección Estilo
+1. Completa el campo "Color del texto" con el código de color hexadecimal del color deseado
+1. Haz clic en Ok
+1. Haz clic en Actualizar
+
+## Establecer el color de fondo
+
+De forma predeterminada, el color de fondo es transparente para coincidir con el fondo de tu sitio.
+El color de fondo se puede establecer en la sección Configuración de visualización de la etiqueta. Los bloques de texto y los nutrientes individuales también pueden tener su propio color de fondo.
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "General"
+1. Completa el campo "Color del texto" con el código de color hexadecimal del color deseado
+   
+1. Haz clic en Actualizar
+1. Esto hará que toda la etiqueta use el color seleccionado como fondo
+
+---
+
+## Encabezado del panel
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/panel-heading
+
+El encabezado del panel es el texto en la parte superior de la etiqueta, por ejemplo "Nutrition Facts", "Supplement Facts", "Drug Facts" o "Guaranteed Analysis".
+
+Puedes establecer un encabezado predeterminado en la página de configuración de tu cuenta
+
+El encabezado de una etiqueta se puede establecer en la sección Configuración de visualización de la etiqueta:
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "Panel de información nutricional"
+1. Completa el campo "Encabezado" con el texto deseado
+   
+1. Haz clic en Actualizar
+
+Según el formato de la etiqueta, el encabezado se puede formatear con HTML, por ejemplo ``, ``, o un tamaño de fuente diferente.
+
+---
+
+## Orden de los nutrientes
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/nutrient-order
+
+Los nutrientes se pueden listar en cualquier orden en lugar del orden predeterminado del formato de la etiqueta:
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. En el editor de etiquetas, ve a la sección "Nutrientes"
+1. Marca "Usar orden personalizado"
+1. Arrastra el controlador (⋮⋮) de una fila para moverla hacia arriba o hacia abajo
+   
+1. Haz clic en Actualizar
+
+El orden solo lo usa la etiqueta. No cambia el orden en que aparecen los nutrientes en ningún otro lugar.
+
+El orden personalizado no está disponible para el formato de etiqueta "Tabular".
+
+---
+
+## Fuente
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/font
+
+Una etiqueta puede usar su propia fuente en lugar de la fuente de la página en la que está insertada:
+
+Puedes establecer valores predeterminados para estas opciones en la página de configuración de tu cuenta
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "General"
+1. Completa el campo "URL de la fuente" con un enlace a la definición de fuente CSS, por ejemplo `https://fonts.googleapis.com/css2?family=Open+Sans`
+1. Completa el campo "Familia de la fuente" con el nombre de la familia de la fuente, por ejemplo `Open Sans`
+   
+1. Haz clic en Actualizar
+
+La URL debe ser una definición de fuente CSS que se incluya mediante una etiqueta HTML `link`, no un archivo de fuente.
+
+---
+
+## CSS personalizado
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/custom-css
+
+
+
+---
+
+## Nutrientes, ingredientes y otros textos
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/
+
+La configuración de visualización no se limita al panel en su conjunto. Los nutrientes, los ingredientes y otros textos se pueden configurar individualmente:
+
+- **Nutrientes** - cada fila del panel tiene un enlace *Configuración de visualización* donde se pueden establecer su sangría, fuente, color y otros estilos
+- **Ingredientes y otros textos** - los campos de texto, las advertencias y los bloques de texto se formatean desde el propio campo usando su menú Formato
+
+Las opciones de las siguientes páginas se aplican a estas áreas:
+
+- [Cantidad, unidad y porcentaje](quantity-unit-and-percentage.md)
+- [Folato, ácido fólico](folate-folic-acid.md)
+- [Aminoácidos](amino-acids.md)
+
+---
+
+## Cantidad, unidad y porcentaje
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/quantity-unit-and-percentage
+
+De forma predeterminada, el valor de un nutriente se muestra sin espacios, por ejemplo `5g` y `10%`. Se pueden agregar espacios:
+
+Puedes establecer valores predeterminados para estas opciones en la página de configuración de tu cuenta
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "Panel de información nutricional"
+1. Marca "Agregar espacio entre cantidad y unidad" para mostrar `5 g`
+1. Marca "Agregar espacio entre valor y porcentaje" para mostrar `10 %`
+   
+1. Haz clic en Actualizar
+
+La opción "No mostrar porcentajes de valor diario" de la misma sección elimina por completo la columna de porcentaje de la etiqueta.
+
+---
+
+## Folato, ácido fólico
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/folate-folic-acid
+
+El ácido fólico se muestra directamente debajo del folato cuando ambos están presentes:
+
+Esta opción está disponible para los formatos de etiqueta "US Nutrition Facts – Vertical" y "US Supplement Facts – Vertical". No tiene efecto a menos que la etiqueta incluya tanto folato como ácido fólico.
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "Panel de información nutricional"
+1. Marca "Agrupar folato y ácido fólico"
+   
+1. Haz clic en Actualizar
+
+Esto sigue las guías de etiquetado de la FDA para el folato y el ácido fólico.
+
+---
+
+## Aminoácidos
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/amino-acids
+
+Los aminoácidos se pueden mover fuera de la lista de nutrientes y a su propia sección en la parte inferior del panel:
+
+Esta opción solo está disponible para los formatos de etiqueta Supplement Facts. Puedes establecer un valor predeterminado en la página de configuración de tu cuenta
+
+1. Busca el producto deseado y haz clic en el botón "Editar"
+1. Ve a la sección Configuración de visualización de la etiqueta
+1. Selecciona "Panel de información nutricional"
+1. Marca "Crear una sección separada para los aminoácidos"
+   
+1. Haz clic en Actualizar
+
+La sección se titula "Amino Acids" y solo se muestra si el producto tiene aminoácidos.
+
+---
+
+## Enlazar a páginas web desde los nutrientes de la etiqueta
+
+Source: https://help.screenstaring.com/es/docs/itsgot/display-settings-links
+
+Si tu suscripción incluye funciones del plan Premium puedes convertir un nutriente o un ingrediente dietético de una etiqueta en un enlace a la página web que quieras.
+
+Para crear un enlace:
+
+1. Crea o edita la etiqueta de un producto existente
+2. En las secciones Nutrientes o Ingredientes dietéticos, agrega o edita un valor
+3. Una vez que se haya ingresado un valor, verás un enlace *Configuración de visualización*:
+
+4. Haz clic en el enlace para abrir el cuadro de diálogo *Configuración de visualización*. En el campo URL de la sección *Enlace*, ingresa la página a la que quieres enlazar.
+5. De forma predeterminada, el enlace se abrirá en la misma página. Puedes hacer que se abra en una ventana o pestaña nueva seleccionando *Abrir en ventana/pestaña nueva*.
+6. Haz clic en Guardar o Actualizar para guardar
+7. Ahora, cuando la etiqueta se muestre en tu sitio, aparecerá un enlace desde el nutriente o el ingrediente dietético hacia la URL indicada
+
+Para cambiar el color del enlace, consulta la sección [Cambiar los colores y el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings).
+
+---
+
+## Traducir el texto de las etiquetas
+
+Source: https://help.screenstaring.com/es/docs/itsgot/translations
+
+El texto de una etiqueta se puede cambiar creando una traducción.
+Las traducciones se pueden usar para cambiar todo el texto de la etiqueta. No son estrictamente para traducir entre idiomas.
+
+Usar traducciones requiere [establecer la configuración regional de la etiqueta](https://help.screenstaring.com/es/docs/itsgot/multi-language#multi-language-label-locale).
+Una vez establecida, se pueden crear traducciones para esa configuración regional que coincidan con el texto de origen y lo reemplacen con el texto definido por el usuario.
+
+La traducción de bloques de texto como ingredientes y advertencias se puede hacer en la página de edición de la etiqueta, en la sección *Traducciones*.
+Consulta [Traducir ingredientes y otros bloques de texto](https://help.screenstaring.com/es/docs/itsgot/multi-language#multi-language-label-translations).
+
+---
+
+## Importación masiva de productos
+
+Source: https://help.screenstaring.com/es/docs/itsgot/importing-products
+
+Para importar tus productos en masa:
+
+1. [Descarga nuestra plantilla de CSV](https://help.screenstaring.com/es/itsgot/images/product-import-template.csv)
+2. Agrega los datos de tu producto y de nutrición
+3. Ve a la página Importación de productos y sube tu archivo CSV
+4. Ten en cuenta que la hoja de cálculo de ejemplo no contiene todos los nutrientes posibles; consulta [Agregar nutrientes a la hoja de cálculo](#adding-nutrients-to-the-spreadsheet)
+
+La plantilla de CSV requiere valores para las siguientes columnas:
+
+- **Formato de etiqueta**
+  Debe ser uno de:
+
+  - `ca:legacy:nutrition_facts:vertical`
+  - `de:eu:nutrition_facts:vertical`
+  - `dk:eu:nutrition_facts:vertical`
+  - `se:eu:nutrition_facts:vertical`
+  - `uk:eu:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:tabular`
+  - `us:2016:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:emblems`
+  - `us:legacy:nutrition_facts:vertical`
+  - `us:legacy:supplement_facts:vertical_columns`
+  - `us:legacy:supplement_facts:vertical`
+  - `us:2016:supplement_facts:vertical_columns`
+  - `us:2016:supplement_facts:vertical`
+
+- **Una columna de identificador de producto**
+  Debe ser uno de: ID de producto/ID de variante o SKU. Se usarán para asociar el producto con un producto de Shopify correspondiente.
+
+## Agregar nutrientes a la hoja de cálculo
+
+Cualquier nutriente se puede importar. Por ejemplo, para importar Omega 3 con una cantidad de 1000mg agregarías una columna *Omega 3* con el valor *1000mg* en la fila del producto correspondiente.
+Si quisieras especificar un porcentaje permitido, agregarías una columna *Omega 3 %*:
+
+## Datos nutricionales con varias porciones
+
+Usa una columna *Comments* para separar conjuntos de datos nutricionales del mismo producto.
+Por ejemplo, si tienes datos nutricionales *Por porción* y *Por 100g*, delimitarías cada conjunto de datos con columnas *Comments*:
+
+---
+
+## Crear etiquetas en varios idiomas
+
+Source: https://help.screenstaring.com/es/docs/itsgot/multi-language
+
+Los productos pueden tener varias etiquetas. Cada etiqueta tiene su propia configuración, incluido el idioma en el que aparece. Esta configuración es la configuración regional de la etiqueta, que es una combinación de idioma y país.
+Por ejemplo, para mostrar una etiqueta en español de España, la configuración regional sería `es-ES`. El español de México sería `es-MX`.
+De forma predeterminada, la etiqueta heredará la configuración regional de su formato. Una etiqueta de Supplement Facts de EE. UU. tendrá una configuración regional `en-US` para inglés estadounidense.
+
+## Establecer la configuración regional de una etiqueta
+
+El primer paso para mostrar una etiqueta en un idioma diferente es cambiar su configuración regional.
+
+1. En la página del *Producto* en la aplicación, selecciona *Etiquetas*:
+
+2. Luego selecciona *Editar* para la etiqueta deseada:
+
+3. En la página de la etiqueta, selecciona *Traducciones*. Esto mostrará el campo de configuración regional:
+
+4. Elige la configuración regional deseada. Si no ves la que deseas, [contacta a soporte](https://screenstaring.com/#contact) y la agregarán.
+5. Haz clic en Actualizar para guardar
+
+Tu etiqueta ahora se mostrará en el idioma de la configuración regional elegida.
+El diseño de la etiqueta seguirá siendo el mismo, pero la nueva configuración regional provoca los siguientes cambios:
+
+- El texto no editable de la etiqueta cambiará, por ejemplo *Per serving*
+- Los nutrientes definidos por el sistema se traducirán
+- Los nutrientes, ingredientes, etc. definidos por el usuario se traducirán si se han definido traducciones para ellos. Consulta Traducir ingredientes, advertencias, etc.
+
+Ahora creemos una segunda etiqueta. Esta tendrá una configuración regional diferente y se traducirá a otro idioma.
+
+## Traducir ingredientes y otros bloques de texto
+
+1. En la página del *Producto* en la aplicación, selecciona *Etiquetas*:
+
+2. En la página de etiquetas, selecciona *Nueva etiqueta*:
+
+3. De forma predeterminada, el formato de la nueva etiqueta será el mismo que el de la etiqueta existente. Puedes cambiarlo si lo deseas.
+4. Selecciona *Traducciones* y elige el valor deseado en el campo de configuración regional:
+
+5. Puedes agregar traducciones para ingredientes, advertencias, notas al pie y más. Estos valores se usarán al
+   mostrar la etiqueta en la configuración regional elegida. El texto de la etiqueta original no se verá afectado.
+6. Haz clic en Actualizar para guardar
+
+Ahora tienes 2 etiquetas, cada una con su propia configuración regional:
+
+## Activar traducciones en tu sitio
+
+Si usas el [editor de temas de Shopify](https://help.screenstaring.com/es/docs/itsgot/adding-labels/shopify/theme-editor), puedes activar las traducciones seleccionando *Activar* en la sección *Traducciones*:
+
+Si no usas el editor de temas de Shopify, puedes agregar el atributo `data-localize="true"` a la etiqueta script del código de inserción. Por ejemplo:
+
+```html
+<div data-itsgot-user="1234" data-itsgot-label="9999"></div>
+<script src="//itsgot.com/embed.js" data-localize="true" async></script>
+```
+
+De forma predeterminada, el usuario verá el idioma que coincida con el atributo `lang` de la etiqueta `html` de la página. Esto funciona en la mayoría de los sitios.
+[Contacta a soporte](https://screenstaring.com/#contact) si necesitas usar un método diferente.
+
+---
+
+## Combinar componentes de comida para generar una etiqueta
+
+Source: https://help.screenstaring.com/es/docs/itsgot/combine-api
+
+Si tienes un sitio de comidas preparadas o de restaurante, probablemente quieras ingresar los componentes de tus comidas una sola vez y mostrar una etiqueta
+según la selección del cliente. Por ejemplo, si ofreces una proteína con un carbohidrato, quieres
+generar una etiqueta según la selección de cada uno de ellos. Si el usuario selecciona pollo y arroz, la etiqueta debe contener los
+nutrientes combinados de pollo y arroz. Si selecciona pollo y papa al horno, la etiqueta debe contener los
+nutrientes combinados de pollo y papa al horno. Etc.
+
+Esto se puede lograr con los siguientes pasos:
+
+1. [Crear etiquetas que no estén asociadas con un producto de Shopify](#combine-api-create-component-label)
+2. [Crear una etiqueta para el producto principal de Shopify](#combine-api-create-product-label)
+3. [Agregar el código de la Combine API a tu sitio](#combine-api-add-code)
+
+## Crear etiquetas que no estén asociadas con un producto de Shopify
+
+Para poder usar componentes de comida debes crear una etiqueta con la opción *No asociado con un producto de Shopify* marcada:
+
+En *Nombre*, ingresa el nombre del componente de la comida *exactamente* como aparece en tu sitio, por ejemplo *Sweet Potato Fries (Large)*.
+Después, ingresa la información nutricional y guarda la etiqueta.
+
+## Crear una etiqueta para el producto principal de Shopify
+
+Si el producto es un paquete o contenedor, es decir, algo que no contiene datos nutricionales, por ejemplo, *10 day lunch plan*, puedes omitir esta parte.
+Si el producto es un plato o un componente de comida, también debes ingresar su información nutricional.
+
+En este caso no debes marcar *No asociado con un producto de Shopify*. En su lugar, ingresa los primeros caracteres del nombre del producto,
+selecciónalo de la lista e ingresa la información nutricional y guarda.
+
+## Agregar el código de la Combine API a tu sitio
+
+Una vez que hayas ingresado la información nutricional en la aplicación, debes agregar código a tu sitio para obtener e insertar la etiqueta según la selección del cliente.
+Este código debe obtener las variantes seleccionadas y pasarlas a la Combine API de It's Got. Esto implica dos pasos:
+
+### 1. Cargar la Combine API y el fragmento
+
+El fragmento se encuentra en la página de configuración. Donde se coloque este fragmento es donde se mostrará la etiqueta. Se puede insertar en cualquier parte de tu sitio. Consulta [este ejemplo](https://help.screenstaring.com/es/docs/itsgot/adding-labels/embed-code).
+
+### 2. Obtener las variantes seleccionadas y llamar a la Combine API
+
+Esto es lo que cargará la etiqueta según las variantes seleccionadas en el fragmento agregado en el paso 1 anterior.
+Cómo obtener las variantes seleccionadas depende de tu tema. No existe una solución única para todos los casos.
+Puedes [contactar a soporte](https://screenstaring.com/#contact) para recibir orientación, pero primero prueba el [ejemplo a continuación](#combine-api-example).
+
+La Combine API requiere hacer la siguiente llamada de JavaScript:
+
+`ItsGot.combine(components, options)`
+
+| Argumento    | Descripción |
+| ----------- | ----------- |
+| `components` | Un array de cadenas que contiene los componentes de comida para los que se va a crear la etiqueta. Estos valores provendrán de las variantes seleccionadas actualmente. |
+| `options`   | Opcional. Un objeto que puede contener las siguientes propiedades: |
+|             | `format` - Formato de la etiqueta que se va a renderizar. El valor predeterminado es `us:2016:nutrition_facts:emblems`. Otros formatos admitidos son: `ca:legacy:nutrition_facts:vertical`, `de:eu:nutrition_facts:vertical`, `dk:eu:nutrition_facts:vertical`, `se:eu:nutrition_facts:vertical`, `uk:eu:nutrition_facts:vertical`, `us:2016:nutrition_facts:tabular`, `us:2016:nutrition_facts:vertical`, `us:legacy:nutrition_facts:vertical`, `us:legacy:supplement_facts:vertical_columns`, `us:legacy:supplement_facts:vertical`, `us:2016:supplement_facts:vertical_columns` y `us:2016:supplement_facts:vertical` |
+|             | `only` - Un array de nutrientes que se van a mostrar. Cuando se especifica, solo se mostrarán los valores nutricionales de los nutrientes indicados. p. ej., `sodium`, `calories`. Solo es válido para el formato `us:2016:nutrition_facts:emblems`. |
+
+### Ejemplo de la Combine API
+
+Agrega esto a la descripción del producto o al archivo Liquid correspondiente, en la ubicación donde quieras que aparezca la etiqueta
+(ten en cuenta que el fragmento de tu cuenta se encuentra en la página de configuración):
+
+```html
+<script async="async" src="//itsgot.com/embed.js"></script>
+<div data-itsgot-user="YOUR_ID" data-itsgot-combine></div>
+```
+
+Luego, agrega esto a la plantilla Liquid del producto (o similar):
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', _ => {
+    // ====================
+    // NOTICE: getSelectedVariants() is an example and will not work with all Shopify themes.
+    // How to get the selected variants is dependent on your theme. There is no one-size-fits-all solution.
+    // ====================
+    function getSelectedVariants() {
+      return document.querySelectorAll('[class^=single-option-selector]');
+    }
+
+    function showLabel() {
+      const components = [];
+
+      getSelectedVariants().forEach(element => {
+        if(element.value) components.push(element.value);
+      });
+
+      ItsGot.combineLabels(components, {
+        format: 'us:2016:nutrition_facts:emblems',
+        only: ['calories', 'protein', 'total carbohydrate', 'total fat', 'dietary fiber', 'total sugars']
+      });
+    }
+
+    getSelectedVariants().forEach(element => element.addEventListener('change', showLabel));
+  });
+</script>
+```
+
+---
+
+## Usar datos estructurados para mejorar el SEO
+
+Source: https://help.screenstaring.com/es/docs/itsgot/structured-data
+
+Si tu suscripción incluye las funciones del plan Premium, cada producto tendrá
+[información nutricional de Schema.org](https://schema.org/NutritionInformation) agregada como
+[metafields](https://help.shopify.com/en/manual/metafields) de variante.
+Si el producto no tiene variantes, se agregará como un metafield en la variante predeterminada.
+Esto te permite agregar datos nutricionales estructurados a tu sitio mostrando el o los metafields correspondientes en tu tema.
+
+El siguiente ejemplo muestra los datos nutricionales de cada variante como datos estructurados JSON-LD. Esto funciona incluso si el producto no tiene variantes:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script type="application/ld+json">
+     {{ variant.metafields.itsgot.schema-org | json }}
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+Si necesitas agregar información adicional a los datos estructurados antes de que se muestren, puedes usar el siguiente ejemplo como guía.
+Aquí agregamos [datos de oferta](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
+que describen el precio de cada variante. El ejemplo usa una combinación de código Liquid y JavaScript. Usamos JavaScript en lugar de
+Liquid puro porque JavaScript facilita la actualización de la estructura de la información nutricional:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script>
+      (function() {
+        var schema = {{ variant.metafields.itsgot.schema-org | json }};
+        schema.offers = {
+          '@type': 'Offer',
+          price: {{ variant.price | json }},
+          priceCurrency: {{ shop.currency | json }},
+          sku: {{ variant.sku | json }},
+          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
+        };
+
+        var script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.textContent = JSON.stringify(schema);
+        document.body.appendChild(script);
+      })();
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+---
+
+## Verificación de dominio del correo de solicitud de reseñas
+
+Source: https://help.screenstaring.com/es/docs/itsgot/review-request-email
+
+Para enviar correos de solicitud de reseñas usando tu dirección y dominio de correo electrónico, primero debes verificar que eres el propietario del dominio.
+Verificar tu dominio permite que los destinatarios vean que el correo se envía directamente de tu parte, y los proveedores de correo son más propensos a confiar en él.
+Esto ayuda a mejorar la entregabilidad y aumenta la probabilidad de que tus mensajes lleguen a la bandeja de entrada en lugar de ser marcados como spam.
+Las siguientes capturas de pantalla muestran la diferencia entre correos con y sin un dominio verificado.
+
+**Sin dominio verificado**
+
+Observa que la dirección *De* usa la dirección de la aplicación y el correo de tu sitio se usa como dirección *Responder a*.
+
+**Con dominio verificado**
+
+Usar un dominio verificado permite usar tu dirección personalizada en el campo *De*, lo que elimina la necesidad de una dirección *Responder a*.
+
+La verificación del dominio del correo se realiza agregando registros DNS a la configuración de tu sitio que autorizan nuestra infraestructura de envío.
+Una vez verificado el dominio, se habilitará el campo *Correo de envío* en la página de configuración del correo de solicitud de reseñas.
+
+## Verifica tu dominio
+
+1. Ve a la página de configuración del correo de solicitud de reseñas
+2. Haz clic en el botón Verificar junto al campo *Correo de envío*
+3. Ingresa tu dominio de envío (por ejemplo, `mail.example.com`) y haz clic en Registrar dominio.
+4. Esto generará varios registros DNS que deben agregarse a la configuración de DNS de tu dominio.
+   Los registros se pueden ver haciendo clic en el botón Verificar dominio en la página de configuración del correo.
+5. Agrega los registros generados anteriormente a la configuración de DNS de tu sitio.
+   Para más información, consulta [Agregar registros a la configuración de DNS de tu sitio](#adding-dns-records).
+6. Una vez agregados los registros, haz clic en el botón Registros agregados en la página de verificación
+7. Espera a que se propaguen los cambios de DNS y se complete la verificación. Esto puede tardar hasta 24 horas.
+   Una vez verificado, se habilitará el campo *De* y podrás establecer una dirección de envío personalizada.
+8. Puedes monitorear el estado de la verificación en la página de configuración del correo de solicitud de reseñas
+
+## Agregar registros a la configuración de DNS de tu sitio
+
+La autenticación de dominio se basa en unos cuantos registros DNS que demuestran que controlas el dominio desde el que envías.
+Agrégalos en el panel de control de tu proveedor de DNS y mantén esta aplicación abierta en otra pestaña — copiarás valores de una a otra.
+
+La interfaz de cada proveedor de DNS es un poco diferente, por lo que los nombres de los campos mencionados aquí pueden no coincidir exactamente con lo que ves.
+Si normalmente no administras el DNS de tu organización, involucra a quien lo haga — tu equipo de TI o tu proveedor de alojamiento generalmente pueden agregar estos registros en unos minutos.
+
+Una vez agregados, espera unos minutos para que los cambios surtan efecto y luego haz clic en Verificar registros en la página de configuración del correo de solicitud de reseñas.
+
+Cuando la aplicación confirme que el registro está en su lugar, haz clic en Listo para finalizar la configuración.
+
+---
+
+## Integración con la API
+
+Source: https://help.screenstaring.com/es/docs/itsgot/api-integration
+
+**La integración con la API solo está disponible en el plan Premium.**
+
+Las solicitudes a la API se autentican con tu clave de API.
+Incluye tu clave de API en el encabezado `X-API-Key` en cada solicitud.
+Contacta a soporte para obtener la tuya.
+
+## URL base
+
+Todos los endpoints de la API son relativos a: `https://itsgot.com`
+
+## Paginación
+
+En los endpoints que admiten paginación, las URL de la página siguiente y de la página anterior se encuentran en el encabezado `Link` de HTTP.
+
+## Obtener productos
+
+### GET /api/products
+
+**Parámetros de consulta:**
+
+- `sku` - El SKU de la variante (opcional)
+- `barcode` - El código de barras de la variante (opcional)
+- `external_product_id` - ID del producto de Shopify (opcional)
+- `external_variant_id` - ID de la variante de Shopify (opcional)
+- `page` - Página que se va a obtener (opcional)
+- `per_page` - Cantidad de productos devueltos por página, debe ser uno de `10`, `25`, `50`, `100` (opcional, el valor predeterminado es 10)
+
+**Ejemplo con curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
+```
+
+**Respuesta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Jar of Food",
+    "rating": 0.0,
+    "external_product_id": 123123123,
+    "variants": [
+      {
+        "name": "Spicy",
+        "size": null,
+        "servings_per_container": "1",
+        "serving_size": null,
+        "ingredients": null,
+        "barcode": "834325",
+        "external_variant_id": 789789789,
+        "warnings": null,
+        "instructions": null,
+        "claims": null,
+        "sku": "JARFOOD",
+        "origin_countries": null,
+        "allergens": null,
+        "created_at": "2026-07-30T13:32:38Z",
+        "updated_at": "2026-07-30T13:36:08Z",
+        "kosher": false,
+        "halal": false,
+        "glatt_kosher": true,
+        "organic": false,
+        "dairy": false,
+        "parve": true,
+        "vegan": true,
+        "vegetarian": true,
+        "gmos": null,
+        "gluten": null,
+        "wheat": null,
+        "preservatives": null,
+        "artificial_colors": null,
+        "artificial_flavors": null,
+        "casein": null,
+        "egg": null,
+        "soy": null,
+        "shellfish": null,
+        "tree_nuts": null,
+        "peanuts": null,
+        "fish": null,
+        "seeds": null,
+        "milk": null,
+        "nitrates": null,
+        "nitrites": null,
+        "sesame": null,
+        "coconut": null,
+        "rbst": null,
+        "rbgh": null,
+        "celery": null,
+        "translations": {},
+        "nutrition": [
+          {
+            "id": 1,
+            "calories": 28,
+            "calories_from_fat": null,
+            "calories_from_saturated_fat": null,
+            "comments": "Per 100g",
+            "number": 1,
+            "kilojoules": 114,
+            "created_at": "2026-08-04T18:48:07Z",
+            "updated_at": "2026-08-04T18:48:07Z",
+            "data": [
+              {
+                "id": 1,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "1",
+                  "unit": "mg"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 10,
+                  "name": "Iron",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              },
+              {
+                "id": 2,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "2",
+                  "unit": "g"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 8,
+                  "name": "Protein",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              }
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": 10,
+            "format": "au_nutrition_facts_vertical",
+            "locale": "en-AU",
+            "target_device": null
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Exportar una etiqueta a un formato específico
+
+### GET /api/products/PRODUCT_ID/labels/LABEL_ID/export.FORMAT
+
+**Parámetros requeridos:**
+
+- `PRODUCT_ID` - ID del producto de la etiqueta que quieres exportar
+- `LABEL_ID` - ID de la etiqueta que quieres exportar
+- `FORMAT` - Formato de exportación. Uno de `png`, `jpg`, `pdf` o `html`
+
+**Parámetros de consulta opcionales:**
+
+- `width` - Solo para imágenes. Exporta la etiqueta con el ancho indicado. El valor predeterminado es el ancho de la etiqueta x 2.
+- `height` - Solo para imágenes. Exporta la etiqueta con el alto indicado. De forma predeterminada, se mantiene la relación de aspecto y el alto se basa en el ancho indicado.
+- `background_color` - Solo para imágenes. Color de fondo que se usa si la etiqueta se redimensiona y ya no mantiene su relación de aspecto
+
+**Ejemplo con curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products/123/labels/789/export.jpg' > product.jpg
+```
+
+---
+
+## Preguntas frecuentes
+
+Source: https://help.screenstaring.com/es/docs/itsgot/faq
+
+¿No ves tu pregunta aquí? Contáctanos. Con gusto te ayudaremos.
+
+## Las etiquetas no están disponibles en mi idioma o en el formato de mi país
+
+[Contacta a nuestro equipo de soporte](https://screenstaring.com/#contact) y podremos agregar las traducciones y/o formato(s) necesarios.
+
+## La etiqueta se ve parcialmente o no carga por completo
+
+Esto suele ocurrir cuando la etiqueta se inserta dentro de pestañas, un acordeón o un widget similar. En la mayoría de los casos puedes solucionarlo configurando el
+campo *Retardo de inserción predeterminado* en la página de configuración.
+
+El retardo adecuado varía según el sitio, pero por lo general basta con configurarlo en 3.5 segundos para solucionarlo.
+
+---
+
+## Desinstalar la aplicación
+
+Source: https://help.screenstaring.com/es/docs/itsgot/uninstalling
+
+Antes de desinstalar la aplicación, se deben eliminar las etiquetas de productos existentes.
+Esto incluye:
+
+1. Etiquetas agregadas automáticamente a las descripciones de tus productos
+2. Etiquetas agregadas manualmente mediante código de inserción
+
+## Etiquetas agregadas automáticamente a las descripciones de tus productos
+
+Estas etiquetas se pueden eliminar borrando todas tus etiquetas. Para hacerlo:
+
+1. Visita la página Mis etiquetas
+2. Para cada etiqueta que se agregó automáticamente, haz clic en su botón Eliminar:
+
+Si necesitas ayuda, contacta a nuestro equipo de soporte.
+
+## Etiquetas agregadas manualmente mediante código de inserción
+
+El código de inserción que agregaste manualmente a tu sitio no se eliminará automáticamente. Debes hacerlo tú mismo.
+Si necesitas ayuda, contacta a nuestro equipo de soporte.
+
+---
+
+## Historial de cambios
+
+Source: https://help.screenstaring.com/es/docs/itsgot/changelog
+
+Un resumen de los cambios notables en It's Got.
+
+## 2026
+
+### 25 de agosto
+
+- Soporte para agregar bloques de texto personalizados definidos por el usuario a ciertos formatos de etiqueta
+- Soporte para cambiar el color de fondo de los nutrientes de la etiqueta y los ingredientes dietéticos
+- Soporte para agregar píldoras de texto en el editor de texto enriquecido
+- Ampliación del soporte para cargar imágenes en el editor de texto enriquecido a más formatos de etiqueta
+- Opción en la extensión del editor de temas de Shopify para abrir la etiqueta de un producto en una ventana emergente
+
+### 12 de agosto
+
+- Endpoints de la API para obtener datos de productos y de nutrición
+- Endpoint de la API para exportar etiquetas a varios formatos
+- Soporte para incluir nombres de productos en las etiquetas canadienses
+- Soporte para la opción "Porciones por" en etiquetas de EE. UU. y Australia
+
+### 5 de agosto
+
+- Ampliación de las opciones de configuración de visualización de nutrientes a más formatos de etiqueta
+- Uso de un editor de texto enriquecido en los campos de entrada de alérgenos, declaraciones y advertencias de Australia
+- Soporte para insertar enlaces en el editor de texto enriquecido
+- Soporte para insertar caracteres especiales y líneas horizontales en el editor de texto enriquecido
+
+### 30 de julio
+
+- Opción de menú de mayúsculas en el editor de texto enriquecido para convertir el texto seleccionado a mayúsculas
+- Soporte para recopilar reseñas de productos
+- Ampliación del ordenamiento de nutrientes definido por el usuario a la mayoría de los formatos de etiqueta
+
+### 16 de julio
+
+- Opciones de espaciado para el porcentaje permitido y otros elementos de la etiqueta
+- Soporte para agregar recuadros alrededor del texto en los campos de ingredientes y declaraciones
+
+### 17 de junio
+
+- Soporte para aplicar nuevos valores predeterminados de etiqueta a las etiquetas existentes
+- Soporte para valores predeterminados globales de tamaño de fuente y color del panel
+
+### 20 de marzo
+
+- Soporte para cargar imágenes en el editor de texto enriquecido
+
+### 25 de febrero
+
+- Conversión de todos los campos de entrada de notas al pie en editores de texto enriquecido
+- Soporte para enlazar nutrientes e ingredientes dietéticos a páginas web
+- Soporte para cambiar la apariencia de los ingredientes dietéticos
+- Soporte para establecer encabezados de etiqueta definidos por el usuario en los datos de suplementos de la UE
+- Soporte para establecer el tamaño de fuente de un panel de información nutricional
+- Soporte para agregar nutrientes personalizados en las etiquetas de información nutricional
+- Soporte para agregar asteriscos a los encabezados %DV/Valor diario
+
+### 29 de enero
+
+- Soporte para estilos adicionales del panel de información nutricional: estilos de borde, color de borde y relleno
+- Soporte para agregar encabezados de texto enriquecido a la mayoría de los formatos de etiqueta
+
+## 2025
+
+### 11 de diciembre
+
+- Soporte para notas al pie definidas por el usuario en etiquetas de EE. UU., suplementos, el Reino Unido, Australia y Canadá
+- Soporte para agrupar folato y ácido fólico
+- Interfaz de usuario para gestionar nutrientes definidos por el usuario
+
+### 8 de octubre
+
+- Soporte para el orden de ingredientes dietéticos definido por el usuario
+- Soporte para notas al pie definidas por el usuario en etiquetas del Reino Unido y Australia
+- Soporte para la importación por lotes de traducciones de etiquetas de productos
+
+### 30 de julio
+
+- Soporte para el orden de nutrientes definido por el usuario
+- Soporte para especificar un selector de variantes definido por el usuario en la extensión del tema de Shopify
+
+### 22 de mayo
+
+- Extensión del tema de Shopify para agregar etiquetas como bloque mediante la personalización del tema
+- Soporte para exportar etiquetas de productos como imágenes
+
+### 20 de abril
+
+- Soporte para establecer el ancho de la etiqueta de un producto como porcentaje
+- Soporte para nutrientes definidos por el usuario en los formatos del Reino Unido y Australia
+- Soporte para traducir el texto de las etiquetas en muchas configuraciones regionales y formatos de etiqueta
+
+### 30 de enero
+
+- Soporte para mostrar el nombre de un producto en la etiqueta
+
+## 2024
+
+### 31 de diciembre
+
+- Soporte para agregar valores predeterminados para los estilos de las etiquetas de productos
+- Uso de un editor de texto enriquecido para cambiar el encabezado de una etiqueta
+- Las porciones en las etiquetas de EE. UU. ahora son opcionales
+
+...
+
+---
+
+# Product Expiration Dates
+
+## Guía del usuario de Product Expiration Dates
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/
+
+La [aplicación Product Expiration Dates](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) es un sistema completo de gestión de inventario para tus productos perecederos que te permite hacer seguimiento de las fechas límite de venta, los números de lote y los materiales desde la recepción hasta la venta.
+La información de vencimiento se puede presentar a los consumidores de diversas maneras. Compatible con los métodos de gestión de inventario FEFO, FIFO y personalizados.
+
+- [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data)
+- [Importar datos de vencimiento de forma masiva](https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import)
+- [Cambiar el formato de fecha y hora](https://help.screenstaring.com/es/docs/product-expiration-dates/date-format)
+- [Eliminar automáticamente los lotes de inventario próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/removing-expiring-batches)
+- [Notificaciones por correo electrónico](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications)
+- [Agregar datos de vencimiento a tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages)
+- [Vender con descuento los productos próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts)
+- [Variar el formato de fecha según el país seleccionado](https://help.screenstaring.com/es/docs/product-expiration-dates/localizing-dates)
+- [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment)
+- [Transferencias de inventario](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-transfers)
+- [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push)
+- [Notificaciones, impresión de pedidos y documentos de empaque](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip)
+- [Integración con el punto de venta (POS) de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration)
+- [Entrada mediante escáner de código de barras](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner)
+- [Ver las fechas de vencimiento y los números de lote de los pedidos en Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
+- [Compartir inventario entre varias tiendas](https://help.screenstaring.com/es/docs/product-expiration-dates/sharing-inventory)
+- [Productos desactivados](https://help.screenstaring.com/es/docs/product-expiration-dates/disabled-products)
+- [Metafields de datos de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-metafields)
+- [Datos de vencimiento asignados a un pedido](https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-orders)
+- [Integración con la API](https://help.screenstaring.com/es/docs/product-expiration-dates/api-integration)
+
+---
+
+## Agregar datos de vencimiento a los productos
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data
+
+Puedes agregar datos de vencimiento a tus productos en la página de lotes de inventario del producto. También puedes [importar datos de vencimiento de forma masiva](https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import) o [escanear el código de barras del producto](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner). Hay 3 conjuntos de datos que se pueden proporcionar:
+
+-   Lotes de inventario
+-   Valores de plazo de uso
+-   Descuentos de producto
+
+Puedes ver un breve video de introducción [aquí](https://youtu.be/vjLB_v1OHpw).
+
+## Lotes de inventario
+
+Los lotes de inventario son el conjunto principal de datos de vencimiento. Los valores proporcionados se asignarán a los pedidos, se usarán para enviar notificaciones de vencimiento y determinarán cuándo se aplicará un descuento a un producto. También puedes mostrar la información de los lotes de inventario en tu sitio.
+
+Cuando creas lotes de inventario, lo primero que debes determinar es cuándo quieres que los datos de vencimiento se asignen a tus pedidos. Esto puede hacerse cuando se realiza el pedido o cuando se prepara un artículo del pedido. Consulta la opción "Asignar lotes de inventario cuando" a continuación.
+
+En la página Agregar producto, la pestaña Lotes de inventario es donde ingresarás la mayoría de tus datos de vencimiento. Las opciones que se muestran dependen de tu suscripción. Las más comunes son:
+
+### Asignar lotes de inventario cuando
+
+La opción "Asignar lotes de inventario cuando" especifica cuándo se asigna un lote de inventario a un pedido: cuando se realiza el pedido o cuando se prepara un artículo del pedido. El valor predeterminado es asignarlo cuando se realiza el pedido. Por ejemplo, si usas el método de gestión de inventario First Expiring, First Out (FEFO), el lote que vence primero se asignará a los nuevos pedidos. Para configurar qué ubicación se elige, consulta [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
+
+### Vencimiento, lote, cantidad y ubicación
+
+El campo Vencimiento es la fecha en que vence el lote. Cantidad es la cantidad disponible (aunque consulta *Cantidad disponible vs. en existencia* más abajo). Ubicación es la ubicación de Shopify donde existe el lote. Lote es el número de lote. Es opcional. Puedes ver la cantidad disponible en Shopify para el producto o la variante haciendo clic en el enlace "Cantidad":
+
+Por ejemplo, el Producto A tiene una cantidad de 10 en Shopify en la ubicación Warehouse. De esos 10, 6 vencen en 2025 y 4 vencen en 2024. Esto da como resultado las siguientes entradas en la aplicación:
+
+-   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
+-   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
+
+### Ubicaciones de bin, número de factura, número de lote, fecha de recepción, fecha de fabricación, etc...
+
+Puedes asignar valores a estos campos habilitando su visualización en la pestaña Lotes:
+
+Selecciona el campo deseado y haz clic en el botón Guardar
+
+### Cantidad disponible vs. en existencia
+
+Si usas Inventory Push, puedes establecer la cantidad en existencia o la cantidad disponible. Consulta la documentación de [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push) para obtener más información.
+
+### Configurar las ubicaciones de preparación
+
+Consulta [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
+
+### ¿Qué sucede después?
+
+Supongamos que ingresaste datos de lotes de inventario para un producto y seleccionaste "Se realiza el pedido" en la opción "Asignar lotes de inventario cuando". Ahora, cuando se realiza un pedido de ese producto, la aplicación asignará el lote de inventario que vence primero de la ubicación asignada al pedido (para pedidos en tienda) o, si el pedido no tiene una ubicación asignada, la aplicación asignará el lote de inventario que vence primero entre los valores ingresados. Si un artículo del pedido se reabastece, se reembolsa, etc., su lote de inventario que vence primero se libera y queda disponible para asignarse a pedidos futuros.
+
+Puedes ver qué lote de inventario se asignó a un pedido en la página Pedidos de la aplicación
+
+También puedes [mostrar la información relacionada con el vencimiento en tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages) o [agregarla a tu documento de empaque o a tus notificaciones](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip).
+
+## Valores de plazo de uso
+
+Esta es información adicional que se puede mostrar en tu sitio. Representa el tiempo que el fabricante recomienda usar o consumir un producto después de abrirlo. Por ejemplo, puedes tener `best by July 1st 2025` de los lotes de inventario y `Use within 30 days` de esta sección.
+
+## Descuentos de producto
+
+***Los descuentos de producto están disponibles a partir del Plan Premium***
+
+**Recomendamos usar [conjuntos de reglas](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#rulesets) para crear descuentos de producto.** Con los conjuntos de reglas puedes crear descuentos de varias fases, lo que no se puede hacer con los descuentos de "estilo antiguo" especificados en la configuración o en la pestaña Descuentos.
+
+Los descuentos específicos de un producto se pueden ingresar en la pestaña Descuentos. Cuando un lote de inventario se acerca a su fecha de vencimiento, el precio del producto se reducirá en el porcentaje indicado.
+
+Los valores predeterminados de estos campos se pueden ingresar en la página Configuración de descuentos, en la sección Valores predeterminados de productos. Cuando agregues nuevos productos a la aplicación, los valores ingresados aquí se usarán para completar los campos de la pestaña Descuentos.
+
+Para configurar descuentos globales que se usen en todos los productos, consulta [Vender con descuento los productos próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts).
+
+---
+
+## Importar datos de vencimiento de forma masiva
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import
+
+Se pueden importar varias fechas de vencimiento y cantidades con nuestro CSV de importación de lotes. Puedes encontrar un ejemplo [aquí](https://help.screenstaring.com/es/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+Las columnas "SKU", "Expiration Date", "Quantity" y "Location Name" son obligatorias. **Las fechas de vencimiento deben proporcionarse en formato `YYYY-MM-DD`.** Para usar "Barcode" en lugar de "SKU", selecciona "Identificar filas por código de barras" en la página de importación de lotes.
+
+Para obtener más información sobre la columna "Allocate Quantities to Orders When", consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
+
+El CSV debe usar codificación UTF-8 y el carácter de coma (",") como separador de campos.
+
+Cuando esté listo, súbelo a través de la página de importación.
+
+---
+
+## Cambiar el formato de fecha y hora
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/date-format
+
+El formato de fecha que se muestra en la aplicación depende de tu configuración regional. Puedes cambiar tu configuración regional en la pestaña General de la página de configuración. De forma predeterminada, usamos la configuración regional proporcionada por Shopify. Cambiar la configuración regional no afecta las fechas de vencimiento de los lotes de inventario. Solo cambia el formato que se usa para mostrarlas.
+
+El formato de fecha que se muestra en tu sitio se puede configurar al [agregar datos de vencimiento a tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages).
+
+---
+
+## Eliminar automáticamente los lotes de inventario próximos a vencer
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/removing-expiring-batches
+
+Puedes eliminar lotes de inventario según su fecha de vencimiento seleccionando "Eliminar de Shopify el inventario próximo a vencer" en la pestaña Inventario de la página de configuración o como parte de un [conjunto de reglas](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#rulesets) con la acción "Eliminar lote de inventario".
+
+---
+
+## Notificaciones por correo electrónico
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/notifications
+
+Las notificaciones por correo electrónico se pueden configurar para que se envíen antes de que se alcancen las fechas de vencimiento de los productos. Se pueden configurar de forma global, para que se apliquen a cualquier fecha de vencimiento ingresada en la aplicación, por colección de un producto o por tipo de producto.
+
+## Activar
+
+1.  En la configuración de la aplicación, ve a notificaciones por correo electrónico
+2.  En el campo "Enviar notificaciones", ingresa la dirección de correo electrónico donde quieres recibir las notificaciones. Puedes separar varias direcciones de correo electrónico con una coma.
+3.  En el campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación?", ingresa el número de días para recibir la notificación antes de que venza un producto.
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, recibirás una notificación de este producto a partir del 5 de enero.
+4.  Haz clic en el botón Actualizar para guardar
+
+Las notificaciones se envían una vez al día. Si ningún producto está dentro de tu ventana de vencimiento, no se enviará ninguna notificación.
+
+Si prefieres recibir notificaciones según la colección o el tipo de producto, puedes omitir el valor del campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación o que el producto se descuente?" y, en su lugar, agregar los días a la colección o al tipo de producto correspondiente en la sección "Por colección" o "Por tipo de producto". Estos campos solo mostrarán valores para los productos que se hayan ingresado en la aplicación.
+
+## Desactivar
+
+1.  En la configuración de la aplicación, ve a notificaciones por correo electrónico
+2.  En el campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación?", elimina el valor.
+3.  Si tienes notificaciones por colección o por tipo de producto, debes eliminarlas presionando el botón X rojo que está junto a la configuración de la notificación
+4.  Haz clic en el botón Actualizar para guardar
+
+Las notificaciones ya no se enviarán.
+
+---
+
+## Agregar datos de vencimiento a tu sitio
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages
+
+Es posible acceder a los datos de vencimiento de tu sitio o mostrarlos en él. Esto incluye las fechas de vencimiento, sus cantidades y los datos del plazo de uso. La forma más sencilla de mostrar esta información es usar nuestra integración con el [editor de temas de Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor), que permite agregar los datos de vencimiento [como una sección o un bloque](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
+
+1.   shopify.themes()}>Ve a tus temas en el administrador de Shopify
+2.  Busca el tema que quieres actualizar y haz clic en "Editar tema"
+3.  En el editor de temas, selecciona la plantilla a la que quieres agregar los datos de vencimiento:
+
+4.  Selecciona la ubicación deseada dentro de la plantilla. Puedes hacerlo pasando el cursor sobre el área de inserción que quieras:
+
+5.  Haz clic en el botón de agregar bloque y selecciona Datos de vencimiento en la sección Aplicaciones:
+
+6.  Esto agregará un bloque Datos de vencimiento a la plantilla seleccionada:
+
+7.  Haz clic en el bloque Datos de vencimiento para acceder a opciones de configuración adicionales. En el caso de los productos con varias variantes, se mostrarán los datos de vencimiento de la variante seleccionada. Se pueden agregar varios bloques para cubrir diferentes casos de uso. Por ejemplo, puedes agregar 1 bloque para mostrar fechas de vencimiento y otro para mostrar los datos del plazo de uso.
+8.  Haz clic en Guardar
+
+## Agregar nuestro fragmento a tu tema
+
+**Agregar los datos de vencimiento debe hacerse mediante [nuestra integración con temas de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages). Agregar el fragmento de forma explícita solo es necesario en casos especializados.**
+
+1.   shopify.toString()}>Ve al administrador de Shopify
+2.  [Abre el editor de código de tu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3.  [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+    -   Haz clic en el directorio "snippets"
+    -   Haz clic en "Agregar nuevo fragmento"
+    -   Para el nombre del archivo, usa `ss-product-expiration-dates`
+    -   Haz clic en "Listo"
+4.  Esto abrirá una nueva pestaña en blanco en el editor llamada `snippets/ss-product-expiration-dates.liquid`
+5.  Copia el código de [nuestro fragmento de Liquid](https://help.screenstaring.com/es/product-expiration-dates/images/ss-product-expiration-dates.txt) y pégalo en la pestaña
+6.  Haz clic en Guardar
+
+## Mostrar los datos de vencimiento
+
+Una vez que hayas [agregado nuestro fragmento a tu tema](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet), el siguiente paso es renderizarlo en la ubicación donde quieres que se muestren los datos de vencimiento. Puedes hacerlo desde el administrador de Shopify, en la página de personalización del tema.
+
+1.   shopify.themes()}>Ve a tus temas en el administrador de Shopify
+2.  Busca el tema que quieres actualizar y haz clic en "Editar tema"
+3.  En el editor de temas, selecciona "Productos" y luego "Producto predeterminado" (o la plantilla que quieras)
+4.  En la sección Plantilla, haz clic en "Agregar bloque"
+5.  Selecciona "Liquid personalizado" o, si no está disponible, "HTML" (ten en cuenta que el bloque "HTML" debe admitir Liquid)
+
+-   Si tu tema no tiene la opción "Liquid personalizado" ni "HTML", debes renderizar el fragmento manualmente en tu tema
+-   Puedes hacerlo desde [el editor de código del tema](https://shopify.dev/docs/themes/tools/code-editor)
+-   Si necesitas ayuda, [contacta al soporte](https://screenstaring.com/#contact)
+
+7.  Una vez seleccionado, puedes mover el bloque Liquid personalizado a la ubicación donde quieres que se muestren los datos de vencimiento
+8.  Haz clic en el bloque Liquid personalizado que acabas de agregar
+9.  En el campo "Liquid personalizado" (o similar), pega el código de renderización que quieras; consulta Opciones de visualización de datos de vencimiento para ver ejemplos
+10.  Haz clic en Guardar
+
+## Mostrar las fechas de vencimiento según el idioma o la región del usuario
+
+Si muestras tu sitio en varios idiomas, puedes cambiar el formato y el texto de la fecha de vencimiento según el idioma o la región que estén seleccionados en ese momento. En lugar de renderizar la fecha de vencimiento con el código predeterminado:
+
+```liquid
+{% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+```
+
+Puedes usar el código siguiente para comprobar el idioma o la región seleccionados y mostrar la fecha de vencimiento y el texto en un formato específico:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+Aquí, si el idioma es español (`"es"`), se muestra el texto `"Consúmase antes de:"` y la fecha se muestra en formato `DD/MM/YYYY`. Si el idioma es alemán (`"de"`), el texto y la fecha se muestran en un formato adecuado para quienes hablan alemán. Y, si el idioma no es ninguno de los dos, mostramos la fecha en un formato adecuado para quienes hablan inglés.
+
+Si quieres mostrar texto según el idioma **y** el país del usuario, puedes agregar un caso que compruebe la variable `locale`. En este ejemplo, mostramos la fecha en formato `YYYY/MM/DD` si el usuario está en España, y mostramos la fecha en formato `DD/MM/YYYY` si está en otro país de habla hispana:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if locale == "es-ES" %}
+ {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
+{% elsif lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+---
+
+## Vender con descuento los productos próximos a vencer
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/discounts
+
+Se pueden aplicar descuentos a los productos cuando contienen un lote de inventario dentro de una ventana de vencimiento. Hay dos maneras de configurar los descuentos: 1) [el método heredado](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#legacy-discounts) 2) [los conjuntos de reglas](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#rulesets). Los conjuntos de reglas son el método preferido y permiten configurar descuentos de varias fases. Por ejemplo, aplicar un descuento del 10% a un producto 100 días antes del vencimiento y luego aplicar un descuento del 30% 5 días antes del vencimiento.
+
+Consulta la documentación a continuación para cada tipo.
+
+## Conjuntos de reglas
+
+***Los conjuntos de reglas solo están disponibles con el Plan Platinum***
+
+Los conjuntos de reglas permiten definir un conjunto de criterios para aplicar a un producto y ejecutar acciones cuando los criterios coinciden. Los conjuntos de reglas no solo sirven para los descuentos: también se pueden usar para agregar o quitar etiquetas, cambiar el título de un producto y mucho más. Veamos un ejemplo. Supongamos que quieres aplicar un descuento a un producto según lo siguiente:
+
+-   100 días antes del vencimiento: descuento del 10%
+-   14 días antes del vencimiento: descuento del 30%
+-   Día del vencimiento: descuento del 50%
+-   5 días después del vencimiento: eliminar los lotes vencidos
+
+Esto se puede lograr creando un solo conjunto de reglas con 4 reglas. Cada regla contendrá los criterios deseados (100 días antes, 14 días antes, etc...) y las acciones (descuento del 10%, descuento del 30%, etc...). Cuando los criterios de una regla coinciden, se ejecutan las acciones asociadas.
+
+**Nota:** los porcentajes de descuento se basan en el precio del producto en el momento en que se aplica el descuento. Si quieres basarlos en el precio original, antes del descuento, debes agregar una acción "Eliminar descuento" junto con la acción "Agregar descuento" en cada fase.
+
+### 100 días antes del vencimiento: descuento del 10%
+
+1.  Ve a la página de conjuntos de reglas
+2.  Haz clic en "Agregar conjunto de reglas"
+3.  En la página Nuevo conjunto de reglas de inventario puedes darle un nombre al conjunto de reglas
+4.  Haz clic en Guardar
+5.  Esto te llevará a la página del nuevo conjunto de reglas, donde se pueden agregar las reglas de descuento
+6.  Haz clic en "Agregar regla"
+7.  En el campo Criterios, selecciona "Antes de que venza un lote de inventario"
+8.  En el campo "Días antes del vencimiento", ingresa 100
+9.  Abajo, en la sección Acciones, selecciona "Agregar descuento"
+10.  En el campo "Porcentaje de descuento", ingresa 10. Para establecer el precio de comparación en Shopify al precio anterior al descuento, marca "Usar el precio regular como precio de comparación"
+11.  Haz clic en Guardar
+12.  Ahora el conjunto de reglas tiene una sola regla; debemos agregar 3 más
+
+### 14 días antes del vencimiento: descuento del 30%
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Antes de que venza un lote de inventario"
+3.  En el campo "Días antes del vencimiento", ingresa 14
+4.  En la sección Acciones, selecciona "Agregar descuento"
+5.  En el campo "Porcentaje de descuento", ingresa 30
+6.  Haz clic en Guardar
+7.  Ahora el conjunto de reglas tiene 2 reglas; debemos agregar 2 más
+
+### Día del vencimiento: descuento del 50%
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Después de que venza un lote de inventario"
+3.  En el campo "Días después del vencimiento", ingresa 0. Esto establece el criterio en el día en que vence el producto
+4.  En la sección Acciones, selecciona "Agregar descuento"
+5.  En el campo "Porcentaje de descuento", ingresa 50
+6.  Haz clic en Guardar
+7.  El conjunto de reglas tiene 3 reglas, ¡falta 1 más!
+
+### 5 días después del vencimiento: eliminar los lotes vencidos
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Después de que venza un lote de inventario"
+3.  En el campo "Días después del vencimiento", ingresa 5. Esto establece el criterio en el día en que vence el producto
+4.  En la sección Acciones, selecciona "Eliminar lote de inventario"
+5.  Haz clic en Guardar
+
+El conjunto de reglas resultante debería verse así:
+
+Este conjunto de reglas se aplicará a todos los productos de tu tienda. Puedes limitarlo a productos o variantes específicos seleccionando el criterio "Con producto coincidente" al crear una regla. Si se venden las cantidades del lote próximo a vencer, el conjunto de reglas se revertirá y el producto o la variante volverán al precio que tenían cuando coincidió la regla 1.
+
+A menos que se seleccione la opción "Aplicar de forma retroactiva" (ver más abajo), **las reglas de un conjunto de reglas deben coincidir en el orden en que se definen.** Por ejemplo, la regla 3 no coincidirá a menos que hayan coincidido las reglas 1 y 2.
+
+## Coincidencia retroactiva
+
+Normalmente, un conjunto de reglas solo puede comenzar a aplicarse a un lote de inventario cuando coincide su primera regla. Si un lote ya pasó el momento de esa regla —por ejemplo, el conjunto de reglas se creó después de agregar el lote—, el conjunto de reglas nunca se le aplicará.
+
+Seleccionar la opción "Aplicar de forma retroactiva" permite que un lote se una al conjunto de reglas en la regla que coincida con su fecha actual y aplica las acciones de todas las reglas anteriores al mismo tiempo. Con el conjunto de reglas del ejemplo anterior, a un producto al que le faltan 10 días para vencer se le aplicarán las reglas 1 y 2 y sus acciones asociadas en una sola pasada. A un lote que venció hace 2 días se le aplicarán las reglas 1, 2 y 3, aunque las reglas 1 y 2 ya no coincidan por sí solas.
+
+Después de estas coincidencias iniciales, las reglas se aplicarán de forma normal, es decir, como lo harían si no se hubiera seleccionado "Aplicar de forma retroactiva".
+
+## Método de descuento heredado
+
+***Los descuentos heredados solo están disponibles con el Plan Pro***
+
+Los descuentos heredados se pueden configurar por la colección de un producto, su tipo de producto o en el propio producto. Cuando un descuento está activo, durará hasta que se vendan todas las cantidades próximas a vencer o hasta que las fechas de vencimiento aplicables se modifiquen para que ya no estén dentro de la ventana de descuento configurada.
+
+**De forma predeterminada, el descuento se aplicará a todas las cantidades disponibles.** Por ejemplo, si tienes 10 productos y solo 3 están próximos a vencer, ofrecer un descuento permitirá de todos modos que el usuario compre **10** al precio con descuento. Esto se debe a cómo funcionan los precios de los productos en Shopify. Si deseas ofrecer un descuento solo para la cantidad próxima a vencer, hay varias opciones. [Contacta a soporte](https://screenstaring.com/#contact) para analizar las opciones y determinar qué funcionará mejor para tu tienda.
+
+El descuento o el precio restaurado pueden tardar varios minutos en aparecer en tu sitio.
+
+## Activar por producto
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  En el campo "Días de descuento antes del vencimiento", ingresa el número de días antes de que venza un producto en los que quieres activar el descuento.
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+6.  Haz clic en el botón Guardar
+
+## Activar por colección
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  No ingreses un valor en el campo "Días de descuento antes del vencimiento". Se ingresará en un paso posterior al configurar la colección
+6.  Haz clic en el botón Guardar
+7.  En la configuración de la aplicación, ve a descuentos
+8.  Ve a la sección "Por colección"
+9.  En el campo "Título", selecciona la colección para la que quieres configurar el descuento
+10.  En el campo "Días antes del vencimiento", ingresa el número de días antes de que venzan los productos de la colección. Esto determinará cuándo activar el descuento.
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+11.  Para agregar otra colección, haz clic en el enlace "Agregar más"
+12.  Haz clic en el botón Actualizar
+
+## Activar por tipo de producto
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  No ingreses un valor en el campo "Días de descuento antes del vencimiento". Se ingresará en un paso posterior al configurar el tipo de producto
+6.  Haz clic en el botón Guardar
+7.  En la configuración de la aplicación, ve a descuentos
+8.  Ve a la sección "Por tipo de producto"
+9.  En el campo "Título", selecciona el tipo de producto para el que quieres configurar el descuento. Solo se muestran los tipos de producto de los productos que se han ingresado en la aplicación.
+10.  En el campo "Días antes del vencimiento", ingresa el número de días antes de que venzan los productos con ese tipo de producto. Esto determinará cuándo activar el descuento.
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+11.  Para agregar otro tipo de producto, haz clic en el enlace "Agregar más"
+12.  Haz clic en el botón Actualizar
+
+---
+
+## Variar el formato de fecha según el país seleccionado
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/localizing-dates
+
+El formato de la fecha de vencimiento se puede cambiar para que coincida con el país seleccionado por el usuario. Esto depende de los formatos de fecha establecidos en el [editor de contenido del tema](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/language/change-wording#overview-of-the-language-editor) del administrador de Shopify.
+
+Si usas [nuestra integración con temas de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages), puedes hacerlo seleccionando "Personalizado" en el campo "Formato de fecha" e ingresando el nombre de un formato de fecha de Shopify según la configuración regional. Por ejemplo, si el formato que quieres usar se llama `abbreviated_date`, configurarías lo siguiente:
+
+Shopify limita la lista de nombres de formato de fecha que se pueden usar a los siguientes:
+
+-   `abbreviated_date`
+-   `basic`
+-   `date`
+-   `date_at_time`
+-   `default`
+-   `on_date`
+-   `short`
+-   `long`
+
+Los nombres de formato personalizados se pueden usar, pero no funcionan con la integración con temas de Shopify. En este caso, debes [agregar el fragmento manualmente a tu tema](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) y establecer el formato explícitamente con `{{ allocation.time | date: format: "your_format_name" }}`.
+
+---
+
+## Asignación de ubicación de lotes de inventario a pedidos
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment
+
+La aplicación Product Expiration Dates te permite configurar cuándo se asignan los lotes de inventario a un pedido: cuando se realiza el pedido o cuando se prepara un artículo del pedido. Consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
+
+De forma predeterminada, el lote de inventario del producto que vence primero entre todas las ubicaciones se asigna al artículo del pedido (estrategia de gestión FEFO: First Expired, First Out). Si el pedido entrante tiene una ubicación asignada (por lo general, [pedidos del punto de venta (POS) de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration)), se usará esa ubicación. Puedes cambiar tu estrategia de gestión a First In, First Out (FIFO) en la pestaña Inventario de la página de configuración.
+
+## Reglas de enrutamiento de pedidos de Shopify
+
+***La compatibilidad con las reglas de enrutamiento de pedidos de Shopify solo está disponible en el Plan Pro***
+
+Para asignar un lote de inventario desde una ubicación determinada por las reglas de enrutamiento de pedidos de Shopify, selecciona "Asignar lotes de inventario según el enrutamiento de pedidos de Shopify" en la pestaña Inventario de la página de configuración. El enrutamiento de pedidos de Shopify se puede configurar en el administrador de Shopify aquí
+
+## Asignar lotes de inventario desde una ubicación específica
+
+**No configures esto si usas [ubicaciones de preparación priorizadas](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+
+Si usas "pedido realizado" en la configuración ["Asignar lotes de inventario cuando"](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) de un producto y tienes varias ubicaciones en Shopify **pero solo preparas pedidos desde una**, debes configurar "Asignar lotes de inventario desde esta ubicación" para que coincida con tu ubicación predeterminada en Shopify (Shopify no comparte esto con las aplicaciones de terceros, así que se debe configurar de forma explícita). Cuando esto está configurado y se realiza un pedido sin una ubicación, la aplicación Product Expiration Dates solo asignará la fecha de vencimiento más próxima de esta ubicación. Si no se configura, la aplicación asignará la fecha de vencimiento más próxima entre todas las ubicaciones.
+
+---
+
+## Transferencias de inventario
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-transfers
+
+***La compatibilidad con transferencias de inventario solo está disponible con los planes Premium y Platinum***
+
+Para activar la compatibilidad con las [transferencias de inventario de Shopify](https://help.shopify.com/en/manual/products/inventory/inventory-transfers):
+
+-   Ve a la pestaña Inventario de la página de configuración
+-   Marca "Mover lotes de inventario cuando ocurran transferencias de inventario de Shopify"
+-   Haz clic en "Actualizar"
+
+Ahora, cuando ocurre una transferencia de inventario en Shopify, los lotes de inventario de la cantidad transferida se moverán desde la ubicación de origen de la transferencia hasta su ubicación de destino. Las cantidades se mueven comenzando por el lote de inventario que vence primero. Si necesitas un algoritmo diferente, contacta a soporte.
+
+---
+
+## Inventory Push
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push
+
+***Inventory Push solo está disponible con el Plan Pro***
+
+Inventory Push convierte a la aplicación Product Expiration Dates en la "fuente de verdad" del inventario de tu tienda, y evita que tengas que ingresar el inventario en el Administrador de Shopify y luego volver a ingresarlo en la aplicación con su desglose de fecha de vencimiento y cantidad.
+
+Con Inventory Push habilitado, [ingresas tus cantidades de inventario](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) una sola vez en la aplicación Product Expiration Dates y esta ajustará los recuentos de inventario de los productos en Shopify. Cuando se agregan, actualizan o eliminan cantidades en la aplicación, esta hará los ajustes correspondientes en Shopify.
+
+Los cambios en el inventario de un producto a través de un nuevo pedido o de un cambio de estado del pedido (reembolsado, reabastecido, etc.) forman parte del comportamiento predeterminado de la aplicación Product Expiration Dates. **No se requiere una suscripción al Plan Pro para que esto funcione.**
+
+Cuando Inventory Push está habilitado, **el inventario solo debe ingresarse en la aplicación Product Expiration Dates. No modifiques el inventario a través del Administrador de Shopify**. La aplicación no verá los valores ingresados en el Administrador de Shopify, porque las fechas de vencimiento o los números de lote no se pueden ingresar en el Administrador de Shopify. Por ejemplo, si ingresaste los siguientes datos en la aplicación Product Expiration Dates para el Producto A:
+
+-   Expires: `2021-11-10`, Quantity: `7`
+-   Expires: `2022-01-01`, Quantity: `12`
+
+Estos valores se enviarán a Shopify y verás una cantidad total **disponible** de 19 en el Administrador de Shopify. Si la cambias a 30 en el Administrador de Shopify, la aplicación Product Expiration Dates no sabe con qué fecha(s) deben asociarse los nuevos 11. ¿Son el 10 de noviembre, el 1 de enero u otra fecha? Por eso Inventory Push no puede sincronizar las cantidades ingresadas en el Administrador de Shopify.
+
+## Habilitar Inventory Push
+
+1.  Asegúrate de tener una suscripción al Plan Pro o superior
+2.  Visita la página de configuración
+3.  Selecciona "Enviar a Shopify los cambios realizados en las cantidades de los lotes de inventario"
+4.  Haz clic en el botón Actualizar para guardar tu configuración
+
+Para enviar inventario a Shopify, las fechas de vencimiento deben tener una ubicación establecida.
+
+## Cantidades disponibles y en existencia
+
+De forma predeterminada, Inventory Push establece la cantidad disponible en Shopify. Si tienes una suscripción al Plan Premium, puedes configurarlo para que establezca cantidades en existencia. Esto se puede hacer desde la pestaña Inventario de la página de configuración seleccionando "Establecer la cantidad en existencia en lugar de la cantidad disponible".
+
+## Asignación de lotes de inventario
+
+Cuando usas Inventory Push, no puedes [asignar lotes de inventario a un producto](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) cuando se prepara un artículo del pedido. Solo cuando se realiza el pedido. Esto se debe a cómo Shopify gestiona las cantidades de inventario: las asigna a un artículo del pedido cuando este se realiza. Veamos un ejemplo a continuación.
+
+Si ingresas una cantidad de 10 en la aplicación, asignamos 10 a la cantidad disponible en Shopify. Cuando se realiza un pedido con una cantidad de 2, Shopify reduce la cantidad a 8, pero en la aplicación esta cantidad sigue siendo 10 hasta que se prepare el producto. Si luego ingresas a la aplicación antes de que esto ocurra y escribes una cantidad de 12, actualizaremos la cantidad disponible de Shopify a 12, lo cual sería incorrecto.
+
+## Variantes
+
+Cuando Inventory Push está habilitado para un producto con variantes, cualquier variante del producto que no se haya ingresado en la aplicación Product Expiration Dates tendrá su inventario establecido en 0 en Shopify.
+
+## Paquetes
+
+Enviar paquetes de inventario establecerá la cantidad del paquete, así como las cantidades de los productos que contiene. Por ejemplo, dados los siguientes productos:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 10 |
+
+Si creas un paquete que contiene estos productos con la siguiente configuración:
+
+| Producto | SKU | Cantidad en el paquete |
+| --- | --- | --- |
+| Producto A | X123 | 1 |
+| Producto B | Y456 | 3 |
+
+El resultado es el siguiente:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Mi paquete | B999 | 3 |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 10 |
+
+La cantidad del paquete se establece en la cantidad mínima que se puede comprar según las cantidades de los productos que agrupa. Si un cliente hiciera una compra del Producto B con una cantidad de 6, los inventarios se sincronizarían de la siguiente manera:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Mi paquete | B999 | 1 |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 4 |
+
+Como Mi paquete tiene una Cantidad en el paquete de 3 para el Producto B, y el Producto B solo tiene 4 de inventario disponible, el inventario disponible de Mi paquete se establece en 1.
+
+---
+
+## Notificaciones, impresión de pedidos y documentos de empaque
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip
+
+Esto te permite agregar fechas de vencimiento y números de lote a:
+
+-   [Notificaciones de Shopify](https://www.shopify.com/admin/settings/notifications) (de forma predeterminada no se aplica a la confirmación del pedido, ya que el correo se envía antes de que se asigne el lote)
+-   [Order Printer](https://apps.shopify.com/order-printer) y [Shopify Order Printer](https://apps.shopify.com/shopify-order-printer)
+-   [Order Printer Pro](https://apps.shopify.com/order-printer-pro)
+-   [Aplicación Multi-Label Barcodes](https://apps.shopify.com/multi-label-barcodes)
+-   ¡Y mucho más!
+
+Para comenzar, debes activar las notas del pedido desde la página de configuración seleccionando "Crear una entrada de 'detalles adicionales' del pedido para la integración con aplicaciones de terceros". Una vez activado, genera un fragmento de código a continuación para tu integración.
+
+## Fragmento de código
+
+El fragmento de código resultante se puede agregar a la plantilla de Liquid correspondiente para tu integración, en la ubicación donde quieres que se muestren los datos de vencimiento. Este fragmento funciona **con** la plantilla existente para mostrar los datos de vencimiento. No está pensado para reemplazarla.
+
+Si no ves tu integración en la lista y necesitas ayuda, contacta al soporte.
+
+```liquid
+{% comment %}
+  Code for the Product Expiration Dates app to display a product's expiration date and related
+  informtion in notifications, order printing, & packing slips.
+
+  If you want to hide the expiration date until it's close to a particular number of days
+  set the expires_window_days variable below to the number of desired days instead of blank.
+  For example:
+
+    {% assign expires_window_days = 30 %}
+
+  For assistance contact support at help@screenstaring.com
+{% endcomment %}
+
+{% assign expires_window_days = blank %}
+
+{% capture key %}Expiration Dates {{ line_item.sku }}{% endcapture %}
+{% if attributes[key] != blank %}
+    {% assign batches = attributes[key] | split: "|" %}
+    {% for batch in batches %}
+        {% assign batch_data = batch | split: "," %}
+        {% assign expires_date = batch_data[0] %}
+        {% assign expires_qty = batch_data[1] %}
+        {% assign expires_batch = batch_data[2] %}
+
+        {% assign now = "now" | date: "%s" %}
+        {% assign seconds_in_a_day = 86400 %}
+        {% assign expires_at = expires_date | date: "%s" | plus: seconds_in_day | minus: 1 %}
+        {% assign diff = expires_at | minus: now | divided_by: seconds_in_a_day %}
+        {% assign show_date = false %}
+
+        {% if expires_window_days == blank  %}
+          {% assign show_date = true %}
+        {% elsif diff >= 0 and diff < expires_window_days %}
+          {% assign show_date = true %}
+        {% endif %}
+
+        {% if show_date %}
+          {% comment %}
+            The date format can be adjust by changing the '%d/%m/%Y' portion below
+            to the desired date format codes. See: https://shopify.dev/api/liquid/filters#date
+            To use a tranlated date see: https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files
+          {% endcomment %}
+          Expires:
+          {{ expires_date | date: "%d/%m/%Y" }}
+
+          {% comment %}
+            Remove the following if you do not want the quantity and batch name displayed
+          {% endcomment %}
+          ({{ expires_qty }})
+          {% if expires_batch != blank %}
+              {{ expires_batch }}
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+```
+
+Es posible que tengas que cambiar la variable `line_item` o `line` para que coincida con la que se usa en tu código existente.
+
+El formato de fecha se basa en el [filtro `date` de Liquid](https://shopify.dev/api/liquid/filters#date). Se puede ajustar cambiando la parte `"%d/%m/%Y"` para usar los códigos de formato de fecha que quieras. Consulta la documentación del filtro `date` para ver la lista. Para usar una fecha traducida, especifica un formato de fecha [de los archivos de configuración regional de tu tema](https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files). Por ejemplo, si el formato `month_day_year` existiera (puede que sí), puedes cambiar:
+
+```liquid
+{{ expires_date | date: "%d/%m/%Y" }}
+```
+
+En el fragmento anterior, a:
+
+```liquid
+{{ expires_date | date: format: "month_day_year" }}
+```
+
+## Detalles técnicos
+
+Se agregará un atributo al pedido por cada artículo del pedido. El atributo se llamará `"Expiration Dates [ID]"`, donde `[ID]` es el SKU, el código de barras o el ID de variante de Shopify del artículo del pedido. Lo que se use depende de la configuración de tu tienda. Si usas SKUs, siempre será el SKU. Si solo usas el código de barras, será el código de barras, etc...
+
+El valor del atributo es una cadena separada por comas que contiene la fecha de vencimiento asignada, la cantidad y el número de lote:
+
+```
+2023-04-22,2,BATCH-NUMBER
+```
+
+Si hay varias asignaciones para un artículo del pedido, cada asignación estará separada por el carácter de barra vertical (`|`):
+
+```
+2023-04-22,2,BATCH-NUMBER-1|2023-12-25,1,BATCH-NUMBER-2
+```
+
+---
+
+## Integración con el punto de venta (POS) de Shopify
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration
+
+***La integración con el POS de Shopify solo está disponible en el Plan Platinum***
+
+Nuestra integración con el POS de Shopify permite asignar lotes de inventario a los pedidos desde el Shopify POS. Para instalarla, agrega la aplicación Product Expiration Dates como un mosaico en la pantalla de inicio del POS:
+
+1.  En la pantalla de inicio del POS, toca "Agregar mosaico" y selecciona "Aplicación":
+
+2.  En la lista de aplicaciones, selecciona "SS: Product Expiration Dates":
+
+3.  Junto a "Asignar datos de vencimiento a los productos", haz clic en "Agregar":
+
+4.  Esto mostrará el mosaico "SS: Product Expiration Dates" en la página de inicio:
+
+5.  Toca "Guardar"
+
+Ahora, cuando haya artículos en el carrito, puedes tocar el mosaico "SS: Product Expiration Dates" y asignar lotes de inventario. Los lotes que se muestren serán los de la ubicación del POS.
+
+---
+
+## Entrada mediante escáner de código de barras
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner
+
+Mejora la eficiencia de la recepción de inventario y de la asignación de lotes de inventario escaneando el código de barras de un producto en lugar de tener que buscar el producto escribiendo su nombre, SKU o código de barras.
+Para comenzar, instala [la aplicación Barcode Scanner](https://apps.shopify.com/barcode-scanner-1?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
+La aplicación Barcode Scanner debe usarse desde [la aplicación Shopify Mobile](https://www.shopify.com/mobile).
+
+---
+
+## Ver fechas de vencimiento y números de lote de los pedidos en Shopify
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers
+
+Hay varias formas de ver los números de lote y las fechas de vencimiento asignados a un pedido desde [la página del pedido en el administrador de Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Bloque en el administrador
+
+Agregar el bloque Fechas de vencimiento a la página de pedidos:
+
+1.  Abre tu pedido en el [administrador de Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  En la página del pedido, desplázate hasta abajo y selecciona "Agregar bloque"
+
+3.  Selecciona "Fechas de vencimiento" en el menú emergente
+4.  Esto mostrará las fechas de vencimiento asignadas a los artículos del pedido, si las hay. Ten en cuenta que solo los pedidos **posteriores al** 11 de septiembre de 2026 tendrán sus fechas visibles:
+
+5.  Para que el bloque aparezca siempre en la página del pedido, haz clic en el ícono de fijar:
+
+## Sección Detalles adicionales
+
+Los números de lote se pueden agregar a la página de pedidos en la sección Detalles adicionales:
+
+1.  En la configuración de la aplicación, ve a la pestaña Pedidos
+1.  Selecciona "Crear una entrada de 'detalles adicionales' del pedido con los lotes de inventario de un pedido"
+1.  Haz clic en el botón Actualizar para guardar
+
+Los lotes de inventario de los nuevos pedidos ahora se agregarán a la sección Detalles adicionales del pedido en el administrador de Shopify:
+
+Se incluye la siguiente información:
+
+- `PB123`: el SKU del artículo del pedido
+- `B9001`: el número de lote asignado al artículo del pedido
+- `(2)`: la cantidad
+
+## Ver el pedido en la aplicación
+
+Para abrir la página de un pedido en la aplicación:
+
+1.  Abre tu pedido en el administrador de Shopify
+2.  En la página del pedido, selecciona "Más acciones"
+3.  Selecciona "Fechas de vencimiento"
+
+---
+
+## Compartir inventario entre varias tiendas
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/sharing-inventory
+
+Si tu inventario abastece a varias tiendas, estas tiendas se pueden vincular. Vincular tiendas permite compartir un único conjunto de datos de vencimiento entre varias tiendas.
+
+Para vincular tiendas, debes:
+
+-   Instalar la aplicación en cada tienda (después del período de prueba, todas las tiendas deben tener una suscripción activa)
+-   Usar los mismos SKU de producto en cada tienda (si lo prefieres, puedes usar el código de barras en su lugar)
+-   Si usas ubicaciones, usa los mismos nombres de ubicación en cada tienda
+-   [Contacta a soporte](https://screenstaring.com/#contact) para crear el vínculo o los vínculos
+
+---
+
+## Productos desactivados
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/disabled-products
+
+Si un producto se elimina en Shopify pero tiene pedidos con lotes de inventario asignados, se desactivará en la aplicación. Esto evita que los pedidos futuros lo procesen, a la vez que conserva su historial de asignación de lotes de inventario. Si un producto se elimina en Shopify y no tiene lotes de inventario asignados, se eliminará de la aplicación.
+
+## Compartir inventario entre varias tiendas
+
+Compartir inventario entre tiendas depende de SKUs o códigos de barras únicos para la asignación de lotes de inventario. Si existen duplicados en la aplicación, puedes desactivar el producto no deseado para evitar que se procese. Puedes hacerlo haciendo clic en el botón Desactivar en la página del producto en la aplicación.
+
+---
+
+## Metafields de datos de vencimiento
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-metafields
+
+Consulta también: ***[Notificaciones, impresión de pedidos y documentos de empaque](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+La aplicación Product Expiration Dates agrega metafields a la(s) variante(s) de un producto bajo el namespace `expiration_dates`. Si el producto no tiene variantes, se usa la variante predeterminada.
+
+**No agregues definiciones de metafields en el administrador de Shopify usando el namespace `expiration_dates` con ninguna de las claves que se muestran a continuación.** Esto no es necesario y evita que la aplicación funcione correctamente. Los metafields establecidos por la aplicación son de solo lectura y no se pueden establecer desde el administrador de Shopify.
+
+Si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields (y no admiten metafields JSON), consulta la clave `soonest_expiring`.
+
+Los siguientes metafields están disponibles:
+
+| Clave | Descripción |
+| --- | --- |
+| `allocations` | Un array de fechas de vencimiento y cantidades asignadas a la variante. El array está ordenado por fecha de vencimiento, de la más próxima a la más lejana, por lo que `allocations[0]` devolverá los datos de la fecha que vence primero. |
+| `allocations[N].time` | La fecha de vencimiento. El formato es: `YYYY-MM-DDT00:00`. Por ejemplo: `2025-01-22T00:00`. Actualmente la hora siempre es `00:00`. Este valor se puede formatear con el [filtro `date` de Liquid](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | La cantidad de inventario restante |
+| `allocations[N].batch_number` | El número de lote asignado |
+| `allocations[N].location_id` | El ID de Shopify de la ubicación asignada |
+| `use_within` | Un objeto que contiene la información del plazo de uso |
+| `use_within.use_within_value` | La parte numérica de los datos del plazo de uso. Por ejemplo, si se asignó `30 days`, contendrá `30`. |
+| `use_within.use_within_unit` | La parte de la unidad de tiempo de los datos del plazo de uso. Por ejemplo, si se asignó `30 days`, contendrá `days`. |
+| `use_within.use_within_value_in_days` | El valor del plazo de uso en días. Por ejemplo, si se asignó `6 months`, contendrá `180`. Usamos 30 días por mes: 6 \* 30 = 180. |
+| `bundled_inventory` | Un array de los productos que forman parte del paquete y sus datos de vencimiento/números de lote. Solo se establece si el producto es un paquete. |
+| `bundled_inventory[N].title` | El título del producto del paquete |
+| `bundled_inventory[N].allocations` | Un array de fechas de vencimiento y cantidades asignadas a la variante. Consulta la documentación de `allocations[N]`. |
+| `soonest_expiring` | Representación en string del lote de inventario que vence primero. Útil si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields. El formato de la fecha se puede establecer en la página de configuración.
+ ***Solo disponible con el Plan Premium*** |
+
+---
+
+## Datos de vencimiento asignados a un pedido
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-orders
+
+Los datos de vencimiento asignados a los pedidos se pueden poner a disposición de sistemas externos como una propiedad del pedido. Se usa una propiedad del pedido porque Shopify no admite metafields para las líneas de pedido. Para activar esta propiedad, marca "Crear un atributo de pedido para los lotes de inventario de un pedido" en la pestaña Pedidos de la página de configuración.
+
+Los pedidos realizados antes de activar esta opción no contendrán la propiedad.
+
+## Formato de la propiedad del pedido
+
+Una vez activada, se agregarán atributos de pedido llamados `Expiration Dates SKU` a los pedidos que contengan datos de vencimiento. `SKU` se reemplazará con el valor del SKU del producto. El valor del atributo tiene el siguiente formato: `BATCH 1|BATCH 2|BATCH 3`.
+
+Por ejemplo, si tienes un producto con un SKU de 123 al que se le asigna un solo lote, tendrás un atributo llamado `Expiration Dates 123` con un valor de: `2024-01-01,1,B123`. Aquí `2024-01-01` es la fecha de vencimiento asignada, `1` es la cantidad asignada y `B123` es el número de lote.
+
+Si la línea de pedido tiene varios lotes, se incluirán todos. Por ejemplo, si al SKU 123 se le asignaron 2 lotes, el valor sería: `2024-01-01,1,B123|2024-11-21,2,X999`. Aquí `2024-01-01` es 1 de 2 fechas de vencimiento asignadas. `1` es la cantidad asignada y `B123` es su número de lote. `2024-11-21` es la otra fecha de vencimiento asignada. `2` es su cantidad asignada y `X999` su número de lote.
+
+Si un número de lote (o cualquier valor) no existe, su valor se omitirá. Aquí está el ejemplo de varios lotes sin número de lote: `2024-01-01,1,|2024-11-21,2,`
+
+## Analizar el valor de la propiedad
+
+El valor se puede analizar en cualquier lenguaje obteniendo los atributos del pedido mediante la [API de administración de Shopify](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order). Aquí tienes un ejemplo con Liquid:
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```
+
+---
+
+## Integración con la API
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/api-integration
+
+***La integración con la API solo está disponible con el Plan Platinum***
+
+La aplicación Product Expiration Dates proporciona una API que permite administrar lotes de inventario mediante programación.
+
+Las solicitudes a la API se autentican con la clave de API de tu tienda. Puedes encontrar tu clave de API en la pestaña General de la página de configuración. Incluye tu clave de API en el encabezado `X-API-Key` en cada solicitud.
+
+Las solicitudes requieren que especifiques un identificador de producto o variante. Puede ser: `sku`, `barcode`, `variant_id` o el ID de la aplicación Product Expiration Dates.
+
+## URL base
+
+Todos los endpoints de la API son relativos a: `https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+Recupera los lotes de inventario de un producto o una variante. Puedes consultar por SKU, código de barras o ID de variante de Shopify
+
+**Parámetros de consulta:**
+
+-   `sku` - El SKU de la variante (opcional)
+-   `barcode` - El código de barras de la variante (opcional)
+-   `variant_id` - ID de variante de Shopify; si un producto no tiene variantes, usa el ID de la variante predeterminada (opcional)
+-   `external_location_id` - Filtra los resultados por el ID de ubicación de Shopify (opcional)
+
+**Ejemplo con curl:**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**Respuesta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+Crea o actualiza un lote de inventario. Las actualizaciones se basan en el SKU o el código de barras combinado con: a) la fecha de vencimiento y la ubicación o b) el número de lote y la ubicación. De lo contrario, se crea un nuevo lote.
+
+**Parámetros de la solicitud:**
+
+-   `sku` - El SKU de la variante (opcional)
+-   `barcode` - El código de barras de la variante (opcional)
+-   `variant_id` - ID de variante de Shopify; si un producto no tiene variantes, usa el ID de la variante predeterminada (opcional)
+-   `expires` - Fecha de vencimiento, **debe estar en formato YYYY-MM-DD** (obligatorio)
+-   `quantity` - Cantidad disponible (obligatorio)
+-   `batch_number` - Número de lote (opcional)
+-   `external_location_id` - El ID de ubicación de Shopify (obligatorio si no se proporciona `location_id`)
+-   `location_id` - ID de la aplicación Product Expiration Dates (obligatorio si no se proporciona `external_location_id`)
+-   `inventory_batch_assignment_event` - Cuándo asignar los lotes de inventario a los pedidos. Solo es válido al crear un producto. Puede ser `"order_placed"` o `"order_item_fulfilled"`. Si usas [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push), siempre será `"order_placed"`.
+-   `invoice_number` - Número de factura (opcional)
+-   `lot_number` - Número de lote (opcional)
+-   `manufactured_at` - Fecha de fabricación, **debe estar en formato YYYY-MM-DD** (opcional)
+-   `received_at` - Fecha de recepción, **debe estar en formato YYYY-MM-DD** (opcional)
+-   `comments` - Notas de texto libre (opcional)
+-   `batch_unit_cost` - Costo unitario del lote (opcional)
+
+**Ejemplo con curl:**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**Respuesta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+Actualiza un lote de inventario existente
+
+**Parámetros de la URL:**
+
+-   `:id` - El ID de la aplicación Product Expiration Dates para el lote de inventario (obligatorio)
+
+**Parámetros de la solicitud:**
+
+-   `expires` - Fecha de vencimiento, **debe estar en formato YYYY-MM-DD** (opcional)
+-   `quantity` - Cantidad disponible (opcional)
+-   `external_location_id` - El ID de ubicación de Shopify (opcional)
+-   `location_id` - ID de ubicación de la aplicación Product Expiration Dates (opcional)
+-   `batch_number` - Número de lote (opcional)
+-   `invoice_number` - Número de factura (opcional)
+-   `lot_number` - Número de lote (opcional)
+-   `manufactured_at` - Fecha de fabricación, **debe estar en formato YYYY-MM-DD** (opcional)
+-   `received_at` - Fecha de recepción, **debe estar en formato YYYY-MM-DD** (opcional)
+-   `comments` - Notas de texto libre (opcional)
+-   `batch_unit_cost` - Costo unitario del lote (opcional)
+
+**Ejemplo con curl:**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**Respuesta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+Elimina un lote de inventario por su ID.
+
+**Parámetros de la URL:**
+
+-   `:id` - El ID de la aplicación Product Expiration Dates para el lote de inventario
+
+**Ejemplo con curl:**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**Respuesta (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## Respuestas de error
+
+La API devuelve los códigos de estado HTTP y los mensajes de error correspondientes:
+
+| Código de estado | Descripción | Respuesta de ejemplo |
+| --- | --- | --- |
+| `400` | Bad Request - Faltan parámetros o no son válidos | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | Unauthorized - Clave de API no válida o faltante | `{"errors": ["Shop not found"]}` |
+| `403` | Forbidden - El plan no permite el acceso a la API | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | Not Found - Producto, variante o ubicación no encontrados | `{"errors": ["Record not found"]}` |
+| `422` | Unprocessable Entity - Errores de validación | `{"errors": ["Quantity must be greater than 0"]}` |
+
+---

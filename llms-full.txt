@@ -1,0 +1,2300 @@
+# ScreenStaring Documentation
+
+> Documentation and support for ScreenStaring's Shopify apps: It's Got (nutrition facts and supplement labels) and Product Expiration Dates (expiration dates, batch numbers, and perishable inventory).
+
+Documentation language: English. Source: https://help.screenstaring.com/docs/
+
+---
+
+# It's Got: The Food Database
+
+## It's Got User's Guide
+
+Source: https://help.screenstaring.com/docs/itsgot/
+
+[It's Got](https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) manages product nutrition data, and allows one to
+add supplement, drug, pet, and nutrition information panels to their site.
+Labels can be generated in well-known formats for multiple countries & languages.
+
+- [Adding Nutrition Labels to Your Site](https://help.screenstaring.com/docs/itsgot/adding-labels)
+- [Setting a Label's Width](https://help.screenstaring.com/docs/itsgot/label-width)
+- [Changing a Label's Colors and Design](https://help.screenstaring.com/docs/itsgot/display-settings)
+- [Linking to Web Pages from Label Nutrients](https://help.screenstaring.com/docs/itsgot/display-settings-links)
+- [Translating Label Text](https://help.screenstaring.com/docs/itsgot/translations)
+- [Importing Products in Bulk](https://help.screenstaring.com/docs/itsgot/importing-products)
+- [Creating Labels in Multiple Languages](https://help.screenstaring.com/docs/itsgot/multi-language)
+- [Combining Meal Components to Generate a Label](https://help.screenstaring.com/docs/itsgot/combine-api)
+- [Using Structured Data for Improved SEO](https://help.screenstaring.com/docs/itsgot/structured-data)
+- [Review Request Email Domain Verification](https://help.screenstaring.com/docs/itsgot/review-request-email)
+- [API Integration](https://help.screenstaring.com/docs/itsgot/api-integration)
+- [Uninstalling the App](https://help.screenstaring.com/docs/itsgot/uninstalling)
+- [Frequently Asked Questions](https://help.screenstaring.com/docs/itsgot/faq)
+- [Changelog](https://help.screenstaring.com/docs/itsgot/changelog)
+
+---
+
+## Adding Nutrition Labels to Your Site
+
+Source: https://help.screenstaring.com/docs/itsgot/adding-labels/
+
+There are several ways to add nutrition labels to your site.
+
+## Shopify
+
+If you're using Shopify install our [Nutrition Facts Shopify App](https://apps.shopify.com/nutrition-facts?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
+
+The majority of Shopify users should use the Shopify Theme editor to add the nutrition labels.
+
+- [Shopify Theme Editor](https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/theme-editor)
+- [Add to Product's Description button](https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/directly-from-app)
+
+## Label Embed Code
+
+The embed code can be used to make a product's label appear anywhere.
+
+- [Label Embed Code](https://help.screenstaring.com/docs/itsgot/adding-labels/embed-code)
+You can also use the [Combine API](https://help.screenstaring.com/docs/itsgot/combine-api).
+
+---
+
+## Label Embed Code
+
+Source: https://help.screenstaring.com/docs/itsgot/adding-labels/embed-code/
+
+The label embed code is an HTML snippet that allows you to add a label to any page on your site.
+
+To add a label using the embed code:
+
+1. Create a product label.
+   If the product already exists, locate it from the My Labels page and click on the product's name.
+
+2. Click the Copy Code button to copy the embed code to the clipboard. This
+   will allow you to paste the code into your site in a later step:
+
+3. Select where you want to add your snippet. The screenshot below uses Blog Posts and Pages
+   but these instructions apply to Collections and Products too:
+
+4. Select an existing blog post (or page, collection, or product) you'd like to add the label to.
+   If the blog post does not exist add a new one:
+
+5. Find the location in the content area that you want your product label to be displayed in. Since you will be switching
+   to HTML mode to insert the embed code, it's a good idea to insert some marker text that you can then replace.
+   In this case we added the text *REPLACE ME*:
+
+6. Click the button to edit in HTML mode:
+
+7. The Content area now shows HTML code:
+
+8. Remove the *REPLACE ME* text and paste in the embed code copied in step 2:
+
+9. To complete, click the Save button:
+
+The product's label is now part of the blog post.
+
+---
+
+## Shopify Theme Editor
+
+Source: https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/theme-editor
+
+Using the [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(theme customization) you can add labels
+[as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+to a product template or connect them to an existing section or block
+[via a metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(dynamic source).
+
+## Add Label as a Block
+
+1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
+2. Find the theme you want to update and click Edit theme
+3. In the theme editor, select the product template you'd like to add labels to:
+
+4. Select the desired location within the product template. This can be done by hovering your cursor over the desired insertion area:
+
+5. Click on the add block button and select *Nutrition Facts* from the *Apps* section:
+
+6. This will add a *Nutrition Facts* block to the selected template:
+
+7. Click on the *Nutrition Facts* block to access additional configuration options
+8. Click Save
+
+Product labels will now be shown on your site.
+
+## Add Label via a Metafield
+
+This only works if the target section or block supports dynamic sources.
+
+1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
+2. Find the theme you want to update and click Edit theme
+3. In the theme editor, find the section or block you want to add labels to and click on it. In this example we add them to a *Text* block:
+
+4. From within the *Text* block's configuration click the Connect dynamic source button:
+
+5. Make sure the product template's sources are selected:
+
+   If it's not selected click on the currently selected heading and change the source to the product template
+
+6. From the list of dynamic sources search for and choose *Nutrition Facts app label embed code*:
+
+7. Once selected you will see it as a source in the associated field:
+
+8. Click Save
+
+Product labels will now be shown on your site.
+
+## Elsewhere
+
+If you want to add labels to a location outside of the product template or, anywhere else on your site, try one of the following:
+
+- [Liquid snippet](https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Label embed code](https://help.screenstaring.com/docs/itsgot/adding-labels/embed-code)
+
+---
+
+## Add to Product Description Button
+
+Source: https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/directly-from-app
+
+A nutrition label can be added the top, bottom, or custom location in your product's description.
+You can set one of these as the default from your account's settings page.
+
+A custom location is typically used when the description contains tabs or an accordion and you want
+the label to be added to a specific panel (see below instructions for more information).
+
+To add a label to the product's description:
+
+1. Create a product label. If the product already exists, locate it from the My Labels page and click on the product's name.
+
+2. From the product's page locate the *Add to Product's Description* section
+3. Select where you'd like to add the label: top, bottom or custom:
+
+   The value for custom location must be [a CSS or XPath selector](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html).
+
+4. Click on the Add button
+
+The label will be inserted into your product's description. It can take up to 1 minute for the label to appear on the product's page.
+
+Be careful not to remove the label's embed code when editing the product description in the Shopify Admin
+
+You can also add to your products' descriptions when [importing products in bulk](https://help.screenstaring.com/docs/itsgot/importing-products).
+
+---
+
+## Automatically by Adding Our Liquid Snippet to Your Theme
+
+Source: https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/liquid-snippet
+
+The best way to add product labels to your Shopify site is [via the Shopify theme editor](theme-editor).
+The instructions here are only for cases that cannot be handled by the theme editor.
+
+This is a two step process: 1) add our Liquid code snippet to your theme and 2) render the snippet in the location you want the label displayed.
+
+## Adding Our Snippet to Your Theme
+
+1.  shopify.toString()}>Go to the Shopify Admin
+2. [Open your theme's code editor](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3. [Add a new theme file](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Click on the *snippets* directory
+   - Click Add new snippet
+   - For file name use `itsgot-product-label-embed-code.liquid`
+   - Click Done
+4. This will open a new blank tab in the editor named `snippets/itsgot-product-label-embed-code.liquid`
+5. Copy the code from [our Liquid snippet](https://help.screenstaring.com/itsgot/images/itsgot-product-label-embed-code.txt) and paste it into the tab
+6. Click Save
+7. Click [Add a new theme file](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files) again
+   - Click on the *snippets* directory
+   - Click Add new snippet
+   - For file name use `itsgot-product-label.liquid`
+   - Click Done
+8. This will open a new blank tab in the editor named `snippets/itsgot-product-label.liquid`
+9. Copy the code from [our Liquid snippet](https://help.screenstaring.com/itsgot/images/itsgot-product-label.txt) and paste it into the tab
+10. Click Save
+
+## Displaying the Product Label
+
+Once you've [added our snippet to your theme](#adding-labels-liquid-snippet-theme) the next step is to render
+it in the location you want the label displayed. This can be done from the Shopify Admin via the customize theme page.
+
+1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
+2. Find the theme you want to update and click Edit theme
+3. In the theme editor, select *Products* then *Default product* (or whatever the desired template is)
+4. If you want to add the label to an existing section, click the add block button within that section and select *Custom liquid*
+   or, if not available, *HTML* (note that the *HTML* block must support Liquid):
+
+5. If you want to add the label to a new section, click the Add section button and select *Custom liquid* or *HTML*, whatever your theme provides:
+
+6. If your theme does not have a *Custom liquid* nor *HTML* option, you must render the snippet in your theme manually.
+   This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor).
+   If you need assistance please [contact support](https://screenstaring.com/#contact).
+7. Click on the *Custom liquid* block or section you just added
+8. In the *Custom liquid* (or similar) field paste the following code:
+
+   `{% render "itsgot-product-label", product: product %}`
+
+9. Click Save
+
+Now current and future labels will appear automatically on the products page.
+
+---
+
+## Setting a Label's Width
+
+Source: https://help.screenstaring.com/docs/itsgot/label-width/
+
+The width of a label can be:
+
+- A fixed pixel value
+- A percentage of its parent HTML element's size
+- Vary by a user's device e.g., tablet vs desktop
+
+Fixed and percentage widths can be set via a label's the "Width" field, located in the Label Display Setting's General section.
+The width field is composed of a the width's value and its unit:
+
+The unit can be either pixels (`px`) or a percentage (`%`).
+
+A default width can be set on your account's settings page.
+
+Each option is described on the following pages:
+
+- [Fixed pixel value](fixed-pixel-value.md)
+- [Percentage of its parent HTML element's size](percentage-of-its-parent-html-elements-size.md)
+- [Vary by a user's device](vary-by-a-users-device.md)
+
+---
+
+## Fixed pixel value
+
+Source: https://help.screenstaring.com/docs/itsgot/label-width/fixed-pixel-value
+
+A fixed width is set in pixels by selecting `px` from the unit menu. For example, to make a label 400 pixels wide:
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "General"
+1. Fill-in the "Width" field with the desired width, e.g. `400`
+1. Select `px` from the unit menu:
+
+1. Click Update
+
+If no width is set the label uses your default. If no default is set the default width
+for the selected label format will be used. This is 400 pixels for vertical formats and 750 pixels for tabular formats.
+
+A fixed width is applied as a maximum width. If the space available for the label is smaller than the label's width, the label is
+reduced to fit. A label will never be wider than the space it's embedded in, e.g. a narrow column on a phone.
+
+To use a dynamic, container-based width [use a percentage](percentage-of-its-parent-html-elements-size.md)
+
+---
+
+## Percentage of its parent HTML element's size
+
+Source: https://help.screenstaring.com/docs/itsgot/label-width/percentage-of-its-parent-html-elements-size
+
+A percentage width makes the label relative to the element it's embedded in, e.g. a theme block or a product page's column.
+The width changes when the size of that element changes.
+
+To make a label as wide as the element it's in:
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "General"
+1. Fill-in the "Width" field with the desired percentage. In most cases you will enter `100` so that the label occupies the full width of its parent element
+1. Select `%` from the unit menu:
+
+1. Click Update
+
+A label with a percentage width is still limited by the space it's given. For example, a label with a width of `100%` inside a
+column that's 300 pixels wide will also be 300 pixels wide.
+
+---
+
+## Vary by a user's device
+
+Source: https://help.screenstaring.com/docs/itsgot/label-width/vary-by-a-users-device
+
+Different labels can be displayed depending on the device a visitor is using. This is useful when a label's text would be too
+small to read on a tablet or phone, or when such a device's screen can't fit a label's full width.
+
+Each label has a *Target device*. To set it:
+
+1. From the product's page go to its Labels page
+1. Create a new label or edit an existing one
+1. Go to the "Display" tab
+1. Select a device from the "Target device" menu:
+
+   - **Desktop** - displayed on screens 992 pixels and wider
+   - **Tablet** - displayed on screens between 577 and 991 pixels
+   - **Mobile** - displayed on screens up to 576 pixels
+   - **Custom** - displayed on screens within the range set by the "Min screen width" and "Max screen width" fields
+   - **Everything** (the default) - displayed on all screens, regardless of size
+
+1. Click Update
+
+To display a different label for each device, e.g. one label for desktop computers and one for phones, create a label for each
+device and set each label's *Target device*. Only the labels suitable for a visitor's screen are displayed; the rest are skipped.
+A label's target device is listed in the "Target Device" column of a product's Labels page.
+
+The device's screen width is used, not the width of the browser window. This means a visitor will always see the same label on a
+given device, even if they resize their browser window.
+
+---
+
+## Modifying a Label's Design
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/
+
+Settings are applied at 2 levels:
+
+1. Site defaults that apply to all new labels
+2. Label-specific values
+
+Site defaults can be configured on your account's settings page.
+
+Label-specific values can be set when creating or editing a label in the Label Display Settings section.
+These settings are divided into:
+
+1. **General** - Basic settings that apply to everything on the label. Width, font size, etc.
+2. **Nutrition Panel** - Settings that apply specifically to the panel. Border size, color, thickness, etc.
+3. **Custom CSS** - site-specific CSS to include on all new labels
+
+Colors and design of text fields like ingredients and warnings can be modified within the field itself.
+
+Settings can also be configured per row in the nutrition panel. This includes things like changing a nutrient's indentation, emboldening its text,
+and adding links to other products or pages on your site. To configure a setting for a row click on the *Display settings* link after
+selecting or entering a value:
+
+---
+
+## Borders, Colors, and Indentation
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/borders-colors-and-indentation
+
+You can set default values for these on your account's settings page
+
+## Setting the Text Color
+
+The color of the label and its text can be set from the Label Display Settings section. Individual text blocks and nutrients can also have their color set.
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "General"
+1. Fill-in the "Text color" field with the desired color's hex color code:
+
+1. Click Update
+1. This will change all of the label's text to the selected color
+
+### Text Blocks
+
+1. From the product's page go to the desired text block
+1. From the block's Format menu select "Text color"
+1. You can choose a predefined color or a specific color by selecting the pallet icon:
+
+1. Click Update
+1. The color will only be applied to the text block. The label's default color will not be affected:
+
+### Nutrients
+
+Use a nutrient's display settings to change its color:
+
+1. From the Display Settings popup find the Style section
+1. Fill-in the "Text color" field with the desired color's hex color code
+1. Click Ok
+1. Click Update
+
+## Setting the Background Color
+
+By default the background color is transparent to match your site's background.
+A background color can be set from the Label Display Settings section. Individual text blocks and nutrients can also have their background color set.
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "General"
+1. Fill-in the "Text color" field with the desired color's hex color code
+   
+1. Click Update
+1. This will change all of the label to use the selected color for its background
+
+---
+
+## Panel Heading
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/panel-heading
+
+The panel heading is the text at the top of the label, e.g. "Nutrition Facts", "Supplement Facts", "Drug Facts", or "Guaranteed Analysis".
+
+You can set a default heading on your account's settings page
+
+A label's heading can be set from the Label Display Settings section:
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "Nutrition Panel"
+1. Fill-in the "Heading" field with the desired text
+   
+1. Click Update
+
+Depending on the label's format the heading can be formatted with HTML, e.g. ``, ``, or a different font size.
+
+---
+
+## Nutrient Order
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/nutrient-order
+
+Nutrients can be listed in any order instead of the default order for the label's format:
+
+1. Find the desired product and click the "Edit" button
+1. In the label editor go to the "Nutrients" section
+1. Check "Use customized order"
+1. Drag the handle (⋮⋮) on a row to move it up or down
+   
+1. Click Update
+
+The order is only used by the label. It doesn't change the order in which the nutrients appear anywhere else.
+
+Custom order is not available for the "Tabular" label format.
+
+---
+
+## Font
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/font
+
+A label can use its own font instead of the font of the page it's embedded in:
+
+You can set defaults for these on your account's settings page
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "General"
+1. Fill-in the "Font URL" field with a link the CSS font definition, e.g. `https://fonts.googleapis.com/css2?family=Open+Sans`
+1. Fill-in the "Font family" field with the font's family name, e.g. `Open Sans`
+   
+1. Click Update
+
+The URL must be a CSS font definition to be included via a `link` HTML tag, not a font file.
+
+---
+
+## Custom CSS
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/custom-css
+
+
+
+---
+
+## Nutrients, Ingredients, and Other Text
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/
+
+Display settings aren't limited to the panel as a whole. Nutrients, ingredients, and other text can each be configured individually:
+
+- **Nutrients** - each row in the panel has a *Display settings* link where its indentation, font, color, and other style can be set
+- **Ingredients and other text** - text fields, warnings, and text blocks are formatted from within the field itself using its Format menu
+
+The options on the following pages apply to these areas:
+
+- [Quantity Unit and Percentage](quantity-unit-and-percentage.md)
+- [Folate, Folic Acid](folate-folic-acid.md)
+- [Amino Acids](amino-acids.md)
+
+---
+
+## Quantity Unit and Percentage
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/quantity-unit-and-percentage
+
+By default a nutrient's value is shown without spaces, e.g. `5g` and `10%`. Spaces can be added:
+
+You can set defaults for these on your account's settings page
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "Nutrition Panel"
+1. Check "Add space between quantity and unit" to display `5 g`
+1. Check "Add space between value and percentage" to display `10 %`
+   
+1. Click Update
+
+The "Do not show daily value percentages" option in the same section removes the percentage column from the label entirely.
+
+---
+
+## Folate, Folic Acid
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/folate-folic-acid
+
+Folic acid is displayed directly below folate when both are present:
+
+This option is available for the "US Nutrition Facts – Vertical" and "US Supplement Facts – Vertical" label formats. It has no effect unless the label lists both folate and folic acid.
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "Nutrition Panel"
+1. Check "Group folate and folic acid"
+   
+1. Click Update
+
+This follows the FDA's labeling guidance for folate and folic acid.
+
+---
+
+## Amino Acids
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings/nutrients-ingredients-and-other-text/amino-acids
+
+Amino acids can be moved out of the nutrient list and into their own section at the bottom of the panel:
+
+This option is only available for Supplement Facts label formats. You can set a default on your account's settings page
+
+1. Find the desired product and click the "Edit" button
+1. Go to the Label Display Settings section
+1. Select "Nutrition Panel"
+1. Check "Create separate section for amino acids"
+   
+1. Click Update
+
+The section is headed "Amino Acids" and is only shown if the product has amino acids.
+
+---
+
+## Linking to Web Pages from Label Nutrients
+
+Source: https://help.screenstaring.com/docs/itsgot/display-settings-links
+
+If your subscription includes Premium plan features you can turn a nutrient or dietary ingredient on a label into a link to the web page of your choice.
+
+To create a link:
+
+1. Create or edit an existing product label
+2. In the Nutrients or Dietary Ingredients sections, add or edit a value
+3. Once a value has been entered you will see a *Display settings* link:
+
+4. Click the link to open the *Display Settings* dialog. In the *Link* section's URL field enter the page you want to link to.
+5. By default the link will open in the same page. You can have it open in a new window/tab by selecting *Open in new window/tab*.
+6. Click Save or Update to save
+7. Now when the label is displayed on your site a link will appear from the nutrient or dietary ingredient to the given URL
+
+To change the color of the link see the section [Changing a Label's Colors and Design](https://help.screenstaring.com/docs/itsgot/display-settings).
+
+---
+
+## Translating Label Text
+
+Source: https://help.screenstaring.com/docs/itsgot/translations
+
+Label text can be changed by creating a translation.
+Translations can be used to change all text on the label. It's not strictly for translating between languages.
+
+Using Translations requires [setting the label's locale](https://help.screenstaring.com/docs/itsgot/multi-language#multi-language-label-locale).
+Once set translations can be created for that locale that match the source text, and replace it with the user-defined text.
+
+Translating block text like ingredients and warnings can be done on the label's edit page in the *Translations* section.
+See [Translating Ingredients and Other Block Text](https://help.screenstaring.com/docs/itsgot/multi-language#multi-language-label-translations).
+
+---
+
+## Importing Products in Bulk
+
+Source: https://help.screenstaring.com/docs/itsgot/importing-products
+
+To import your products in bulk:
+
+1. [Download our CSV template](https://help.screenstaring.com/itsgot/images/product-import-template.csv)
+2. Add your product and nutrition data
+3. Go to the Product Import page and upload your CSV file
+4. Note that the sample spreadsheet does not contain all possible nutrients, see [Adding Nutrients to the Spreadsheet](#adding-nutrients-to-the-spreadsheet)
+
+The CSV template requires values for the following columns:
+
+- **Label Format**
+  Must be one of:
+
+  - `ca:legacy:nutrition_facts:vertical`
+  - `de:eu:nutrition_facts:vertical`
+  - `dk:eu:nutrition_facts:vertical`
+  - `se:eu:nutrition_facts:vertical`
+  - `uk:eu:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:tabular`
+  - `us:2016:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:emblems`
+  - `us:legacy:nutrition_facts:vertical`
+  - `us:legacy:supplement_facts:vertical_columns`
+  - `us:legacy:supplement_facts:vertical`
+  - `us:2016:supplement_facts:vertical_columns`
+  - `us:2016:supplement_facts:vertical`
+
+- **A product identifier column**
+  Must be one of: Product ID/Variant ID or SKU. These will be used to associate the product with a matching Shopify product.
+
+## Adding Nutrients to the Spreadsheet
+
+Any nutrient can be imported. For example, to import Omega 3 with a quantity of 1000mg you'd add an *Omega 3* column with a value of *1000mg* for the given product's row.
+If you wanted to specify a percent allowance you'd add a column *Omega 3 %*:
+
+## Nutrition Data With Multiple Servings
+
+Use a *Comments* column to separate sets of nutrition data for the same product.
+For example, if you have *Per serving* and *Per 100g* nutrition data you'd delimit each data set using *Comments* columns:
+
+---
+
+## Creating Labels in Multiple Languages
+
+Source: https://help.screenstaring.com/docs/itsgot/multi-language
+
+Products can have multiple labels. Each label has its own settings, including the language it appears in. This setting is the label's locale, which is a language/country combination.
+For example, to display a label using Spanish for Spain the locale would be `es-ES`. Spanish for Mexico would be `es-MX`.
+By default the label will inherit the locale of its format. A US Supplement Fact label will have a locale of `en-US` for American English.
+
+## Setting a Label's Locale
+
+The first step to displaying a label in a different language is to change its locale.
+
+1. From the *Product's* page in the app select *Labels*:
+
+2. Then select *Edit* for the desired label:
+
+3. From the label's page select *Translations*. This will display the locale field:
+
+4. Choose the desired locale. If you don't see the desired locale [contact support](https://screenstaring.com/#contact) and they will add it.
+5. Click Update to save
+
+Your label will now be displayed in the language of the chosen locale.
+The label's design will remain the same but the new locale causes the following changes:
+
+- Un-editable text on the label will be changed, for example *Per serving*
+- Nutrients defined by the system will be translated
+- User-defined nutrients, ingredients, etc. will be translated if translations for them have been defined. See Translating Ingredients, Warnings Etc.
+
+Now let's create a 2nd label. This will have a different locale and be translated into another language.
+
+## Translating Ingredients and Other Block Text
+
+1. From the *Product's* page in the app select *Labels*:
+
+2. From the labels page select *New Label*:
+
+3. By default the new label's format will be the same as the existing label. You can change it if you like.
+4. Select *Translations* and select the desired value from the locale field:
+
+5. You can add translations for ingredients, warnings, footnotes, and more. These values will be used when
+   displaying the label in the chosen locale. Text on the original label will not be affected.
+6. Click Update to save
+
+You now have 2 labels, each with their own locale:
+
+## Enabling Translations on Your Site
+
+If you're using the [Shopify theme editor](https://help.screenstaring.com/docs/itsgot/adding-labels/shopify/theme-editor) you can enable translations by selecting *Enable* under in the *Translations* section:
+
+If you're not using the Shopify Theme editor you can add the `data-localize="true"` attribute to the embed code's script tag. For example:
+
+```html
+<div data-itsgot-user="1234" data-itsgot-label="9999"></div>
+<script src="//itsgot.com/embed.js" data-localize="true" async></script>
+```
+
+By default the user will see the language that matches the page's `lang` attribute on the `html` tag. This works with most sites.
+[Contact support](https://screenstaring.com/#contact) if you need to use a different method.
+
+---
+
+## Combining Meal Components to Generate a Label
+
+Source: https://help.screenstaring.com/docs/itsgot/combine-api
+
+If you have a prepared meals or restaurant site you'll likely want to input your meal components once, and display a label
+based on the customer's selection. For example, if you offer a protein with a carbohydrate you want
+to generate a label based on the selection of each of these. If the user selects chicken and rice the label must contain the
+combined nutrients for chicken and rice. If they select chicken and baked potato the label must contain the combined
+nutrients for chicken and baked potato. Etc.
+
+This can be achieved via the following steps:
+
+1. [Create labels that are not associated with a Shopify product](#combine-api-create-component-label)
+2. [Create a label for the parent Shopify product](#combine-api-create-product-label)
+3. [Add Combine API code to your site](#combine-api-add-code)
+
+## Create Labels That Are Not Associated With a Shopify Product
+
+To be able to use meal components you must create a label with the *Not associated with a Shopify product* checked:
+
+For *Name*, enter the name of the meal component *exactly* how it appears on your site, for example *Sweet Potato Fries (Large)*.
+Afterwards proceed to enter the nutritional information and save the label.
+
+## Create a Label for the Parent Shopify Product
+
+If the product is a bundle or container, i.e., something that does not contain nutritional data, for example, *10 day lunch plan*, you can skip this part.
+If the product is a dish or meal component you must enter nutritional information for it too.
+
+In this scenario you must not check *Not associated with a Shopify product*. Instead enter the first few characters of the product's name,
+select it from the list, and enter the nutritional information and save.
+
+## Add Combine API Code to Your Site
+
+Once you've entered the nutritional information into the app you must add code to your site to retrieve and insert the label based on the customer's selection.
+This code must retrieve the selected variants and pass them to the It's Got combine API. This involves two steps:
+
+### 1. Load the Combine API and Snippet
+
+The snippet can be found on the settings page. Wherever this snippet is placed is where the label will be shown. It can be inserted anywhere on your site. Check out [this example](https://help.screenstaring.com/docs/itsgot/adding-labels/embed-code).
+
+### 2. Retrieve the Selected Variants and Call the Combine API
+
+This is what will load the label based on the selected variants into the snippet added in step 1 above.
+How to get the selected variants is dependent on your theme. There is no one-size-fits-all solution.
+You can [contact support](https://screenstaring.com/#contact) for guidance but first try the [below example](#combine-api-example).
+
+The Combine API requires making the following JavaScript call:
+
+`ItsGot.combine(components, options)`
+
+| Argument    | Description |
+| ----------- | ----------- |
+| `components` | An array of strings containing the meal components to build the label for. These values will come from the currently selected variants. |
+| `options`   | Optional. An object that can contain the following properties: |
+|             | `format` - Format of the label to render. Defaults to `us:2016:nutrition_facts:emblems`. Other supported formats are: `ca:legacy:nutrition_facts:vertical`, `de:eu:nutrition_facts:vertical`, `dk:eu:nutrition_facts:vertical`, `se:eu:nutrition_facts:vertical`, `uk:eu:nutrition_facts:vertical`, `us:2016:nutrition_facts:tabular`, `us:2016:nutrition_facts:vertical`, `us:legacy:nutrition_facts:vertical`, `us:legacy:supplement_facts:vertical_columns`, `us:legacy:supplement_facts:vertical`, `us:2016:supplement_facts:vertical_columns`, and `us:2016:supplement_facts:vertical` |
+|             | `only` - An array of nutrients to display. When specified only nutritional values for the provided nutrients will be shown. e.g., `sodium`, `calories`. Only valid for the `us:2016:nutrition_facts:emblems` format. |
+
+### Combine API Example
+
+Add this to the product's description or to the appropriate Liquid file in the location you want the label to appear
+(note that the snippet for your account can be found on the settings page):
+
+```html
+<script async="async" src="//itsgot.com/embed.js"></script>
+<div data-itsgot-user="YOUR_ID" data-itsgot-combine></div>
+```
+
+Then, add this to the product (or similar) Liquid template:
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', _ => {
+    // ====================
+    // NOTICE: getSelectedVariants() is an example and will not work with all Shopify themes.
+    // How to get the selected variants is dependent on your theme. There is no one-size-fits-all solution.
+    // ====================
+    function getSelectedVariants() {
+      return document.querySelectorAll('[class^=single-option-selector]');
+    }
+
+    function showLabel() {
+      const components = [];
+
+      getSelectedVariants().forEach(element => {
+        if(element.value) components.push(element.value);
+      });
+
+      ItsGot.combineLabels(components, {
+        format: 'us:2016:nutrition_facts:emblems',
+        only: ['calories', 'protein', 'total carbohydrate', 'total fat', 'dietary fiber', 'total sugars']
+      });
+    }
+
+    getSelectedVariants().forEach(element => element.addEventListener('change', showLabel));
+  });
+</script>
+```
+
+---
+
+## Using Structured Data for Improved SEO
+
+Source: https://help.screenstaring.com/docs/itsgot/structured-data
+
+If your subscription includes Premium plan features each product will have
+[Schema.org nutrition information](https://schema.org/NutritionInformation) added as
+variant [metafields](https://help.shopify.com/en/manual/metafields).
+If the product does not have variants it will be added as a metafield on the default variant.
+This allows you to add structured nutrition data to your site by outputting the appropriate metafield(s) in your theme.
+
+The following example outputs the nutrition data for each variant as JSON-LD structured data. This works even if the product has no variants:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script type="application/ld+json">
+     {{ variant.metafields.itsgot.schema-org | json }}
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+If you need to add additional information to the structured data before it's output you can use the following example as a guide.
+Here we add [offer data](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
+describing the price of each variant. The example uses a combination of Liquid and JavaScript code. We use JavaScript instead of pure
+Liquid because JavaScript makes it easier to update the nutrition information structure:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script>
+      (function() {
+        var schema = {{ variant.metafields.itsgot.schema-org | json }};
+        schema.offers = {
+          '@type': 'Offer',
+          price: {{ variant.price | json }},
+          priceCurrency: {{ shop.currency | json }},
+          sku: {{ variant.sku | json }},
+          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
+        };
+
+        var script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.textContent = JSON.stringify(schema);
+        document.body.appendChild(script);
+      })();
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+---
+
+## Review Request Email Domain Verification
+
+Source: https://help.screenstaring.com/docs/itsgot/review-request-email
+
+To send review request emails using your email address and domain you must first verify that you own the domain.
+Verifying your domain allows recipients to see that an email is sent directly from you, and email providers are more likely to trust it.
+This helps improve deliverability, increasing the likelihood that your messages reach the inbox instead of being flagged as spam.
+The following screenshots show the difference between emails with and without a verified domain.
+
+**Without verified domain**
+
+Note the *From* address uses the app's address and your site's email is used as a *Reply-to* address.
+
+**With verified domain**
+
+Using a verified domain allows one to use their custom address in the *From* field, removing the need for a *Reply-to* address.
+
+Email domain verification is done by adding DNS records to your site's configuration that authorize our sending infrastructure.
+Once the domain is verified, the *From email* field on the review request email settings page will be enabled.
+
+## Verify Your Domain
+
+1. Go to the review request email settings page
+2. Click the Verify button next to the *From email* field
+3. Enter your sending domain (e.g. `mail.example.com`) and click Register domain.
+4. This will generate several DNS records that must be added to your domain's DNS settings.
+   The records can be viewed by clicking the Verify domain button on the email configuration page.
+5. Add the previously generated records to your site's DNS configuration.
+   For information see [Adding Records to Your Site's DNS Configuration](#adding-dns-records).
+6. Once the records have been added click the Records Added button on the verification page
+7. Wait for DNS changes to propagate and for verification to complete. This can take up to 24 hours.
+   Once verified, the *From* email field will be enabled and you can set a custom sending address.
+8. You can monitor verification status from the review request email settings page
+
+## Adding Records to Your Site's DNS Configuration
+
+Domain authentication relies on a handful of DNS entries that prove you control the domain you're sending from.
+Add these in your DNS provider's control panel while keeping this app open in another tab — you'll be copying values back and forth between the two.
+
+Every DNS provider's interface looks a little different, so the field names mentioned here may not match exactly what you see.
+If you don't normally manage DNS for your organization, loop in whoever does — your IT team or hosting provider can usually add these records in a few minutes.
+
+Once added give the changes a few minutes to take effect, then click Verify records from the review request email settings page.
+
+Once the app confirms the record is in place, click Done to wrap up setup.
+
+---
+
+## API Integration
+
+Source: https://help.screenstaring.com/docs/itsgot/api-integration
+
+**API integration is only available under the Premium plan.**
+
+API requests are authenticated using your API key.
+Include your API key in the `X-API-Key` header with each request.
+Contact support to obtain yours.
+
+## Base URL
+
+All API endpoints are relative to: `https://itsgot.com`
+
+## Pagination
+
+For endpoints that support pagination the next and previous page URLs can be found in the HTTP `Link` header.
+
+## Retrieve Products
+
+### GET /api/products
+
+**Query Parameters:**
+
+- `sku` - The variant's SKU (optional)
+- `barcode` - The variant's barcode (optional)
+- `external_product_id` - Shopify product ID (optional)
+- `external_variant_id` - Shopify variant ID (optional)
+- `page` - Page to retrieve (optional)
+- `per_page` - Number of products returned per page, must be one of `10`, `25`, `50`, `100` (optional, defaults to 10)
+
+**Example using curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
+```
+
+**Response (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Jar of Food",
+    "rating": 0.0,
+    "external_product_id": 123123123,
+    "variants": [
+      {
+        "name": "Spicy",
+        "size": null,
+        "servings_per_container": "1",
+        "serving_size": null,
+        "ingredients": null,
+        "barcode": "834325",
+        "external_variant_id": 789789789,
+        "warnings": null,
+        "instructions": null,
+        "claims": null,
+        "sku": "JARFOOD",
+        "origin_countries": null,
+        "allergens": null,
+        "created_at": "2026-07-30T13:32:38Z",
+        "updated_at": "2026-07-30T13:36:08Z",
+        "kosher": false,
+        "halal": false,
+        "glatt_kosher": true,
+        "organic": false,
+        "dairy": false,
+        "parve": true,
+        "vegan": true,
+        "vegetarian": true,
+        "gmos": null,
+        "gluten": null,
+        "wheat": null,
+        "preservatives": null,
+        "artificial_colors": null,
+        "artificial_flavors": null,
+        "casein": null,
+        "egg": null,
+        "soy": null,
+        "shellfish": null,
+        "tree_nuts": null,
+        "peanuts": null,
+        "fish": null,
+        "seeds": null,
+        "milk": null,
+        "nitrates": null,
+        "nitrites": null,
+        "sesame": null,
+        "coconut": null,
+        "rbst": null,
+        "rbgh": null,
+        "celery": null,
+        "translations": {},
+        "nutrition": [
+          {
+            "id": 1,
+            "calories": 28,
+            "calories_from_fat": null,
+            "calories_from_saturated_fat": null,
+            "comments": "Per 100g",
+            "number": 1,
+            "kilojoules": 114,
+            "created_at": "2026-08-04T18:48:07Z",
+            "updated_at": "2026-08-04T18:48:07Z",
+            "data": [
+              {
+                "id": 1,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "1",
+                  "unit": "mg"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 10,
+                  "name": "Iron",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              },
+              {
+                "id": 2,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "2",
+                  "unit": "g"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 8,
+                  "name": "Protein",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              }
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": 10,
+            "format": "au_nutrition_facts_vertical",
+            "locale": "en-AU",
+            "target_device": null
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Export a Label to a Specified Format
+
+### GET /api/products/PRODUCT_ID/labels/LABEL_ID/export.FORMAT
+
+**Required parameters:**
+
+- `PRODUCT_ID` - Product ID of the label you want to export
+- `LABEL_ID` - ID of the label you want to export
+- `FORMAT` - Format to export. One of `png`, `jpg`, `pdf`, or `html`
+
+**Optional query parameters:**
+
+- `width` - Image only. Export the label to the given width. Defaults to the label's width x 2.
+- `height` - Image only. Export the label to the given height. By default the aspect ratio is maintained and the height is based on the given width.
+- `background_color` - Image only. Background color to use if the label is resized and no longer maintains its aspect ratio
+
+**Example using curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products/123/labels/789/export.jpg' > product.jpg
+```
+
+---
+
+## Frequently Asked Questions
+
+Source: https://help.screenstaring.com/docs/itsgot/faq
+
+Don't see your question here? Please contact us. We'll be happy to assist.
+
+## Labels Are Not Available in My Language or Country's Format
+
+Please [contact our support team](https://screenstaring.com/#contact) and we can add any necessary translations and/or format(s).
+
+## Label Is Partially Visible or Does Not Completely Load
+
+This is normally caused when the label is inserted within a tabs, accordion, or similar widget. In most cases you can fix this by setting the
+*Default insertion delay* field on the settings page.
+
+The proper delay varies by site but usually setting it to 3.5 seconds will fix things.
+
+---
+
+## Uninstalling the App
+
+Source: https://help.screenstaring.com/docs/itsgot/uninstalling
+
+Before uninstalling the app existing product labels must be removed.
+This includes:
+
+1. Labels automatically added to your product descriptions
+2. Labels manually added via embed code
+
+## Labels Automatically Added to Your Product Descriptions
+
+These labels can be removed by deleting all of your labels. To do this:
+
+1. Visit the My Labels page
+2. For each label that was automatically added, click on its Delete button:
+
+If you need help contact our support team.
+
+## Labels Manually Added via Embed Code
+
+Embed code that you've manually added to your site will not be automatically removed. You must do this yourself.
+If you need help contact our support team.
+
+---
+
+## Changelog
+
+Source: https://help.screenstaring.com/docs/itsgot/changelog
+
+A summary of notable changes to It's Got.
+
+## 2026
+
+### August 25th
+
+- Support for adding user-defined custom text blocks to certain label formats
+- Support for changing the background color of label nutrients and dietary ingredients
+- Support for adding text pills in the rich text editor
+- Expand support for image uploads in the rich text editor to additional label formats
+- Add option to Shopify theme editor extension to open a product label in a popup
+
+### August 12th
+
+- Add API endpoints for fetching product and nutrition data
+- Add API endpoint to export labels to a variety of formats
+- Support for product names being included on Canadian labels
+- Support for "Servings per" option for US and AU labels
+
+### August 5th
+
+- Expand nutrient display setting options to additional label formats
+- Use a rich text editor for AU allergens, claims, and warnings input fields
+- Support for inserting links in the rich text editor
+- Support for inserting special characters and horizontal rules in the rich text editor
+
+### July 30th
+
+- Add uppercase menu item option to the rich text editor to turn the selected text to uppercase
+- Support for collecting product reviews
+- Expand user-defined nutrient sorting to most label formats
+
+### July 16th
+
+- Add spacing options to percent allowance and other label elements
+- Support for adding boxes around text in ingredients and claims fields
+
+### June 17th
+
+- Support for applying new label defaults to existing labels
+- Support for global panel font size and color defaults
+
+### March 20th
+
+- Support for image uploads in the rich text editor
+
+### February 25th
+
+- Change all footnotes inputs into now rich text editors
+- Support for linking nutrients and dietary ingredients to web pages
+- Support for changing the appearance of dietary ingredients
+- Support for setting a user-defined label headings on EU supplement facts
+- Support for setting a nutrition panel's font size
+- Support for adding custom nutrients in nutrition facts labels
+- Support for adding asterisks to %DV/Daily Value headings
+
+### January 29th
+
+- Support for additional nutrition panel styling: border styles, border color, and padding
+- Support for adding rich text headings to most label formats
+
+## 2025
+
+### December 11th
+
+- Support for user-defined footnotes for US, supplement, UK, AU, and Canadian labels
+- Support for folate and folic acid grouping
+- UI to manage user-defined nutrients
+
+### October 8th
+
+- Support for user-defined dietary ingredient order
+- Support for user-defined footnotes for UK and AU labels
+- Support for batch importing of product label translations
+
+### July 30th
+
+- Support for user-defined nutrient order
+- Support for specifying a user-defined variant selector in the Shopify theme extension
+
+### May 22nd
+
+- Shopify theme extension to add labels as a block via theme customization
+- Support for exporting product labels as images
+
+### April 20th
+
+- Support for setting product label width as a percentage
+- Support for user-defined nutrients for UK and AU formats
+- Support for translating label text across many locales and label formats
+
+### January 30th
+
+- Support for displaying a product's name on the label
+
+## 2024
+
+### December 31st
+
+- Support for adding defaults for product label styles
+- Use a rich text editor for changing a label's heading
+- Make servings on US labels optional
+
+...
+
+---
+
+# Product Expiration Dates
+
+## Product Expiration Dates User's Guide
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/
+
+The [Product Expiration Dates app](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) is a full-featured inventory management system for your perishable products that allows you to track sell-by, batch numbers, and materials from intake to sale.
+Expiration information can be presented to consumers in a variety of ways. Supports FEFO, FIFO, & custom inventory management methods.
+
+- [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data)
+- [Importing Expiration Data in Bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import)
+- [Changing the Date and Time Format](https://help.screenstaring.com/docs/product-expiration-dates/date-format)
+- [Automatically Removing Expiring Inventory Batches](https://help.screenstaring.com/docs/product-expiration-dates/removing-expiring-batches)
+- [Email Notifications](https://help.screenstaring.com/docs/product-expiration-dates/notifications)
+- [Adding Expiration Data to Your Site](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages)
+- [Selling Expiring Products for a Discount](https://help.screenstaring.com/docs/product-expiration-dates/discounts)
+- [Varying the Date Format Based on the Selected Country](https://help.screenstaring.com/docs/product-expiration-dates/localizing-dates)
+- [Order Inventory Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment)
+- [Inventory Transfers](https://help.screenstaring.com/docs/product-expiration-dates/inventory-transfers)
+- [Inventory Push](https://help.screenstaring.com/docs/product-expiration-dates/inventory-push)
+- [Notifications, Order Printing, & Packing Slips](https://help.screenstaring.com/docs/product-expiration-dates/notifications-and-packing-slip)
+- [Shopify Point of Sale (POS) Integration](https://help.screenstaring.com/docs/product-expiration-dates/pos-integration)
+- [Entry via Barcode Scanner](https://help.screenstaring.com/docs/product-expiration-dates/barcode-scanner)
+- [Viewing Order Expiry Dates & Batch Numbers in Shopify](https://help.screenstaring.com/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
+- [Sharing Inventory Between Multiple Stores](https://help.screenstaring.com/docs/product-expiration-dates/sharing-inventory)
+- [Disabled Products](https://help.screenstaring.com/docs/product-expiration-dates/disabled-products)
+- [Expiration Data Metafields](https://help.screenstaring.com/docs/product-expiration-dates/expiration-data-metafields)
+- [Expiration Data Assigned to an Order](https://help.screenstaring.com/docs/product-expiration-dates/expiration-data-orders)
+- [API Integration](https://help.screenstaring.com/docs/product-expiration-dates/api-integration)
+
+---
+
+## Adding Expiration Data to Products
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data
+
+Expiration data can be added to your products on the product's inventory batches page. You can also [import expiration data in bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import) or by [scanning the product's barcode](https://help.screenstaring.com/docs/product-expiration-dates/barcode-scanner). There are 3 sets of data that can be provided:
+
+-   Inventory Batches
+-   Use Within Values
+-   Product Discounts
+
+You can watch a short introduction video [here](https://youtu.be/vjLB_v1OHpw).
+
+## Inventory Batches
+
+Inventory Batches are the primary set of expiration data. The values provided will be assigned to orders, used to send expiration notifications, and determine when a product will be discounted. You can also display inventory batch information on your site.
+
+When creating inventory batches the first thing to determine is when you want expiration data assigned to your orders. This can be done when the order is placed or when an order line item is fulfilled. See the "Assign inventory batches when" option below.
+
+On the Add Product page, the Inventory Batches tab is where you will enter most of your expiration data. The options shown depend on your subscription. The most common are:
+
+### Assign inventory batches when
+
+"Assign inventory batches when" specifies when an inventory batch is assigned to an order: when the order is placed or when an order item is fulfilled. The default is to assign when an order is placed. For example, if you're using the First Expiring, First Out (FEFO) inventory management method was being used the soonest expiring batch will be assigned to new orders. To configure what location is chosen see [Order Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment).
+
+### Expires, Batch, Quantity, and Location
+
+Expires is the expiration date for the given batch. Quantity is the amount available (though see *Available vs on hand quantity* below). Location is the Shopify location where the batch exists. Batch is the batch number. It's is optional. You can view the quantity available at Shopify for the given product or variant by clicking the "Quantity" link:
+
+For example, Product A has a quantity of 10 in Shopify at the Warehouse location. Of this 10, 6 expires in 2025 and 4 expires in 2024. This results in the following entries into the app:
+
+-   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
+-   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
+
+### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc...
+
+You can assign values to these by enabling their display on the Batches tab:
+
+Select the desired field and click the Save button
+
+### Available vs on hand quantity
+
+If you're using Inventory Push, you can either set the on hand or the available quantity. See the [Inventory Push](https://help.screenstaring.com/docs/product-expiration-dates/inventory-push) documentation for more information.
+
+### Configuring Fulfillment Locations
+
+See [Order Inventory Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment).
+
+### What happens next?
+
+Let's assume you have entered inventory batch data for a product and selected "Order is placed" from the "Assign inventory batches when" option. Now, when an order is placed for that product, the app will assign the soonest expiring inventory batch from the location assigned to the order (for in-store orders) or, if the order does not have a location assigned, the app will assign the soonest expiring inventory batch from the values entered. If a line item is restocked/refunded/etc... its soonest expiring inventory batch is released and available to be assigned to future orders.
+
+You can see what inventory batch has been assigned to an order on the app's Orders page
+
+You can also [display the expiration-related information on your site](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages) or [add it to your packing slip or notifications](https://help.screenstaring.com/docs/product-expiration-dates/notifications-and-packing-slip).
+
+## Use Within Values
+
+This is extra information that can be displayed on your site. It represents the time the manufacturer recommends using or consuming a product after it has been opened. For example, you can have `best by July 1st 2025` from the Inventory Batches and `Use within 30 days` from here.
+
+## Product Discounts
+
+***Product discounts are available starting with the Premium Plan***
+
+**We recommend using [Rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets) to create product discounts.** With Rulesets you can create multi-phased discounts which cannot be done with "old style" discounts specified via the settings or Discounts tab.
+
+Product-specifc discounts can be entered on the Discounts tab. When an inventory batch is approaching its expiration date the product's price will be reduced by the provided percentage.
+
+Default values for these fields can be entered on the Discount Settings page under the Product Defaults section. When adding new products to the app values entered here will be used to populate the fields on the Discounts tab.
+
+To configure global discounts to use across all products see [Selling Expiring Products for a Discount](https://help.screenstaring.com/docs/product-expiration-dates/discounts).
+
+---
+
+## Importing Expiration Data in Bulk
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/batch-import
+
+Multiple expiration dates and quantities can be imported using our batch import CSV. A sample of this can be found [here](https://help.screenstaring.com/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+The "SKU", "Expiration Date", "Quantity", and "Location Name", columns are required. **Expiration dates must be provided in `YYYY-MM-DD` format.** To use "Barcode" instead of "SKU" select "Identify rows by Barcode" on the batch import page.
+
+For more information on the "Allocate Quantities to Orders When" column see [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data).
+
+The CSV must use UTF-8 encoding and use the comma character (",") as a field seperator.
+
+Once ready upload it via the import page.
+
+---
+
+## Changing the Date and Time Format
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/date-format
+
+The date format displayed in the app is determined by your locale. Your locale can be changed on the settings page's general tab. By default we use the locale provided by Shopify. Changing the locale does not affect inventory batch expiration dates. It only changes the format used to display them.
+
+The date format displayed on your site can be configured when [adding expiration data to your site](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages).
+
+---
+
+## Automatically Removing Expiring Inventory Batches
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/removing-expiring-batches
+
+Removing inventory batches based on their expiration date can be done by selecting "Remove expiring inventory from Shopify" from the Inventory tab on the settings page or as part of [Ruleset](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets) with a Remove Inventor Batch Action.
+
+---
+
+## Email Notifications
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/notifications
+
+Email notications can be configured to be sent before product expiration dates are reached. They can be configued globally, to apply to any expiration date enteted into the app, by a product's collection, or by a product's product type.
+
+## Enabling
+
+1.  In the app's settings go to email notifications
+2.  In the "Send notifications" field enter the email address where you want to receive the notifications. Multiple email addresses can be separated by a comma.
+3.  In the "How many days before a product expires would you like to be notified?" field, enter the number of days to be notified before a product expires.
+ For example, if a product has an expiration date of January 15th and 10 is entered, you will receive a notification for this product staring on January 5th.
+4.  Click the Update button to save
+
+Notifications are sent once a day. If no products are within your expiration window a notification will not be sent.
+
+If you prefer to receive notifications based on a product's collection or product type you can skip entering a value in "How many days before a product expires would you like to be notified or for the product to be discounted?" and instead add the days to the given collection or product type in the "By Collection" or "By Product Type" section. These fields will only show values for products that have been entered into the app.
+
+## Disabling
+
+1.  In the app's settings go to email notifications
+2.  In the "How many days before a product expires would you like to be notified?" field remove the value.
+3.  If you have any collection or product type notifications, you must delete them by pressing the red X button next to the notifcation's settings
+4.  Click the Update button to save
+
+Notifications will no longer be sent.
+
+---
+
+## Adding Expiration Data to Your Site
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages
+
+It is possible to access and/or display expiration data from your site. This includes expiration dates, their quantities, and use within data. The easiest way to display this information is to use our [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) integration, which allows the expiration data to be added [as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
+
+1.   shopify.themes()}>Go to your Themes in the Shopify Admin
+2.  Find the theme you want to update and click "Edit theme"
+3.  In the theme editor, select the template you'd like to add expiration data to:
+
+4.  Select the desired location within the template. This can be done by hovering your cursor over the desired insertion area:
+
+5.  Click on the add block button and select Expiration Data from the Apps section:
+
+6.  This will add an Expiration Data block to the selected template:
+
+7.  Click on the Expiration Data block to access additional configuration options. For products with multiple variants, the selected variant's expiration data will be shown. Multiple blocks can be added to address diffrent use cases. For example, you can add 1 block to show expiration dates, and another to show use within data.
+8.  Click Save
+
+## Adding our Snippet to Your Theme
+
+**Adding expiration data should be done via [our Shopify theme integration](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages). Explicitly adding the snippet is only necessary for specialized cases.**
+
+1.   shopify.toString()}>Go to the Shopify Admin
+2.  [Open your theme's code editor](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3.  [Add a new theme file](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+    -   Click on the "snippets" directory
+    -   Click "Add new snippet"
+    -   For file name use `ss-product-expiration-dates`
+    -   Click "Done"
+4.  This will open a new blank tab in the editor named `snippets/ss-product-expiration-dates.liquid`
+5.  Copy the code from [our Liquid snippet](https://help.screenstaring.com/product-expiration-dates/images/ss-product-expiration-dates.txt) and paste it into the tab
+6.  Click Save
+
+## Displaying the Expiration Data
+
+Once you've [added our snippet to your theme](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) the next step is to render it in the location you want the expiration data displayed. This can be done from the Shopify Admin via the customize theme page.
+
+1.   shopify.themes()}>Go to your Themes in the Shopify Admin
+2.  Find the theme you want to update and click "Edit theme"
+3.  In the theme editor, select "Products" then "Default product" (or whatever the desired template is)
+4.  In the Template section click "Add block"
+5.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
+
+-   If your theme does not have a "Custom liquid" nor "HTML" option you must render the snippet in your theme manually
+-   This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor)
+-   If you need assistance please [contact support](https://screenstaring.com/#contact)
+
+7.  Once selected you can move the Custom Liquid block to location you want the expiration data displayed
+8.  Click on the Custom Liquid block you just added
+9.  In the "Custom liquid" (or similar) field paste the desired render code, see Expiration Data Display Options for examples
+10.  Click Save
+
+## Display the Expiration Dates Based on User Language/Region
+
+If you are displaying your site in multiple languages you can change the expiration date format and text based on the currently selected language and/or region. Instead of rendering the expiration date via the default code:
+
+```liquid
+{% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+```
+
+You can use the following code to check the selected language and/or region and display the expiration date and text in a specific format:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+Here if the language is Spanish (`"es"`) the text `"Consúmase antes de:"` is shown and the date is displayed in `DD/MM/YYYY` format. If the language is German (`"de"`) the text and date are displayed in a format suitable for German speakers. And, if the language is neither of the two, we display the date in a format suitable for English speakers.
+
+If you want to display text based on the user's language **and** country, you can add a a case that checks the `locale` variable. In this example we show the date in `YYYY/MM/DD` format if the uesr is in Spain, and show the date in `DD/MM/YYYY` if they are in another Spanish-speaking country:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if locale == "es-ES" %}
+ {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
+{% elsif lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+---
+
+## Selling Expiring Products for a Discount
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/discounts
+
+Products can be discounted when they contain an inventory batch within an expiration window. There are two ways to configure discounts: 1) [the legacy method](https://help.screenstaring.com/docs/product-expiration-dates/discounts#legacy-discounts) 2) [rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets). Rulesets are the preferred method and allow one to configure multi-phased discounts. For example, discount a product by 10% 100 days before expiration then discount it by 30% 5 days before expiration.
+
+See the documentation below for each type.
+
+## Rulesets
+
+***Rulesets are only available under the Platinum Plan***
+
+Rulesets allow one to define a set of critiera to apply to a product, and execute actions when the criteira matches. Rulesets are not only for discounts, they can be used to add or remove tags, change a product's title, and more! Let's look at an example. Say you want to discount a product based on the following:
+
+-   100 days before expiration: discount by 10%
+-   14 days before expiration: discount by 30%
+-   Day of expiration: discount by 50%
+-   5 days after expiration: remove expired batches
+
+Performing this can be achieved by creating a single ruleset with 4 rules. Each rule will contain the desired criteria (100 days before, 14 days before, etc...) and actions (discount by 10%, discount by 30% etc...). When a rule's criteria matches its associated actions will be executed.
+
+**Note:** discount percentages are based off the product's price at the time the discount is applied. If you want to base it off the original, pre-discount price, you must add a "Remove Discount" action alongside the "Add Discount" action at each phase.
+
+### 100 days before expiration: discount by 10%
+
+1.  Go to the ruleset page
+2.  Click "Add ruleset"
+3.  From the New Inventory Ruleset page you can give the ruleset a name
+4.  Click the Save
+5.  This will take you to the new rulesets' page where the discount rules can be added
+6.  Click "Add rule"
+7.  From the Criteria field select "Before an Inventory Batch Expires"
+8.  In the "Days before expiration" field enter 100
+9.  Below, in the Actions section, select "Add Discount"
+10.  In the "Discount percentage" field enter 10. To set the compare at price on Shopify to the pre-discount price check "Use regular price as compare at price"
+11.  Click Save
+12.  Now the ruleset has a single rule, we must add 3 more
+
+### 14 days before expiration: discount by 30%
+
+1.  From the rulset's Edit Ruleset page, click on "Add rule"
+2.  From the Criteria field select "Before an Inventory Batch Expires"
+3.  In the "Days before expiration" field enter 14
+4.  In the Actions section, select "Add Discount"
+5.  In the "Discount percentage" field enter 30
+6.  Click Save
+7.  Now the ruleset has 2 rules, we must add 2 more
+
+### Day of expiration: discount by 50%
+
+1.  From the rulset's Edit Ruleset page, click on "Add rule"
+2.  From the Criteria field select "After an Inventory Batch Expires"
+3.  In the "Days after expiration" field enter 0. This sets the criteira to the day the product expires
+4.  In the Actions section, select "Add Discount"
+5.  In the "Discount percentage" field enter 50
+6.  Click Save
+7.  The ruleset has 3 rules, 1 more to go!
+
+### 5 days after expiration: remove expired batches
+
+1.  From the rulset's Edit Ruleset page, click on "Add rule"
+2.  From the Criteria field select "After an Inventory Batch Expires"
+3.  In the "Days after expiration" field enter 5. This sets the criteira to the day the product expires
+4.  In the Actions section, select "Remove Inventory Batch"
+5.  Click Save
+
+The resulting ruleset should look like the following:
+
+This ruleset will apply to all products in your store. You can limit it to specific products or variants by selecting "With Matching Product" criterium when creating a rule. If the expiring batch's quantities are sold the ruleset will be reverted and the product/variant restored to the price at the time Rule 1 matched.
+
+Unless the "Apply retroactively" option is selected (see below), **a ruleset's rules must match in the order they're defined.** For example, Rule 3 will not match unless Rules 1 and 2 have matched.
+
+## Retroactive Matching
+
+Normally a ruleset can only start applying to an inventory batch by matching its first rule. If a batch is already past that rule's timing —for example the ruleset was created after the batch was added— the ruleset will never apply to it.
+
+Selecting the "Apply retroactively" option lets a batch join the ruleset at whichever rule matches its current date, and applies every earlier rule's actions at the same time. Given the ruleset in the above example, a product 10 days away from expiring will have Rules 1 and 2 and their associated actions applied in a single pass. A batch that expired 2 days ago will have Rules 1, 2 and 3 applied, even though Rules 1 and 2 no longer match on their own.
+
+After these initial matches rules will be applied normally, i.e. as they would be if "Apply retroactively" was not selected.
+
+## Legacy Discount Method
+
+***Legacy discounts are only available under the Pro Plan***
+
+Legacy discounts can be configured by a product's collection, its product type, or on the product itself. When a discount is active it will last until all expiring quantities are sold or until the applicable expiration date(s) are changed so that they are no longer within the configured discount window.
+
+**By default the discount will be applied to all available quantities.** For example, if you have 10 products and only 3 are expiring offering a discount will still allow the user to purchase **10** for the discounted price. This is due to how Shopify product pricing works. If you wish to offer a discount only for the expiring quantity there are several options. Please [contact support](https://screenstaring.com/#contact) to discuss the options and determine what will work best for your store.
+
+It may take several minutes for the discount or the restored price to appear on your site.
+
+## Enabling Per Product
+
+1.  For the product you want to discount [enter its expiration dates](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) into the app
+2.  On the product's page in the app click the "Discounts" tab
+3.  On the "Discounts" tab check "Offer a discount when an inventory batch is within its expiration window"
+4.  In the "Discount percentage" field enter the percentage by which you want to discount the product's regular price.
+ For example, if a product has a price of 50 and 10 is entered, the product will be sold for a price of 45 when the discount is active.
+5.  In the "Discount days before expiration" field enter the number of days before a product expires you want to activate the discount.
+ For example, if a product has an expiration date of January 15th and 10 is entered, the product will be discounted staring on January 5th.
+6.  Click the Save button
+
+## Enabling by Collection
+
+1.  For the product you want to discount [enter its expiration dates](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) into the app
+2.  On the product's page in the app click the "Discounts" tab
+3.  On the "Discounts" tab check "Offer a discount when an inventory batch is within its expiration window"
+4.  In the "Discount percentage" field enter the percentage by which you want to discount the product's regular price.
+ For example, if a product has a price of 50 and 10 is entered, the product will be sold for a price of 45 when the discount is active.
+5.  Do not enter a value into the "Discount days before expiration" field. This will be entered in a later step when configuring the collection
+6.  Click the Save button
+7.  In the app's settings go to discounts
+8.  Go to the "By Collection" section
+9.  In the "Title" field select the collection you want to configure the discount for
+10.  In the "Days before expiration" field enter the number of days before products in the collection expire. This will determine when to activate the discount.
+ For example, if a product has an expiration date of January 15th and 10 is entered, the product will be discounted staring on January 5th.
+11.  To add a different collection click the "Add more" link
+12.  Click the Update button
+
+## Enabling by Product Type
+
+1.  For the product you want to discount [enter its expiration dates](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) into the app
+2.  On the product's page in the app click the "Discounts" tab
+3.  On the "Discounts" tab check "Offer a discount when an inventory batch is within its expiration window"
+4.  In the "Discount percentage" field enter the percentage by which you want to discount the product's regular price.
+ For example, if a product has a price of 50 and 10 is entered, the product will be sold for a price of 45 when the discount is active.
+5.  Do not enter a value into the "Discount days before expiration" field. This will be entered in a later step when configuring the product type
+6.  Click the Save button
+7.  In the app's settings go to discounts
+8.  Go to the "By Product Type" section
+9.  In the "Title" field select the product type you want to configure the discount for. Only product types for products that have been entered into the app are show.
+10.  In the "Days before expiration" field enter the number of days before products with the product type expire. This will determine when to activate the discount.
+ For example, if a product has an expiration date of January 15th and 10 is entered, the product will be discounted staring on January 5th.
+11.  To add a different product type click the "Add more" link
+12.  Click the Update button
+
+---
+
+## Varying the Date Format Based on the Selected Country
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/localizing-dates
+
+The expiration date format can be changed to match the user's selected country. This depends on the date formats set in the Shopify Admin's [Theme Content Editor](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/language/change-wording#overview-of-the-language-editor).
+
+If you're using [our Shopify theme integration](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages), this can be done by selecting "Custom" from the "Date format" field and entering a Shopify locale-aware date format name. For example, if the format you want to use is named `abbreviated_date`, you'd configure following:
+
+Shopify restricts the list of date format names that can be used to the following:
+
+-   `abbreviated_date`
+-   `basic`
+-   `date`
+-   `date_at_time`
+-   `default`
+-   `on_date`
+-   `short`
+-   `long`
+
+Custom format names can be used but they do not work with Shopify theme integration. In this case you must [manually add the snippet to your theme](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) and explicitly set the format via `{{ allocation.time | date: format: "your_format_name" }}`.
+
+---
+
+## Order Inventory Batch Location Assignment
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment
+
+The Product Expiration Dates app allows you to configure when inventory batches are assigned to an order: either when the order is placed or, when an order line is fulfilled. See [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data).
+
+By default a product's soonest expiring inventory batch from across all locations is assigned to the order line (FEFO: First Expired, First Out management strategy) If the incoming order has a location assigned (typically [Shopify Point of Sale (POS) orders](https://help.screenstaring.com/docs/product-expiration-dates/pos-integration)), that location will be used. You can change your management strategy to First In, First Out (FIFO) management strategy on the settings' page Inventory tab.
+
+## Shopify Order Routing Rules
+
+***Support for Shopify Order Routing Rules is only available under the Pro Plan***
+
+To assign an inventory batch from a location determined by Shopify Order Routing rules select "Assign inventory batches based on Shopify Order Routing" from the Settings page's Inventory tab. Shopify Order Routing can be configured in the Shopify Admin here
+
+## Assign Inventory Batches from a Specific Location
+
+**Do not set this if you use [prioritized fulfillment locations](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+
+If you're using "order placed" for a Product's ["Assign inventory batches when"](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) setting and have multiple locations in Shopify **but only fulfill from one**, you must set "Assign inventory batches from this location" to match your default location in Shopify (Shopify does not share this with 3rd-party apps so it must be explicitly set). When this is set and an order is placed without a location the Product Expiration Dates app will only allocate the soonest expirting expiration date from this location. If this is not set the app will allocate the soonest expiring expiration date across all locations.
+
+---
+
+## Inventory Transfers
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/inventory-transfers
+
+***Inventory transfer support is only available under the Premium and Platinum plans***
+
+To enable support for [Shopify inventory transfers](https://help.shopify.com/en/manual/products/inventory/inventory-transfers):
+
+-   Go to the Inventory tab on the settings page
+-   Check "Move inventory batches when Shopify inventory transfers occur"
+-   Click "Update"
+
+Now when an inventory transfer occurs in Shopify inventory batches for the tranfered quantity will be moved from the transfer's source location to its destination location. Quantities are moved starting with the soonest expiring inventory batch. If you need a different algorithm contact support.
+
+---
+
+## Inventory Push
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/inventory-push
+
+***Inventory push is only available under the Pro Plan***
+
+Inventory push makes the Product Expiration Dates app the "source of truth" for your store's inventory, preventing you from having to enter the inventory in the Shopify Admin, then re-enter it with its expiration date/quantity breakdown in the app.
+
+With inventory push enabled you [enter your inventory quantities](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) once in the Product Expiration Dates app and it will adjust the products' inventory counts in Shopify. When quantities in the app are added, updated, or deleted, the app will make the appropriate adjustments in Shopify.
+
+Changes to product inventory via an new order or an order status change (refunded, restocked, etc...) are part of the Product Expiration Date app's default behavior. **A Pro plan subscription is not required for this to work.**
+
+When inventory push is enabled **inventory must only be entered into the Product Expiration Dates app. Do not modify inventory via the Shopify Admin**. Values entered into the Shopify Admin will not be seen by the app because expiration dates and/or batch numbers cannot be entered into the Shopify Admin. For example, if you entered the following data in the Product Expiration Dates app for Product A:
+
+-   Expires: `2021-11-10`, Quantity: `7`
+-   Expires: `2022-01-01`, Quantity: `12`
+
+These value will be pushed to Shopify and you will see a total **available** quantity of 19 in the Shopify Admin. If you change this to 30 in the Shopify Admin, the Product Expiration Dates app does not know what date(s) the new 11 must be associated with. Are they November 10th, January 1st, or something else? This is why inventory push cannot sync quantities entered into the Shopify Admin.
+
+## Enabling
+
+1.  Make sure you're subscribed to the Pro Plan or higher
+2.  Visit the settings page
+3.  Select "Push edits made to inventory batch quantities to Shopify"
+4.  Click the Update button to save your settings
+
+In order to push inventory to Shopify expiration dates must have their location set.
+
+## Available and On Hand Quantities
+
+By default Inventory Push sets the available quantity in Shopify. If you're subscribed to the the Premium plan you can configure it to set on hand quantities instead. This can be done from the settings page's Inventory tab by selecting "Set on hand quantity instead of available quantity".
+
+## Inventory Batch Assignment
+
+When using Inventory Push you cannot [assign inventory batches to a product](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) when an order line is fulfilled. Only when an order is placed. This is due to how Shopify manages inventory quantities. They assign them to an order line when it is placed. Let's look at an example below.
+
+If you enter a 10 quantity into the app, we assign 10 to the available quantity in Shopify. When an order is placed for a quantity of 2, Shopify reduces the quantity to 8, but in the app this quantity remains 10 until the product is fulfilled. If you then go into the app before this occurs and enter a quantity of 12, we will update Shopify's available quantity to 12, which would be incorrect.
+
+## Variants
+
+When inventory push in enabled for a product with variants, any variant for the product that has not been entered in to the Product Expiration Dates app will have its inventory set to 0 in Shopify.
+
+## Bundles
+
+Pushing inventory bundles will set the bundle's quantity as well as the quantities of the products it contains. For example, given the following products:
+
+| Product | SKU | Inventory Available |
+| --- | --- | --- |
+| Product A | X123 | 5 |
+| Product B | Y456 | 10 |
+
+If you create a bundle contianing these products with the following configuration:
+
+| Product | SKU | Bundled Quantity |
+| --- | --- | --- |
+| Product A | X123 | 1 |
+| Product B | Y456 | 3 |
+
+It results in the following:
+
+| Product | SKU | Inventory Available |
+| --- | --- | --- |
+| My Bundle | B999 | 3 |
+| Product A | X123 | 5 |
+| Product B | Y456 | 10 |
+
+The bundle's quantity is set to the minimum quantity that can be purchased based on the quantities of the products it bundles. If a customer made a purchase of Product B with a quantity of 6, the inventories would be synced to the following:
+
+| Product | SKU | Inventory Available |
+| --- | --- | --- |
+| My Bundle | B999 | 1 |
+| Product A | X123 | 5 |
+| Product B | Y456 | 4 |
+
+Because My Bundle has a Bundled Quantity of 3 for Product B, and Product B only has 4 Inventory Available, My Bundle's Inventory Available is set to 1.
+
+---
+
+## Notifications, Order Printing, & Packing Slips
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/notifications-and-packing-slip
+
+This allows you to add expiration dates and batch numbers to:
+
+-   [Shopify Notifications](https://www.shopify.com/admin/settings/notifications) (by default does not apply to order confirmation since the email is sent before the batch is assigned)
+-   [Order Printer](https://apps.shopify.com/order-printer) and [Shopify Order Printer](https://apps.shopify.com/shopify-order-printer)
+-   [Order Printer Pro](https://apps.shopify.com/order-printer-pro)
+-   [Multi-Label Barcodes App](https://apps.shopify.com/multi-label-barcodes)
+-   And more!
+
+To begin you must enable order notes from the settings page by selecting "Create an order 'additional details' entry for 3rd-party app integration". Once enabled generate a code snippet below for your integration.
+
+## Code Snippet
+
+The resulting code snippet can be added to the appropriate Liquid template for your integration in the location where you want the expiration data displayed. This snippet works **with** the existing template to display expiration data. It is not meant to replace it.
+
+If you do not see your integration in the list and need assistance please contact support.
+
+```liquid
+{% comment %}
+  Code for the Product Expiration Dates app to display a product's expiration date and related
+  informtion in notifications, order printing, & packing slips.
+
+  If you want to hide the expiration date until it's close to a particular number of days
+  set the expires_window_days variable below to the number of desired days instead of blank.
+  For example:
+
+    {% assign expires_window_days = 30 %}
+
+  For assistance contact support at help@screenstaring.com
+{% endcomment %}
+
+{% assign expires_window_days = blank %}
+
+{% capture key %}Expiration Dates {{ line_item.sku }}{% endcapture %}
+{% if attributes[key] != blank %}
+    {% assign batches = attributes[key] | split: "|" %}
+    {% for batch in batches %}
+        {% assign batch_data = batch | split: "," %}
+        {% assign expires_date = batch_data[0] %}
+        {% assign expires_qty = batch_data[1] %}
+        {% assign expires_batch = batch_data[2] %}
+
+        {% assign now = "now" | date: "%s" %}
+        {% assign seconds_in_a_day = 86400 %}
+        {% assign expires_at = expires_date | date: "%s" | plus: seconds_in_day | minus: 1 %}
+        {% assign diff = expires_at | minus: now | divided_by: seconds_in_a_day %}
+        {% assign show_date = false %}
+
+        {% if expires_window_days == blank  %}
+          {% assign show_date = true %}
+        {% elsif diff >= 0 and diff < expires_window_days %}
+          {% assign show_date = true %}
+        {% endif %}
+
+        {% if show_date %}
+          {% comment %}
+            The date format can be adjust by changing the '%d/%m/%Y' portion below
+            to the desired date format codes. See: https://shopify.dev/api/liquid/filters#date
+            To use a tranlated date see: https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files
+          {% endcomment %}
+          Expires:
+          {{ expires_date | date: "%d/%m/%Y" }}
+
+          {% comment %}
+            Remove the following if you do not want the quantity and batch name displayed
+          {% endcomment %}
+          ({{ expires_qty }})
+          {% if expires_batch != blank %}
+              {{ expires_batch }}
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+```
+
+You may have to change the `line_item` or `line` variable to match what's used in your existing code.
+
+The date format is based on the [Liquid `date` filter](https://shopify.dev/api/liquid/filters#date). It can be adjust by changing the `"%d/%m/%Y"` portion to use the desired date format codes. See the `date` filter's documentation for a list. To use a translated date specify a date format [from your theme's locale files](https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files). For example, if the format `month_day_year` existed (it may), you can change:
+
+```liquid
+{{ expires_date | date: "%d/%m/%Y" }}
+```
+
+In the above snippet to:
+
+```liquid
+{{ expires_date | date: format: "month_day_year" }}
+```
+
+## Technical Details
+
+An attribute will be added to the order for each line item. The attribute will be named `"Expiration Dates [ID]"` where `[ID]` is the line item's: SKU, barcode, or the Shopify variant ID. What is used depends on your store's setup. If you use SKUs it will always be the SKU. If you only use barcode it will be the barcoce, etc...
+
+The attribute's value is a comma-separated string containing the assigned expiration date, quantity, and batch number:
+
+```
+2023-04-22,2,BATCH-NUMBER
+```
+
+If there are multiple assignments for a line item each assignment will be seperated by the pipe character (`|`):
+
+```
+2023-04-22,2,BATCH-NUMBER-1|2023-12-25,1,BATCH-NUMBER-2
+```
+
+---
+
+## Shopify Point of Sale (POS) Integration
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/pos-integration
+
+***Shopify POS integration is only available under the Platinum Plan***
+
+Our Shopify POS integration allows inventory batches to be assigned to orders from within the Shopify POS. To install, add the Product Expiration Dates app as a tile on the POS home screen:
+
+1.  From the POS home screen touch "Add tile" and select "App":
+
+2.  From the app list select "SS: Product Expiration Dates":
+
+3.  Next to "Assign expiration data to products" click "Add":
+
+4.  This will show the "SS: Product Expiration Dates" tile on the home page:
+
+5.  Touch "Save"
+
+Now when items are in the cart you can touch the "SS: Product Expiration Dates" tile and assign inventory batches. Batches shown will be those from the POS' location.
+
+---
+
+## Entry via Barcode Scanner
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/barcode-scanner
+
+Improve the efficiency of inventory intake and inventory batch assignment by scanning a product's barcode instead of having to search for the product by typing its name, SKU, or barcode.
+To get started install [the Barcode Scanner app](https://apps.shopify.com/barcode-scanner-1?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
+The Barcode Scanner app must be used from within [the Shopify Mobile app](https://www.shopify.com/mobile).
+
+---
+
+## Viewing Order Expiry Dates & Batch Numbers in Shopify
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers
+
+There are several ways to view batch numbers and expiry dates assigned to an order from [the order's page in the Shopify admin](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Admin Block
+
+Adding the Expiration Dates block to the orders page:
+
+1.  Open your order in the [the Shopify admin](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  On the order's page scroll to the bottom and select "Add block"
+
+3.  Select "Expiration Dates" from the popup menu
+4.  This will show the expiration dates assigned to the order's line items, if any. Note that only orders **after** September 11th, 2026 will have their dates shown:
+
+5.  To make the block always appear on the order page click the pin icon:
+
+## Additional Details Section
+
+Batch numbers can be added to the orders page under the Additional Details section:
+
+1.  In the app's settings go to Orders tab
+1.  Select "Create an order "additional details" entry with an order's inventory batches"
+1.  Click the Update button to save
+
+Inventory batches for new orders will now be added to the order's Additional Details section in the Shopify Admin:
+
+The following information is included:
+
+- `PB123`: the line item SKU
+- `B9001`: the batch number assigned to the line item
+- `(2)`: the quantity
+
+## Viewing the Order in the App
+
+To open an order's page in the app:
+
+1.  Open your order in the Shopify Admin
+2.  On the order's page select "More actions"
+3.  Select "Expiration Dates"
+
+---
+
+## Sharing Inventory Between Multiple Stores
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/sharing-inventory
+
+If your inventory supplies multiple stores these stores can be linked. Linking stores allows a singe set of expiration data to be shared across multiple stores.
+
+To link stores you must:
+
+-   Install the app in each store (after the trial period all stores must have an active subscription)
+-   Use the same product SKUs in each store (barcode can be used instead, if you prefer)
+-   If using locations, use the same location names in each store
+-   [Contact support](https://screenstaring.com/#contact) to create the link(s)
+
+---
+
+## Disabled Products
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/disabled-products
+
+If a product is deleted in Shopify but has orders with inventory batches assigned it will become disabled in the app. The prevents it from being processed by future orders while preserving its inventory batch assignment history. If a product is deleted in Shopify and has no inventory batches assigned it will be deleted from the app.
+
+## Sharing Inventory Between Multiple Stores
+
+Sharing inventory between stores relies on unique SKUs or barcodes for inventory batch assignment. If duplicates exist within the app you can disable the unwanted product to prevent it from being processed. This can be done by clicking the Disable button from the product's page in the app.
+
+---
+
+## Expiration Data Metafields
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/expiration-data-metafields
+
+Also see: ***[Notifications, Order Printing, and Packing Slips](https://help.screenstaring.com/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+The Product Expiration Dates app adds metafields to a product's variant(s) under the `expiration_dates` namespace. If the product has no variants the default variant is used.
+
+**Do not add metafield definitions in the Shopify Admin using the `expiration_dates` namespace with any of the below keys.** This is not necessary and prevents the app from functioning correctly. Metafields set by the app are readonly and cannot be set via the Shopify Admin.
+
+If you need to export expiration dates to external applications that only support metafield integration (and do not support JSON metafields) see the `soonest_expiring` key.
+
+The following metafields are available:
+
+| Key | Description |
+| --- | --- |
+| `allocations` | An array of expiration dates and quantities assigned to the variant. The array is sorted by expiration date, soonest to latest so `allocations[0]` will return data for the soonest expiring date. |
+| `allocations[N].time` | The expiration date. Format is: `YYYY-MM-DDT00:00`. For example: `2025-01-22T00:00`. Currently the time is always `00:00`. This value can be formatted using the [Liquid `date` filter](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | The remaining inventory quantity |
+| `allocations[N].batch_number` | The assigned batch number |
+| `allocations[N].location_id` | The Shopify ID of the assigned location |
+| `use_within` | An object containing use within information |
+| `use_within.use_within_value` | The numeric portion of the use within data. For example, if `30 days` was assigned this will contain `30`. |
+| `use_within.use_within_unit` | The unit of time portion of the use within data. For example, if `30 days` was assigned this will contain `days`. |
+| `use_within.use_within_value_in_days` | The use within value in days. For example, if `6 months` was assigned, this will contain `180`. We use 30 days per month: 6 \* 30 = 180. |
+| `bundled_inventory` | An array of the products that are in the bundle and their expiration data/batch numbers. Only set if the product is a bundle. |
+| `bundled_inventory[N].title` | The title of the bundled product |
+| `bundled_inventory[N].allocations` | An array of expiration dates and quantities assigned to the variant. Refer to `allocations[N]`'s documentation. |
+| `soonest_expiring` | String representation of the soonest expiring inventory batch. Usefull if you need to export expiration dates to external applications that only support metafield integration. Date format can be set on the settings page.
+ ***Only available under the Premium Plan*** |
+
+---
+
+## Expiration Data Assigned to an Order
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/expiration-data-orders
+
+Expiration data assigned to orders can be made available to external systems as an order property. An order property is used because Shopify does not support metafields for order line items. To enable this property check "Create an order attribute for an order's inventory batches" from the Orders tab on the settings page.
+
+Orders placed before this option was enabled will not contain the property.
+
+## Order Property Format
+
+Once enabled order attributes named `Expiration Dates SKU` will be added to orders containing expiration data. `SKU` will be replaced with the value of the product's SKU. The attribute's value is in the following format: `BATCH 1|BATCH 2|BATCH 3`.
+
+For example, if you have a product with a SKU of 123 that is assigned a single batch you will have an attribute named `Expiration Dates 123` with a value of: `2024-01-01,1,B123`. Here `2024-01-01` is the assigned expiration date, `1` is the quantity assigned, and `B123` is the batch number.
+
+If the order line has multiple batches they will be included. For example, if SKU 123 was assigned 2 batches, the value would be: `2024-01-01,1,B123|2024-11-21,2,X999`. Here `2024-01-01` is 1 of 2 assigned expiration dates. `1` the quantity assigned and `B123` is its batch number. `2024-11-21` is the other assigned expiration date. `2` is its quantity assigned and `X999` its batch number.
+
+If a batch number (or any value) does not exist its value will be omitted. Here's the multiple batch example without a batch number: `2024-01-01,1,|2024-11-21,2,`
+
+## Parsing the Property's Value
+
+Parsing the value can be done in any language by retrieving the order's attributes via the [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order). Here's an example using Liquid:
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```
+
+---
+
+## API Integration
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/api-integration
+
+***API integration is only available under the Platinum Plan***
+
+The Product Expiration Dates app provides an API that allows one to manage inventory batches programmatically.
+
+API requests are authenticated using your shop's API key. You can find your API key on the General tab of the settings page. Include your API key in the `X-API-Key` header with each request.
+
+Requests require you to specificy a product or variant identifer. This can be: `sku`, `barcode`, `variant_id`, or Product Expiration Date app ID.
+
+## Base URL
+
+All API endpoints are relative to: `https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+Retrieve inventory batches for a product or variant. You can query by SKU, barcode, or Shopify variant ID
+
+**Query Parameters:**
+
+-   `sku` - The variant's SKU (optional)
+-   `barcode` - The variant's barcode (optional)
+-   `variant_id` - Shopify variant ID; if a product has no variants use the default variant's ID (optional)
+-   `external_location_id` - Filter results by Shopify location ID (optional)
+
+**Example using curl:**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**Response (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+Create or update an inventory batch. Updates are based on the SKU/barcode combined with either: a) expiration date and location or b) batch number and location. Otherwise, a new batch is created.
+
+**Request Parameters:**
+
+-   `sku` - The variant's SKU (optional)
+-   `barcode` - The variant's barcode (optional)
+-   `variant_id` - Shopify variant ID; if a product has no variants use the default variant's ID (optional)
+-   `expires` - Expiration date, **must be in YYYY-MM-DD format** (required)
+-   `quantity` - Quantity available (required)
+-   `batch_number` - Batch number (optional)
+-   `external_location_id` - The Shopify location ID (required if `location_id` not provided)
+-   `location_id` - Product Expiration Dates app ID (required if `external_location_id` not provided)
+-   `inventory_batch_assignment_event` - When to assign inventory batches to orders. Only valid when creating a product. Either `"order_placed"` or `"order_item_fulfilled"`. If you're using [Inventory Push](https://help.screenstaring.com/docs/product-expiration-dates/inventory-push) this will always be `"order_placed"`.
+-   `invoice_number` - Invoice number (optional)
+-   `lot_number` - Lot number (optional)
+-   `manufactured_at` - Manufacture date, **must be in YYYY-MM-DD format** (optional)
+-   `received_at` - Date received, **must be in YYYY-MM-DD format** (optional)
+-   `comments` - Free-form notes (optional)
+-   `batch_unit_cost` - Unit cost for the batch (optional)
+
+**Example using curl:**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**Response (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+Update an existing inventory batch
+
+**URL Parameters:**
+
+-   `:id` - The Product Expiration Dates app ID for the inventory batch (required)
+
+**Request Parameters:**
+
+-   `expires` - Expiration date, **must be in YYYY-MM-DD format** (optional)
+-   `quantity` - Quantity available (optional)
+-   `external_location_id` - The Shopify location ID (optional)
+-   `location_id` - Product Expiration Dates app Location ID (optional)
+-   `batch_number` - Batch number (optional)
+-   `invoice_number` - Invoice number (optional)
+-   `lot_number` - Lot number (optional)
+-   `manufactured_at` - Manufacture date, **must be in YYYY-MM-DD format** (optional)
+-   `received_at` - Date received, **must be in YYYY-MM-DD format** (optional)
+-   `comments` - Free-form notes (optional)
+-   `batch_unit_cost` - Unit cost for the batch (optional)
+
+**Example using curl:**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**Response (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+Delete an inventory batch by its ID.
+
+**URL Parameters:**
+
+-   `:id` - The Product Expiration Dates app ID for the inventory batch
+
+**Example using curl:**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**Response (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## Error Responses
+
+The API returns appropriate HTTP status codes and error messages:
+
+| Status Code | Description | Example Response |
+| --- | --- | --- |
+| `400` | Bad Request - Missing or invalid parameters | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | Unauthorized - Invalid or missing API key | `{"errors": ["Shop not found"]}` |
+| `403` | Forbidden - Plan does not allow API access | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | Not Found - Product, variant, or location not found | `{"errors": ["Record not found"]}` |
+| `422` | Unprocessable Entity - Validation errors | `{"errors": ["Quantity must be greater than 0"]}` |
+
+---

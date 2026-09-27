@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhelp_screenstaring_com=self.webpackChunkhelp_screenstaring_com||[]).push([["8366"],{936(e){e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
