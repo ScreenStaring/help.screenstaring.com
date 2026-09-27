@@ -53,6 +53,9 @@ const config = {
     },
   },
 
+  // Site-wide JSON-LD (Organization, WebSite) per locale, see plugins/json-ld.
+  plugins: ['./plugins/json-ld'],
+
   presets: [
     [
       'classic',
