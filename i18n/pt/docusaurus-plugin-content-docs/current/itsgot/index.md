@@ -10,7 +10,7 @@ Os rótulos podem ser gerados em formatos conhecidos para vários países e idio
 
 - [Adicionando Rótulos ao Seu Site](/docs/itsgot/adding-labels)
 - [Definir a Largura de um Rótulo](/docs/itsgot/label-width)
-- [Alterar as Cores e o Design de um Rótulo](/docs/itsgot/display-settings)
+- [Modificar o Design de um Rótulo](/docs/itsgot/display-settings)
 - [Vinculando Páginas da Web a Nutrientes do Rótulo](/docs/itsgot/display-settings-links)
 - [Traduzindo o Texto dos Rótulos](/docs/itsgot/translations)
 - [Importando Produtos em Massa](/docs/itsgot/importing-products)

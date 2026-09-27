@@ -10,7 +10,7 @@ Las etiquetas se pueden generar en formatos conocidos para varios países e idio
 
 - [Agregar etiquetas nutricionales a tu sitio](/docs/itsgot/adding-labels)
 - [Establecer el ancho de una etiqueta](/docs/itsgot/label-width)
-- [Cambiar los colores y el diseño de una etiqueta](/docs/itsgot/display-settings)
+- [Modificar el diseño de una etiqueta](/docs/itsgot/display-settings)
 - [Enlazar a páginas web desde los nutrientes de la etiqueta](/docs/itsgot/display-settings-links)
 - [Traducir el texto de las etiquetas](/docs/itsgot/translations)
 - [Importación masiva de productos](/docs/itsgot/importing-products)

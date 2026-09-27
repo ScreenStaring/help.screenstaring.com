@@ -10,7 +10,7 @@ Labels can be generated in well-known formats for multiple countries & languages
 
 - [Adding Nutrition Labels to Your Site](/docs/itsgot/adding-labels)
 - [Setting a Label's Width](/docs/itsgot/label-width)
-- [Changing a Label's Colors and Design](/docs/itsgot/display-settings)
+- [Modifying a Label's Design](/docs/itsgot/display-settings)
 - [Linking to Web Pages from Label Nutrients](/docs/itsgot/display-settings-links)
 - [Translating Label Text](/docs/itsgot/translations)
 - [Importing Products in Bulk](/docs/itsgot/importing-products)

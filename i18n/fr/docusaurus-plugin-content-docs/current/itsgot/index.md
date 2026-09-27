@@ -9,7 +9,7 @@ Les étiquettes peuvent être générées dans des formats reconnus pour plusieu
 
 - [Ajouter des étiquettes nutritionnelles à votre site](/docs/itsgot/adding-labels)
 - [Définir la largeur d'une étiquette](/docs/itsgot/label-width)
-- [Modifier les couleurs et le design d'une étiquette](/docs/itsgot/display-settings)
+- [Modifier le design d'une étiquette](/docs/itsgot/display-settings)
 - [Créer des liens vers des pages web à partir des nutriments d'une étiquette](/docs/itsgot/display-settings-links)
 - [Traduire le texte des étiquettes](/docs/itsgot/translations)
 - [Importer des produits en masse](/docs/itsgot/importing-products)
