@@ -1,4 +1,5 @@
 ---
+description: "The ways to add nutrition labels, supplement facts panels, and other label types to a Shopify store: theme editor, product description, or embed code."
 sidebar_position: 1
 ---
 

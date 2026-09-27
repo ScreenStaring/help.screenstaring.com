@@ -1,7 +1,7 @@
 ---
 title: Journal des modifications
 sidebar_position: 100
-description: Changements notables et nouvelles fonctionnalités de l'application It's Got.
+description: "Journal des modifications d'It's Got : nouvelles fonctionnalités, formats d'étiquette et améliorations de l'application Nutrition Facts pour Shopify."
 ---
 
 # Journal des modifications

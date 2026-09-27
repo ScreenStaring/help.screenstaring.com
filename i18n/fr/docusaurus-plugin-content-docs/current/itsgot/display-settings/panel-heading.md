@@ -1,4 +1,5 @@
 ---
+description: "Modifiez l'en-tête du panneau d'une étiquette, par exemple Nutrition Facts ou Supplement Facts, et mettez-le en forme avec du HTML."
 sidebar_position: 2
 ---
 

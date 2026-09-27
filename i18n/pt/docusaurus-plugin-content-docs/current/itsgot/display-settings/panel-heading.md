@@ -1,4 +1,5 @@
 ---
+description: "O título do painel do rótulo, como Nutrition Facts ou Supplement Facts, pode ser personalizado no It's Got e formatado com HTML."
 sidebar_position: 2
 ---
 

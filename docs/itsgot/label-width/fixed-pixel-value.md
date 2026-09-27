@@ -1,4 +1,5 @@
 ---
+description: Set a label to a fixed pixel width, such as 400px, with a maximum width so it never overflows narrow columns on phones and other small screens.
 sidebar_position: 1
 ---
 

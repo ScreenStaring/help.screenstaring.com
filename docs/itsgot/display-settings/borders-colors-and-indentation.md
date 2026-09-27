@@ -1,4 +1,5 @@
 ---
+description: "Set a nutrition label's text and background color, including individual text blocks and nutrients, using hex color codes or predefined colors."
 sidebar_position: 1
 ---
 

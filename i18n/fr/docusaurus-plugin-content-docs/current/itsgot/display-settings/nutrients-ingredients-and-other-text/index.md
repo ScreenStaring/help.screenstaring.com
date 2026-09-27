@@ -1,3 +1,7 @@
+---
+description: "Configurez individuellement les nutriments, les ingrédients et les autres textes d'une étiquette : indentation, police, couleur et autres styles."
+---
+
 # Nutriments, ingrédients et autres textes
 
 Les paramètres d'affichage ne se limitent pas au panneau dans son ensemble. Les nutriments, les ingrédients et les autres textes peuvent être configurés individuellement :

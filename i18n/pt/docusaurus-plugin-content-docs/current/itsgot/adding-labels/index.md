@@ -1,4 +1,5 @@
 ---
+description: "Adicione rótulos nutricionais ao seu site Shopify usando o editor de temas, a descrição do produto ou o código de incorporação do It's Got."
 sidebar_position: 1
 ---
 

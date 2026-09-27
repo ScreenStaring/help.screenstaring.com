@@ -1,4 +1,5 @@
 ---
+description: "Toutes les façons d'ajouter une étiquette nutritionnelle à votre site Shopify : éditeur de thème, description de produit, code d'intégration ou Combine API."
 sidebar_position: 1
 ---
 

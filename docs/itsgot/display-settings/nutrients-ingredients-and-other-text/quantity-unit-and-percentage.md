@@ -1,4 +1,5 @@
 ---
+description: "Add spaces between a nutrient's quantity and unit or value and percentage, like 5 g instead of 5g, or hide the daily value percentage column."
 sidebar_position: 1
 ---
 

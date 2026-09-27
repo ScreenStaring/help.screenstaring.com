@@ -1,4 +1,5 @@
 ---
+description: Acelere a entrada de estoque e a atribuição de lotes lendo o código de barras do produto com o aplicativo Barcode Scanner no Shopify Mobile.
 sidebar_position: 14
 ---
 

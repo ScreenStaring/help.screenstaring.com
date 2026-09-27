@@ -1,4 +1,5 @@
 ---
+description: "Donnez à une étiquette sa propre police au lieu de celle de la page : indiquez l'URL de la définition CSS et le nom de la famille de police."
 sidebar_position: 6
 ---
 

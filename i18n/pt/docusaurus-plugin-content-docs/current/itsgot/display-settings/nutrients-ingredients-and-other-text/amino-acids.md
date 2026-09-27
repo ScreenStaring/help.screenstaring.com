@@ -1,4 +1,5 @@
 ---
+description: Crie uma seção separada para aminoácidos na parte inferior do painel, disponível nos formatos de rótulo Supplement Facts.
 sidebar_position: 3
 ---
 

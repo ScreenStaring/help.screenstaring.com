@@ -1,4 +1,5 @@
 ---
+description: Give a nutrition label its own web font from a CSS font URL and font family, so it does not inherit the font of the page it is embedded in.
 sidebar_position: 6
 ---
 

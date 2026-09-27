@@ -1,4 +1,5 @@
 ---
+description: "Show different labels by device: target desktop, tablet, mobile, a custom screen width range, or every screen, so label text stays readable everywhere."
 sidebar_position: 3
 ---
 

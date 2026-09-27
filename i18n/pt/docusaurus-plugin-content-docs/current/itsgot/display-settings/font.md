@@ -1,4 +1,5 @@
 ---
+description: Faça o rótulo usar uma fonte própria em vez da fonte da página, informando a URL da definição CSS e a família da fonte.
 sidebar_position: 6
 ---
 

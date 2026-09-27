@@ -1,4 +1,5 @@
 ---
+description: Create multiple labels per product with their own locale, translate label text and ingredients, and enable automatic language switching on your Shopify site.
 sidebar_position: 6
 ---
 

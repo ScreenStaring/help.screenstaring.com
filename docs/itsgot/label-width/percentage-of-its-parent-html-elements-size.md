@@ -1,4 +1,5 @@
 ---
+description: "Make a label's width a percentage of its parent element, such as 100%, so it resizes with the theme block or product page column it sits in."
 sidebar_position: 2
 ---
 

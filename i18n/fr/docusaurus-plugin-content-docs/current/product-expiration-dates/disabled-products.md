@@ -1,4 +1,5 @@
 ---
+description: "Produits supprimés dans Shopify : découvrez comment ils sont désactivés dans l'application pour préserver l'historique des lots d'inventaire attribués."
 sidebar_position: 17
 ---
 

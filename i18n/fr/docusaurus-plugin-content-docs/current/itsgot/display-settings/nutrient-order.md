@@ -1,4 +1,5 @@
 ---
+description: "Réorganisez les nutriments d'une étiquette dans l'ordre de votre choix en activant l'ordre personnalisé et en faisant glisser les lignes."
 sidebar_position: 3
 ---
 

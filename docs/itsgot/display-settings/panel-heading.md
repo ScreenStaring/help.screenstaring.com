@@ -1,4 +1,5 @@
 ---
+description: Change the panel heading at the top of a label, such as Nutrition Facts, Supplement Facts, Drug Facts, or Guaranteed Analysis, with optional HTML formatting.
 sidebar_position: 2
 ---
 

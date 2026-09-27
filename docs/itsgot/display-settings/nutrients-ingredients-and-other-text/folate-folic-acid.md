@@ -1,4 +1,5 @@
 ---
+description: "Display folic acid directly below folate on US Nutrition Facts and Supplement Facts vertical labels, following the FDA's labeling guidance."
 sidebar_position: 2
 ---
 

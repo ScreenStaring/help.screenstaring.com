@@ -1,4 +1,5 @@
 ---
+description: "Affichez l'acide folique directement sous le folate sur les étiquettes US Nutrition Facts et US Supplement Facts verticales, selon la FDA."
 sidebar_position: 2
 ---
 

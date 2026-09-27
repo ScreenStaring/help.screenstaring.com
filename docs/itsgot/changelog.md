@@ -1,7 +1,7 @@
 ---
 title: Changelog
 sidebar_position: 100
-description: Notable changes and new features in the It's Got app.
+description: "Notable changes and new features in the It's Got nutrition facts app for Shopify, listed by release date with the newest first."
 ---
 
 # Changelog

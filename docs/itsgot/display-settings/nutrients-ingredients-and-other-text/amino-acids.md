@@ -1,4 +1,5 @@
 ---
+description: Move amino acids out of the nutrient list into their own Amino Acids section at the bottom of a Supplement Facts label, shown only when the product has them.
 sidebar_position: 3
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Scannez le code-barres d'un produit pour accélérer la réception d'inventaire et l'attribution des lots d'inventaire avec l'application Barcode Scanner."
 sidebar_position: 14
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Adaptez le format de la date d'expiration au pays sélectionné par l'utilisateur grâce aux formats de date localisés de Shopify."
 sidebar_position: 8
 ---
 

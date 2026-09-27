@@ -1,7 +1,7 @@
 ---
 title: Registro de Alterações
 sidebar_position: 100
-description: Mudanças notáveis e novos recursos no aplicativo It's Got.
+description: "Acompanhe as mudanças notáveis e os novos recursos do aplicativo It's Got: formatos de rótulo, nutrientes, editor de texto rico e API."
 ---
 
 # Registro de Alterações

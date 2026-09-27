@@ -1,4 +1,5 @@
 ---
+description: "Set a nutrition label's width as a fixed pixel value or a percentage of its parent element, or show different labels for desktop, tablet, and mobile."
 sidebar_position: 1.5
 ---
 

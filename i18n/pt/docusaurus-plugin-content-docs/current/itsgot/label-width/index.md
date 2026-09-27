@@ -1,4 +1,5 @@
 ---
+description: A largura de um rótulo pode ser fixa em pixels, percentual do elemento pai ou variar conforme o dispositivo do visitante.
 sidebar_position: 1.5
 ---
 

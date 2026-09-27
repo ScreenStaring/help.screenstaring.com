@@ -1,3 +1,7 @@
+---
+description: Configure nutrientes, ingredientes, avisos e outros textos do rótulo individualmente, além do painel de informações nutricionais.
+---
+
 # Nutrientes, Ingredientes e Outros Textos
 
 As configurações de exibição não se limitam ao painel como um todo. Nutrientes, ingredientes e outros textos podem ser configurados individualmente:

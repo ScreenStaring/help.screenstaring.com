@@ -1,4 +1,5 @@
 ---
+description: "Définissez la largeur d'une étiquette en pixels ou en pourcentage, ou faites-la varier selon l'appareil du visiteur : ordinateur, tablette ou mobile."
 sidebar_position: 1.5
 ---
 

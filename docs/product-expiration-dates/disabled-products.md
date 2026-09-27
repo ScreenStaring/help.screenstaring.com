@@ -1,4 +1,5 @@
 ---
+description: Products deleted in Shopify keep their batch history as disabled products. Disable a duplicate product to stop it being processed when stores share inventory.
 sidebar_position: 17
 ---
 

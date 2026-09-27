@@ -1,4 +1,5 @@
 ---
+description: Scan a product barcode in the Shopify Mobile app to look up products and assign expiration dates or inventory batches faster during inventory intake.
 sidebar_position: 14
 ---
 

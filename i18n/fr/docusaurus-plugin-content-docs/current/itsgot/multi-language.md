@@ -1,4 +1,5 @@
 ---
+description: Créez plusieurs étiquettes pour un même produit, chacune avec sa propre locale, et traduisez ingrédients, avertissements et notes de bas de page.
 sidebar_position: 6
 ---
 

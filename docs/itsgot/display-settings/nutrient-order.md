@@ -1,4 +1,5 @@
 ---
+description: Reorder nutrients on a nutrition facts or supplement facts label by dragging rows into a custom order instead of using the default order for the label format.
 sidebar_position: 3
 ---
 

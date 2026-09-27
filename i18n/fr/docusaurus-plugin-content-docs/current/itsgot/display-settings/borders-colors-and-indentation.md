@@ -1,4 +1,5 @@
 ---
+description: "Définissez la couleur du texte, la couleur d'arrière-plan, les bordures et l'indentation d'une étiquette, de ses blocs de texte et de ses nutriments."
 sidebar_position: 1
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: Torne o rótulo do tamanho do elemento em que está inserido definindo a largura em porcentagem do elemento HTML pai.
 sidebar_position: 2
 ---
 

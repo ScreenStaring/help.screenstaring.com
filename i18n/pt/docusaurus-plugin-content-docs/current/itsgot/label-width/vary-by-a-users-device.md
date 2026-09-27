@@ -1,4 +1,5 @@
 ---
+description: Exiba rótulos diferentes para desktop, tablet e celular definindo o dispositivo de destino de cada rótulo pelo tamanho da tela.
 sidebar_position: 3
 ---
 

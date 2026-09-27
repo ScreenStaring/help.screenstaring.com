@@ -1,4 +1,5 @@
 ---
+description: Controle o espaçamento entre quantidade e unidade e entre valor e porcentagem, ou oculte a coluna de porcentagem do rótulo.
 sidebar_position: 1
 ---
 

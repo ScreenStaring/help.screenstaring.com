@@ -1,4 +1,5 @@
 ---
+description: "Rendez la largeur d'une étiquette relative à son élément HTML parent, par exemple 100 % pour occuper toute la largeur d'un bloc de thème."
 sidebar_position: 2
 ---
 

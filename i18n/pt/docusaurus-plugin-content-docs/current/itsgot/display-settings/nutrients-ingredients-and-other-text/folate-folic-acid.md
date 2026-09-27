@@ -1,4 +1,5 @@
 ---
+description: Agrupe folato e ácido fólico no rótulo para exibir o ácido fólico logo abaixo do folato, conforme a orientação da FDA.
 sidebar_position: 2
 ---
 

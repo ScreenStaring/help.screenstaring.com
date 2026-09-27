@@ -1,4 +1,5 @@
 ---
+description: Ajoutez un espace entre la quantité et son unité (5 g) ou entre la valeur et le pourcentage (10 %), ou masquez la colonne des pourcentages.
 sidebar_position: 1
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Defina cor do texto, cor de fundo, bordas e recuo do rótulo, de blocos de texto e de nutrientes individuais no It's Got."
 sidebar_position: 1
 ---
 

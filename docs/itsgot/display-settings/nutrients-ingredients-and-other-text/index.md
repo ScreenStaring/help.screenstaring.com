@@ -1,3 +1,7 @@
+---
+description: "Configure individual nutrients, ingredients, warnings, and text blocks on a label: indentation, font, color, and other style options per element."
+---
+
 # Nutrients, Ingredients, and Other Text
 
 Display settings aren't limited to the panel as a whole. Nutrients, ingredients, and other text can each be configured individually:

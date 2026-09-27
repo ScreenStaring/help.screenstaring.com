@@ -1,4 +1,5 @@
 ---
+description: Produtos podem ter vários rótulos, cada um com sua localidade, para exibir as informações nutricionais em diferentes idiomas.
 sidebar_position: 6
 ---
 

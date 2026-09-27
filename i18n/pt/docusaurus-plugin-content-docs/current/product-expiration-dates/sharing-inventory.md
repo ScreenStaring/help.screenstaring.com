@@ -1,4 +1,5 @@
 ---
+description: Compartilhe um único conjunto de dados de validade entre várias lojas vinculadas usando os mesmos SKUs, códigos de barras e nomes de local.
 sidebar_position: 16
 ---
 

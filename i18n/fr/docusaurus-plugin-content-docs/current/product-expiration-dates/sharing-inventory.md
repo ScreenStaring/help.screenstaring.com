@@ -1,4 +1,5 @@
 ---
+description: "Liez plusieurs boutiques Shopify pour partager les mêmes données d'expiration, avec des SKU, codes-barres et noms d'emplacement identiques."
 sidebar_position: 16
 ---
 

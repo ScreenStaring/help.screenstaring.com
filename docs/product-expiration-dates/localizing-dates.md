@@ -1,4 +1,5 @@
 ---
+description: Match expiration date formats to the language or region your customers have selected by using Shopify locale-aware date formats in your theme.
 sidebar_position: 8
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: Share one set of expiration data across multiple Shopify stores by linking them, using matching SKUs or barcodes and the same location names.
 sidebar_position: 16
 ---
 

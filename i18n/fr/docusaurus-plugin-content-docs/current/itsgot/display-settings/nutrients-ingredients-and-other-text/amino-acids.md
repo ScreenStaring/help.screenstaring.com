@@ -1,4 +1,5 @@
 ---
+description: "Placez les acides aminés dans une section distincte au bas du panneau, une option réservée aux formats d'étiquette Supplement Facts."
 sidebar_position: 3
 ---
 

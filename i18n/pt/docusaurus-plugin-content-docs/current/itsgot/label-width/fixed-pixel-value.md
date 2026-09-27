@@ -1,4 +1,5 @@
 ---
+description: Informe um valor fixo em pixels na largura do rótulo e entenda como a largura máxima se ajusta em espaços estreitos, como no celular.
 sidebar_position: 1
 ---
 

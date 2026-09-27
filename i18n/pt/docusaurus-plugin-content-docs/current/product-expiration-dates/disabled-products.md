@@ -1,4 +1,5 @@
 ---
+description: Entenda por que um produto excluído na Shopify fica desativado no aplicativo e como usar o botão Disable para ignorar produtos duplicados.
 sidebar_position: 17
 ---
 

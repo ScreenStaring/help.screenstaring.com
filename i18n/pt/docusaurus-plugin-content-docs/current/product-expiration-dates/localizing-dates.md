@@ -1,4 +1,5 @@
 ---
+description: Exiba as datas de validade no formato de data do país ou idioma do usuário usando formatos localizados da Shopify, como abbreviated_date.
 sidebar_position: 8
 ---
 

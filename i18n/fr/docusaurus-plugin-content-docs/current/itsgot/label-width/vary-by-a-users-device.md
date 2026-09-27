@@ -1,4 +1,5 @@
 ---
+description: "Affichez une étiquette différente selon l'appareil du visiteur en définissant son appareil cible : ordinateur de bureau, tablette, mobile ou personnalisé."
 sidebar_position: 3
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Définissez une largeur fixe en pixels pour une étiquette et voyez comment elle s'adapte à l'espace disponible, même dans une colonne étroite."
 sidebar_position: 1
 ---
 

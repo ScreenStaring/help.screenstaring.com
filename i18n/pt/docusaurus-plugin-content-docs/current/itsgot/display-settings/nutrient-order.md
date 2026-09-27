@@ -1,4 +1,5 @@
 ---
+description: "Liste os nutrientes do rótulo em qualquer ordem com a opção de ordem personalizada, arrastando as linhas no editor do It's Got."
 sidebar_position: 3
 ---
 
