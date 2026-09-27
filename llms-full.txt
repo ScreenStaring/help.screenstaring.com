@@ -18,7 +18,7 @@ Labels can be generated in well-known formats for multiple countries & languages
 
 - [Adding Nutrition Labels to Your Site](https://help.screenstaring.com/docs/itsgot/adding-labels)
 - [Setting a Label's Width](https://help.screenstaring.com/docs/itsgot/label-width)
-- [Changing a Label's Colors and Design](https://help.screenstaring.com/docs/itsgot/display-settings)
+- [Modifying a Label's Design](https://help.screenstaring.com/docs/itsgot/display-settings)
 - [Linking to Web Pages from Label Nutrients](https://help.screenstaring.com/docs/itsgot/display-settings-links)
 - [Translating Label Text](https://help.screenstaring.com/docs/itsgot/translations)
 - [Importing Products in Bulk](https://help.screenstaring.com/docs/itsgot/importing-products)
@@ -577,7 +577,7 @@ To create a link:
 6. Click Save or Update to save
 7. Now when the label is displayed on your site a link will appear from the nutrient or dietary ingredient to the given URL
 
-To change the color of the link see the section [Changing a Label's Colors and Design](https://help.screenstaring.com/docs/itsgot/display-settings).
+To change the color of the link see the section [Modifying a Label's Design](https://help.screenstaring.com/docs/itsgot/display-settings).
 
 ---
 

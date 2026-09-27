@@ -18,7 +18,7 @@ Os rótulos podem ser gerados em formatos conhecidos para vários países e idio
 
 - [Adicionando Rótulos ao Seu Site](https://help.screenstaring.com/pt/docs/itsgot/adding-labels)
 - [Definir a Largura de um Rótulo](https://help.screenstaring.com/pt/docs/itsgot/label-width)
-- [Alterar as Cores e o Design de um Rótulo](https://help.screenstaring.com/pt/docs/itsgot/display-settings)
+- [Modificar o Design de um Rótulo](https://help.screenstaring.com/pt/docs/itsgot/display-settings)
 - [Vinculando Páginas da Web a Nutrientes do Rótulo](https://help.screenstaring.com/pt/docs/itsgot/display-settings-links)
 - [Traduzindo o Texto dos Rótulos](https://help.screenstaring.com/pt/docs/itsgot/translations)
 - [Importando Produtos em Massa](https://help.screenstaring.com/pt/docs/itsgot/importing-products)
@@ -585,7 +585,7 @@ Para criar um link:
 6. Clique em Salvar ou Atualizar para salvar
 7. Agora, quando o rótulo for exibido em seu site, aparecerá um link do nutriente ou ingrediente dietético para a URL especificada
 
-Para alterar a cor do link, consulte a seção [Alterando as Cores e o Design de um Rótulo](https://help.screenstaring.com/pt/docs/itsgot/display-settings).
+Para alterar a cor do link, consulte a seção [Modificar o Design de um Rótulo](https://help.screenstaring.com/pt/docs/itsgot/display-settings).
 
 ---
 

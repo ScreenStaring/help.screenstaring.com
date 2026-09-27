@@ -17,7 +17,7 @@ Les étiquettes peuvent être générées dans des formats reconnus pour plusieu
 
 - [Ajouter des étiquettes nutritionnelles à votre site](https://help.screenstaring.com/fr/docs/itsgot/adding-labels)
 - [Définir la largeur d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/label-width)
-- [Modifier les couleurs et le design d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/display-settings)
+- [Modifier le design d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/display-settings)
 - [Créer des liens vers des pages web à partir des nutriments d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/display-settings-links)
 - [Traduire le texte des étiquettes](https://help.screenstaring.com/fr/docs/itsgot/translations)
 - [Importer des produits en masse](https://help.screenstaring.com/fr/docs/itsgot/importing-products)
@@ -576,7 +576,7 @@ Pour créer un lien :
 6. Cliquez sur Enregistrer ou Mettre à jour pour enregistrer
 7. Désormais, lorsque l'étiquette est affichée sur votre site, un lien apparaîtra du nutriment ou de l'ingrédient diététique vers l'URL donnée
 
-Pour modifier la couleur du lien, voir la section [Modifier les couleurs et le design d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/display-settings).
+Pour modifier la couleur du lien, voir la section [Modifier le design d'une étiquette](https://help.screenstaring.com/fr/docs/itsgot/display-settings).
 
 ---
 

@@ -18,7 +18,7 @@ Las etiquetas se pueden generar en formatos conocidos para varios países e idio
 
 - [Agregar etiquetas nutricionales a tu sitio](https://help.screenstaring.com/es/docs/itsgot/adding-labels)
 - [Establecer el ancho de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/label-width)
-- [Cambiar los colores y el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings)
+- [Modificar el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings)
 - [Enlazar a páginas web desde los nutrientes de la etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings-links)
 - [Traducir el texto de las etiquetas](https://help.screenstaring.com/es/docs/itsgot/translations)
 - [Importación masiva de productos](https://help.screenstaring.com/es/docs/itsgot/importing-products)
@@ -577,7 +577,7 @@ Para crear un enlace:
 6. Haz clic en Guardar o Actualizar para guardar
 7. Ahora, cuando la etiqueta se muestre en tu sitio, aparecerá un enlace desde el nutriente o el ingrediente dietético hacia la URL indicada
 
-Para cambiar el color del enlace, consulta la sección [Cambiar los colores y el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings).
+Para cambiar el color del enlace, consulta la sección [Modificar el diseño de una etiqueta](https://help.screenstaring.com/es/docs/itsgot/display-settings).
 
 ---
 
