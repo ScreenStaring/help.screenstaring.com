@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Actual",
+    "description": "The label for version current"
+  },
+  "sidebar.itsgotSidebar.category.Adding Nutrition Labels to Your Site": {
+    "message": "Agregar etiquetas nutricionales a tu sitio",
+    "description": "The label for category 'Adding Nutrition Labels to Your Site' in sidebar 'itsgotSidebar'"
+  },
+  "sidebar.itsgotSidebar.category.Shopify": {
+    "message": "Shopify",
+    "description": "The label for category 'Shopify' in sidebar 'itsgotSidebar'"
+  },
+  "sidebar.itsgotSidebar.category.Setting a Label's Width": {
+    "message": "Definir el ancho de una etiqueta",
+    "description": "The label for category 'Setting a Label's Width' in sidebar 'itsgotSidebar'"
+  },
+  "sidebar.itsgotSidebar.category.Modifying a Label's Design": {
+    "message": "Modificar el diseño de una etiqueta",
+    "description": "The label for category 'Modifying a Label's Design' in sidebar 'itsgotSidebar'"
+  },
+  "sidebar.itsgotSidebar.category.Nutrients, Ingredients, and Other Text": {
+    "message": "Nutrientes, ingredientes y otros textos",
+    "description": "The label for category 'Nutrients, Ingredients, and Other Text' in sidebar 'itsgotSidebar'"
+  }
+}

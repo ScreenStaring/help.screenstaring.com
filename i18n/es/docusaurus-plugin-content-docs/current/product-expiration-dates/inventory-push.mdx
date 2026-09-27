@@ -1,0 +1,80 @@
+---
+description: "Haz que Product Expiration Dates sea tu fuente de verdad: envía las cantidades de los lotes a Shopify como inventario disponible o en existencia."
+sidebar_position: 11
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Inventory Push
+
+***Inventory Push solo está disponible con el <Link path="/charges/recurring/new">Plan Pro</Link>***
+
+Inventory Push convierte a la aplicación Product Expiration Dates en la "fuente de verdad" del inventario de tu tienda, y evita que tengas que ingresar el inventario en el Administrador de Shopify y luego volver a ingresarlo en la aplicación con su desglose de fecha de vencimiento y cantidad.
+
+Con Inventory Push habilitado, [ingresas tus cantidades de inventario](/docs/product-expiration-dates/adding-expiration-data) una sola vez en la aplicación Product Expiration Dates y esta ajustará los recuentos de inventario de los productos en Shopify. Cuando se agregan, actualizan o eliminan cantidades en la aplicación, esta hará los ajustes correspondientes en Shopify.
+
+Los cambios en el inventario de un producto a través de un nuevo pedido o de un cambio de estado del pedido (reembolsado, reabastecido, etc.) forman parte del comportamiento predeterminado de la aplicación Product Expiration Dates. **No se requiere una suscripción al Plan Pro para que esto funcione.**
+
+Cuando Inventory Push está habilitado, **el inventario solo debe ingresarse en la aplicación Product Expiration Dates. No modifiques el inventario a través del Administrador de Shopify**. La aplicación no verá los valores ingresados en el Administrador de Shopify, porque las fechas de vencimiento o los números de lote no se pueden ingresar en el Administrador de Shopify. Por ejemplo, si ingresaste los siguientes datos en la aplicación Product Expiration Dates para el Producto A:
+
+-   Expires: `2021-11-10`, Quantity: `7`
+-   Expires: `2022-01-01`, Quantity: `12`
+
+Estos valores se enviarán a Shopify y verás una cantidad total **disponible** de 19 en el Administrador de Shopify. Si la cambias a 30 en el Administrador de Shopify, la aplicación Product Expiration Dates no sabe con qué fecha(s) deben asociarse los nuevos 11. ¿Son el 10 de noviembre, el 1 de enero u otra fecha? Por eso Inventory Push no puede sincronizar las cantidades ingresadas en el Administrador de Shopify.
+
+## Habilitar Inventory Push
+
+1.  Asegúrate de tener una suscripción al <Link path="/charges/recurring/new">Plan Pro</Link> o superior
+2.  Visita la <Link path="/settings#inventory">página de configuración</Link>
+3.  Selecciona "Enviar a Shopify los cambios realizados en las cantidades de los lotes de inventario"
+4.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar tu configuración
+
+Para enviar inventario a Shopify, las fechas de vencimiento deben tener una ubicación establecida.
+
+## Cantidades disponibles y en existencia
+
+De forma predeterminada, Inventory Push establece la cantidad disponible en Shopify. Si tienes una suscripción al <Link path="/charges/recurring/new">Plan Premium</Link>, puedes configurarlo para que establezca cantidades en existencia. Esto se puede hacer desde la pestaña Inventario de <Link path="/settings#inventory">la página de configuración</Link> seleccionando "Establecer la cantidad en existencia en lugar de la cantidad disponible".
+
+## Asignación de lotes de inventario {/* #inventory-syncing-inventory-batch-assignment */}
+
+Cuando usas Inventory Push, no puedes [asignar lotes de inventario a un producto](/docs/product-expiration-dates/adding-expiration-data) cuando se prepara un artículo del pedido. Solo cuando se realiza el pedido. Esto se debe a cómo Shopify gestiona las cantidades de inventario: las asigna a un artículo del pedido cuando este se realiza. Veamos un ejemplo a continuación.
+
+Si ingresas una cantidad de 10 en la aplicación, asignamos 10 a la cantidad disponible en Shopify. Cuando se realiza un pedido con una cantidad de 2, Shopify reduce la cantidad a 8, pero en la aplicación esta cantidad sigue siendo 10 hasta que se prepare el producto. Si luego ingresas a la aplicación antes de que esto ocurra y escribes una cantidad de 12, actualizaremos la cantidad disponible de Shopify a 12, lo cual sería incorrecto.
+
+## Variantes
+
+Cuando Inventory Push está habilitado para un producto con variantes, cualquier variante del producto que no se haya ingresado en la aplicación Product Expiration Dates tendrá su inventario establecido en 0 en Shopify.
+
+## Paquetes
+
+Enviar paquetes de inventario establecerá la cantidad del paquete, así como las cantidades de los productos que contiene. Por ejemplo, dados los siguientes productos:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 10 |
+
+Si creas un paquete que contiene estos productos con la siguiente configuración:
+
+| Producto | SKU | Cantidad en el paquete |
+| --- | --- | --- |
+| Producto A | X123 | 1 |
+| Producto B | Y456 | 3 |
+
+El resultado es el siguiente:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Mi paquete | B999 | 3 |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 10 |
+
+La cantidad del paquete se establece en la cantidad mínima que se puede comprar según las cantidades de los productos que agrupa. Si un cliente hiciera una compra del Producto B con una cantidad de 6, los inventarios se sincronizarían de la siguiente manera:
+
+| Producto | SKU | Inventario disponible |
+| --- | --- | --- |
+| Mi paquete | B999 | 1 |
+| Producto A | X123 | 5 |
+| Producto B | Y456 | 4 |
+
+Como Mi paquete tiene una Cantidad en el paquete de 3 para el Producto B, y el Producto B solo tiene 4 de inventario disponible, el inventario disponible de Mi paquete se establece en 1.

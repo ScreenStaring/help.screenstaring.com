@@ -1,0 +1,31 @@
+---
+description: Configura notificaciones por correo electrónico antes de que venzan los productos, de forma global o según la colección o el tipo de producto.
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Notificaciones por correo electrónico
+
+Las notificaciones por correo electrónico se pueden configurar para que se envíen antes de que se alcancen las fechas de vencimiento de los productos. Se pueden configurar de forma global, para que se apliquen a cualquier fecha de vencimiento ingresada en la aplicación, por colección de un producto o por tipo de producto.
+
+## Activar
+
+1.  En la configuración de la aplicación, ve a <Link path="/settings#email_notifications">notificaciones por correo electrónico</Link>
+2.  En el campo "Enviar notificaciones", ingresa la dirección de correo electrónico donde quieres recibir las notificaciones. Puedes separar varias direcciones de correo electrónico con una coma.
+3.  En el campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación?", ingresa el número de días para recibir la notificación antes de que venza un producto.  
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, recibirás una notificación de este producto a partir del 5 de enero.
+4.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar
+
+Las notificaciones se envían una vez al día. Si ningún producto está dentro de tu ventana de vencimiento, no se enviará ninguna notificación.
+
+Si prefieres recibir notificaciones según la colección o el tipo de producto, puedes omitir el valor del campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación o que el producto se descuente?" y, en su lugar, agregar los días a la colección o al tipo de producto correspondiente en la sección "Por colección" o "Por tipo de producto". Estos campos solo mostrarán valores para los productos que se hayan ingresado en la aplicación.
+
+## Desactivar
+
+1.  En la configuración de la aplicación, ve a <Link path="/settings#email_notifications">notificaciones por correo electrónico</Link>
+2.  En el campo "¿Cuántos días antes de que venza un producto quieres recibir una notificación?", elimina el valor.
+3.  Si tienes notificaciones por colección o por tipo de producto, debes eliminarlas presionando el botón <kbd>X</kbd> rojo que está junto a la configuración de la notificación
+4.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar
+
+Las notificaciones ya no se enviarán.

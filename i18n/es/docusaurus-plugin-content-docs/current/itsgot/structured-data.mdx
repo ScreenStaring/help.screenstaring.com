@@ -1,0 +1,56 @@
+---
+description: Agrega información nutricional de Schema.org como metafields de variante y muestra datos estructurados JSON-LD en tus productos para mejorar el SEO.
+sidebar_position: 8
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Usar datos estructurados para mejorar el SEO
+
+
+Si tu suscripción incluye las <Link path="/app/plans">funciones del plan Premium</Link>, cada producto tendrá
+[información nutricional de Schema.org](https://schema.org/NutritionInformation) agregada como
+[metafields](https://help.shopify.com/en/manual/metafields) de variante.
+Si el producto no tiene variantes, se agregará como un metafield en la variante predeterminada.
+Esto te permite agregar datos nutricionales estructurados a tu sitio mostrando el o los metafields correspondientes en tu tema.
+
+El siguiente ejemplo muestra los datos nutricionales de cada variante como datos estructurados JSON-LD. Esto funciona incluso si el producto no tiene variantes:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script type="application/ld+json">
+     {{ variant.metafields.itsgot.schema-org | json }}
+    </script>
+  {% endif %}
+{% endfor %}
+```
+
+Si necesitas agregar información adicional a los datos estructurados antes de que se muestren, puedes usar el siguiente ejemplo como guía.
+Aquí agregamos [datos de oferta](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
+que describen el precio de cada variante. El ejemplo usa una combinación de código Liquid y JavaScript. Usamos JavaScript en lugar de
+Liquid puro porque JavaScript facilita la actualización de la estructura de la información nutricional:
+
+```liquid
+{% for variant in product.variants %}
+  {% if variant.metafields.itsgot.schema-org %}
+    <script>
+      (function() {
+        var schema = {{ variant.metafields.itsgot.schema-org | json }};
+        schema.offers = {
+          '@type': 'Offer',
+          price: {{ variant.price | json }},
+          priceCurrency: {{ shop.currency | json }},
+          sku: {{ variant.sku | json }},
+          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
+        };
+
+        var script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.textContent = JSON.stringify(schema);
+        document.body.appendChild(script);
+      })();
+    </script>
+  {% endif %}
+{% endfor %}
+```

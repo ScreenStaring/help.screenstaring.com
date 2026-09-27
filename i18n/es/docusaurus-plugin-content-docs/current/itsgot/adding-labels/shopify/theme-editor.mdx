@@ -1,0 +1,81 @@
+---
+description: "Agrega etiquetas nutricionales a una plantilla de producto de Shopify en el editor de temas, como bloque de la aplicación o fuente dinámica de un metafield."
+sidebar_position: 1
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Editor de temas de Shopify
+
+Con el [editor de temas de Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(personalización del tema) puedes agregar etiquetas
+[como una sección o un bloque](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+a una plantilla de producto, o conectarlas a una sección o bloque existente
+[a través de un metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(fuente dinámica).
+
+## Agregar una etiqueta como bloque
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Ve a *Temas* en el administrador de Shopify</ShopifyLink>
+2. Busca el tema que quieres actualizar y haz clic en <kbd>Editar tema</kbd>
+3. En el editor de temas, selecciona la plantilla de producto a la que quieres agregar las etiquetas:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-select-template.jpg" width="500" alt="Selecciona la plantilla de producto" />
+
+4. Selecciona la ubicación deseada dentro de la plantilla de producto. Puedes hacerlo pasando el cursor sobre el área de inserción deseada:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-button.jpg" height="500" alt="Botón Agregar bloque" />
+
+5. Haz clic en el botón de agregar bloque y selecciona *Nutrition Facts* en la sección *Aplicaciones*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-app.jpg" height="500" alt="Botón para agregar el bloque de la aplicación Nutrition Facts" />
+
+6. Esto agregará un bloque de *Nutrition Facts* a la plantilla seleccionada:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-block-added.jpg" height="500" alt="Configura el bloque de la aplicación Nutrition Facts" />
+
+7. Haz clic en el bloque *Nutrition Facts* para acceder a opciones de configuración adicionales
+8. Haz clic en <kbd>Guardar</kbd>
+
+Las etiquetas de los productos ahora se mostrarán en tu sitio.
+
+## Agregar una etiqueta mediante un metafield
+
+Esto solo funciona si la sección o el bloque de destino admite fuentes dinámicas.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Ve a *Temas* en el administrador de Shopify</ShopifyLink>
+2. Busca el tema que quieres actualizar y haz clic en <kbd>Editar tema</kbd>
+3. En el editor de temas, busca la sección o el bloque al que quieres agregar las etiquetas y haz clic en él. En este ejemplo, las agregamos a un bloque *Texto*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-select-block.jpg" width="500" alt="Selección de sección o bloque" />
+
+4. Dentro de la configuración del bloque *Texto*, haz clic en el botón <kbd>Conectar fuente dinámica</kbd>:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-button.jpg" width="500" alt="Botón de fuente dinámica" />
+
+5. Asegúrate de que las fuentes de la plantilla de producto estén seleccionadas:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-heading.jpg" width="500" alt="Sección de fuentes dinámicas" />
+
+   Si no está seleccionada, haz clic en el encabezado actualmente seleccionado y cambia la fuente a la plantilla de producto
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-categories.jpg" width="500" alt="Categorías de fuentes dinámicas" />
+
+6. En la lista de fuentes dinámicas, busca y elige *Nutrition Facts app label embed code*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code.jpg" width="500" alt="Fuente dinámica de la etiqueta de Nutrition Facts" />
+
+7. Una vez seleccionada, la verás como una fuente en el campo asociado:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code-selected.jpg" width="500" alt="Etiqueta de Nutrition Facts seleccionada" />
+
+8. Haz clic en <kbd>Guardar</kbd>
+
+Las etiquetas de los productos ahora se mostrarán en tu sitio.
+
+## En otros lugares
+
+Si quieres agregar etiquetas en una ubicación fuera de la plantilla de producto o en cualquier otro lugar de tu sitio, prueba una de las siguientes opciones:
+
+- [Fragmento de Liquid](/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Código de inserción de etiquetas](/docs/itsgot/adding-labels/embed-code)

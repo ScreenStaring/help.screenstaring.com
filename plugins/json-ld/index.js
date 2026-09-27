@@ -30,6 +30,12 @@ const LOCALES = {
     description:
       "Documentação e suporte para os aplicativos Shopify da ScreenStaring: It's Got (rótulos nutricionais) e Product Expiration Dates (datas de validade, números de lote e controle de estoque perecível).",
   },
+  es: {
+    prefix: '/es',
+    htmlLang: 'es',
+    description:
+      "Documentación y soporte para las aplicaciones de Shopify de ScreenStaring: It's Got (etiquetas nutricionales y de suplementos) y Product Expiration Dates (fechas de vencimiento, números de lote e inventario de productos perecederos).",
+  },
 };
 
 const ORGANIZATION = {

@@ -1,0 +1,35 @@
+---
+description: Referencia de los metafields de fecha de vencimiento del namespace expiration_dates (allocations, valores de plazo de uso, paquetes y soonest expiring).
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Metafields de datos de vencimiento
+
+Consulta también: ***[Notificaciones, impresión de pedidos y documentos de empaque](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+La aplicación Product Expiration Dates agrega metafields a la(s) variante(s) de un producto bajo el namespace `expiration_dates`. Si el producto no tiene variantes, se usa la variante predeterminada.
+
+**No agregues definiciones de metafields en el administrador de Shopify usando el namespace `expiration_dates` con ninguna de las claves que se muestran a continuación.** Esto no es necesario y evita que la aplicación funcione correctamente. Los metafields establecidos por la aplicación son de solo lectura y no se pueden establecer desde el administrador de Shopify.
+
+Si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields (y no admiten metafields JSON), consulta la clave `soonest_expiring`.
+
+Los siguientes metafields están disponibles:
+
+| Clave | Descripción |
+| --- | --- |
+| `allocations` | Un array de fechas de vencimiento y cantidades asignadas a la variante. El array está ordenado por fecha de vencimiento, de la más próxima a la más lejana, por lo que `allocations[0]` devolverá los datos de la fecha que vence primero. |
+| `allocations[N].time` | La fecha de vencimiento. El formato es: `YYYY-MM-DDT00:00`. Por ejemplo: `2025-01-22T00:00`. Actualmente la hora siempre es `00:00`. Este valor se puede formatear con el [filtro `date` de Liquid](https://shopify.dev/api/liquid/filters#date) |
+| `allocations[N].quantity` | La cantidad de inventario restante |
+| `allocations[N].batch_number` | El número de lote asignado |
+| `allocations[N].location_id` | El ID de Shopify de la ubicación asignada |
+| `use_within` | Un objeto que contiene la información del plazo de uso |
+| `use_within.use_within_value` | La parte numérica de los datos del plazo de uso. Por ejemplo, si se asignó `30 days`, contendrá `30`. |
+| `use_within.use_within_unit` | La parte de la unidad de tiempo de los datos del plazo de uso. Por ejemplo, si se asignó `30 days`, contendrá `days`. |
+| `use_within.use_within_value_in_days` | El valor del plazo de uso en días. Por ejemplo, si se asignó `6 months`, contendrá `180`. Usamos 30 días por mes: 6 \* 30 = 180. |
+| `bundled_inventory` | Un array de los productos que forman parte del paquete y sus datos de vencimiento/números de lote. Solo se establece si el producto es un paquete. |
+| `bundled_inventory[N].title` | El título del producto del paquete |
+| `bundled_inventory[N].allocations` | Un array de fechas de vencimiento y cantidades asignadas a la variante. Consulta la documentación de `allocations[N]`. |
+| `soonest_expiring` | Representación en string del lote de inventario que vence primero. Útil si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields. El formato de la fecha se puede establecer en <Link path="/settings#inventory">la página de configuración</Link>.   
+ ***Solo disponible con el <Link path="/charges/recurring/new">Plan Premium</Link>*** |

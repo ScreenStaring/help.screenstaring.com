@@ -1,0 +1,55 @@
+---
+description: Verifica tu dominio con registros DNS para enviar los correos de solicitud de reseñas desde tu propia dirección y mejorar la entregabilidad.
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Verificación de dominio del correo de solicitud de reseñas
+
+
+Para enviar correos de solicitud de reseñas usando tu dirección y dominio de correo electrónico, primero debes verificar que eres el propietario del dominio.
+Verificar tu dominio permite que los destinatarios vean que el correo se envía directamente de tu parte, y los proveedores de correo son más propensos a confiar en él.
+Esto ayuda a mejorar la entregabilidad y aumenta la probabilidad de que tus mensajes lleguen a la bandeja de entrada en lugar de ser marcados como spam.
+Las siguientes capturas de pantalla muestran la diferencia entre correos con y sin un dominio verificado.
+
+**Sin dominio verificado**
+
+<img src="/itsgot/images/review-request-reply-to.png" width="500" alt="Correo sin dominio verificado" />
+
+Observa que la dirección *De* usa la dirección de la aplicación y el correo de tu sitio se usa como dirección *Responder a*.
+
+**Con dominio verificado**
+
+<img src="/itsgot/images/review-request-custom-domain.png" width="500" alt="Correo con dominio verificado" />
+
+Usar un dominio verificado permite usar tu dirección personalizada en el campo *De*, lo que elimina la necesidad de una dirección *Responder a*.
+
+La verificación del dominio del correo se realiza agregando registros DNS a la configuración de tu sitio que autorizan nuestra infraestructura de envío.
+Una vez verificado el dominio, se habilitará el campo *Correo de envío* en la <Link path="/app/reviews/email/edit">página de configuración del correo de solicitud de reseñas</Link>.
+
+## Verifica tu dominio
+
+1. Ve a la <Link path="/app/reviews/email/edit">página de configuración del correo de solicitud de reseñas</Link>
+2. Haz clic en el botón <kbd>Verificar</kbd> junto al campo *Correo de envío*
+3. Ingresa tu dominio de envío (por ejemplo, `mail.example.com`) y haz clic en <kbd>Registrar dominio</kbd>.
+4. Esto generará varios registros DNS que deben agregarse a la configuración de DNS de tu dominio.
+   Los registros se pueden ver haciendo clic en el botón <kbd>Verificar dominio</kbd> en la <Link path="/app/reviews/email/edit">página de configuración del correo</Link>.
+5. Agrega los registros generados anteriormente a la configuración de DNS de tu sitio.
+   Para más información, consulta [Agregar registros a la configuración de DNS de tu sitio](#adding-dns-records).
+6. Una vez agregados los registros, haz clic en el botón <kbd>Registros agregados</kbd> en la <Link path="/app/reviews/email/edit#verification">página de verificación</Link>
+7. Espera a que se propaguen los cambios de DNS y se complete la verificación. Esto puede tardar hasta 24 horas.
+   Una vez verificado, se habilitará el campo *De* y podrás establecer una dirección de envío personalizada.
+8. Puedes monitorear el estado de la verificación en la <Link path="/app/reviews/email/edit">página de configuración del correo de solicitud de reseñas</Link>
+
+## Agregar registros a la configuración de DNS de tu sitio {/* #adding-dns-records */}
+
+La autenticación de dominio se basa en unos cuantos registros DNS que demuestran que controlas el dominio desde el que envías.
+Agrégalos en el panel de control de tu proveedor de DNS y mantén esta aplicación abierta en otra pestaña — copiarás valores de una a otra.
+
+La interfaz de cada proveedor de DNS es un poco diferente, por lo que los nombres de los campos mencionados aquí pueden no coincidir exactamente con lo que ves.
+Si normalmente no administras el DNS de tu organización, involucra a quien lo haga — tu equipo de TI o tu proveedor de alojamiento generalmente pueden agregar estos registros en unos minutos.
+
+Una vez agregados, espera unos minutos para que los cambios surtan efecto y luego haz clic en <kbd>Verificar registros</kbd> en la <Link path="/app/reviews/email/edit">página de configuración del correo de solicitud de reseñas</Link>.
+
+Cuando la aplicación confirme que el registro está en su lugar, haz clic en <kbd>Listo</kbd> para finalizar la configuración.

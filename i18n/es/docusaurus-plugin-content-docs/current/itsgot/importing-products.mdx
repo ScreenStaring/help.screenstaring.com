@@ -1,0 +1,52 @@
+---
+description: Importa productos y sus datos nutricionales en masa desde un archivo CSV, incluidos nutrientes personalizados, porcentajes permitidos y varias porciones por producto.
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Importación masiva de productos
+
+
+Para importar tus productos en masa:
+
+1. [Descarga nuestra plantilla de CSV](/itsgot/images/product-import-template.csv)
+2. Agrega los datos de tu producto y de nutrición
+3. Ve a la página <Link path="/products/import/new">Importación de productos</Link> y sube tu archivo CSV
+4. Ten en cuenta que la hoja de cálculo de ejemplo no contiene todos los nutrientes posibles; consulta [Agregar nutrientes a la hoja de cálculo](#adding-nutrients-to-the-spreadsheet)
+
+La plantilla de CSV requiere valores para las siguientes columnas:
+
+- **Formato de etiqueta**
+  Debe ser uno de:
+
+  - `ca:legacy:nutrition_facts:vertical`
+  - `de:eu:nutrition_facts:vertical`
+  - `dk:eu:nutrition_facts:vertical`
+  - `se:eu:nutrition_facts:vertical`
+  - `uk:eu:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:tabular`
+  - `us:2016:nutrition_facts:vertical`
+  - `us:2016:nutrition_facts:emblems`
+  - `us:legacy:nutrition_facts:vertical`
+  - `us:legacy:supplement_facts:vertical_columns`
+  - `us:legacy:supplement_facts:vertical`
+  - `us:2016:supplement_facts:vertical_columns`
+  - `us:2016:supplement_facts:vertical`
+
+- **Una columna de identificador de producto**
+  Debe ser uno de: ID de producto/ID de variante o SKU. Se usarán para asociar el producto con un producto de Shopify correspondiente.
+
+## Agregar nutrientes a la hoja de cálculo {/* #adding-nutrients-to-the-spreadsheet */}
+
+Cualquier nutriente se puede importar. Por ejemplo, para importar Omega 3 con una cantidad de 1000mg agregarías una columna *Omega 3* con el valor *1000mg* en la fila del producto correspondiente.
+Si quisieras especificar un porcentaje permitido, agregarías una columna *Omega 3 %*:
+
+<img src="/itsgot/images/extra-nutrient-column-product-import-template.jpg" height="150" alt="Columna de nutriente adicional en la plantilla de importación" />
+
+## Datos nutricionales con varias porciones
+
+Usa una columna *Comments* para separar conjuntos de datos nutricionales del mismo producto.
+Por ejemplo, si tienes datos nutricionales *Por porción* y *Por 100g*, delimitarías cada conjunto de datos con columnas *Comments*:
+
+<img src="/itsgot/images/per-serving-product-import-template.jpg" height="150" alt="Varias porciones en la plantilla de importación" />

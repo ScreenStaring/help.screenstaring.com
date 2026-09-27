@@ -1,0 +1,24 @@
+---
+description: "Elige cómo se asignan los lotes de inventario a los pedidos: FEFO o FIFO entre ubicaciones, reglas de enrutamiento de pedidos de Shopify o una ubicación específica."
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Asignación de ubicación de lotes de inventario a pedidos
+
+La aplicación Product Expiration Dates te permite configurar cuándo se asignan los lotes de inventario a un pedido: cuando se realiza el pedido o cuando se prepara un artículo del pedido. Consulta [Agregar datos de vencimiento a los productos](/docs/product-expiration-dates/adding-expiration-data).
+
+De forma predeterminada, el lote de inventario del producto que vence primero entre todas las ubicaciones se asigna al artículo del pedido (estrategia de gestión FEFO: First Expired, First Out). Si el pedido entrante tiene una ubicación asignada (por lo general, [pedidos del punto de venta (POS) de Shopify](/docs/product-expiration-dates/pos-integration)), se usará esa ubicación. Puedes cambiar tu estrategia de gestión a First In, First Out (FIFO) en <Link path="/settings#inventory">la pestaña Inventario de la página de configuración</Link>.
+
+## Reglas de enrutamiento de pedidos de Shopify
+
+***La compatibilidad con las reglas de enrutamiento de pedidos de Shopify solo está disponible en el <Link path="/charges/recurring/new">Plan Pro</Link>***
+
+Para asignar un lote de inventario desde una ubicación determinada por las reglas de enrutamiento de pedidos de Shopify, selecciona "Asignar lotes de inventario según el enrutamiento de pedidos de Shopify" en <Link path="/settings#inventory">la pestaña Inventario de la página de configuración</Link>. El enrutamiento de pedidos de Shopify se puede configurar en el administrador de Shopify aquí
+
+## Asignar lotes de inventario desde una ubicación específica {/* #order-placed-allocation-location */}
+
+**No configures esto si usas [ubicaciones de preparación priorizadas](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+
+Si usas "pedido realizado" en la configuración ["Asignar lotes de inventario cuando"](/docs/product-expiration-dates/adding-expiration-data) de un producto y tienes varias ubicaciones en Shopify **pero solo preparas pedidos desde una**, debes <Link path="/settings#inventory">configurar "Asignar lotes de inventario desde esta ubicación"</Link> para que coincida con tu ubicación predeterminada en Shopify (Shopify no comparte esto con las aplicaciones de terceros, así que se debe configurar de forma explícita). Cuando esto está configurado y se realiza un pedido sin una ubicación, la aplicación Product Expiration Dates solo asignará la fecha de vencimiento más próxima de esta ubicación. Si no se configura, la aplicación asignará la fecha de vencimiento más próxima entre todas las ubicaciones.

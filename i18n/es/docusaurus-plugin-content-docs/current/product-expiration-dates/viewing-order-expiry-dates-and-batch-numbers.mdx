@@ -1,0 +1,54 @@
+---
+description: Consulta las fechas de vencimiento y los números de lote de un pedido en el administrador de Shopify con el bloque de pedidos o la sección Detalles adicionales.
+sidebar_position: 15
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Ver fechas de vencimiento y números de lote de los pedidos en Shopify
+
+Hay varias formas de ver los números de lote y las fechas de vencimiento asignados a un pedido desde [la página del pedido en el administrador de Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+
+## Bloque en el administrador
+
+Agregar el bloque Fechas de vencimiento a la página de pedidos:
+
+1.  Abre tu pedido en el [administrador de Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
+2.  En la página del pedido, desplázate hasta abajo y selecciona "Agregar bloque"
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-add-block.jpg" width="700" alt="Seleccionar el bloque Fechas de vencimiento en el administrador de Shopify" />
+
+3.  Selecciona "Fechas de vencimiento" en el menú emergente
+4.  Esto mostrará las fechas de vencimiento asignadas a los artículos del pedido, si las hay. Ten en cuenta que solo los pedidos **posteriores al** 11 de septiembre de 2026 tendrán sus fechas visibles:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-batches-block.jpg" width="700" alt="Fechas de vencimiento mostradas en el administrador de Shopify" />
+
+5.  Para que el bloque aparezca siempre en la página del pedido, haz clic en el ícono de fijar:
+
+    <img src="/product-expiration-dates/shopify/images/admin-orders-pin-block.jpg" width="700" alt="Fijar el bloque Fechas de vencimiento en el administrador de Shopify" />
+
+## Sección Detalles adicionales
+
+Los números de lote se pueden agregar a la página de pedidos en la sección Detalles adicionales:
+
+1.  En la configuración de la aplicación, ve a la <Link path="/settings#orders">pestaña Pedidos</Link>
+1.  Selecciona "Crear una entrada de 'detalles adicionales' del pedido con los lotes de inventario de un pedido"
+1.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar
+
+Los lotes de inventario de los nuevos pedidos ahora se agregarán a la sección Detalles adicionales del pedido en el administrador de Shopify:
+
+   <img src="/product-expiration-dates/shopify/images/admin-order-additional-details.jpg" width="400" alt="Asignación de lotes de inventario para un pedido en el administrador de Shopify" />
+
+Se incluye la siguiente información:
+
+- `PB123`: el SKU del artículo del pedido
+- `B9001`: el número de lote asignado al artículo del pedido
+- `(2)`: la cantidad
+
+## Ver el pedido en la aplicación
+
+Para abrir la página de un pedido en la aplicación:
+
+1.  Abre tu pedido en el administrador de Shopify
+2.  En la página del pedido, selecciona "Más acciones"
+3.  Selecciona "Fechas de vencimiento"

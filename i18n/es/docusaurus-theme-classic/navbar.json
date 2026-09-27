@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Documentación de ScreenStaring",
+    "description": "The title in the navbar"
+  },
+  "item.label.It's Got: The Food Database": {
+    "message": "It's Got: The Food Database",
+    "description": "Navbar item with label It's Got: The Food Database"
+  },
+  "item.label.Product Expiration Dates": {
+    "message": "Product Expiration Dates",
+    "description": "Navbar item with label Product Expiration Dates"
+  },
+  "item.label.Support": {
+    "message": "Soporte",
+    "description": "Navbar item with label Support"
+  }
+}

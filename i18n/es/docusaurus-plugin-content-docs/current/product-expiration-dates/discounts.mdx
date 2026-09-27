@@ -1,0 +1,141 @@
+---
+description: Aplica descuentos por producto, colección o tipo cuando se acercan las fechas de vencimiento, con conjuntos de reglas de varias fases o el método heredado.
+sidebar_position: 7
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Vender con descuento los productos próximos a vencer
+
+Se pueden aplicar descuentos a los productos cuando contienen un lote de inventario dentro de una ventana de vencimiento. Hay dos maneras de configurar los descuentos: 1) [el método heredado](/docs/product-expiration-dates/discounts#legacy-discounts) 2) [los conjuntos de reglas](/docs/product-expiration-dates/discounts#rulesets). Los conjuntos de reglas son el método preferido y permiten configurar descuentos de varias fases. Por ejemplo, aplicar un descuento del 10% a un producto 100 días antes del vencimiento y luego aplicar un descuento del 30% 5 días antes del vencimiento.
+
+Consulta la documentación a continuación para cada tipo.
+
+## Conjuntos de reglas {/* #rulesets */}
+
+***Los conjuntos de reglas solo están disponibles con el <Link path="/charges/recurring/new">Plan Platinum</Link>***
+
+Los conjuntos de reglas permiten definir un conjunto de criterios para aplicar a un producto y ejecutar acciones cuando los criterios coinciden. Los conjuntos de reglas no solo sirven para los descuentos: también se pueden usar para agregar o quitar etiquetas, cambiar el título de un producto y mucho más. Veamos un ejemplo. Supongamos que quieres aplicar un descuento a un producto según lo siguiente:
+
+-   100 días antes del vencimiento: descuento del 10%
+-   14 días antes del vencimiento: descuento del 30%
+-   Día del vencimiento: descuento del 50%
+-   5 días después del vencimiento: eliminar los lotes vencidos
+
+Esto se puede lograr creando un solo conjunto de reglas con 4 reglas. Cada regla contendrá los criterios deseados (100 días antes, 14 días antes, etc...) y las acciones (descuento del 10%, descuento del 30%, etc...). Cuando los criterios de una regla coinciden, se ejecutan las acciones asociadas.
+
+**Nota:** los porcentajes de descuento se basan en el precio del producto en el momento en que se aplica el descuento. Si quieres basarlos en el precio original, antes del descuento, debes agregar una acción "Eliminar descuento" junto con la acción "Agregar descuento" en cada fase.
+
+### 100 días antes del vencimiento: descuento del 10%
+
+1.  Ve a la <Link path="/inventory_rules/rule_sets">página de conjuntos de reglas</Link>
+2.  Haz clic en "Agregar conjunto de reglas"
+3.  En la página Nuevo conjunto de reglas de inventario puedes darle un nombre al conjunto de reglas
+4.  Haz clic en <kbd>Guardar</kbd>
+5.  Esto te llevará a la página del nuevo conjunto de reglas, donde se pueden agregar las reglas de descuento
+6.  Haz clic en "Agregar regla"
+7.  En el campo Criterios, selecciona "Antes de que venza un lote de inventario"
+8.  En el campo "Días antes del vencimiento", ingresa 100
+9.  Abajo, en la sección Acciones, selecciona "Agregar descuento"
+10.  En el campo "Porcentaje de descuento", ingresa 10. Para establecer el precio de comparación en Shopify al precio anterior al descuento, marca "Usar el precio regular como precio de comparación"
+11.  Haz clic en <kbd>Guardar</kbd>
+12.  Ahora el conjunto de reglas tiene una sola regla; debemos agregar 3 más
+
+### 14 días antes del vencimiento: descuento del 30%
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Antes de que venza un lote de inventario"
+3.  En el campo "Días antes del vencimiento", ingresa 14
+4.  En la sección Acciones, selecciona "Agregar descuento"
+5.  En el campo "Porcentaje de descuento", ingresa 30
+6.  Haz clic en <kbd>Guardar</kbd>
+7.  Ahora el conjunto de reglas tiene 2 reglas; debemos agregar 2 más
+
+### Día del vencimiento: descuento del 50%
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Después de que venza un lote de inventario"
+3.  En el campo "Días después del vencimiento", ingresa 0. Esto establece el criterio en el día en que vence el producto
+4.  En la sección Acciones, selecciona "Agregar descuento"
+5.  En el campo "Porcentaje de descuento", ingresa 50
+6.  Haz clic en <kbd>Guardar</kbd>
+7.  El conjunto de reglas tiene 3 reglas, ¡falta 1 más!
+
+### 5 días después del vencimiento: eliminar los lotes vencidos
+
+1.  En la página Editar conjunto de reglas del conjunto de reglas, haz clic en "Agregar regla"
+2.  En el campo Criterios, selecciona "Después de que venza un lote de inventario"
+3.  En el campo "Días después del vencimiento", ingresa 5. Esto establece el criterio en el día en que vence el producto
+4.  En la sección Acciones, selecciona "Eliminar lote de inventario"
+5.  Haz clic en <kbd>Guardar</kbd>
+
+El conjunto de reglas resultante debería verse así:
+
+<img src="/product-expiration-dates/images/multi-phased-discount-ruleset.jpg" width="1000" alt="Conjunto de reglas de descuentos en varias fases" />
+
+Este conjunto de reglas se aplicará a todos los productos de tu tienda. Puedes limitarlo a productos o variantes específicos seleccionando el criterio "Con producto coincidente" al crear una regla. Si se venden las cantidades del lote próximo a vencer, el conjunto de reglas se revertirá y el producto o la variante volverán al precio que tenían cuando coincidió la regla 1.
+
+A menos que se seleccione la opción "Aplicar de forma retroactiva" (ver más abajo), **las reglas de un conjunto de reglas deben coincidir en el orden en que se definen.** Por ejemplo, la regla 3 no coincidirá a menos que hayan coincidido las reglas 1 y 2.
+
+## Coincidencia retroactiva {/* #ruleset-retroactive-matching */}
+
+Normalmente, un conjunto de reglas solo puede comenzar a aplicarse a un lote de inventario cuando coincide su primera regla. Si un lote ya pasó el momento de esa regla —por ejemplo, el conjunto de reglas se creó después de agregar el lote—, el conjunto de reglas nunca se le aplicará.
+
+Seleccionar la opción "Aplicar de forma retroactiva" permite que un lote se una al conjunto de reglas en la regla que coincida con su fecha actual y aplica las acciones de todas las reglas anteriores al mismo tiempo. Con el conjunto de reglas del ejemplo anterior, a un producto al que le faltan 10 días para vencer se le aplicarán las reglas 1 y 2 y sus acciones asociadas en una sola pasada. A un lote que venció hace 2 días se le aplicarán las reglas 1, 2 y 3, aunque las reglas 1 y 2 ya no coincidan por sí solas.
+
+Después de estas coincidencias iniciales, las reglas se aplicarán de forma normal, es decir, como lo harían si no se hubiera seleccionado "Aplicar de forma retroactiva".
+
+## Método de descuento heredado {/* #legacy-discounts */}
+
+***Los descuentos heredados solo están disponibles con el <Link path="/charges/recurring/new">Plan Pro</Link>***
+
+Los descuentos heredados se pueden configurar por la colección de un producto, su tipo de producto o en el propio producto. Cuando un descuento está activo, durará hasta que se vendan todas las cantidades próximas a vencer o hasta que las fechas de vencimiento aplicables se modifiquen para que ya no estén dentro de la ventana de descuento configurada.
+
+**De forma predeterminada, el descuento se aplicará a todas las cantidades disponibles.** Por ejemplo, si tienes 10 productos y solo 3 están próximos a vencer, ofrecer un descuento permitirá de todos modos que el usuario compre **10** al precio con descuento. Esto se debe a cómo funcionan los precios de los productos en Shopify. Si deseas ofrecer un descuento solo para la cantidad próxima a vencer, hay varias opciones. [Contacta a soporte](https://screenstaring.com/#contact) para analizar las opciones y determinar qué funcionará mejor para tu tienda.
+
+El descuento o el precio restaurado pueden tardar varios minutos en aparecer en tu sitio.
+
+## Activar por producto
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.  
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  En el campo "Días de descuento antes del vencimiento", ingresa el número de días antes de que venza un producto en los que quieres activar el descuento.  
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+6.  Haz clic en el botón <kbd>Guardar</kbd>
+
+## Activar por colección
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.  
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  No ingreses un valor en el campo "Días de descuento antes del vencimiento". Se ingresará en un paso posterior al configurar la colección
+6.  Haz clic en el botón <kbd>Guardar</kbd>
+7.  En la configuración de la aplicación, ve a <Link path="/settings#discounts">descuentos</Link>
+8.  Ve a la sección "Por colección"
+9.  En el campo "Título", selecciona la colección para la que quieres configurar el descuento
+10.  En el campo "Días antes del vencimiento", ingresa el número de días antes de que venzan los productos de la colección. Esto determinará cuándo activar el descuento.  
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+11.  Para agregar otra colección, haz clic en el enlace "Agregar más"
+12.  Haz clic en el botón <kbd>Actualizar</kbd>
+
+## Activar por tipo de producto
+
+1.  Para el producto al que quieres aplicar el descuento, [ingresa sus fechas de vencimiento](/docs/product-expiration-dates/adding-expiration-data) en la aplicación
+2.  En la página del producto en la aplicación, haz clic en la pestaña "Descuentos"
+3.  En la pestaña "Descuentos", marca "Ofrecer un descuento cuando un lote de inventario esté dentro de su ventana de vencimiento"
+4.  En el campo "Porcentaje de descuento", ingresa el porcentaje por el cual quieres descontar el precio regular del producto.  
+ Por ejemplo, si un producto tiene un precio de 50 y se ingresa 10, el producto se venderá a un precio de 45 cuando el descuento esté activo.
+5.  No ingreses un valor en el campo "Días de descuento antes del vencimiento". Se ingresará en un paso posterior al configurar el tipo de producto
+6.  Haz clic en el botón <kbd>Guardar</kbd>
+7.  En la configuración de la aplicación, ve a <Link path="/settings#discounts">descuentos</Link>
+8.  Ve a la sección "Por tipo de producto"
+9.  En el campo "Título", selecciona el tipo de producto para el que quieres configurar el descuento. Solo se muestran los tipos de producto de los productos que se han ingresado en la aplicación.
+10.  En el campo "Días antes del vencimiento", ingresa el número de días antes de que venzan los productos con ese tipo de producto. Esto determinará cuándo activar el descuento.  
+ Por ejemplo, si un producto tiene una fecha de vencimiento del 15 de enero y se ingresa 10, el producto tendrá descuento a partir del 5 de enero.
+11.  Para agregar otro tipo de producto, haz clic en el enlace "Agregar más"
+12.  Haz clic en el botón <kbd>Actualizar</kbd>

@@ -1,0 +1,18 @@
+---
+description: "Mantén los datos de los lotes precisos cuando se mueven las existencias: las transferencias de inventario de Shopify mueven los lotes que vencen primero."
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Transferencias de inventario
+
+***La compatibilidad con transferencias de inventario solo está disponible con los <Link path="/charges/recurring/new">planes Premium y Platinum</Link>***
+
+Para activar la compatibilidad con las [transferencias de inventario de Shopify](https://help.shopify.com/en/manual/products/inventory/inventory-transfers):
+
+-   Ve a la <Link path="/settings#inventory">pestaña Inventario de la página de configuración</Link>
+-   Marca "Mover lotes de inventario cuando ocurran transferencias de inventario de Shopify"
+-   Haz clic en "Actualizar"
+
+Ahora, cuando ocurre una transferencia de inventario en Shopify, los lotes de inventario de la cantidad transferida se moverán desde la ubicación de origen de la transferencia hasta su ubicación de destino. Las cantidades se mueven comenzando por el lote de inventario que vence primero. Si necesitas un algoritmo diferente, contacta a soporte.

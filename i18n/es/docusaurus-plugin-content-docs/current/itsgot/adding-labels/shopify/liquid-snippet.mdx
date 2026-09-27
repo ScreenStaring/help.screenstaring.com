@@ -1,0 +1,67 @@
+---
+description: "Agrega el fragmento de Liquid de It's Got a un tema de Shopify y renderízalo con un bloque de Liquid personalizado para mostrar las etiquetas automáticamente."
+sidebar_position: 3
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Automáticamente agregando nuestro fragmento de Liquid a tu tema
+
+:::info
+La mejor forma de agregar etiquetas de productos a tu sitio de Shopify es [a través del editor de temas de Shopify](theme-editor).
+Las instrucciones que aparecen aquí son solo para los casos que el editor de temas no puede manejar.
+:::
+
+Este es un proceso de dos pasos: 1) agrega nuestro fragmento de código Liquid a tu tema y 2) renderiza el fragmento en la ubicación donde quieres que se muestre la etiqueta.
+
+## Agregar nuestro fragmento a tu tema {/* #adding-labels-liquid-snippet-theme */}
+
+1. <ShopifyLink href={(shopify) => shopify.toString()}>Ve al administrador de Shopify</ShopifyLink>
+2. [Abre el editor de código de tu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3. [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Haz clic en el directorio *snippets*
+   - Haz clic en <kbd>Agregar nuevo fragmento</kbd>
+   - Como nombre de archivo, usa `itsgot-product-label-embed-code.liquid`
+   - Haz clic en <kbd>Listo</kbd>
+4. Esto abrirá una nueva pestaña en blanco en el editor con el nombre `snippets/itsgot-product-label-embed-code.liquid`
+5. Copia el código de [nuestro fragmento de Liquid](/itsgot/images/itsgot-product-label-embed-code.txt) y pégalo en la pestaña
+6. Haz clic en <kbd>Guardar</kbd>
+7. Haz clic de nuevo en [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+   - Haz clic en el directorio *snippets*
+   - Haz clic en <kbd>Agregar nuevo fragmento</kbd>
+   - Como nombre de archivo, usa `itsgot-product-label.liquid`
+   - Haz clic en <kbd>Listo</kbd>
+8. Esto abrirá una nueva pestaña en blanco en el editor con el nombre `snippets/itsgot-product-label.liquid`
+9. Copia el código de [nuestro fragmento de Liquid](/itsgot/images/itsgot-product-label.txt) y pégalo en la pestaña
+10. Haz clic en <kbd>Guardar</kbd>
+
+## Mostrar la etiqueta del producto
+
+Una vez que hayas [agregado nuestro fragmento a tu tema](#adding-labels-liquid-snippet-theme), el siguiente paso es renderizarlo
+en la ubicación donde quieres que se muestre la etiqueta. Esto se puede hacer desde el administrador de Shopify, a través de la página de personalización del tema.
+
+1. <ShopifyLink href={(shopify) => shopify.themes()}>Ve a *Temas* en el administrador de Shopify</ShopifyLink>
+2. Busca el tema que quieres actualizar y haz clic en <kbd>Editar tema</kbd>
+3. En el editor de temas, selecciona *Productos* y luego *Producto predeterminado* (o la plantilla que quieras)
+4. Si quieres agregar la etiqueta a una sección existente, haz clic en el botón de agregar bloque dentro de esa sección y selecciona *Liquid personalizado*
+   o, si no está disponible, *HTML* (ten en cuenta que el bloque *HTML* debe admitir Liquid):
+
+   <img src="/itsgot/shopify/images/add-liquid-block.png" width="500" alt="Agregar un bloque Liquid personalizado" />
+
+5. Si quieres agregar la etiqueta a una nueva sección, haz clic en el botón <kbd>Agregar sección</kbd> y selecciona *Liquid personalizado* o *HTML*, lo que ofrezca tu tema:
+
+   <img src="/itsgot/shopify/images/add-liquid-section.png" width="500" alt="Agregar una sección de Liquid personalizado" />
+
+6. Si tu tema no tiene una opción *Liquid personalizado* ni *HTML*, debes renderizar el fragmento manualmente en tu tema.
+   Esto se puede hacer a través de [el editor de código del tema](https://shopify.dev/docs/themes/tools/code-editor).
+   Si necesitas ayuda, [comunícate con soporte](https://screenstaring.com/#contact).
+7. Haz clic en el bloque o la sección *Liquid personalizado* que acabas de agregar
+8. En el campo *Liquid personalizado* (o similar), pega el siguiente código:
+
+   `{% render "itsgot-product-label", product: product %}`
+
+   <img src="/itsgot/shopify/images/custom-liquid-block-contents.png" width="500" alt="Contenido del bloque Liquid personalizado" />
+
+9. Haz clic en <kbd>Guardar</kbd>
+
+Ahora las etiquetas actuales y futuras aparecerán automáticamente en la página de productos.

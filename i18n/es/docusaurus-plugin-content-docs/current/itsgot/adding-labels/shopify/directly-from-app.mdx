@@ -1,0 +1,37 @@
+---
+description: "Agrega una etiqueta nutricional o de suplementos en la parte superior, inferior o una ubicación personalizada con CSS o XPath en la descripción de un producto de Shopify."
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Botón Agregar a la descripción del producto
+
+Una etiqueta nutricional se puede agregar en la parte superior, en la parte inferior o en una ubicación personalizada de la descripción de tu producto.
+Puedes establecer una de estas ubicaciones como predeterminada desde la <Link path="/settings/edit">página de configuración de tu cuenta</Link>.
+
+Una ubicación personalizada se usa normalmente cuando la descripción contiene pestañas o un acordeón y quieres
+que la etiqueta se agregue a un panel específico (consulta las instrucciones a continuación para obtener más información).
+
+Para agregar una etiqueta a la descripción del producto:
+
+1. <Link path="/nutrition_facts/new">Crea una etiqueta de producto</Link>. Si el producto ya existe, búscalo en la página <Link path="/nutrition_facts">Mis etiquetas</Link> y haz clic en el nombre del producto.
+
+2. En la página del producto, ubica la sección *Agregar a la descripción del producto*
+3. Selecciona dónde quieres agregar la etiqueta: parte superior, parte inferior o personalizada:
+
+   <img src="/itsgot/shopify/images/nf-edit-add-to-product.jpg" alt="Agregar a la descripción del producto" />
+
+   El valor para la ubicación personalizada debe ser [un selector CSS o XPath](https://www.awesome-testing.com/2017/05/how-to-find-test-cssselector-using.html).
+
+4. Haz clic en el botón <kbd>Agregar</kbd>
+
+La etiqueta se insertará en la descripción de tu producto. La etiqueta puede tardar hasta 1 minuto en aparecer en la página del producto.
+
+:::warning
+
+Ten cuidado de no eliminar el código de inserción de la etiqueta cuando edites la descripción del producto en el administrador de Shopify
+
+:::
+
+También puedes agregar a las descripciones de tus productos cuando [importas productos de forma masiva](/docs/itsgot/importing-products).

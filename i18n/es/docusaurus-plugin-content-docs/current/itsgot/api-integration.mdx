@@ -1,0 +1,186 @@
+---
+description: "Usa la API de It's Got para obtener productos y sus datos nutricionales por SKU, código de barras o ID de Shopify, y exportar etiquetas como PNG, JPG, PDF o HTML."
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ItsGot/Link';
+
+# Integración con la API
+
+
+**La integración con la API solo está disponible en el <Link path="/app/plans">plan Premium</Link>.**
+
+Las solicitudes a la API se autentican con tu clave de API.
+Incluye tu clave de API en el encabezado `X-API-Key` en cada solicitud.
+Contacta a soporte para obtener la tuya.
+
+## URL base
+
+Todos los endpoints de la API son relativos a: `https://itsgot.com`
+
+## Paginación
+
+En los endpoints que admiten paginación, las URL de la página siguiente y de la página anterior se encuentran en el encabezado `Link` de HTTP.
+
+## Obtener productos
+
+### GET /api/products
+
+**Parámetros de consulta:**
+
+- `sku` - El SKU de la variante (opcional)
+- `barcode` - El código de barras de la variante (opcional)
+- `external_product_id` - ID del producto de Shopify (opcional)
+- `external_variant_id` - ID de la variante de Shopify (opcional)
+- `page` - Página que se va a obtener (opcional)
+- `per_page` - Cantidad de productos devueltos por página, debe ser uno de `10`, `25`, `50`, `100` (opcional, el valor predeterminado es 10)
+
+**Ejemplo con curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products?sku=JARFOOD'
+```
+
+**Respuesta (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Jar of Food",
+    "rating": 0.0,
+    "external_product_id": 123123123,
+    "variants": [
+      {
+        "name": "Spicy",
+        "size": null,
+        "servings_per_container": "1",
+        "serving_size": null,
+        "ingredients": null,
+        "barcode": "834325",
+        "external_variant_id": 789789789,
+        "warnings": null,
+        "instructions": null,
+        "claims": null,
+        "sku": "JARFOOD",
+        "origin_countries": null,
+        "allergens": null,
+        "created_at": "2026-07-30T13:32:38Z",
+        "updated_at": "2026-07-30T13:36:08Z",
+        "kosher": false,
+        "halal": false,
+        "glatt_kosher": true,
+        "organic": false,
+        "dairy": false,
+        "parve": true,
+        "vegan": true,
+        "vegetarian": true,
+        "gmos": null,
+        "gluten": null,
+        "wheat": null,
+        "preservatives": null,
+        "artificial_colors": null,
+        "artificial_flavors": null,
+        "casein": null,
+        "egg": null,
+        "soy": null,
+        "shellfish": null,
+        "tree_nuts": null,
+        "peanuts": null,
+        "fish": null,
+        "seeds": null,
+        "milk": null,
+        "nitrates": null,
+        "nitrites": null,
+        "sesame": null,
+        "coconut": null,
+        "rbst": null,
+        "rbgh": null,
+        "celery": null,
+        "translations": {},
+        "nutrition": [
+          {
+            "id": 1,
+            "calories": 28,
+            "calories_from_fat": null,
+            "calories_from_saturated_fat": null,
+            "comments": "Per 100g",
+            "number": 1,
+            "kilojoules": 114,
+            "created_at": "2026-08-04T18:48:07Z",
+            "updated_at": "2026-08-04T18:48:07Z",
+            "data": [
+              {
+                "id": 1,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "1",
+                  "unit": "mg"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 10,
+                  "name": "Iron",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              },
+              {
+                "id": 2,
+                "percent_allowance": null,
+                "comments": null,
+                "components": null,
+                "quantity": {
+                  "value": "2",
+                  "unit": "g"
+                },
+                "type": "nutrient",
+                "source": {
+                  "id": 8,
+                  "name": "Protein",
+                  "translations": []
+                },
+                "created_at": "2026-08-04T18:48:07Z",
+                "updated_at": "2026-08-04T18:48:07Z"
+              }
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": 10,
+            "format": "au_nutrition_facts_vertical",
+            "locale": "en-AU",
+            "target_device": null
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Exportar una etiqueta a un formato específico
+
+### GET /api/products/PRODUCT_ID/labels/LABEL_ID/export.FORMAT
+
+**Parámetros requeridos:**
+
+- `PRODUCT_ID` - ID del producto de la etiqueta que quieres exportar
+- `LABEL_ID` - ID de la etiqueta que quieres exportar
+- `FORMAT` - Formato de exportación. Uno de `png`, `jpg`, `pdf` o `html`
+
+**Parámetros de consulta opcionales:**
+
+- `width` - Solo para imágenes. Exporta la etiqueta con el ancho indicado. El valor predeterminado es el ancho de la etiqueta x 2.
+- `height` - Solo para imágenes. Exporta la etiqueta con el alto indicado. De forma predeterminada, se mantiene la relación de aspecto y el alto se basa en el ancho indicado.
+- `background_color` - Solo para imágenes. Color de fondo que se usa si la etiqueta se redimensiona y ya no mantiene su relación de aspecto
+
+**Ejemplo con curl:**
+
+```bash
+curl -H 'X-API-Key: ***' 'https://itsgot.com/api/products/123/labels/789/export.jpg' > product.jpg
+```

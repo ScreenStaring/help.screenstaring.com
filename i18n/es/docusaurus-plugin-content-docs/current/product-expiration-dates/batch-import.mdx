@@ -1,0 +1,18 @@
+---
+description: Importa fechas de vencimiento y cantidades de forma masiva con un archivo CSV. Las columnas obligatorias son SKU, fecha de vencimiento, cantidad y ubicación.
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Importar datos de vencimiento de forma masiva
+
+Se pueden importar varias fechas de vencimiento y cantidades con nuestro CSV de importación de lotes. Puedes encontrar un ejemplo [aquí](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+Las columnas "SKU", "Expiration Date", "Quantity" y "Location Name" son obligatorias. **Las fechas de vencimiento deben proporcionarse en formato `YYYY-MM-DD`.** Para usar "Barcode" en lugar de "SKU", selecciona "Identificar filas por código de barras" en la página de importación de lotes.
+
+Para obtener más información sobre la columna "Allocate Quantities to Orders When", consulta [Agregar datos de vencimiento a los productos](/docs/product-expiration-dates/adding-expiration-data).
+
+El CSV debe usar codificación UTF-8 y el carácter de coma (",") como separador de campos.
+
+Cuando esté listo, súbelo a través de <Link path="/import">la página de importación</Link>.

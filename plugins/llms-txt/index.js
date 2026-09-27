@@ -62,9 +62,20 @@ const LOCALES = {
     fullTextSummary:
       'Todas as páginas da documentação em um único arquivo, para assistentes de IA e leitura offline.',
   },
+  es: {
+    prefix: '/es',
+    docsDir: 'i18n/es/docusaurus-plugin-content-docs/current',
+    description:
+      "Documentación y soporte para las aplicaciones de Shopify de ScreenStaring: It's Got (etiquetas nutricionales y de suplementos) y Product Expiration Dates (fechas de vencimiento, números de lote e inventario de productos perecederos).",
+    otherLanguagesTitle: 'Otros idiomas',
+    supportTitle: 'Soporte',
+    fullTextLink: 'Texto completo de la documentación',
+    fullTextSummary:
+      'Todas las páginas de documentación en un solo archivo, para asistentes de IA y lectura sin conexión.',
+  },
 };
 
-const LOCALE_NAMES = {en: 'English', fr: 'Français', pt: 'Português'};
+const LOCALE_NAMES = {en: 'English', es: 'Español', fr: 'Français', pt: 'Português'};
 
 // --- Markdown / front matter helpers -----------------------------------------
 

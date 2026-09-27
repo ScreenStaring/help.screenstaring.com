@@ -1,0 +1,105 @@
+---
+description: Muestra fechas de vencimiento, cantidades y datos del plazo de uso en tu tienda con el bloque del editor de temas o un fragmento de Liquid.
+sidebar_position: 6
+---
+
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Agregar datos de vencimiento a tu sitio
+
+Es posible acceder a los datos de vencimiento de tu sitio o mostrarlos en él. Esto incluye las fechas de vencimiento, sus cantidades y los datos del plazo de uso. La forma más sencilla de mostrar esta información es usar nuestra integración con el [editor de temas de Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor), que permite agregar los datos de vencimiento [como una sección o un bloque](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
+
+1.  <ShopifyLink href={(shopify) => shopify.themes()}>Ve a tus temas en el administrador de Shopify</ShopifyLink>
+2.  Busca el tema que quieres actualizar y haz clic en "Editar tema"
+3.  En el editor de temas, selecciona la plantilla a la que quieres agregar los datos de vencimiento:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Seleccionar la plantilla del tema" />
+    
+4.  Selecciona la ubicación deseada dentro de la plantilla. Puedes hacerlo pasando el cursor sobre el área de inserción que quieras:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Botón Agregar bloque" />
+    
+5.  Haz clic en el botón de agregar bloque y selecciona Datos de vencimiento en la sección Aplicaciones:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-app-block.jpg" height="500" alt="Botón para agregar el bloque de la aplicación Fechas de vencimiento" />
+    
+6.  Esto agregará un bloque Datos de vencimiento a la plantilla seleccionada:
+    
+    <img src="/product-expiration-dates/shopify/images/theme-editor-block-added.jpg" height="500" alt="Bloque de la aplicación Fechas de vencimiento agregado" />
+    
+7.  Haz clic en el bloque Datos de vencimiento para acceder a opciones de configuración adicionales. En el caso de los productos con varias variantes, se mostrarán los datos de vencimiento de la variante seleccionada. Se pueden agregar varios bloques para cubrir diferentes casos de uso. Por ejemplo, puedes agregar 1 bloque para mostrar fechas de vencimiento y otro para mostrar los datos del plazo de uso.
+8.  Haz clic en <kbd>Guardar</kbd>
+
+## Agregar nuestro fragmento a tu tema {/* #adding-liquid-snippet */}
+
+**Agregar los datos de vencimiento debe hacerse mediante [nuestra integración con temas de Shopify](/docs/product-expiration-dates/shopify-pages). Agregar el fragmento de forma explícita solo es necesario en casos especializados.**
+
+1.  <ShopifyLink href={(shopify) => shopify.toString()}>Ve al administrador de Shopify</ShopifyLink>
+2.  [Abre el editor de código de tu tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
+3.  [Agrega un nuevo archivo de tema](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
+    -   Haz clic en el directorio "snippets"
+    -   Haz clic en "Agregar nuevo fragmento"
+    -   Para el nombre del archivo, usa `ss-product-expiration-dates`
+    -   Haz clic en "Listo"
+4.  Esto abrirá una nueva pestaña en blanco en el editor llamada `snippets/ss-product-expiration-dates.liquid`
+5.  Copia el código de [nuestro fragmento de Liquid](/product-expiration-dates/images/ss-product-expiration-dates.txt) y pégalo en la pestaña
+6.  Haz clic en <kbd>Guardar</kbd>
+
+## Mostrar los datos de vencimiento
+
+Una vez que hayas [agregado nuestro fragmento a tu tema](/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet), el siguiente paso es renderizarlo en la ubicación donde quieres que se muestren los datos de vencimiento. Puedes hacerlo desde el administrador de Shopify, en la página de personalización del tema.
+
+1.  <ShopifyLink href={(shopify) => shopify.themes()}>Ve a tus temas en el administrador de Shopify</ShopifyLink>
+2.  Busca el tema que quieres actualizar y haz clic en "Editar tema"
+3.  En el editor de temas, selecciona "Productos" y luego "Producto predeterminado" (o la plantilla que quieras)
+4.  En la sección Plantilla, haz clic en "Agregar bloque"
+5.  Selecciona "Liquid personalizado" o, si no está disponible, "HTML" (ten en cuenta que el bloque "HTML" debe admitir Liquid)
+
+-   Si tu tema no tiene la opción "Liquid personalizado" ni "HTML", debes renderizar el fragmento manualmente en tu tema
+-   Puedes hacerlo desde [el editor de código del tema](https://shopify.dev/docs/themes/tools/code-editor)
+-   Si necesitas ayuda, [contacta al soporte](https://screenstaring.com/#contact)
+
+7.  Una vez seleccionado, puedes mover el bloque Liquid personalizado a la ubicación donde quieres que se muestren los datos de vencimiento
+8.  Haz clic en el bloque Liquid personalizado que acabas de agregar
+9.  En el campo "Liquid personalizado" (o similar), pega el código de renderización que quieras; consulta Opciones de visualización de datos de vencimiento para ver ejemplos
+10.  Haz clic en <kbd>Guardar</kbd>
+
+## Mostrar las fechas de vencimiento según el idioma o la región del usuario {/* #display-language-region */}
+
+Si muestras tu sitio en varios idiomas, puedes cambiar el formato y el texto de la fecha de vencimiento según el idioma o la región que estén seleccionados en ese momento. En lugar de renderizar la fecha de vencimiento con el código predeterminado:
+
+```liquid
+{% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+```
+
+Puedes usar el código siguiente para comprobar el idioma o la región seleccionados y mostrar la fecha de vencimiento y el texto en un formato específico:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```
+
+Aquí, si el idioma es español (`"es"`), se muestra el texto `"Consúmase antes de:"` y la fecha se muestra en formato `DD/MM/YYYY`. Si el idioma es alemán (`"de"`), el texto y la fecha se muestran en un formato adecuado para quienes hablan alemán. Y, si el idioma no es ninguno de los dos, mostramos la fecha en un formato adecuado para quienes hablan inglés.
+
+Si quieres mostrar texto según el idioma **y** el país del usuario, puedes agregar un caso que compruebe la variable `locale`. En este ejemplo, mostramos la fecha en formato `YYYY/MM/DD` si el usuario está en España, y mostramos la fecha en formato `DD/MM/YYYY` si está en otro país de habla hispana:
+
+```liquid
+{% assign locale = request.locale.iso_code %}
+{% assign lang = locale | split: "-" | first %}
+{% if locale == "es-ES" %}
+ {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
+{% elsif lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
+{% elsif lang == "de" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
+{% else %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+{% endif %}
+```

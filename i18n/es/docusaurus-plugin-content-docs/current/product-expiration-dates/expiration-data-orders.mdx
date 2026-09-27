@@ -1,0 +1,39 @@
+---
+description: Expón las fechas de vencimiento y los números de lote de las líneas de pedido como atributo de pedido de Shopify, con su formato y un ejemplo de análisis en Liquid.
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Datos de vencimiento asignados a un pedido
+
+Los datos de vencimiento asignados a los pedidos se pueden poner a disposición de sistemas externos como una propiedad del pedido. Se usa una propiedad del pedido porque Shopify no admite metafields para las líneas de pedido. Para activar esta propiedad, marca "Crear un atributo de pedido para los lotes de inventario de un pedido" en la pestaña Pedidos de <Link path="/settings#orders~product_defaults">la página de configuración</Link>.
+
+Los pedidos realizados antes de activar esta opción no contendrán la propiedad.
+
+## Formato de la propiedad del pedido
+
+Una vez activada, se agregarán atributos de pedido llamados `Expiration Dates SKU` a los pedidos que contengan datos de vencimiento. `SKU` se reemplazará con el valor del SKU del producto. El valor del atributo tiene el siguiente formato: `BATCH 1|BATCH 2|BATCH 3`.
+
+Por ejemplo, si tienes un producto con un SKU de 123 al que se le asigna un solo lote, tendrás un atributo llamado `Expiration Dates 123` con un valor de: `2024-01-01,1,B123`. Aquí `2024-01-01` es la fecha de vencimiento asignada, `1` es la cantidad asignada y `B123` es el número de lote.
+
+Si la línea de pedido tiene varios lotes, se incluirán todos. Por ejemplo, si al SKU 123 se le asignaron 2 lotes, el valor sería: `2024-01-01,1,B123|2024-11-21,2,X999`. Aquí `2024-01-01` es 1 de 2 fechas de vencimiento asignadas. `1` es la cantidad asignada y `B123` es su número de lote. `2024-11-21` es la otra fecha de vencimiento asignada. `2` es su cantidad asignada y `X999` su número de lote.
+
+Si un número de lote (o cualquier valor) no existe, su valor se omitirá. Aquí está el ejemplo de varios lotes sin número de lote: `2024-01-01,1,|2024-11-21,2,`
+
+## Analizar el valor de la propiedad
+
+El valor se puede analizar en cualquier lenguaje obteniendo los atributos del pedido mediante la [API de administración de Shopify](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order). Aquí tienes un ejemplo con Liquid:
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```
