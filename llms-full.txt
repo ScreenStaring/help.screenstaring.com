@@ -106,18 +106,17 @@ to a product template or connect them to an existing section or block
 
 ## Add Label as a Block
 
-1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
-2. Find the theme you want to update and click Edit theme
-3. In the theme editor, select the product template you'd like to add labels to:
+1. Open your theme in the theme editor
+1. In the theme editor select the product template you'd like to add labels to:
 
-4. Select the desired location within the product template. This can be done by hovering your cursor over the desired insertion area:
+1. Select the desired location within the product template. This can be done by hovering your cursor over the desired insertion area:
 
-5. Click on the add block button and select *Nutrition Facts* from the *Apps* section:
+1. Click on the add block button and select *Nutrition Facts* from the *Apps* section:
 
-6. This will add a *Nutrition Facts* block to the selected template:
+1. This will add a *Nutrition Facts* block to the selected template:
 
-7. Click on the *Nutrition Facts* block to access additional configuration options
-8. Click Save
+1. Click on the *Nutrition Facts* block to access additional configuration options
+1. Click Save
 
 Product labels will now be shown on your site.
 
@@ -125,21 +124,20 @@ Product labels will now be shown on your site.
 
 This only works if the target section or block supports dynamic sources.
 
-1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
-2. Find the theme you want to update and click Edit theme
-3. In the theme editor, find the section or block you want to add labels to and click on it. In this example we add them to a *Text* block:
+1. Open your theme in the theme editor
+1. In the theme editor find the section or block you want to add labels to and click on it. In this example we add them to a *Text* block:
 
-4. From within the *Text* block's configuration click the Connect dynamic source button:
+1. From within the *Text* block's configuration click the Connect dynamic source button:
 
-5. Make sure the product template's sources are selected:
+1. Make sure the product template's sources are selected:
 
    If it's not selected click on the currently selected heading and change the source to the product template
 
-6. From the list of dynamic sources search for and choose *Nutrition Facts app label embed code*:
+1. From the list of dynamic sources search for and choose *Nutrition Facts app label embed code*:
 
-7. Once selected you will see it as a source in the associated field:
+1. Once selected you will see it as a source in the associated field:
 
-8. Click Save
+1. Click Save
 
 Product labels will now be shown on your site.
 
@@ -216,23 +214,22 @@ This is a two step process: 1) add our Liquid code snippet to your theme and 2) 
 Once you've [added our snippet to your theme](#adding-labels-liquid-snippet-theme) the next step is to render
 it in the location you want the label displayed. This can be done from the Shopify Admin via the customize theme page.
 
-1.  shopify.themes()}>Go to *Themes* in the Shopify Admin
-2. Find the theme you want to update and click Edit theme
-3. In the theme editor, select *Products* then *Default product* (or whatever the desired template is)
-4. If you want to add the label to an existing section, click the add block button within that section and select *Custom liquid*
+1. Open your theme in the theme editor
+1. In the theme editor select *Products* then *Default product* (or whatever the desired template is)
+1. If you want to add the label to an existing section, click the add block button within that section and select *Custom liquid*
    or, if not available, *HTML* (note that the *HTML* block must support Liquid):
 
-5. If you want to add the label to a new section, click the Add section button and select *Custom liquid* or *HTML*, whatever your theme provides:
+1. If you want to add the label to a new section, click the Add section button and select *Custom liquid* or *HTML*, whatever your theme provides:
 
-6. If your theme does not have a *Custom liquid* nor *HTML* option, you must render the snippet in your theme manually.
+1. If your theme does not have a *Custom liquid* nor *HTML* option, you must render the snippet in your theme manually.
    This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor).
    If you need assistance please [contact support](https://screenstaring.com/#contact).
-7. Click on the *Custom liquid* block or section you just added
-8. In the *Custom liquid* (or similar) field paste the following code:
+1. Click on the *Custom liquid* block or section you just added
+1. In the *Custom liquid* (or similar) field paste the following code:
 
    `{% render "itsgot-product-label", product: product %}`
 
-9. Click Save
+1. Click Save
 
 Now current and future labels will appear automatically on the products page.
 
@@ -1416,18 +1413,17 @@ Source: https://help.screenstaring.com/docs/product-expiration-dates/shopify-pag
 
 It is possible to access and/or display expiration data from your site. This includes expiration dates, their quantities, and use within data. The easiest way to display this information is to use our [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) integration, which allows the expiration data to be added [as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
 
-1.   shopify.themes()}>Go to your Themes in the Shopify Admin
-2.  Find the theme you want to update and click "Edit theme"
-3.  In the theme editor, select the template you'd like to add expiration data to:
+1.  Open your theme in the theme editor
+1.  In the theme editor select the template you'd like to add expiration data to:
 
-4.  Select the desired location within the template. This can be done by hovering your cursor over the desired insertion area:
+1.  Select the desired location within the template. This can be done by hovering your cursor over the desired insertion area:
 
-5.  Click on the add block button and select Expiration Data from the Apps section:
+1.  Click on the add block button and select Expiration Data from the Apps section:
 
-6.  This will add an Expiration Data block to the selected template:
+1.  This will add an Expiration Data block to the selected template:
 
-7.  Click on the Expiration Data block to access additional configuration options. For products with multiple variants, the selected variant's expiration data will be shown. Multiple blocks can be added to address diffrent use cases. For example, you can add 1 block to show expiration dates, and another to show use within data.
-8.  Click Save
+1.  Click on the Expiration Data block to access additional configuration options. For products with multiple variants, the selected variant's expiration data will be shown. Multiple blocks can be added to address diffrent use cases. For example, you can add 1 block to show expiration dates, and another to show use within data.
+1.  Click Save
 
 ## Adding our Snippet to Your Theme
 
@@ -1448,20 +1444,19 @@ It is possible to access and/or display expiration data from your site. This inc
 
 Once you've [added our snippet to your theme](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) the next step is to render it in the location you want the expiration data displayed. This can be done from the Shopify Admin via the customize theme page.
 
-1.   shopify.themes()}>Go to your Themes in the Shopify Admin
-2.  Find the theme you want to update and click "Edit theme"
-3.  In the theme editor, select "Products" then "Default product" (or whatever the desired template is)
-4.  In the Template section click "Add block"
-5.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
+1.  Open your theme in the theme editor
+1.  In the theme editor select "Products" then "Default product" (or whatever the desired template is)
+1.  In the Template section click "Add block"
+1.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
 
 -   If your theme does not have a "Custom liquid" nor "HTML" option you must render the snippet in your theme manually
 -   This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor)
 -   If you need assistance please [contact support](https://screenstaring.com/#contact)
 
-7.  Once selected you can move the Custom Liquid block to location you want the expiration data displayed
-8.  Click on the Custom Liquid block you just added
-9.  In the "Custom liquid" (or similar) field paste the desired render code, see Expiration Data Display Options for examples
-10.  Click Save
+1.  Once selected you can move the Custom Liquid block to location you want the expiration data displayed
+1.  Click on the Custom Liquid block you just added
+1.  In the "Custom liquid" (or similar) field paste the desired render code, see Expiration Data Display Options for examples
+1.  Click Save
 
 ## Display the Expiration Dates Based on User Language/Region
 
