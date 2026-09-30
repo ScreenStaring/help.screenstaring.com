@@ -4,31 +4,31 @@ sidebar_position: 6
 ---
 
 import ShopifyLink from '@site/src/components/ShopifyLink';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Adding Expiration Data to Your Site
 
 It is possible to access and/or display expiration data from your site. This includes expiration dates, their quantities, and use within data. The easiest way to display this information is to use our [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) integration, which allows the expiration data to be added [as a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
 
-1.  <ShopifyLink href={(shopify) => shopify.themes()}>Go to your Themes in the Shopify Admin</ShopifyLink>
-2.  Find the theme you want to update and click "Edit theme"
-3.  In the theme editor, select the template you'd like to add expiration data to:
-    
+1.  <ShopifyCurrentTheme>Open your theme</ShopifyCurrentTheme> in the theme editor
+1.  In the theme editor select the template you'd like to add expiration data to:
+
     <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Select theme template" />
-    
-4.  Select the desired location within the template. This can be done by hovering your cursor over the desired insertion area:
-    
+
+1.  Select the desired location within the template. This can be done by hovering your cursor over the desired insertion area:
+
     <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Add block button" />
-    
-5.  Click on the add block button and select Expiration Data from the Apps section:
-    
+
+1.  Click on the add block button and select Expiration Data from the Apps section:
+
     <img src="/product-expiration-dates/shopify/images/theme-editor-add-app-block.jpg" height="500" alt="Add Expiration Dates app block button" />
-    
-6.  This will add an Expiration Data block to the selected template:
-    
+
+1.  This will add an Expiration Data block to the selected template:
+
     <img src="/product-expiration-dates/shopify/images/theme-editor-block-added.jpg" height="500" alt="Expiration Dates app block added" />
-    
-7.  Click on the Expiration Data block to access additional configuration options. For products with multiple variants, the selected variant's expiration data will be shown. Multiple blocks can be added to address diffrent use cases. For example, you can add 1 block to show expiration dates, and another to show use within data.
-8.  Click <kbd>Save</kbd>
+
+1.  Click on the Expiration Data block to access additional configuration options. For products with multiple variants, the selected variant's expiration data will be shown. Multiple blocks can be added to address diffrent use cases. For example, you can add 1 block to show expiration dates, and another to show use within data.
+1.  Click <kbd>Save</kbd>
 
 ## Adding our Snippet to Your Theme {/* #adding-liquid-snippet */}
 
@@ -49,20 +49,19 @@ It is possible to access and/or display expiration data from your site. This inc
 
 Once you've [added our snippet to your theme](/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet) the next step is to render it in the location you want the expiration data displayed. This can be done from the Shopify Admin via the customize theme page.
 
-1.  <ShopifyLink href={(shopify) => shopify.themes()}>Go to your Themes in the Shopify Admin</ShopifyLink>
-2.  Find the theme you want to update and click "Edit theme"
-3.  In the theme editor, select "Products" then "Default product" (or whatever the desired template is)
-4.  In the Template section click "Add block"
-5.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
+1.  <ShopifyCurrentTheme>Open your theme</ShopifyCurrentTheme> in the theme editor
+1.  In the theme editor select "Products" then "Default product" (or whatever the desired template is)
+1.  In the Template section click "Add block"
+1.  Select "Custom liquid" or, if not available, "HTML" (note that the "HTML" block must support Liquid)
 
 -   If your theme does not have a "Custom liquid" nor "HTML" option you must render the snippet in your theme manually
 -   This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor)
 -   If you need assistance please [contact support](https://screenstaring.com/#contact)
 
-7.  Once selected you can move the Custom Liquid block to location you want the expiration data displayed
-8.  Click on the Custom Liquid block you just added
-9.  In the "Custom liquid" (or similar) field paste the desired render code, see Expiration Data Display Options for examples
-10.  Click <kbd>Save</kbd>
+1.  Once selected you can move the Custom Liquid block to location you want the expiration data displayed
+1.  Click on the Custom Liquid block you just added
+1.  In the "Custom liquid" (or similar) field paste the desired render code, see Expiration Data Display Options for examples
+1.  Click <kbd>Save</kbd>
 
 ## Display the Expiration Dates Based on User Language/Region {/* #display-language-region */}
 

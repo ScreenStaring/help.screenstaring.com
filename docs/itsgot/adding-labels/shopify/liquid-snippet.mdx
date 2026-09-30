@@ -4,6 +4,7 @@ sidebar_position: 3
 ---
 
 import ShopifyLink from '@site/src/components/ShopifyLink';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Automatically by Adding Our Liquid Snippet to Your Theme
 
@@ -40,28 +41,27 @@ This is a two step process: 1) add our Liquid code snippet to your theme and 2) 
 Once you've [added our snippet to your theme](#adding-labels-liquid-snippet-theme) the next step is to render
 it in the location you want the label displayed. This can be done from the Shopify Admin via the customize theme page.
 
-1. <ShopifyLink href={(shopify) => shopify.themes()}>Go to *Themes* in the Shopify Admin</ShopifyLink>
-2. Find the theme you want to update and click <kbd>Edit theme</kbd>
-3. In the theme editor, select *Products* then *Default product* (or whatever the desired template is)
-4. If you want to add the label to an existing section, click the add block button within that section and select *Custom liquid*
+1. <ShopifyCurrentTheme>Open your theme</ShopifyCurrentTheme> in the theme editor
+1. In the theme editor select *Products* then *Default product* (or whatever the desired template is)
+1. If you want to add the label to an existing section, click the add block button within that section and select *Custom liquid*
    or, if not available, *HTML* (note that the *HTML* block must support Liquid):
 
    <img src="/itsgot/shopify/images/add-liquid-block.png" width="500" alt="Add Custom liquid block" />
 
-5. If you want to add the label to a new section, click the <kbd>Add section</kbd> button and select *Custom liquid* or *HTML*, whatever your theme provides:
+1. If you want to add the label to a new section, click the <kbd>Add section</kbd> button and select *Custom liquid* or *HTML*, whatever your theme provides:
 
    <img src="/itsgot/shopify/images/add-liquid-section.png" width="500" alt="Add Custom liquid section" />
 
-6. If your theme does not have a *Custom liquid* nor *HTML* option, you must render the snippet in your theme manually.
+1. If your theme does not have a *Custom liquid* nor *HTML* option, you must render the snippet in your theme manually.
    This can be done via [the theme code editor](https://shopify.dev/docs/themes/tools/code-editor).
    If you need assistance please [contact support](https://screenstaring.com/#contact).
-7. Click on the *Custom liquid* block or section you just added
-8. In the *Custom liquid* (or similar) field paste the following code:
+1. Click on the *Custom liquid* block or section you just added
+1. In the *Custom liquid* (or similar) field paste the following code:
 
    `{% render "itsgot-product-label", product: product %}`
 
    <img src="/itsgot/shopify/images/custom-liquid-block-contents.png" width="500" alt="Custom liquid block contents" />
 
-9. Click <kbd>Save</kbd>
+1. Click <kbd>Save</kbd>
 
 Now current and future labels will appear automatically on the products page.
