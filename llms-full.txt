@@ -1504,7 +1504,7 @@ If you want to display text based on the user's language **and** country, you ca
 
 Source: https://help.screenstaring.com/docs/product-expiration-dates/discounts
 
-Products can be discounted when they contain an inventory batch within an expiration window. There are two ways to configure discounts: 1) [the legacy method](https://help.screenstaring.com/docs/product-expiration-dates/discounts#legacy-discounts) 2) [rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets). Rulesets are the preferred method and allow one to configure multi-phased discounts. For example, discount a product by 10% 100 days before expiration then discount it by 30% 5 days before expiration.
+Products can be discounted when they contain an inventory batch within an expiration window. There are two ways to configure discounts: 1) [the legacy method](https://help.screenstaring.com/docs/product-expiration-dates/discounts#legacy-discounts) 2) [rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets). Rulesets are the preferred method and allow one to configure multi-phased/tiered discounts. For example, discount a product by 10% 100 days before expiration then discount it by 30% 5 days before expiration.
 
 See the documentation below for each type.
 
