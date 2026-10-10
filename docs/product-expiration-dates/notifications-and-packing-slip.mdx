@@ -4,6 +4,7 @@ sidebar_position: 12
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import SnippetGenerator from '@site/src/components/ProductExpirationDates/SnippetGenerator';
 
 # Notifications, Order Printing, & Packing Slips
 
@@ -22,6 +23,10 @@ To begin you must enable order notes <Link path="/settings#orders">from the sett
 The resulting code snippet can be added to the appropriate Liquid template for your integration in the location where you want the expiration data displayed. This snippet works **with** the existing template to display expiration data. It is not meant to replace it.
 
 If you do not see your integration in the list and need assistance please contact support.
+
+<SnippetGenerator />
+
+### If Your Integration Isn't Listed
 
 ```liquid
 {% comment %}

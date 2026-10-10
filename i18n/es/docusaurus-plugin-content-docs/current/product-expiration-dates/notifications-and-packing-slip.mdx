@@ -4,6 +4,7 @@ sidebar_position: 12
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import SnippetGenerator from '@site/src/components/ProductExpirationDates/SnippetGenerator';
 
 # Notificaciones, impresión de pedidos y documentos de empaque
 
@@ -22,6 +23,10 @@ Para comenzar, debes activar las notas del pedido <Link path="/settings#orders">
 El fragmento de código resultante se puede agregar a la plantilla de Liquid correspondiente para tu integración, en la ubicación donde quieres que se muestren los datos de vencimiento. Este fragmento funciona **con** la plantilla existente para mostrar los datos de vencimiento. No está pensado para reemplazarla.
 
 Si no ves tu integración en la lista y necesitas ayuda, contacta al soporte.
+
+<SnippetGenerator />
+
+### Si tu integración no está en la lista
 
 ```liquid
 {% comment %}

@@ -3,6 +3,22 @@
     "message": "Instalar agora",
     "description": "Label for the app install button shown at the bottom of doc pages"
   },
+  "productExpirationDates.snippetGenerator.integration": {
+    "message": "Integração",
+    "description": "Label for the integration select of the expiration data snippet generator"
+  },
+  "productExpirationDates.snippetGenerator.selectIntegration": {
+    "message": "Selecione sua integração",
+    "description": "Placeholder option of the integration select of the expiration data snippet generator"
+  },
+  "productExpirationDates.snippetGenerator.useBarcode": {
+    "message": "Os produtos usam código de barras, não SKU",
+    "description": "Label for the barcode checkbox of the expiration data snippet generator"
+  },
+  "productExpirationDates.snippetGenerator.notificationsNote": {
+    "message": "Este trecho é para o modelo de confirmação de envio",
+    "description": "Note displayed with the snippet generated for Shopify Notifications"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Esta página deu erro.",
     "description": "The title of the fallback page when the page crashed"
