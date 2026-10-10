@@ -1800,6 +1800,8 @@ L'extrait de code obtenu peut être ajouté au modèle Liquid approprié pour vo
 
 Si vous ne voyez pas votre intégration dans la liste et avez besoin d'aide, veuillez contacter le support.
 
+### Si votre intégration n'est pas dans la liste
+
 ```liquid
 {% comment %}
   Code for the Product Expiration Dates app to display a product's expiration date and related

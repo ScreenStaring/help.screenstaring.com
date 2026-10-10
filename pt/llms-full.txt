@@ -1813,6 +1813,8 @@ O trecho de código resultante pode ser adicionado ao template Liquid apropriado
 
 Se você não encontrar sua integração na lista e precisar de ajuda, contate o suporte.
 
+### Se a sua integração não estiver na lista
+
 ```liquid
 {% comment %}
   Code for the Product Expiration Dates app to display a product's expiration date and related

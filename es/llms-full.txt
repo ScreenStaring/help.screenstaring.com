@@ -1801,6 +1801,8 @@ El fragmento de código resultante se puede agregar a la plantilla de Liquid cor
 
 Si no ves tu integración en la lista y necesitas ayuda, contacta al soporte.
 
+### Si tu integración no está en la lista
+
 ```liquid
 {% comment %}
   Code for the Product Expiration Dates app to display a product's expiration date and related

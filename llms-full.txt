@@ -1796,6 +1796,8 @@ The resulting code snippet can be added to the appropriate Liquid template for y
 
 If you do not see your integration in the list and need assistance please contact support.
 
+### If Your Integration Isn't Listed
+
 ```liquid
 {% comment %}
   Code for the Product Expiration Dates app to display a product's expiration date and related
