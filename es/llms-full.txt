@@ -1746,9 +1746,13 @@ Si ingresas una cantidad de 10 en la aplicación, asignamos 10 a la cantidad dis
 
 Cuando Inventory Push está habilitado para un producto con variantes, cualquier variante del producto que no se haya ingresado en la aplicación Product Expiration Dates tendrá su inventario establecido en 0 en Shopify.
 
+## Ubicaciones
+
+Si un producto no tiene lotes de inventario en una ubicación, se considerará agotado y su cantidad allí se establecerá en 0. Para evitarlo, selecciona la ubicación en "Ubicaciones no configuradas a ignorar" en la pestaña Inventario de la página de configuración. Esta opción solo se muestra cuando Inventory Push está habilitado.
+
 ## Paquetes
 
-Enviar paquetes de inventario establecerá la cantidad del paquete, así como las cantidades de los productos que contiene. Por ejemplo, dados los siguientes productos:
+Con paquetes, Inventory Push establecerá la cantidad del paquete según las cantidades de sus componentes. Por ejemplo, dados los siguientes productos:
 
 | Producto | SKU | Inventario disponible |
 | --- | --- | --- |

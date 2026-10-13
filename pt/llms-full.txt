@@ -1758,9 +1758,13 @@ Se você inserir uma quantidade de 10 no aplicativo, atribuímos 10 à quantidad
 
 Quando o Inventory Push está habilitado para um produto com variantes, qualquer variante do produto que não tenha sido inserida no aplicativo Product Expiration Dates terá seu estoque definido como 0 na Shopify.
 
+## Locais
+
+Se um produto não tiver lotes de estoque em um local, ele será considerado fora de estoque e sua quantidade nesse local será definida como 0. Para evitar isso, selecione o local em "Unconfigured locations to ignore" na aba Inventory da página de configurações. Esta opção só é exibida quando o Inventory Push está habilitado.
+
 ## Kits (Bundles)
 
-Enviar kits de estoque definirá a quantidade do kit, bem como as quantidades dos produtos que ele contém. Por exemplo, dados os seguintes produtos:
+Com kits, o Inventory Push definirá a quantidade do kit com base nas quantidades de seus componentes. Por exemplo, dados os seguintes produtos:
 
 | Produto | SKU | Estoque Disponível |
 | --- | --- | --- |
