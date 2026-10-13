@@ -27,7 +27,8 @@ Esses valores serão enviados para a Shopify e você verá uma quantidade total 
 1.  Certifique-se de estar inscrito no <Link path="/charges/recurring/new">Plano Pro</Link> ou superior
 2.  Acesse a <Link path="/settings#inventory">página de configurações</Link>
 3.  Selecione "Push edits made to inventory batch quantities to Shopify"
-4.  Clique no botão <kbd>Update</kbd> para salvar suas configurações
+4.  Se você não quiser [sincronizar os kits](#bundles), desmarque "Set bundle quantity based on component availability"
+5.  Clique no botão <kbd>Update</kbd> para salvar suas configurações
 
 Para enviar o estoque para a Shopify, as datas de validade devem ter seu local definido.
 
@@ -45,7 +46,7 @@ Se você inserir uma quantidade de 10 no aplicativo, atribuímos 10 à quantidad
 
 Quando o Inventory Push está habilitado para um produto com variantes, qualquer variante do produto que não tenha sido inserida no aplicativo Product Expiration Dates terá seu estoque definido como 0 na Shopify.
 
-## Kits (Bundles)
+## Kits (Bundles) {/* #bundles */}
 
 Enviar kits de estoque definirá a quantidade do kit, bem como as quantidades dos produtos que ele contém. Por exemplo, dados os seguintes produtos:
 

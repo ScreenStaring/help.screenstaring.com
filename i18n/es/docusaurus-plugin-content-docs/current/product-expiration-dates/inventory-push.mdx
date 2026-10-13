@@ -27,7 +27,8 @@ Estos valores se enviarán a Shopify y verás una cantidad total **disponible** 
 1.  Asegúrate de tener una suscripción al <Link path="/charges/recurring/new">Plan Pro</Link> o superior
 2.  Visita la <Link path="/settings#inventory">página de configuración</Link>
 3.  Selecciona "Enviar a Shopify los cambios realizados en las cantidades de los lotes de inventario"
-4.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar tu configuración
+4.  Si no deseas [sincronizar paquetes](#bundles), desmarca "Establecer la cantidad del paquete según la disponibilidad de los componentes"
+5.  Haz clic en el botón <kbd>Actualizar</kbd> para guardar tu configuración
 
 Para enviar inventario a Shopify, las fechas de vencimiento deben tener una ubicación establecida.
 
@@ -45,7 +46,7 @@ Si ingresas una cantidad de 10 en la aplicación, asignamos 10 a la cantidad dis
 
 Cuando Inventory Push está habilitado para un producto con variantes, cualquier variante del producto que no se haya ingresado en la aplicación Product Expiration Dates tendrá su inventario establecido en 0 en Shopify.
 
-## Paquetes
+## Paquetes {/* #bundles */}
 
 Enviar paquetes de inventario establecerá la cantidad del paquete, así como las cantidades de los productos que contiene. Por ejemplo, dados los siguientes productos:
 

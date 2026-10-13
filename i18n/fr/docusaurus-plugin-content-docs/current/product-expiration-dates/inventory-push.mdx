@@ -27,7 +27,8 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 1.  Assurez-vous d'être abonné au <Link path="/charges/recurring/new">forfait Pro</Link> ou supérieur
 2.  Visitez la <Link path="/settings#inventory">page des paramètres</Link>
 3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer vos paramètres
+4.  Si vous ne souhaitez pas [synchroniser les ensembles](#bundles), décochez "Set bundle quantity based on component availability"
+5.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
 
@@ -45,7 +46,7 @@ Si vous saisissez une quantité de 10 dans l'application, nous attribuons 10 à 
 
 Lorsque inventory push est activé pour un produit avec des variantes, toute variante du produit qui n'a pas été saisie dans l'application Product Expiration Dates verra son inventaire défini à 0 dans Shopify.
 
-## Ensembles
+## Ensembles {/* #bundles */}
 
 La transmission de l'inventaire des ensembles définira la quantité de l'ensemble ainsi que les quantités des produits qu'il contient. Par exemple, avec les produits suivants :
 
