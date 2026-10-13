@@ -46,6 +46,10 @@ If you enter a 10 quantity into the app, we assign 10 to the available quantity 
 
 When inventory push in enabled for a product with variants, any variant for the product that has not been entered in to the Product Expiration Dates app will have its inventory set to 0 in Shopify.
 
+## Locations
+
+If a product has no inventory batches at a location it will be considered out of stock and its quantity there will be set to 0. To prevent this select the location from "Unconfigured locations to ignore" on <Link path="/settings#inventory">the settings page's</Link> Inventory tab. This option is only shown when Inventory Push is enabled.
+
 ## Bundles
 
 Pushing inventory bundles will set the bundle's quantity as well as the quantities of the products it contains. For example, given the following products:
