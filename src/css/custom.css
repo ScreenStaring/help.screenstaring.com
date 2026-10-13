@@ -264,6 +264,8 @@
   background: var(--ifm-table-head-background);
   color: var(--ifm-table-head-color);
   font-weight: var(--ifm-table-head-font-weight);
+  /* The browser centers th by default, which misaligns headers with cell text. */
+  text-align: start;
 }
 .markdown th,
 .markdown td {
