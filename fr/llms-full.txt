@@ -1702,7 +1702,7 @@ Maintenant, lorsqu'un transfert de stock se produit dans Shopify, les lots d'inv
 
 ---
 
-## Inventory Push
+## Inventory Push (Sync)
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push
 
@@ -1726,7 +1726,8 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 1.  Assurez-vous d'être abonné au forfait Pro ou supérieur
 2.  Visitez la page des paramètres
 3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Cliquez sur le bouton Update pour enregistrer vos paramètres
+4.  Si vous ne souhaitez pas [synchroniser les ensembles](#bundles), décochez "Set bundle quantity based on component availability"
+5.  Cliquez sur le bouton Update pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
 

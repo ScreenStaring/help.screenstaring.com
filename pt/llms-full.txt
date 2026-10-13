@@ -1715,7 +1715,7 @@ Agora, quando ocorrer uma transferência de estoque na Shopify, os lotes de esto
 
 ---
 
-## Inventory Push
+## Inventory Push (Sync)
 
 Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/inventory-push
 
@@ -1739,7 +1739,8 @@ Esses valores serão enviados para a Shopify e você verá uma quantidade total 
 1.  Certifique-se de estar inscrito no Plano Pro ou superior
 2.  Acesse a página de configurações
 3.  Selecione "Push edits made to inventory batch quantities to Shopify"
-4.  Clique no botão Update para salvar suas configurações
+4.  Se você não quiser [sincronizar os kits](#bundles), desmarque "Set bundle quantity based on component availability"
+5.  Clique no botão Update para salvar suas configurações
 
 Para enviar o estoque para a Shopify, as datas de validade devem ter seu local definido.
 

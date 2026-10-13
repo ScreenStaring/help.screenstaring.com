@@ -1703,7 +1703,7 @@ Ahora, cuando ocurre una transferencia de inventario en Shopify, los lotes de in
 
 ---
 
-## Inventory Push
+## Inventory Push (Sync)
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push
 
@@ -1727,7 +1727,8 @@ Estos valores se enviarán a Shopify y verás una cantidad total **disponible** 
 1.  Asegúrate de tener una suscripción al Plan Pro o superior
 2.  Visita la página de configuración
 3.  Selecciona "Enviar a Shopify los cambios realizados en las cantidades de los lotes de inventario"
-4.  Haz clic en el botón Actualizar para guardar tu configuración
+4.  Si no deseas [sincronizar paquetes](#bundles), desmarca "Establecer la cantidad del paquete según la disponibilidad de los componentes"
+5.  Haz clic en el botón Actualizar para guardar tu configuración
 
 Para enviar inventario a Shopify, las fechas de vencimiento deben tener una ubicación establecida.
 

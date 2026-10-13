@@ -1698,7 +1698,7 @@ Now when an inventory transfer occurs in Shopify inventory batches for the tranf
 
 ---
 
-## Inventory Push
+## Inventory Push (Sync)
 
 Source: https://help.screenstaring.com/docs/product-expiration-dates/inventory-push
 
@@ -1720,9 +1720,10 @@ These value will be pushed to Shopify and you will see a total **available** qua
 ## Enabling
 
 1.  Make sure you're subscribed to the Pro Plan or higher
-2.  Visit the settings page
-3.  Select "Push edits made to inventory batch quantities to Shopify"
-4.  Click the Update button to save your settings
+1.  Visit the settings page
+1.  Select "Push edits made to inventory batch quantities to Shopify"
+1.  If you do not want to [sync bundles](#bundles) uncheck "Set bundle quantity based on component availability"
+1.  Click the Update button to save your settings
 
 In order to push inventory to Shopify expiration dates must have their location set.
 
