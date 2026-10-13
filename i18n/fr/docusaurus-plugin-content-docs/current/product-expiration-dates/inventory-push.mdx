@@ -46,6 +46,10 @@ Si vous saisissez une quantité de 10 dans l'application, nous attribuons 10 à 
 
 Lorsque inventory push est activé pour un produit avec des variantes, toute variante du produit qui n'a pas été saisie dans l'application Product Expiration Dates verra son inventaire défini à 0 dans Shopify.
 
+## Emplacements
+
+Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans "Unconfigured locations to ignore" dans l'onglet Inventory de <Link path="/settings#inventory">la page des paramètres</Link>. Cette option n'est affichée que lorsque inventory push est activé.
+
 ## Ensembles {/* #bundles */}
 
 La transmission de l'inventaire des ensembles définira la quantité de l'ensemble ainsi que les quantités des produits qu'il contient. Par exemple, avec les produits suivants :
