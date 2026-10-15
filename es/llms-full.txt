@@ -1248,8 +1248,8 @@ Un resumen de los cambios notables en It's Got.
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/
 
-La [aplicación Product Expiration Dates](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) es un sistema completo de gestión de inventario para tus productos perecederos que te permite hacer seguimiento de las fechas límite de venta, los números de lote y los materiales desde la recepción hasta la venta.
-La información de vencimiento se puede presentar a los consumidores de diversas maneras. Compatible con los métodos de gestión de inventario FEFO, FIFO y personalizados.
+La [aplicación Product Expiration Dates](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) es un sistema completo de gestión de inventario para productos perecederos que te permite hacer un seguimiento de las fechas límite de venta, las fechas de consumo, los números de lote y los materiales desde la recepción hasta la venta.
+La información sobre las fechas de vencimiento se puede presentar a los consumidores de diversas maneras. La aplicación admite los métodos de gestión de inventario FEFO, FIFO y otros métodos personalizados.
 
 - [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data)
 - [Importar datos de vencimiento de forma masiva](https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import)
@@ -1259,16 +1259,16 @@ La información de vencimiento se puede presentar a los consumidores de diversas
 - [Agregar datos de vencimiento a tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages)
 - [Vender con descuento los productos próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts)
 - [Variar el formato de fecha según el país seleccionado](https://help.screenstaring.com/es/docs/product-expiration-dates/localizing-dates)
-- [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment)
+- [Asignación de ubicación de los lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment)
 - [Transferencias de inventario](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-transfers)
 - [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push)
-- [Notificaciones, impresión de pedidos y documentos de empaque](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip)
+- [Notificaciones, impresión de pedidos y documentos de preparación de pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip)
 - [Integración con el punto de venta (POS) de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration)
-- [Entrada mediante escáner de código de barras](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner)
+- [Entrada mediante escáner de códigos de barras](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner)
 - [Ver las fechas de vencimiento y los números de lote de los pedidos en Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
 - [Compartir inventario entre varias tiendas](https://help.screenstaring.com/es/docs/product-expiration-dates/sharing-inventory)
 - [Productos desactivados](https://help.screenstaring.com/es/docs/product-expiration-dates/disabled-products)
-- [Metafields de datos de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-metafields)
+- [Metacampos de datos de vencimiento](https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-metafields)
 - [Datos de vencimiento asignados a un pedido](https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-orders)
 - [Integración con la API](https://help.screenstaring.com/es/docs/product-expiration-dates/api-integration)
 
@@ -1278,72 +1278,82 @@ La información de vencimiento se puede presentar a los consumidores de diversas
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data
 
-Puedes agregar datos de vencimiento a tus productos en la página de lotes de inventario del producto. También puedes [importar datos de vencimiento de forma masiva](https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import) o [escanear el código de barras del producto](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner). Hay 3 conjuntos de datos que se pueden proporcionar:
+Puedes agregar datos de vencimiento a tus productos desde la página de lotes de inventario de cada producto. También puedes [importar datos de vencimiento de forma masiva](https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import) o [escanear el código de barras del producto](https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner). Hay tres tipos de datos que puedes proporcionar:
 
--   Lotes de inventario
--   Valores de plazo de uso
--   Descuentos de producto
+- Lotes de inventario
+- Plazos de uso después de la apertura
+- Descuentos de productos
 
 Puedes ver un breve video de introducción [aquí](https://youtu.be/vjLB_v1OHpw).
 
 ## Lotes de inventario
 
-Los lotes de inventario son el conjunto principal de datos de vencimiento. Los valores proporcionados se asignarán a los pedidos, se usarán para enviar notificaciones de vencimiento y determinarán cuándo se aplicará un descuento a un producto. También puedes mostrar la información de los lotes de inventario en tu sitio.
+Los lotes de inventario constituyen el conjunto principal de datos de vencimiento. Los valores proporcionados se asignarán a los pedidos, se utilizarán para enviar notificaciones de vencimiento y determinarán cuándo se aplicarán descuentos a los productos. También puedes mostrar la información de los lotes de inventario en tu sitio.
 
-Cuando creas lotes de inventario, lo primero que debes determinar es cuándo quieres que los datos de vencimiento se asignen a tus pedidos. Esto puede hacerse cuando se realiza el pedido o cuando se prepara un artículo del pedido. Consulta la opción "Asignar lotes de inventario cuando" a continuación.
+Al crear lotes de inventario, lo primero que debes decidir es cuándo quieres que los datos de vencimiento se asignen a los pedidos: al realizar el pedido o al preparar un artículo del pedido. Consulta la opción «Asignar lotes de inventario cuando», que se explica a continuación.
 
-En la página Agregar producto, la pestaña Lotes de inventario es donde ingresarás la mayoría de tus datos de vencimiento. Las opciones que se muestran dependen de tu suscripción. Las más comunes son:
+En la página para agregar un producto, encontrarás la pestaña Lotes de inventario, donde ingresarás la mayoría de los datos de vencimiento. Las opciones disponibles dependen de tu plan de suscripción. Las más comunes son las siguientes:
 
 ### Asignar lotes de inventario cuando
 
-La opción "Asignar lotes de inventario cuando" especifica cuándo se asigna un lote de inventario a un pedido: cuando se realiza el pedido o cuando se prepara un artículo del pedido. El valor predeterminado es asignarlo cuando se realiza el pedido. Por ejemplo, si usas el método de gestión de inventario First Expiring, First Out (FEFO), el lote que vence primero se asignará a los nuevos pedidos. Para configurar qué ubicación se elige, consulta [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
+La opción «Asignar lotes de inventario cuando» especifica cuándo se asigna un lote de inventario a un pedido: al realizar el pedido o al preparar un artículo del pedido. De forma predeterminada, la asignación se realiza al hacer el pedido.
 
-### Vencimiento, lote, cantidad y ubicación
+Por ejemplo, si utilizas el método de gestión de inventario First Expired, First Out (FEFO, primero en vencer, primero en salir), el lote que vence primero se asignará a los nuevos pedidos. Para configurar qué ubicación se selecciona, consulta [Asignación de lotes de inventario a los pedidos según la ubicación](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
 
-El campo Vencimiento es la fecha en que vence el lote. Cantidad es la cantidad disponible (aunque consulta *Cantidad disponible vs. en existencia* más abajo). Ubicación es la ubicación de Shopify donde existe el lote. Lote es el número de lote. Es opcional. Puedes ver la cantidad disponible en Shopify para el producto o la variante haciendo clic en el enlace "Cantidad":
+### Fecha de vencimiento, lote, cantidad y ubicación
 
-Por ejemplo, el Producto A tiene una cantidad de 10 en Shopify en la ubicación Warehouse. De esos 10, 6 vencen en 2025 y 4 vencen en 2024. Esto da como resultado las siguientes entradas en la aplicación:
+El campo Fecha de vencimiento indica cuándo vence el lote. El campo Cantidad indica la cantidad disponible (consulta la sección *Cantidad disponible frente a cantidad en existencia* más abajo). El campo Ubicación indica la ubicación de Shopify donde se encuentra el lote. El campo Lote contiene el número de lote y es opcional.
 
--   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
--   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
+Puedes consultar las cantidades disponibles en Shopify para un producto o una variante haciendo clic en el enlace «Cantidad»:
 
-### Ubicaciones de bin, número de factura, número de lote, fecha de recepción, fecha de fabricación, etc...
+Por ejemplo, el producto A tiene una cantidad de 10 unidades en Shopify en la ubicación Warehouse. De esas 10 unidades, 6 vencen en 2025 y 4 vencen en 2024. Esto se representa con las siguientes entradas en la aplicación:
 
-Puedes asignar valores a estos campos habilitando su visualización en la pestaña Lotes:
+- Fecha de vencimiento: `2025-01-01`, Cantidad: `6`, Ubicación: `Warehouse`
+- Fecha de vencimiento: `2024-11-21`, Cantidad: `4`, Ubicación: `Warehouse`
 
-Selecciona el campo deseado y haz clic en el botón Guardar
+### Ubicaciones de contenedores, números de factura, números de lote, fechas de recepción, fechas de fabricación, etc.
 
-### Cantidad disponible vs. en existencia
+Puedes asignar valores a estos campos activando su visualización en la pestaña Lotes:
 
-Si usas Inventory Push, puedes establecer la cantidad en existencia o la cantidad disponible. Consulta la documentación de [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push) para obtener más información.
+Selecciona el campo que quieras mostrar y haz clic en el botón Guardar.
 
-### Configurar las ubicaciones de preparación
+### Cantidad disponible frente a cantidad en existencia
 
-Consulta [Asignación de ubicación de lotes de inventario a los pedidos](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
+Si utilizas Inventory Push, puedes establecer la cantidad en existencia o la cantidad disponible. Consulta la documentación de [Inventory Push](https://help.screenstaring.com/es/docs/product-expiration-dates/inventory-push) para obtener más información.
+
+### Configurar las ubicaciones de preparación de pedidos
+
+Consulta [Asignación de lotes de inventario a los pedidos según la ubicación](https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### ¿Qué sucede después?
 
-Supongamos que ingresaste datos de lotes de inventario para un producto y seleccionaste "Se realiza el pedido" en la opción "Asignar lotes de inventario cuando". Ahora, cuando se realiza un pedido de ese producto, la aplicación asignará el lote de inventario que vence primero de la ubicación asignada al pedido (para pedidos en tienda) o, si el pedido no tiene una ubicación asignada, la aplicación asignará el lote de inventario que vence primero entre los valores ingresados. Si un artículo del pedido se reabastece, se reembolsa, etc., su lote de inventario que vence primero se libera y queda disponible para asignarse a pedidos futuros.
+Supongamos que has ingresado los datos de los lotes de inventario de un producto y has seleccionado «Se realiza el pedido» en la opción «Asignar lotes de inventario cuando».
 
-Puedes ver qué lote de inventario se asignó a un pedido en la página Pedidos de la aplicación
+Cuando se realice un pedido de ese producto, la aplicación asignará el lote de inventario con la fecha de vencimiento más próxima de la ubicación asignada al pedido (en el caso de los pedidos en tienda). Si el pedido no tiene una ubicación asignada, la aplicación asignará el lote de inventario con la fecha de vencimiento más próxima entre todas las ubicaciones ingresadas.
 
-También puedes [mostrar la información relacionada con el vencimiento en tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages) o [agregarla a tu documento de empaque o a tus notificaciones](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip).
+Si un artículo del pedido se reabastece, se reembolsa o se produce una situación similar, se liberará la asignación de su lote de inventario y este quedará disponible para asignarse a pedidos futuros.
 
-## Valores de plazo de uso
+Puedes consultar qué lote de inventario se asignó a un pedido en la página Pedidos de la aplicación.
 
-Esta es información adicional que se puede mostrar en tu sitio. Representa el tiempo que el fabricante recomienda usar o consumir un producto después de abrirlo. Por ejemplo, puedes tener `best by July 1st 2025` de los lotes de inventario y `Use within 30 days` de esta sección.
+También puedes [mostrar la información de vencimiento en tu sitio](https://help.screenstaring.com/es/docs/product-expiration-dates/shopify-pages) o [agregarla a tus documentos de preparación de pedidos o notificaciones](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip).
 
-## Descuentos de producto
+## Plazos de uso después de la apertura
 
-***Los descuentos de producto están disponibles a partir del Plan Premium***
+Esta información adicional se puede mostrar en tu sitio. Indica el tiempo durante el cual el fabricante recomienda utilizar o consumir un producto después de abrirlo.
 
-**Recomendamos usar [conjuntos de reglas](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#rulesets) para crear descuentos de producto.** Con los conjuntos de reglas puedes crear descuentos de varias fases, lo que no se puede hacer con los descuentos de "estilo antiguo" especificados en la configuración o en la pestaña Descuentos.
+Por ejemplo, un lote de inventario puede tener la fecha de consumo preferente `best by July 1st 2025`, mientras que en esta sección puedes indicar `Use within 30 days` (utilizar en un plazo de 30 días).
 
-Los descuentos específicos de un producto se pueden ingresar en la pestaña Descuentos. Cuando un lote de inventario se acerca a su fecha de vencimiento, el precio del producto se reducirá en el porcentaje indicado.
+## Descuentos de productos
 
-Los valores predeterminados de estos campos se pueden ingresar en la página Configuración de descuentos, en la sección Valores predeterminados de productos. Cuando agregues nuevos productos a la aplicación, los valores ingresados aquí se usarán para completar los campos de la pestaña Descuentos.
+***Los descuentos de productos están disponibles a partir del Plan Premium.***
 
-Para configurar descuentos globales que se usen en todos los productos, consulta [Vender con descuento los productos próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts).
+**Recomendamos utilizar [conjuntos de reglas](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts#rulesets) para crear descuentos de productos.** Los conjuntos de reglas permiten crear descuentos en varias etapas, algo que no es posible con los descuentos del método anterior, configurados en la página de configuración o en la pestaña Descuentos.
+
+Puedes introducir descuentos específicos para cada producto en la pestaña Descuentos. Cuando un lote de inventario se acerca a su fecha de vencimiento, el precio del producto se reducirá en el porcentaje indicado.
+
+Puedes establecer los valores predeterminados de estos campos en la página Configuración de descuentos, en la sección Valores predeterminados de productos. Cuando agregues productos nuevos a la aplicación, los valores que hayas definido aquí se utilizarán para completar los campos de la pestaña Descuentos.
+
+Para configurar descuentos globales que se apliquen a todos los productos, consulta [Vender con descuento los productos próximos a vencer](https://help.screenstaring.com/es/docs/product-expiration-dates/discounts).
 
 ---
 
@@ -1351,15 +1361,15 @@ Para configurar descuentos globales que se usen en todos los productos, consulta
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import
 
-Se pueden importar varias fechas de vencimiento y cantidades con nuestro CSV de importación de lotes. Puedes encontrar un ejemplo [aquí](https://help.screenstaring.com/es/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+Puedes importar varias fechas de vencimiento y cantidades mediante nuestro archivo CSV de importación de lotes. Encontrarás un ejemplo [aquí](https://help.screenstaring.com/es/product-expiration-dates/images/product-expiration-dates-import-template.csv).
 
-Las columnas "SKU", "Expiration Date", "Quantity" y "Location Name" son obligatorias. **Las fechas de vencimiento deben proporcionarse en formato `YYYY-MM-DD`.** Para usar "Barcode" en lugar de "SKU", selecciona "Identificar filas por código de barras" en la página de importación de lotes.
+Las columnas «SKU», «Expiration Date», «Quantity» y «Location Name» son obligatorias. **Las fechas de vencimiento deben proporcionarse en el formato `YYYY-MM-DD`.** Para utilizar «Barcode» en lugar de «SKU», selecciona «Identificar filas por código de barras» en la página de importación de lotes.
 
-Para obtener más información sobre la columna "Allocate Quantities to Orders When", consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
+Para obtener más información sobre la columna «Allocate Quantities to Orders When», consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
 
-El CSV debe usar codificación UTF-8 y el carácter de coma (",") como separador de campos.
+El archivo CSV debe utilizar la codificación UTF-8 y la coma (`,`) como separador de campos.
 
-Cuando esté listo, súbelo a través de la página de importación.
+Cuando el archivo esté listo, súbelo desde la página de importación.
 
 ---
 
@@ -1665,25 +1675,27 @@ Los nombres de formato personalizados se pueden usar, pero no funcionan con la i
 
 ---
 
-## Asignación de ubicación de lotes de inventario a pedidos
+## Asignación de lotes de inventario a los pedidos
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/order-batch-location-assignment
 
-La aplicación Product Expiration Dates te permite configurar cuándo se asignan los lotes de inventario a un pedido: cuando se realiza el pedido o cuando se prepara un artículo del pedido. Consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
+La aplicación Product Expiration Dates te permite configurar cuándo se asignan los lotes de inventario a un pedido: al realizar el pedido o al preparar un artículo del pedido. Consulta [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data).
 
-De forma predeterminada, el lote de inventario del producto que vence primero entre todas las ubicaciones se asigna al artículo del pedido (estrategia de gestión FEFO: First Expired, First Out). Si el pedido entrante tiene una ubicación asignada (por lo general, [pedidos del punto de venta (POS) de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration)), se usará esa ubicación. Puedes cambiar tu estrategia de gestión a First In, First Out (FIFO) en la pestaña Inventario de la página de configuración.
+De forma predeterminada, se asigna al artículo del pedido el lote de inventario del producto con la fecha de vencimiento más próxima entre todas las ubicaciones (estrategia de gestión FEFO: First Expired, First Out, es decir, primero en vencer, primero en salir). Si el pedido entrante tiene una ubicación asignada (por lo general, en los [pedidos del punto de venta (POS) de Shopify](https://help.screenstaring.com/es/docs/product-expiration-dates/pos-integration)), se utilizará esa ubicación. Puedes cambiar la estrategia de gestión a First In, First Out (FIFO, es decir, primero en entrar, primero en salir) en la pestaña Inventario de la página de configuración.
 
 ## Reglas de enrutamiento de pedidos de Shopify
 
-***La compatibilidad con las reglas de enrutamiento de pedidos de Shopify solo está disponible en el Plan Pro***
+***La compatibilidad con las reglas de enrutamiento de pedidos de Shopify solo está disponible en el Plan Pro.***
 
-Para asignar un lote de inventario desde una ubicación determinada por las reglas de enrutamiento de pedidos de Shopify, selecciona "Asignar lotes de inventario según el enrutamiento de pedidos de Shopify" en la pestaña Inventario de la página de configuración. El enrutamiento de pedidos de Shopify se puede configurar en el administrador de Shopify aquí
+Para asignar un lote de inventario desde una ubicación determinada por las reglas de enrutamiento de pedidos de Shopify, selecciona «Asignar lotes de inventario según el enrutamiento de pedidos de Shopify» en la pestaña Inventario de la página de configuración. Puedes configurar el enrutamiento de pedidos de Shopify en el administrador de Shopify.
 
 ## Asignar lotes de inventario desde una ubicación específica
 
-**No configures esto si usas [ubicaciones de preparación priorizadas](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+**No configures esta opción si utilizas [ubicaciones de preparación priorizadas](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
 
-Si usas "pedido realizado" en la configuración ["Asignar lotes de inventario cuando"](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) de un producto y tienes varias ubicaciones en Shopify **pero solo preparas pedidos desde una**, debes configurar "Asignar lotes de inventario desde esta ubicación" para que coincida con tu ubicación predeterminada en Shopify (Shopify no comparte esto con las aplicaciones de terceros, así que se debe configurar de forma explícita). Cuando esto está configurado y se realiza un pedido sin una ubicación, la aplicación Product Expiration Dates solo asignará la fecha de vencimiento más próxima de esta ubicación. Si no se configura, la aplicación asignará la fecha de vencimiento más próxima entre todas las ubicaciones.
+Si seleccionas «pedido realizado» en la configuración [«Asignar lotes de inventario cuando»](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data) de un producto y tienes varias ubicaciones en Shopify, pero preparas los pedidos desde una sola, debes configurar la opción «Asignar lotes de inventario desde esta ubicación» para que coincida con tu ubicación predeterminada en Shopify. Shopify no comparte esta información con las aplicaciones de terceros, por lo que debes configurarla explícitamente.
+
+Una vez configurada esta opción, cuando se realice un pedido sin una ubicación asignada, la aplicación Product Expiration Dates solo asignará el lote con la fecha de vencimiento más próxima de esa ubicación. Si no configuras esta opción, la aplicación asignará el lote con la fecha de vencimiento más próxima entre todas las ubicaciones.
 
 ---
 
@@ -1786,25 +1798,25 @@ Como Mi paquete tiene una Cantidad en el paquete de 3 para el Producto B, y el P
 
 ---
 
-## Notificaciones, impresión de pedidos y documentos de empaque
+## Notificaciones, impresión de pedidos y documentos de preparación de pedidos
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip
 
-Esto te permite agregar fechas de vencimiento y números de lote a:
+Esta función te permite agregar fechas de vencimiento y números de lote a:
 
--   [Notificaciones de Shopify](https://www.shopify.com/admin/settings/notifications) (de forma predeterminada no se aplica a la confirmación del pedido, ya que el correo se envía antes de que se asigne el lote)
--   [Order Printer](https://apps.shopify.com/order-printer) y [Shopify Order Printer](https://apps.shopify.com/shopify-order-printer)
--   [Order Printer Pro](https://apps.shopify.com/order-printer-pro)
--   [Aplicación Multi-Label Barcodes](https://apps.shopify.com/multi-label-barcodes)
--   ¡Y mucho más!
+- [Notificaciones de Shopify](https://www.shopify.com/admin/settings/notifications) (de forma predeterminada, no se aplica a la confirmación del pedido, ya que el correo electrónico se envía antes de que se asigne el lote).
+- [Order Printer](https://apps.shopify.com/order-printer) y [Shopify Order Printer](https://apps.shopify.com/shopify-order-printer)
+- [Order Printer Pro](https://apps.shopify.com/order-printer-pro)
+- [La aplicación Multi-Label Barcodes](https://apps.shopify.com/multi-label-barcodes)
+- ¡Y mucho más!
 
-Para comenzar, debes activar las notas del pedido desde la página de configuración seleccionando "Crear una entrada de 'detalles adicionales' del pedido para la integración con aplicaciones de terceros". Una vez activado, genera un fragmento de código a continuación para tu integración.
+Para comenzar, debes activar las notas del pedido en la página de configuración seleccionando «Crear una entrada de "detalles adicionales" del pedido para la integración con aplicaciones de terceros». Una vez activada esta opción, genera un fragmento de código a continuación para tu integración.
 
 ## Fragmento de código
 
-El fragmento de código resultante se puede agregar a la plantilla de Liquid correspondiente para tu integración, en la ubicación donde quieres que se muestren los datos de vencimiento. Este fragmento funciona **con** la plantilla existente para mostrar los datos de vencimiento. No está pensado para reemplazarla.
+Puedes agregar el fragmento de código generado a la plantilla Liquid correspondiente a tu integración, en el lugar donde quieras que se muestren los datos de vencimiento. Este fragmento funciona **junto con** la plantilla existente que muestra los datos de vencimiento; no está diseñado para reemplazarla.
 
-Si no ves tu integración en la lista y necesitas ayuda, contacta al soporte.
+Si tu integración no aparece en la lista y necesitas ayuda, contacta con el equipo de soporte.
 
 ### Si tu integración no está en la lista
 
@@ -1866,9 +1878,11 @@ Si no ves tu integración en la lista y necesitas ayuda, contacta al soporte.
 {% endif %}
 ```
 
-Es posible que tengas que cambiar la variable `line_item` o `line` para que coincida con la que se usa en tu código existente.
+Es posible que tengas que cambiar la variable `line_item` o `line` para que coincida con la que se utiliza en tu código actual.
 
-El formato de fecha se basa en el [filtro `date` de Liquid](https://shopify.dev/api/liquid/filters#date). Se puede ajustar cambiando la parte `"%d/%m/%Y"` para usar los códigos de formato de fecha que quieras. Consulta la documentación del filtro `date` para ver la lista. Para usar una fecha traducida, especifica un formato de fecha [de los archivos de configuración regional de tu tema](https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files). Por ejemplo, si el formato `month_day_year` existiera (puede que sí), puedes cambiar:
+El formato de fecha se basa en el [filtro `date` de Liquid](https://shopify.dev/api/liquid/filters#date). Puedes ajustarlo modificando `"%d/%m/%Y"` para utilizar los códigos de formato de fecha que necesites. Consulta la documentación del filtro `date` para ver la lista completa.
+
+Para utilizar un formato de fecha localizado, especifica uno de los formatos definidos en los [archivos de configuración regional de tu tema](https://shopify.dev/docs/storefronts/themes/architecture/locales/storefront-locale-files). Por ejemplo, si existiera el formato `month_day_year` (es posible que ya exista), podrías cambiar:
 
 ```liquid
 {{ expires_date | date: "%d/%m/%Y" }}
@@ -1920,13 +1934,15 @@ Ahora, cuando haya artículos en el carrito, puedes tocar el mosaico "SS: Produc
 
 ---
 
-## Entrada mediante escáner de código de barras
+## Entrada mediante escáner de códigos de barras
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/barcode-scanner
 
-Mejora la eficiencia de la recepción de inventario y de la asignación de lotes de inventario escaneando el código de barras de un producto en lugar de tener que buscar el producto escribiendo su nombre, SKU o código de barras.
-Para comenzar, instala [la aplicación Barcode Scanner](https://apps.shopify.com/barcode-scanner-1?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
-La aplicación Barcode Scanner debe usarse desde [la aplicación Shopify Mobile](https://www.shopify.com/mobile).
+Mejora la eficiencia de la recepción de inventario y de la asignación de lotes escaneando el código de barras de un producto en lugar de buscarlo manualmente por nombre, SKU o código de barras.
+
+Para comenzar, instala la [aplicación Barcode Scanner](https://apps.shopify.com/barcode-scanner-1?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
+
+La aplicación Barcode Scanner debe utilizarse desde la [aplicación móvil de Shopify](https://www.shopify.com/mobile).
 
 ---
 
