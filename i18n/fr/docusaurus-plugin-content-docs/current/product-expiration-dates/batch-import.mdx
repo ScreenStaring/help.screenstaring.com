@@ -1,18 +1,20 @@
 ---
-description: "Importez en masse des dates d'expiration et des quantités au format CSV, avec les colonnes SKU, date d'expiration, quantité et emplacement obligatoires."
+description: "Importez en masse les dates de péremption et les quantités au format CSV. Les colonnes SKU, date de péremption, quantité et nom de l'emplacement sont obligatoires."
 sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
 
-# Importer des données d'expiration en masse
+# Importer des données de péremption en masse
 
-Plusieurs dates d'expiration et quantités peuvent être importées à l'aide de notre CSV d'importation par lots. Un exemple est disponible [ici](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+Vous pouvez importer plusieurs dates de péremption et les quantités correspondantes à l'aide de notre fichier CSV d'importation des lots de stock. Un modèle est disponible [ici](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
 
-Les colonnes "SKU", "Expiration Date", "Quantity" et "Location Name" sont obligatoires. **Les dates d'expiration doivent être fournies au format `YYYY-MM-DD`.** Pour utiliser "Barcode" à la place de "SKU", sélectionnez "Identify rows by Barcode" sur la page d'importation par lots.
+Les colonnes « SKU », « Expiration Date », « Quantity » et « Location Name » sont obligatoires. **Les dates de péremption doivent être au format `YYYY-MM-DD` (année-mois-jour).**
 
-Pour plus d'informations sur la colonne "Allocate Quantities to Orders When", voir [Ajouter des données d'expiration aux produits](/docs/product-expiration-dates/adding-expiration-data).
+Pour utiliser le code-barres à la place du SKU, sélectionnez l'option « Identify rows by Barcode » sur la page d'importation des lots de stock.
 
-Le CSV doit utiliser l'encodage UTF-8 et le caractère virgule (",") comme séparateur de champs.
+Pour en savoir plus sur la colonne « Allocate Quantities to Orders When », consultez la documentation [Ajouter les données de péremption aux produits](/docs/product-expiration-dates/adding-expiration-data).
 
-Une fois prêt, téléversez-le via <Link path="/import">la page d'importation</Link>.
+Le fichier CSV doit être encodé en UTF-8 et utiliser la virgule (`,`) comme séparateur de champs.
+
+Une fois le fichier prêt, importez-le depuis <Link path="/import">la page d'importation</Link>.
