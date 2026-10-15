@@ -1243,132 +1243,156 @@ Un résumé des changements notables d'It's Got.
 
 # Product Expiration Dates
 
-## Guide de l'utilisateur de Product Expiration Dates
+## Guide d'utilisation de Product Expiration Dates
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/
 
-L'[application Product Expiration Dates](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) est un système de gestion d'inventaire complet pour vos produits périssables qui vous permet de suivre les dates limites de vente, les numéros de lot et les matières, de la réception jusqu'à la vente.
-Les informations d'expiration peuvent être présentées aux consommateurs de plusieurs façons. Prend en charge les méthodes de gestion d'inventaire FEFO, FIFO et personnalisées.
+L'[application Product Expiration Dates](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) est une solution complète de gestion des stocks de produits périssables. Elle vous permet de suivre les dates de péremption, les dates limites de consommation (DLC), les dates de durabilité minimale (DDM), les numéros de lot et les matières premières, de la réception des marchandises jusqu'à leur vente.
 
-- [Ajouter des données d'expiration aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data)
-- [Importer des données d'expiration en masse](https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import)
-- [Modifier le format de date et d'heure](https://help.screenstaring.com/fr/docs/product-expiration-dates/date-format)
-- [Supprimer automatiquement les lots d'inventaire arrivant à expiration](https://help.screenstaring.com/fr/docs/product-expiration-dates/removing-expiring-batches)
+Pour les produits alimentaires, la DLC indique la date au-delà de laquelle un produit ne doit plus être consommé, tandis que la DDM indique la date jusqu'à laquelle le produit conserve ses qualités spécifiques dans des conditions de conservation appropriées.
+
+Les informations relatives aux dates de péremption peuvent être affichées aux clients de différentes manières. L'application prend en charge plusieurs méthodes de gestion des stocks, notamment FEFO (*First Expired, First Out* : premier périmé, premier sorti), FIFO (*First In, First Out* : premier entré, premier sorti) et des méthodes personnalisées.
+
+- [Ajouter les données de péremption aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data)
+- [Importer des données de péremption en masse](https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import)
+- [Modifier les formats de date et d'heure](https://help.screenstaring.com/fr/docs/product-expiration-dates/date-format)
+- [Supprimer automatiquement les lots de stock proches de leur date de péremption](https://help.screenstaring.com/fr/docs/product-expiration-dates/removing-expiring-batches)
 - [Notifications par e-mail](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications)
-- [Ajouter des données d'expiration à votre site](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages)
-- [Vendre des produits arrivant à expiration avec une réduction](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts)
-- [Varier le format de date selon le pays sélectionné](https://help.screenstaring.com/fr/docs/product-expiration-dates/localizing-dates)
-- [Attribution de l'emplacement des lots d'inventaire aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment)
+- [Afficher les données de péremption sur votre boutique en ligne](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages)
+- [Proposer des réductions sur les produits proches de leur date de péremption](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts)
+- [Adapter le format des dates au pays sélectionné](https://help.screenstaring.com/fr/docs/product-expiration-dates/localizing-dates)
+- [Associer les emplacements des lots de stock aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment)
 - [Transferts de stock](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-transfers)
-- [Inventory Push](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push)
-- [Notifications, impression de commandes et bordereaux d'expédition](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip)
+- [Mise à jour des stocks dans Shopify (*Inventory Push*)](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push)
+- [Notifications, impression des commandes et bordereaux de préparation](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip)
 - [Intégration avec Shopify Point of Sale (POS)](https://help.screenstaring.com/fr/docs/product-expiration-dates/pos-integration)
-- [Saisie via un lecteur de code-barres](https://help.screenstaring.com/fr/docs/product-expiration-dates/barcode-scanner)
-- [Consulter les dates d'expiration et les numéros de lot des commandes dans Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
-- [Partager l'inventaire entre plusieurs boutiques](https://help.screenstaring.com/fr/docs/product-expiration-dates/sharing-inventory)
+- [Saisie des données à l'aide d'un lecteur de codes-barres](https://help.screenstaring.com/fr/docs/product-expiration-dates/barcode-scanner)
+- [Consulter les dates de péremption et les numéros de lot des commandes dans Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers)
+- [Partager les stocks entre plusieurs boutiques](https://help.screenstaring.com/fr/docs/product-expiration-dates/sharing-inventory)
 - [Produits désactivés](https://help.screenstaring.com/fr/docs/product-expiration-dates/disabled-products)
-- [Métachamps de données d'expiration](https://help.screenstaring.com/fr/docs/product-expiration-dates/expiration-data-metafields)
-- [Données d'expiration attribuées à une commande](https://help.screenstaring.com/fr/docs/product-expiration-dates/expiration-data-orders)
+- [Métachamps Shopify pour les données de péremption](https://help.screenstaring.com/fr/docs/product-expiration-dates/expiration-data-metafields)
+- [Données de péremption associées aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/expiration-data-orders)
 - [Intégration de l'API](https://help.screenstaring.com/fr/docs/product-expiration-dates/api-integration)
 
 ---
 
-## Ajouter des données d'expiration aux produits
+## Ajouter les données de péremption aux produits
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data
 
-Les données d'expiration peuvent être ajoutées à vos produits sur la page des lots d'inventaire du produit. Vous pouvez également [importer des données d'expiration en masse](https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import) ou [en scannant le code-barres du produit](https://help.screenstaring.com/fr/docs/product-expiration-dates/barcode-scanner). Il y a 3 ensembles de données qui peuvent être fournis :
+Vous pouvez ajouter les données de péremption de vos produits sur la page des lots de stock de chaque produit. Vous pouvez également [importer des données de péremption en masse](https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import) ou [les saisir en scannant le code-barres du produit](https://help.screenstaring.com/fr/docs/product-expiration-dates/barcode-scanner). Trois types de données peuvent être renseignés :
 
--   Lots d'inventaire
--   Délais d'utilisation
--   Réductions de produit
+- Lots de stock
+- Durées de conservation après ouverture
+- Réductions sur les produits
 
-Vous pouvez regarder une courte vidéo d'introduction [ici](https://youtu.be/vjLB_v1OHpw).
+Vous pouvez regarder une courte vidéo de présentation [ici](https://youtu.be/vjLB_v1OHpw).
 
-## Lots d'inventaire
+## Lots de stock
 
-Les lots d'inventaire sont le principal ensemble de données d'expiration. Les valeurs fournies seront attribuées aux commandes, utilisées pour envoyer les notifications d'expiration et déterminer quand un produit sera réduit. Vous pouvez aussi afficher les informations des lots d'inventaire sur votre site.
+Les lots de stock constituent le principal ensemble de données de péremption. Les informations renseignées sont attribuées aux commandes, utilisées pour envoyer des notifications relatives aux dates de péremption et déterminer à quel moment le prix d'un produit doit être réduit. Vous pouvez également afficher les informations relatives aux lots de stock sur votre boutique en ligne.
 
-Lors de la création de lots d'inventaire, la première chose à déterminer est le moment où vous voulez que les données d'expiration soient attribuées à vos commandes. Cela peut se faire lorsque la commande est passée ou lorsqu'une ligne de commande est traitée. Voir l'option "Assign inventory batches when" ci-dessous.
+Lorsque vous créez des lots de stock, vous devez d'abord déterminer à quel moment leurs données doivent être attribuées aux commandes : au moment où la commande est passée ou lorsque les articles de la commande sont traités. Pour cela, consultez l'option « Assign inventory batches when » ci-dessous.
 
-Sur la page Add Product, l'onglet Inventory Batches est l'endroit où vous saisirez la plupart de vos données d'expiration. Les options affichées dépendent de votre abonnement. Les plus courantes sont :
+Sur la page d'ajout d'un produit (*Add Product*), l'onglet *Inventory Batches* vous permet de saisir la plupart des données de péremption. Les options disponibles dépendent de votre abonnement. Les champs les plus couramment utilisés sont les suivants.
 
-### Attribuer les lots d'inventaire quand
+### Attribuer les lots de stock quand
 
-L'option "Assign inventory batches when" indique quand un lot d'inventaire est attribué à une commande : lorsque la commande est passée ou lorsqu'un article de la commande est traité. Par défaut, l'attribution se fait lorsque la commande est passée. Par exemple, si vous utilisez la méthode de gestion d'inventaire First Expiring, First Out (FEFO) le lot qui expire le plus tôt sera attribué aux nouvelles commandes. Pour configurer l'emplacement choisi, voir [Attribution de l'emplacement des lots d'inventaire aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
+L'option « Assign inventory batches when » détermine à quel moment un lot de stock est attribué à une commande : lorsque la commande est passée ou lorsqu'un article de la commande est traité.
+
+Par défaut, les lots sont attribués au moment où la commande est passée. Par exemple, si vous utilisez la méthode de gestion des stocks FEFO (*First Expired, First Out*, ou « premier périmé, premier sorti »), le lot dont la date de péremption est la plus proche sera attribué aux nouvelles commandes.
+
+Pour configurer l'emplacement utilisé lors de cette attribution, consultez la documentation [Associer les emplacements des lots de stock aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Expires, Batch, Quantity et Location
 
-Expires est la date d'expiration du lot donné. Quantity est la quantité disponible (mais voir *Quantité disponible vs. en main* ci-dessous). Location est l'emplacement Shopify où le lot se trouve. Batch est le numéro de lot. Il est facultatif. Vous pouvez consulter la quantité disponible chez Shopify pour le produit ou la variante donné en cliquant sur le lien "Quantity" :
+- **Expires** : date de péremption du lot.
+- **Quantity** : quantité disponible dans le lot. Consultez la section *Quantité disponible et quantité en stock* ci-dessous pour plus de détails.
+- **Location** : emplacement Shopify où se trouve le lot.
+- **Batch** : numéro de lot. Ce champ est facultatif.
 
-Par exemple, le produit A a une quantité de 10 chez Shopify à l'emplacement Warehouse. Sur ces 10, 6 expirent en 2025 et 4 expirent en 2024. Cela donne les entrées suivantes dans l'application :
+Vous pouvez consulter la quantité enregistrée dans Shopify pour un produit ou une variante en cliquant sur le lien « Quantity ».
 
--   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
--   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
+Par exemple, le produit A dispose d'un stock de 10 unités dans Shopify, à l'emplacement *Warehouse*. Parmi ces 10 unités, 6 ont une date de péremption en 2025 et 4 en 2024. Vous devez donc saisir les lignes suivantes dans l'application :
 
-### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc...
+- Expires : `2025-01-01`, Quantity : `6`, Location : `Warehouse`
+- Expires : `2024-11-21`, Quantity : `4`, Location : `Warehouse`
 
-Vous pouvez attribuer des valeurs à ces champs en activant leur affichage dans l'onglet Batches :
+### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc.
 
-Sélectionnez le champ souhaité et cliquez sur le bouton Save
+Vous pouvez renseigner des valeurs pour ces champs en activant leur affichage dans l'onglet *Batches*.
 
-### Quantité disponible vs. en main
+Sélectionnez les champs souhaités, puis cliquez sur le bouton Save.
 
-Si vous utilisez Inventory Push, vous pouvez définir soit la quantité en main, soit la quantité disponible. Voir la documentation [Inventory Push](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push) pour plus d'informations.
+### Quantité disponible et quantité en stock
+
+Si vous utilisez la fonctionnalité *Inventory Push*, vous pouvez choisir de définir la quantité en stock ou la quantité disponible. Pour en savoir plus, consultez la documentation [Mise à jour des stocks dans Shopify (*Inventory Push*)](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push).
 
 ### Configurer les emplacements de traitement
 
-Voir [Attribution de l'emplacement des lots d'inventaire aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
+Consultez la documentation [Associer les emplacements des lots de stock aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Que se passe-t-il ensuite ?
 
-Supposons que vous ayez saisi des données de lots d'inventaire pour un produit et sélectionné "Order is placed" dans l'option "Assign inventory batches when". Maintenant, lorsqu'une commande est passée pour ce produit, l'application attribuera le lot d'inventaire qui expire le plus tôt à partir de l'emplacement attribué à la commande (pour les commandes en magasin) ou, si la commande n'a pas d'emplacement attribué, l'application attribuera le lot d'inventaire qui expire le plus tôt parmi les valeurs saisies. Si une ligne de commande est remise en stock/remboursée/etc..., son lot d'inventaire qui expire le plus tôt est libéré et disponible pour être attribué aux commandes futures.
+Supposons que vous ayez saisi les données des lots de stock d'un produit et sélectionné « Order is placed » dans l'option « Assign inventory batches when ».
 
-Vous pouvez voir quel lot d'inventaire a été attribué à une commande sur la page Orders de l'application
+Lorsqu'une commande est passée pour ce produit, l'application attribue le lot dont la date de péremption est la plus proche parmi ceux associés à l'emplacement attribué à la commande, pour les commandes passées en magasin. Si aucun emplacement n'est attribué à la commande, l'application sélectionne le lot dont la date de péremption est la plus proche parmi les lots renseignés.
 
-Vous pouvez également [afficher les informations liées à l'expiration sur votre site](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages) ou [les ajouter à votre bordereau d'expédition ou à vos notifications](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip).
+Lorsqu'un article d'une commande est remis en stock, remboursé ou fait l'objet d'une autre opération entraînant la libération de son lot, le lot concerné est de nouveau disponible pour être attribué à une commande ultérieure.
 
-## Délais d'utilisation
+Vous pouvez consulter le lot de stock attribué à une commande sur la page Orders de l'application.
 
-Il s'agit d'informations supplémentaires qui peuvent être affichées sur votre site. Elles représentent le délai que le fabricant recommande pour utiliser ou consommer un produit après son ouverture. Par exemple, vous pouvez avoir `best by July 1st 2025` provenant des lots d'inventaire et `Use within 30 days` provenant d'ici.
+Vous pouvez également [afficher les informations de péremption sur votre boutique en ligne](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages) ou [les ajouter à vos notifications et à vos bordereaux d'expédition](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip).
 
-## Réductions de produit
+## Durées de conservation après ouverture
 
-***Les réductions de produit sont disponibles à partir du forfait Premium***
+Ces informations complémentaires peuvent être affichées sur votre boutique en ligne. Elles indiquent la durée pendant laquelle le fabricant recommande d'utiliser ou de consommer un produit après son ouverture.
 
-**Nous recommandons d'utiliser les [Rulesets](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) pour créer des réductions de produit.** Avec les Rulesets, vous pouvez créer des réductions à plusieurs phases, ce qui n'est pas possible avec les réductions de style « ancien » définies dans les paramètres ou l'onglet Discounts.
+Par exemple, un lot de stock peut avoir une date de durabilité minimale (DDM) au 1er juillet 2025, tandis que les informations complémentaires indiquent que le produit doit être utilisé dans les 30 jours suivant son ouverture (*Use within 30 days*).
 
-Des réductions propres à un produit peuvent être saisies dans l'onglet Discounts. Lorsqu'un lot d'inventaire approche de sa date d'expiration, le prix du produit sera réduit du pourcentage fourni.
+Pour les produits alimentaires, la date de durabilité minimale (DDM) indique jusqu'à quand le produit conserve ses qualités spécifiques dans des conditions de conservation appropriées. Elle se distingue de la date limite de consommation (DLC), au-delà de laquelle le produit ne doit plus être consommé.
 
-Les valeurs par défaut de ces champs peuvent être saisies sur la page Discount Settings, dans la section Product Defaults. Lors de l'ajout de nouveaux produits à l'application, les valeurs saisies ici serviront à remplir les champs de l'onglet Discounts.
+## Réductions sur les produits
 
-Pour configurer des réductions globales à utiliser pour tous les produits, voir [Vendre des produits arrivant à expiration avec une réduction](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts).
+***Les réductions sur les produits sont disponibles à partir du forfait Premium.***
+
+**Nous vous recommandons d'utiliser les [ensembles de règles (*Rulesets*)](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) pour configurer les réductions sur les produits.** Cette fonctionnalité vous permet de créer des réductions progressives en plusieurs étapes, contrairement aux anciennes réductions configurées dans les paramètres ou dans l'onglet *Discounts*.
+
+Vous pouvez également définir des réductions propres à chaque produit dans l'onglet *Discounts*. Lorsqu'un lot de stock approche de sa date de péremption, le prix du produit est réduit du pourcentage indiqué.
+
+Vous pouvez définir les valeurs par défaut de ces champs sur la page *Discount Settings*, dans la section Product Defaults. Lorsque vous ajoutez de nouveaux produits à l'application, les valeurs définies dans cette section sont automatiquement utilisées pour remplir les champs de l'onglet *Discounts*.
+
+Pour configurer des réductions globales applicables à tous les produits, consultez la documentation [Proposer des réductions sur les produits proches de leur date de péremption](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts).
 
 ---
 
-## Importer des données d'expiration en masse
+## Importer des données de péremption en masse
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import
 
-Plusieurs dates d'expiration et quantités peuvent être importées à l'aide de notre CSV d'importation par lots. Un exemple est disponible [ici](https://help.screenstaring.com/fr/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+Vous pouvez importer plusieurs dates de péremption et les quantités correspondantes à l'aide de notre fichier CSV d'importation des lots de stock. Un modèle est disponible [ici](https://help.screenstaring.com/fr/product-expiration-dates/images/product-expiration-dates-import-template.csv).
 
-Les colonnes "SKU", "Expiration Date", "Quantity" et "Location Name" sont obligatoires. **Les dates d'expiration doivent être fournies au format `YYYY-MM-DD`.** Pour utiliser "Barcode" à la place de "SKU", sélectionnez "Identify rows by Barcode" sur la page d'importation par lots.
+Les colonnes « SKU », « Expiration Date », « Quantity » et « Location Name » sont obligatoires. **Les dates de péremption doivent être au format `YYYY-MM-DD` (année-mois-jour).**
 
-Pour plus d'informations sur la colonne "Allocate Quantities to Orders When", voir [Ajouter des données d'expiration aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data).
+Pour utiliser le code-barres à la place du SKU, sélectionnez l'option « Identify rows by Barcode » sur la page d'importation des lots de stock.
 
-Le CSV doit utiliser l'encodage UTF-8 et le caractère virgule (",") comme séparateur de champs.
+Pour en savoir plus sur la colonne « Allocate Quantities to Orders When », consultez la documentation [Ajouter les données de péremption aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data).
 
-Une fois prêt, téléversez-le via la page d'importation.
+Le fichier CSV doit être encodé en UTF-8 et utiliser la virgule (`,`) comme séparateur de champs.
+
+Une fois le fichier prêt, importez-le depuis la page d'importation.
 
 ---
 
-## Modifier le format de date et d'heure
+## Modifier les formats de date et d'heure
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/date-format
 
-Le format de date affiché dans l'application est déterminé par votre paramètre régional. Celui-ci peut être modifié dans l'onglet general de la page des paramètres. Par défaut, nous utilisons le paramètre régional fourni par Shopify. Modifier le paramètre régional n'affecte pas les dates d'expiration des lots d'inventaire. Cela change uniquement le format utilisé pour les afficher.
+Le format des dates affichées dans l'application dépend de votre paramètre régional. Vous pouvez modifier ce paramètre dans l'onglet General de la page des paramètres.
 
-Le format de date affiché sur votre site peut être configuré lors de [l'ajout de données d'expiration à votre site](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages).
+Par défaut, l'application utilise le paramètre régional fourni par Shopify. La modification de ce paramètre ne change pas les dates de péremption enregistrées pour les lots de stock. Elle modifie uniquement le format dans lequel ces dates sont affichées.
+
+Vous pouvez configurer le format des dates affichées sur votre boutique en ligne lors de [l'ajout des données de péremption à votre boutique](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages).
 
 ---
 
