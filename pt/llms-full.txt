@@ -1288,27 +1288,30 @@ As informações de validade podem ser apresentadas aos consumidores de diversas
 
 ## Adicionando Dados de Validade aos Produtos
 
-Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/adding-expiration-data
+Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/adding-expiration-data/
 
-Os dados de validade podem ser adicionados aos seus produtos na página de lotes de estoque do produto. Você também pode [importar dados de validade em massa](https://help.screenstaring.com/pt/docs/product-expiration-dates/batch-import) ou [lendo o código de barras do produto](https://help.screenstaring.com/pt/docs/product-expiration-dates/barcode-scanner). Há 3 conjuntos de dados que podem ser fornecidos:
+Os dados de validade podem ser adicionados aos seus produtos na página de lotes de estoque do produto. Você também pode [importar dados de validade em massa](https://help.screenstaring.com/pt/docs/product-expiration-dates/batch-import) ou [lendo o código de barras de um produto](https://help.screenstaring.com/pt/docs/product-expiration-dates/barcode-scanner). Há 3 conjuntos de dados que podem ser fornecidos:
 
 -   Lotes de Estoque
 -   Prazos de Uso
 -   Descontos de Produto
 
-Você pode assistir a um breve vídeo de introdução [aqui](https://youtu.be/vjLB_v1OHpw).
+Você pode assistir a um vídeo de introdução [aqui](https://youtu.be/vjLB_v1OHpw).
 
 ## Lotes de Estoque
 
-Lotes de Estoque são o conjunto principal de dados de validade. Os valores fornecidos serão atribuídos aos pedidos, usados para enviar notificações de validade e determinar quando um produto será vendido com desconto. Você também pode exibir informações dos lotes de estoque no seu site.
+Lotes de Estoque são o conjunto principal de dados de validade. Os valores fornecidos serão atribuídos aos pedidos, usados para enviar notificações de validade e determinar quando um produto será vendido com desconto.
+Você também pode [exibir informações dos lotes de estoque no seu site](https://help.screenstaring.com/pt/docs/product-expiration-dates/shopify-pages) para mostrar aos clientes as datas de validade e/ou o prazo de uso recomendado dos produtos.
 
-Ao criar lotes de estoque, a primeira coisa a definir é quando você quer que os dados de validade sejam atribuídos aos seus pedidos. Isso pode ser feito quando o pedido é realizado ou quando um item do pedido é atendido. Veja a opção "Assign inventory batches when" abaixo.
+Antes de criar lotes, não deixe de [selecionar seu Método de Gerenciamento de Estoque](https://help.screenstaring.com/pt/docs/product-expiration-dates/selecting-inventory-management-method)
+
+Ao criar lotes de estoque, a primeira coisa a definir é quando você quer que os dados de validade sejam atribuídos aos pedidos. Isso pode ser feito quando o pedido é realizado ou quando um item do pedido é atendido. Veja a opção "Assign inventory batches when" abaixo.
 
 Na página Adicionar Produto, a aba Inventory Batches é onde você vai inserir a maior parte dos seus dados de validade. As opções exibidas dependem da sua assinatura. As mais comuns são:
 
-### Atribuir lotes de estoque quando
+### Quando atribuir lotes de estoque
 
-A opção "Assign inventory batches when" especifica quando um lote de estoque é atribuído a um pedido: quando o pedido é realizado ou quando um item do pedido é atendido. O padrão é atribuir quando o pedido é realizado. Por exemplo, se você estiver usando o método de gerenciamento de estoque First Expiring, First Out (FEFO) o lote que vence primeiro será atribuído aos novos pedidos. Para configurar qual local é escolhido, veja [Atribuição de Local do Lote de Estoque ao Pedido](https://help.screenstaring.com/pt/docs/product-expiration-dates/order-batch-location-assignment).
+O campo "Assign inventory batches when" especifica quando um lote de estoque é atribuído a um pedido: quando o pedido é realizado ou quando um item do pedido é atendido. O padrão é atribuir quando o pedido é realizado. Por exemplo, se você estiver usando o método de gerenciamento de estoque First Expiring, First Out (FEFO), o lote que vence primeiro será atribuído aos novos pedidos. Para configurar qual local é escolhido, veja [Atribuição de Local do Lote de Estoque ao Pedido](https://help.screenstaring.com/pt/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Expires, Batch, Quantity e Location
 
@@ -1319,11 +1322,11 @@ Por exemplo, o Produto A tem uma quantidade de 10 na Shopify no local Warehouse.
 -   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
 -   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
 
-### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc...
+### Número da Fatura, Número do Lote, Recebido Em, Fabricado Em, Notas, etc...
 
-Você pode atribuir valores a esses campos habilitando sua exibição na aba Batches:
+Dados adicionais podem ser associados a cada lote de estoque. Você pode atribuir valores a esses campos habilitando sua exibição na aba Batches, clicando no ícone de engrenagem:
 
-Selecione o campo desejado e clique no botão Save
+Selecione o(s) campo(s) desejado(s) e clique no botão Save
 
 ### Quantidade disponível vs. em mãos
 
@@ -1335,7 +1338,9 @@ Veja [Atribuição de Local do Lote de Estoque ao Pedido](https://help.screensta
 
 ### O que acontece depois?
 
-Vamos supor que você inseriu dados de lotes de estoque para um produto e selecionou "Order is placed" na opção "Assign inventory batches when". Agora, quando um pedido for realizado para esse produto, o aplicativo vai atribuir o lote de estoque que vence primeiro no local atribuído ao pedido (para pedidos na loja física) ou, se o pedido não tiver um local atribuído, o aplicativo vai atribuir o lote de estoque que vence primeiro entre os valores inseridos. Se um item do pedido for devolvido ao estoque/reembolsado/etc..., o lote de estoque que vence primeiro é liberado e fica disponível para ser atribuído a pedidos futuros.
+Vamos supor que você esteja usando o método de gerenciamento de estoque FIFO (*First Expired, First Out*), tenha inserido dados de lotes de estoque para um produto e selecionado "Order is placed" na opção "Assign inventory batches when".
+
+Agora, quando um pedido for realizado para esse produto, o aplicativo vai atribuir o lote de estoque que vence primeiro no local atribuído ao pedido (para pedidos na loja física) ou, se o pedido não tiver um local atribuído, o aplicativo vai atribuir o lote de estoque que vence primeiro entre os valores inseridos. Se um item do pedido for devolvido ao estoque/reembolsado/etc..., o lote de estoque que vence primeiro é liberado e fica disponível para ser atribuído a pedidos futuros.
 
 Você pode ver qual lote de estoque foi atribuído a um pedido na página de Pedidos do aplicativo
 
@@ -1349,13 +1354,36 @@ Esta é uma informação extra que pode ser exibida no seu site. Ela representa 
 
 ***Os descontos de produto estão disponíveis a partir do Plano Premium***
 
-**Recomendamos usar [Rulesets](https://help.screenstaring.com/pt/docs/product-expiration-dates/discounts#rulesets) para criar descontos de produto.** Com Rulesets você pode criar descontos em várias fases, o que não é possível com os descontos no estilo "antigo" especificados nas configurações ou na aba Discounts.
+Recomendamos usar [Rulesets](https://help.screenstaring.com/pt/docs/product-expiration-dates/discounts#rulesets) para criar descontos de produto.
+Com Rulesets você pode criar descontos em várias fases, o que não é possível com os descontos no estilo "antigo" especificados nas configurações ou na aba Discounts.
 
 Descontos específicos por produto podem ser inseridos na aba Discounts. Quando um lote de estoque se aproxima da sua data de validade, o preço do produto será reduzido pela porcentagem fornecida.
 
 Valores padrão para esses campos podem ser inseridos na página Discount Settings, na seção Product Defaults. Ao adicionar novos produtos ao aplicativo, os valores inseridos aqui serão usados para preencher os campos da aba Discounts.
 
 Para configurar descontos globais para usar em todos os produtos, veja [Vendendo Produtos a Vencer com Desconto](https://help.screenstaring.com/pt/docs/product-expiration-dates/discounts).
+
+---
+
+## Rastreando o Custo Unitário de um Lote
+
+Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/adding-expiration-data/batch-unit-cost
+
+O campo "Cost per item" da Shopify armazena um único custo por variante. Atualizá-lo pode apagar a distinção entre entregas compradas a preços diferentes.
+O aplicativo Product Expiration Dates permite inserir um custo por lote, o que permite aos usuários rastrear com precisão o histórico de custos das entregas.
+
+Você pode atribuir valores a cada entrega por meio do campo "Batch unit cost":
+
+1. Acesse a página de lotes de estoque
+1. Na aba Batches, clique no ícone de engrenagem:
+
+1. Isso exibirá um menu com campos adicionais
+1. Selecione "Batch unit cost"
+1. Clique em Save
+
+Agora o campo "Batch unit cost" será exibido sempre que você adicionar lotes.
+
+Você também pode exibir o custo unitário do lote na página inicial dos lotes de estoque seguindo os mesmos passos.
 
 ---
 

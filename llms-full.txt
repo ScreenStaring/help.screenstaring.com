@@ -1248,6 +1248,7 @@ Source: https://help.screenstaring.com/docs/product-expiration-dates/
 The [Product Expiration Dates app](https://apps.shopify.com/expiration-dates?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link) is a full-featured inventory management system for your perishable products that allows you to track sell-by, batch numbers, and materials from intake to sale.
 Expiration information can be presented to consumers in a variety of ways. Supports FEFO, FIFO, & custom inventory management methods.
 
+- [Selecting your Inventory Management Method](https://help.screenstaring.com/docs/product-expiration-dates/selecting-inventory-management-method)
 - [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data)
 - [Importing Expiration Data in Bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import)
 - [Changing the Date and Time Format](https://help.screenstaring.com/docs/product-expiration-dates/date-format)
@@ -1271,29 +1272,74 @@ Expiration information can be presented to consumers in a variety of ways. Suppo
 
 ---
 
+## Selecting your Inventory Management Method
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/selecting-inventory-management-method
+
+The inventory management method determines how inventory batches are assigned to orders. You can select your inventory management method from the "Inventory management method"
+field on the settings page's Inventory tab.
+
+By default the app uses First Expired, First Out (FEFO) but several methods are supported.
+
+## First Expired, First Out (FEFO)
+
+Items with the earliest expiration or use-by dates are prioritized for sale or use, regardless of when they were received.
+
+Best for: Perishable goods, pharmaceuticals, food products, and any inventory with strict expiration constraints where shelf life is the primary risk.
+
+### Example
+
+- Batch A: Received 2026-01-10, Expires 2026-12-15
+- Batch B: Received 2026-02-05, Expires 2028-05-20
+- Batch C: Received 2026-03-01, Expires 2027-07-10
+
+Under FEFO, Batch B (expires 2028-05-20) is selected first because it has the earliest expiration date.
+
+## First In, First Out (FIFO)
+
+The oldest inventory (earliest received) is sold or used first. This assumes that items received earlier should leave the warehouse before newer stock.
+
+Best for: Non-perishable goods, products with gradual obsolescence risk, and operations where maintaining chronological flow simplifies tracking and reduces the chance of aging inventory.
+
+### Example
+
+- Batch A: Received 2026-01-10, Expires 2026-06-15
+- Batch B: Received 2026-02-05, Expires 2028-05-20
+- Batch C: Received 2026-03-01, Expires 2027-07-10
+
+Under FIFO, Batch A (received 2026-01-10) is selected first because it has the earliest receipt date.
+
+## Custom
+
+A custom inventory management method uses your business rules to determine how inventory bathes are assigned to orders.
+It can use a mix of FIFO, FEFO, or something completely different.
+
+To use a custom method [contact support](https://screenstaring.com/#contact).
+
+---
+
 ## Adding Expiration Data to Products
 
-Source: https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data
+Source: https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data/
 
-Expiration data can be added to your products on the product's inventory batches page. You can also [import expiration data in bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import) or by [scanning the product's barcode](https://help.screenstaring.com/docs/product-expiration-dates/barcode-scanner). There are 3 sets of data that can be provided:
+Expiration data can be added to your products on the product's inventory batches page. You can also [import expiration data in bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import) or by [scanning a product's barcode](https://help.screenstaring.com/docs/product-expiration-dates/barcode-scanner). There are 3 sets of data that can be provided:
 
 -   Inventory Batches
 -   Use Within Values
 -   Product Discounts
 
-You can watch a short introduction video [here](https://youtu.be/vjLB_v1OHpw).
+You can watch an introduction video [here](https://youtu.be/vjLB_v1OHpw).
 
 ## Inventory Batches
 
-Inventory Batches are the primary set of expiration data. The values provided will be assigned to orders, used to send expiration notifications, and determine when a product will be discounted. You can also display inventory batch information on your site.
+Inventory Batches are the primary set of expiration data. The values provided will be assigned to orders, used to send expiration notifications, and determine when a product will be discounted.
+You can also [display inventory batch information on your site](https://help.screenstaring.com/docs/product-expiration-dates/shopify-pages) to show customers product best by dates and/or the use within recommendation.
 
-When creating inventory batches the first thing to determine is when you want expiration data assigned to your orders. This can be done when the order is placed or when an order line item is fulfilled. See the "Assign inventory batches when" option below.
+Before creating batches be sure to [select your Inventory Management Method](https://help.screenstaring.com/docs/product-expiration-dates/selecting-inventory-management-method)
 
-On the Add Product page, the Inventory Batches tab is where you will enter most of your expiration data. The options shown depend on your subscription. The most common are:
+### When to Assign Inventory Batches
 
-### Assign inventory batches when
-
-"Assign inventory batches when" specifies when an inventory batch is assigned to an order: when the order is placed or when an order item is fulfilled. The default is to assign when an order is placed. For example, if you're using the First Expiring, First Out (FEFO) inventory management method was being used the soonest expiring batch will be assigned to new orders. To configure what location is chosen see [Order Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment).
+The "Assign inventory batches when" field specifies when an inventory batch is assigned to an order: when the order is placed or when an order line item is fulfilled. The default is to assign when an order is placed. For example, if you're using the First Expiring, First Out (FEFO) inventory management method was being used the soonest expiring batch will be assigned to new orders. To configure what location is chosen see [Order Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Expires, Batch, Quantity, and Location
 
@@ -1304,13 +1350,14 @@ For example, Product A has a quantity of 10 in Shopify at the Warehouse location
 -   Expires: `2025-01-01`, Quantity: `6`, Location: `Warehouse`
 -   Expires: `2024-11-21`, Quantity: `4`, Location: `Warehouse`
 
-### Bin Locations, Invoice Number, Lot Number, Received At, Manufactured At, etc...
+### Invoice Number, Lot Number, Received At, Manufactured At, Notes, etc...
 
-You can assign values to these by enabling their display on the Batches tab:
+Additional data can be associated with each inventory batch. You can assign values to these by enabling their display on the Batches tab
+by clicking on the cog icon:
 
-Select the desired field and click the Save button
+Select the desired field(s) and click the Save button
 
-### Available vs on hand quantity
+### Available vs On Hand Quantity
 
 If you're using Inventory Push, you can either set the on hand or the available quantity. See the [Inventory Push](https://help.screenstaring.com/docs/product-expiration-dates/inventory-push) documentation for more information.
 
@@ -1318,9 +1365,9 @@ If you're using Inventory Push, you can either set the on hand or the available 
 
 See [Order Inventory Batch Location Assignment](https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment).
 
-### What happens next?
+### What Happens Next?
 
-Let's assume you have entered inventory batch data for a product and selected "Order is placed" from the "Assign inventory batches when" option. Now, when an order is placed for that product, the app will assign the soonest expiring inventory batch from the location assigned to the order (for in-store orders) or, if the order does not have a location assigned, the app will assign the soonest expiring inventory batch from the values entered. If a line item is restocked/refunded/etc... its soonest expiring inventory batch is released and available to be assigned to future orders.
+Let's assume you are using the First Expired, First Out (FEFO) inventory management method, have entered inventory batch data for a product, and selected "Order is placed" from the "Assign inventory batches when" option. Now, when an order is placed for that product, the app will assign the soonest expiring inventory batch from the location assigned to the order (for in-store orders) or, if the order does not have a location assigned, the app will assign the soonest expiring inventory batch from the values entered. If a line item is restocked/refunded/etc... its soonest expiring inventory batch is released and available to be assigned to future orders.
 
 You can see what inventory batch has been assigned to an order on the app's Orders page
 
@@ -1334,13 +1381,36 @@ This is extra information that can be displayed on your site. It represents the 
 
 ***Product discounts are available starting with the Premium Plan***
 
-**We recommend using [Rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets) to create product discounts.** With Rulesets you can create multi-phased discounts which cannot be done with "old style" discounts specified via the settings or Discounts tab.
+We recommend using [Rulesets](https://help.screenstaring.com/docs/product-expiration-dates/discounts#rulesets) to create product discounts.
+With Rulesets you can create multi-phased discounts which cannot be done with "old style" discounts specified via the settings or Discounts tab.
 
 Product-specifc discounts can be entered on the Discounts tab. When an inventory batch is approaching its expiration date the product's price will be reduced by the provided percentage.
 
 Default values for these fields can be entered on the Discount Settings page under the Product Defaults section. When adding new products to the app values entered here will be used to populate the fields on the Discounts tab.
 
 To configure global discounts to use across all products see [Selling Expiring Products for a Discount](https://help.screenstaring.com/docs/product-expiration-dates/discounts).
+
+---
+
+## Tracking a Batch's Unit Cost
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data/batch-unit-cost
+
+Shopify’s "Cost per item" field stores one cost per variant. Updating it can erase the distinction between deliveries bought at different prices.
+The Product Expiration Dates app allows one to enter a cost per batch, which allows users to accurately track delivery cost history.
+
+You can assign values to each delivery via the "batch unit cost" field:
+
+1. Go to the inventory batches page
+1. On the Batches tab click on the cog icon:
+
+1. This will display a menu with additional fields
+1. Select "Batch unit cost"
+1. Click Save
+
+Now the "Batch unit cost" field will be shown every time you add batches.
+
+You can also display the batch unit cost on the inventory batches home page by following the same steps.
 
 ---
 

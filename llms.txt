@@ -39,7 +39,9 @@
 ## Product Expiration Dates
 
 - [Product Expiration Dates User's Guide](https://help.screenstaring.com/docs/product-expiration-dates/): How to use the Product Expiration Dates app for Shopify.
-- [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data): Add expiration data to Shopify products: inventory batches, expiry dates, quantities, batch numbers, locations, use within values, and discounts.
+- [Selecting your Inventory Management Method](https://help.screenstaring.com/docs/product-expiration-dates/selecting-inventory-management-method): Choose how Product Expiration Dates assigns inventory batches to orders — FEFO, FIFO, or a custom inventory management method.
+- [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data/): Add expiration data to Shopify products: inventory batches, expiry dates, quantities, batch numbers, locations, use within values, and discounts.
+- [Tracking a Batch's Unit Cost](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data/batch-unit-cost): Tracking a Batch's Unit Cost: enter a cost per inventory batch to avoid problems with Shopify's singe cost per item field
 - [Importing Expiration Data in Bulk](https://help.screenstaring.com/docs/product-expiration-dates/batch-import): Import expiration dates and quantities in bulk with a CSV file. Required columns are SKU, expiration date, quantity, and location; dates use YYYY-MM-DD.
 - [Changing the Date and Time Format](https://help.screenstaring.com/docs/product-expiration-dates/date-format): Change how expiration dates are displayed in the app by setting your locale on the settings page. This only changes the format, not the stored batch dates.
 - [Automatically Removing Expiring Inventory Batches](https://help.screenstaring.com/docs/product-expiration-dates/removing-expiring-batches): Automatically remove expiring inventory batches from Shopify using the Inventory settings or a ruleset action, keeping unsellable stock out of your store.
