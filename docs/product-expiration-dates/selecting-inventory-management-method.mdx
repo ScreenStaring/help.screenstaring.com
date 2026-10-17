@@ -1,0 +1,48 @@
+---
+description: Choose how Product Expiration Dates assigns inventory batches to orders — FEFO, FIFO, or a custom inventory management method.
+sidebar_position: 0.5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Selecting your Inventory Management Method
+
+The inventory management method determines how inventory batches are assigned to orders. You can select your inventory management method from the "Inventory management method"
+field on <Link path="/settings/edit#inventory">the settings page's Inventory tab</Link>.
+
+By default the app uses First Expired, First Out (FEFO) but several methods are supported.
+
+## First Expired, First Out (FEFO)
+
+Items with the earliest expiration or use-by dates are prioritized for sale or use, regardless of when they were received.
+
+Best for: Perishable goods, pharmaceuticals, food products, and any inventory with strict expiration constraints where shelf life is the primary risk.
+
+### Example
+
+- Batch A: Received 2026-01-10, Expires 2026-12-15
+- Batch B: Received 2026-02-05, Expires 2028-05-20
+- Batch C: Received 2026-03-01, Expires 2027-07-10
+
+Under FEFO, Batch B (expires 2028-05-20) is selected first because it has the earliest expiration date.
+
+## First In, First Out (FIFO)
+
+The oldest inventory (earliest received) is sold or used first. This assumes that items received earlier should leave the warehouse before newer stock.
+
+Best for: Non-perishable goods, products with gradual obsolescence risk, and operations where maintaining chronological flow simplifies tracking and reduces the chance of aging inventory.
+
+### Example
+
+- Batch A: Received 2026-01-10, Expires 2026-06-15
+- Batch B: Received 2026-02-05, Expires 2028-05-20
+- Batch C: Received 2026-03-01, Expires 2027-07-10
+
+Under FIFO, Batch A (received 2026-01-10) is selected first because it has the earliest receipt date.
+
+## Custom
+
+A custom inventory management method uses your business rules to determine how inventory bathes are assigned to orders.
+It can use a mix of FIFO, FEFO, or something completely different.
+
+To use a custom method [contact support](https://screenstaring.com/#contact).
