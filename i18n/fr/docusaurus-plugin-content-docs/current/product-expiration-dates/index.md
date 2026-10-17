@@ -8,7 +8,7 @@ L'[application Product Expiration Dates](https://apps.shopify.com/expiration-dat
 
 Pour les produits alimentaires, la DLC indique la date au-delà de laquelle un produit ne doit plus être consommé, tandis que la DDM indique la date jusqu'à laquelle le produit conserve ses qualités spécifiques dans des conditions de conservation appropriées.
 
-Les informations relatives aux dates de péremption peuvent être affichées aux clients de différentes manières. L'application prend en charge plusieurs méthodes de gestion des stocks, notamment FEFO (*First Expired, First Out* : premier périmé, premier sorti), FIFO (*First In, First Out* : premier entré, premier sorti) et des méthodes personnalisées.
+Les informations relatives aux dates de péremption peuvent être affichées aux clients de différentes manières. L'application prend en charge plusieurs méthodes de gestion des stocks, notamment FEFO (premier expiré, premier sorti), PEPS (premier entré, premier sorti) et des méthodes personnalisées.
 
 - [Ajouter les données de péremption aux produits](/docs/product-expiration-dates/adding-expiration-data)
 - [Importer des données de péremption en masse](/docs/product-expiration-dates/batch-import)

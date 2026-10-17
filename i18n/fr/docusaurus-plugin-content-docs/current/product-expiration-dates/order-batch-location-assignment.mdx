@@ -1,5 +1,5 @@
 ---
-description: "Choisissez quand et depuis quel emplacement les lots d'inventaire sont attribués aux commandes, avec les stratégies FEFO et FIFO et le routage Shopify."
+description: "Choisissez quand et depuis quel emplacement les lots d'inventaire sont attribués aux commandes, avec les stratégies FEFO et PEPS et le routage Shopify."
 sidebar_position: 9
 ---
 
@@ -9,7 +9,7 @@ import Link from '@site/src/components/ProductExpirationDates/Link';
 
 L'application Product Expiration Dates vous permet de configurer le moment où les lots d'inventaire sont attribués à une commande : soit lorsque la commande est passée, soit lorsqu'une ligne de commande est traitée. Voir [Ajouter des données d'expiration aux produits](/docs/product-expiration-dates/adding-expiration-data).
 
-Par défaut, le lot d'inventaire d'un produit qui expire le plus tôt, tous emplacements confondus, est attribué à la ligne de commande (stratégie de gestion FEFO : First Expired, First Out). Si la commande entrante a un emplacement attribué (généralement les [commandes Shopify Point of Sale (POS)](/docs/product-expiration-dates/pos-integration)), cet emplacement sera utilisé. Vous pouvez changer votre stratégie de gestion pour First In, First Out (FIFO) dans <Link path="/settings#inventory">l'onglet Inventory de la page des paramètres</Link>.
+Par défaut, le lot d'inventaire d'un produit qui expire le plus tôt, tous emplacements confondus, est attribué à la ligne de commande (stratégie de gestion FEFO : premier expiré, premier sorti). Si la commande entrante a un emplacement attribué (généralement les [commandes Shopify Point of Sale (POS)](/docs/product-expiration-dates/pos-integration)), cet emplacement sera utilisé. Vous pouvez changer votre stratégie de gestion pour PEPS (premier entré, premier sorti) dans <Link path="/settings#inventory">l'onglet Inventory de la page des paramètres</Link>.
 
 ## Règles de routage des commandes Shopify
 
