@@ -1414,6 +1414,37 @@ You can also display the batch unit cost on the inventory batches home page by f
 
 ---
 
+## Uploading Documents to a Batch
+
+Source: https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data/uploading-documents-to-a-batch
+
+***Support for Document Uploads is not available under the Basic Plan***
+
+Link Certificates of Analysis (COAs), organic certifications, shelf-life data, safety/regulatory sheets, and more to your products' inventory batches.
+Each batch supports the addition of multiple documents. Uploaded documents for the batch are automatically associated with orders and viewable on the order's page in the app.
+
+To upload a document:
+
+1. Go to the Inventory Batches page in the app
+1. Find the product whose batches you want to upload documents to
+1. Under the batches tab, find the target batch
+1. Click "View" > "Documents"
+1. Select "Choose file" and select the documents to upload
+
+The selected documents are now associated with the batch.
+
+## Viewing an Order Line Item's Batch Documents
+
+To view the documents associated with the batches assigned to an order line item:
+
+1. Go to the Orders page in the app
+1. Find the order whose upload documents you'd like to view
+1. Click on the order and find the desired order line item
+1. Click "Actions" > "View Documents"
+1. Click on the document name you'd like to view
+
+---
+
 ## Importing Expiration Data in Bulk
 
 Source: https://help.screenstaring.com/docs/product-expiration-dates/batch-import

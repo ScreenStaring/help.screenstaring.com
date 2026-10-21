@@ -1381,6 +1381,37 @@ También puedes mostrar el costo unitario del lote en la página de inicio de lo
 
 ---
 
+## Subir documentos a un lote
+
+Source: https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data/uploading-documents-to-a-batch
+
+***La compatibilidad con la carga de documentos no está disponible con el plan Basic***
+
+Vincula certificados de análisis (COAs), certificaciones orgánicas, datos de vida útil, hojas de seguridad/normativas y más a los lotes de inventario de tus productos.
+Cada lote admite la adición de varios documentos. Los documentos subidos para el lote se asocian automáticamente con los pedidos y se pueden ver en la página del pedido en la aplicación.
+
+Para subir un documento:
+
+1. Ve a la página de lotes de inventario en la aplicación
+1. Encuentra el producto a cuyos lotes quieres subir documentos
+1. En la pestaña Lotes, encuentra el lote de destino
+1. Haz clic en «Ver» > «Documentos»
+1. Selecciona «Elegir archivo» y elige los documentos que quieres subir
+
+Los documentos seleccionados quedan ahora asociados al lote.
+
+## Ver los documentos de lote de un artículo del pedido
+
+Para ver los documentos asociados a los lotes asignados a un artículo del pedido:
+
+1. Ve a la página Pedidos en la aplicación
+1. Encuentra el pedido cuyos documentos subidos quieres ver
+1. Haz clic en el pedido y encuentra el artículo del pedido deseado
+1. Haz clic en «Acciones» > «Ver documentos»
+1. Haz clic en el nombre del documento que quieres ver
+
+---
+
 ## Importar datos de vencimiento de forma masiva
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/batch-import

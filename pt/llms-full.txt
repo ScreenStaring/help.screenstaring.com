@@ -1387,6 +1387,37 @@ Você também pode exibir o custo unitário do lote na página inicial dos lotes
 
 ---
 
+## Enviando Documentos para um Lote
+
+Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/adding-expiration-data/uploading-documents-to-a-batch
+
+***O suporte ao envio de documentos não está disponível no plano Basic***
+
+Associe Certificados de Análise (COAs), certificações orgânicas, dados de vida útil, fichas de segurança/normativas e muito mais aos lotes de estoque dos seus produtos.
+Cada lote permite a adição de vários documentos. Os documentos enviados para o lote são automaticamente associados aos pedidos e podem ser visualizados na página do pedido no aplicativo.
+
+Para enviar um documento:
+
+1. Acesse a página de lotes de estoque no aplicativo
+1. Encontre o produto cujos lotes você deseja enviar documentos
+1. Na aba Batches, encontre o lote de destino
+1. Clique em "Ver" > "Documentos"
+1. Selecione "Escolher arquivo" e selecione os documentos a enviar
+
+Os documentos selecionados agora estão associados ao lote.
+
+## Visualizando os Documentos de Lote de um Item do Pedido
+
+Para visualizar os documentos associados aos lotes atribuídos a um item do pedido:
+
+1. Acesse a página de Pedidos no aplicativo
+1. Encontre o pedido cujos documentos enviados você deseja visualizar
+1. Clique no pedido e encontre o item do pedido desejado
+1. Clique em "Ações" > "Ver documentos"
+1. Clique no nome do documento que você deseja visualizar
+
+---
+
 ## Importando Dados de Validade em Massa
 
 Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/batch-import
