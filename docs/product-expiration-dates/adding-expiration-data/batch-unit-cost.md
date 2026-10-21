@@ -1,6 +1,6 @@
 ---
 description: "Tracking a Batch's Unit Cost: enter a cost per inventory batch to avoid problems with Shopify's singe cost per item field"
-sidebar_position: 1.5
+sidebar_position: 1
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
