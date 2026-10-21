@@ -1552,79 +1552,79 @@ Si vous voulez afficher du texte en fonction de la langue **et** du pays de l'ut
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts
 
-Les produits peuvent être réduits lorsqu'ils contiennent un lot d'inventaire dans une fenêtre d'expiration. Il y a deux façons de configurer les réductions : 1) [la méthode héritée](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#legacy-discounts) 2) [les rulesets](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets). Les rulesets sont la méthode privilégiée et permettent de configurer des réductions à plusieurs phases. Par exemple, réduire un produit de 10 % 100 jours avant l'expiration, puis le réduire de 30 % 5 jours avant l'expiration.
+Les produits peuvent être réduits lorsqu'ils contiennent un lot d'inventaire dans une fenêtre d'expiration. Il y a deux façons de configurer les réductions : 1) [la méthode héritée](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#legacy-discounts) 2) [les règles](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets). Les règles sont la méthode privilégiée et permettent de configurer des réductions à plusieurs phases. Par exemple, réduire un produit de 10 % 100 jours avant l'expiration, puis le réduire de 30 % 5 jours avant l'expiration.
 
 Voir la documentation ci-dessous pour chaque type.
 
-## Rulesets
+## Règles d'automatisation des stocks
 
-***Les rulesets ne sont disponibles qu'avec le forfait Platinum***
+***Les règles ne sont disponibles qu'avec le forfait Platinum***
 
-Les rulesets permettent de définir un ensemble de critères à appliquer à un produit, et d'exécuter des actions lorsque les critères correspondent. Les rulesets ne servent pas uniquement aux réductions : ils peuvent aussi être utilisés pour ajouter ou retirer des étiquettes, modifier le titre d'un produit, et plus encore ! Regardons un exemple. Disons que vous voulez réduire un produit selon les critères suivants :
+Les règles permettent de définir un ensemble de critères à appliquer à un produit, et d'exécuter des actions lorsque les critères correspondent. Elles ne servent pas uniquement aux réductions : elles peuvent aussi être utilisées pour ajouter ou retirer des étiquettes, modifier le titre d'un produit, et plus encore ! Regardons un exemple. Disons que vous voulez réduire un produit selon les critères suivants :
 
 -   100 jours avant l'expiration : réduire de 10 %
 -   14 jours avant l'expiration : réduire de 30 %
 -   Le jour de l'expiration : réduire de 50 %
 -   5 jours après l'expiration : supprimer les lots expirés
 
-Cela peut être réalisé en créant un seul ruleset avec 4 règles. Chaque règle contiendra les critères souhaités (100 jours avant, 14 jours avant, etc...) et les actions (réduire de 10 %, réduire de 30 % etc...). Lorsque les critères d'une règle correspondent, les actions qui lui sont associées seront exécutées.
+Cela peut être réalisé en créant une seule règle avec 4 règles. Chaque règle contiendra les critères souhaités (100 jours avant, 14 jours avant, etc...) et les actions (réduire de 10 %, réduire de 30 % etc...). Lorsque les critères d'une règle correspondent, les actions qui lui sont associées seront exécutées.
 
 **Note :** les pourcentages de réduction sont basés sur le prix du produit au moment où la réduction est appliquée. Si vous voulez les baser sur le prix d'origine, avant réduction, vous devez ajouter une action "Remove Discount" à côté de l'action "Add Discount" à chaque phase.
 
 ### 100 jours avant l'expiration : réduire de 10 %
 
-1.  Allez sur la page des rulesets
+1.  Allez sur la page des règles
 2.  Cliquez sur "Add ruleset"
-3.  Depuis la page New Inventory Ruleset, vous pouvez donner un nom au ruleset
+3.  Depuis la page New Inventory Ruleset, vous pouvez donner un nom à la règle
 4.  Cliquez sur Save
-5.  Cela vous amènera sur la page du nouveau ruleset où les règles de réduction peuvent être ajoutées
+5.  Cela vous amènera sur la page de la nouvelle règle où les règles de réduction peuvent être ajoutées
 6.  Cliquez sur "Add rule"
 7.  Dans le champ Criteria, sélectionnez "Before an Inventory Batch Expires"
 8.  Dans le champ "Days before expiration", saisissez 100
 9.  Ci-dessous, dans la section Actions, sélectionnez "Add Discount"
 10.  Dans le champ "Discount percentage", saisissez 10. Pour définir le prix de comparaison sur Shopify au prix d'avant la réduction, cochez "Use regular price as compare at price"
 11.  Cliquez sur Save
-12.  Maintenant le ruleset a une seule règle, nous devons en ajouter 3 de plus
+12.  Maintenant elle ne contient qu'une seule règle, nous devons en ajouter 3 de plus
 
 ### 14 jours avant l'expiration : réduire de 30 %
 
-1.  Depuis la page Edit Ruleset du ruleset, cliquez sur "Add rule"
+1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
 2.  Dans le champ Criteria, sélectionnez "Before an Inventory Batch Expires"
 3.  Dans le champ "Days before expiration", saisissez 14
 4.  Dans la section Actions, sélectionnez "Add Discount"
 5.  Dans le champ "Discount percentage", saisissez 30
 6.  Cliquez sur Save
-7.  Maintenant le ruleset a 2 règles, nous devons en ajouter 2 de plus
+7.  Maintenant elle contient 2 règles, nous devons en ajouter 2 de plus
 
 ### Le jour de l'expiration : réduire de 50 %
 
-1.  Depuis la page Edit Ruleset du ruleset, cliquez sur "Add rule"
+1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
 2.  Dans le champ Criteria, sélectionnez "After an Inventory Batch Expires"
 3.  Dans le champ "Days after expiration", saisissez 0. Cela définit les critères au jour où le produit expire
 4.  Dans la section Actions, sélectionnez "Add Discount"
 5.  Dans le champ "Discount percentage", saisissez 50
 6.  Cliquez sur Save
-7.  Le ruleset a 3 règles, encore 1 !
+7.  Elle contient 3 règles, encore 1 !
 
 ### 5 jours après l'expiration : supprimer les lots expirés
 
-1.  Depuis la page Edit Ruleset du ruleset, cliquez sur "Add rule"
+1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
 2.  Dans le champ Criteria, sélectionnez "After an Inventory Batch Expires"
 3.  Dans le champ "Days after expiration", saisissez 5. Cela définit les critères au jour où le produit expire
 4.  Dans la section Actions, sélectionnez "Remove Inventory Batch"
 5.  Cliquez sur Save
 
-Le ruleset obtenu devrait ressembler à ceci :
+La règle obtenue devrait ressembler à ceci :
 
-Ce ruleset s'appliquera à tous les produits de votre boutique. Vous pouvez le limiter à des produits ou des variantes spécifiques en sélectionnant le critère "With Matching Product" lors de la création d'une règle. Si les quantités du lot arrivant à expiration sont vendues, le ruleset sera annulé et le produit/la variante restauré au prix au moment où la règle 1 a correspondu.
+Cette règle s'appliquera à tous les produits de votre boutique. Vous pouvez la limiter à des produits ou des variantes spécifiques en sélectionnant le critère "With Matching Product" lors de la création d'une règle. Si les quantités du lot arrivant à expiration sont vendues, la règle sera annulée et le produit/la variante restauré au prix au moment où la règle 1 a correspondu.
 
-À moins que l'option "Apply retroactively" ne soit sélectionnée (voir ci-dessous), **les règles d'un ruleset doivent correspondre dans l'ordre où elles sont définies.** Par exemple, la règle 3 ne correspondra pas tant que les règles 1 et 2 n'auront pas correspondu.
+À moins que l'option "Apply retroactively" ne soit sélectionnée (voir ci-dessous), **les règles doivent correspondre dans l'ordre où elles sont définies.** Par exemple, la règle 3 ne correspondra pas tant que les règles 1 et 2 n'auront pas correspondu.
 
 ## Correspondance rétroactive
 
-Normalement, un ruleset ne peut commencer à s'appliquer à un lot d'inventaire qu'en faisant correspondre sa première règle. Si un lot a déjà dépassé le moment de cette règle —par exemple si le ruleset a été créé après l'ajout du lot— le ruleset ne s'y appliquera jamais.
+Normalement, une règle ne peut commencer à s'appliquer à un lot d'inventaire qu'en faisant correspondre sa première règle. Si un lot a déjà dépassé le moment de cette règle —par exemple si la règle a été créée après l'ajout du lot— elle ne s'y appliquera jamais.
 
-La sélection de l'option "Apply retroactively" permet à un lot de rejoindre le ruleset à la règle qui correspond à sa date actuelle, et applique les actions de toutes les règles précédentes en même temps. Avec le ruleset de l'exemple ci-dessus, un produit à 10 jours de l'expiration verra les règles 1 et 2 et leurs actions associées appliquées en une seule passe. Un lot expiré depuis 2 jours verra les règles 1, 2 et 3 appliquées, même si les règles 1 et 2 ne correspondent plus d'elles-mêmes.
+La sélection de l'option "Apply retroactively" permet à un lot de rejoindre les règles à celle qui correspond à sa date actuelle, et applique les actions de toutes les règles précédentes en même temps. Avec les règles de l'exemple ci-dessus, un produit à 10 jours de l'expiration verra les règles 1 et 2 et leurs actions associées appliquées en une seule passe. Un lot expiré depuis 2 jours verra les règles 1, 2 et 3 appliquées, même si les règles 1 et 2 ne correspondent plus d'elles-mêmes.
 
 Après ces correspondances initiales, les règles seront appliquées normalement, c'est-à-dire comme elles le seraient si "Apply retroactively" n'était pas sélectionné.
 
