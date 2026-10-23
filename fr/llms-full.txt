@@ -1801,7 +1801,7 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 1.  Assurez-vous d'être abonné au forfait Pro ou supérieur
 2.  Visitez la page des paramètres
 3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Si vous ne souhaitez pas [synchroniser les ensembles](#bundles), décochez "Set bundle quantity based on component availability"
+4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez "Set bundle quantity based on component availability"
 5.  Cliquez sur le bouton Update pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
@@ -1824,18 +1824,18 @@ Lorsque inventory push est activé pour un produit avec des variantes, toute var
 
 Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans "Unconfigured locations to ignore" dans l'onglet Inventory de la page des paramètres. Cette option n'est affichée que lorsque inventory push est activé.
 
-## Ensembles
+## Packs
 
-Avec les ensembles, Inventory Push définira la quantité de l'ensemble en fonction des quantités de ses composants. Par exemple, avec les produits suivants :
+Avec les packs, Inventory Push définira la quantité du pack en fonction des quantités de ses composants. Par exemple, avec les produits suivants :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 10 |
 
-Si vous créez un ensemble contenant ces produits avec la configuration suivante :
+Si vous créez un pack contenant ces produits avec la configuration suivante :
 
-| Produit | SKU | Quantité dans l'ensemble |
+| Produit | SKU | Quantité dans le pack |
 | --- | --- | --- |
 | Produit A | X123 | 1 |
 | Produit B | Y456 | 3 |
@@ -1844,19 +1844,19 @@ Cela donne le résultat suivant :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
-| Mon ensemble | B999 | 3 |
+| Mon pack | B999 | 3 |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 10 |
 
-La quantité de l'ensemble est définie comme la quantité minimale pouvant être achetée selon les quantités des produits qu'il regroupe. Si un client achetait le produit B avec une quantité de 6, les inventaires seraient synchronisés comme suit :
+La quantité du pack est définie comme la quantité minimale pouvant être achetée selon les quantités des produits qu'il regroupe. Si un client achetait le produit B avec une quantité de 6, les inventaires seraient synchronisés comme suit :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
-| Mon ensemble | B999 | 1 |
+| Mon pack | B999 | 1 |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 4 |
 
-Comme Mon ensemble a une quantité dans l'ensemble de 3 pour le produit B, et que le produit B n'a que 4 d'inventaire disponible, l'inventaire disponible de Mon ensemble est défini à 1.
+Comme Mon pack a une quantité dans le pack de 3 pour le produit B, et que le produit B n'a que 4 d'inventaire disponible, l'inventaire disponible de Mon pack est défini à 1.
 
 ---
 
@@ -2100,7 +2100,7 @@ Les métachamps suivants sont disponibles :
 | `use_within.use_within_value` | La portion numérique des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `30`. |
 | `use_within.use_within_unit` | La portion d'unité de temps des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `days`. |
 | `use_within.use_within_value_in_days` | La valeur du délai d'utilisation en jours. Par exemple, si `6 months` a été attribué, ceci contiendra `180`. Nous utilisons 30 jours par mois : 6 \* 30 = 180. |
-| `bundled_inventory` | Un tableau des produits qui composent l'ensemble ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un ensemble. |
+| `bundled_inventory` | Un tableau des produits qui composent le pack ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un pack. |
 | `bundled_inventory[N].title` | Le titre du produit regroupé |
 | `bundled_inventory[N].allocations` | Un tableau des dates d'expiration et des quantités attribuées à la variante. Reportez-vous à la documentation de `allocations[N]`. |
 | `soonest_expiring` | Représentation sous forme de chaîne du lot d'inventaire qui expire le plus tôt. Utile si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps. Le format de date peut être défini sur la page des paramètres.
