@@ -27,7 +27,7 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 1.  Assurez-vous d'être abonné au <Link path="/charges/recurring/new">forfait Pro</Link> ou supérieur
 2.  Visitez la <Link path="/settings#inventory">page des paramètres</Link>
 3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Si vous ne souhaitez pas [synchroniser les ensembles](#bundles), décochez "Set bundle quantity based on component availability"
+4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez "Set bundle quantity based on component availability"
 5.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
@@ -50,18 +50,18 @@ Lorsque inventory push est activé pour un produit avec des variantes, toute var
 
 Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans "Unconfigured locations to ignore" dans l'onglet Inventory de <Link path="/settings#inventory">la page des paramètres</Link>. Cette option n'est affichée que lorsque inventory push est activé.
 
-## Ensembles {/* #bundles */}
+## Packs {/* #bundles */}
 
-Avec les ensembles, Inventory Push définira la quantité de l'ensemble en fonction des quantités de ses composants. Par exemple, avec les produits suivants :
+Avec les packs, Inventory Push définira la quantité du pack en fonction des quantités de ses composants. Par exemple, avec les produits suivants :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 10 |
 
-Si vous créez un ensemble contenant ces produits avec la configuration suivante :
+Si vous créez un pack contenant ces produits avec la configuration suivante :
 
-| Produit | SKU | Quantité dans l'ensemble |
+| Produit | SKU | Quantité dans le pack |
 | --- | --- | --- |
 | Produit A | X123 | 1 |
 | Produit B | Y456 | 3 |
@@ -70,16 +70,16 @@ Cela donne le résultat suivant :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
-| Mon ensemble | B999 | 3 |
+| Mon pack | B999 | 3 |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 10 |
 
-La quantité de l'ensemble est définie comme la quantité minimale pouvant être achetée selon les quantités des produits qu'il regroupe. Si un client achetait le produit B avec une quantité de 6, les inventaires seraient synchronisés comme suit :
+La quantité du pack est définie comme la quantité minimale pouvant être achetée selon les quantités des produits qu'il regroupe. Si un client achetait le produit B avec une quantité de 6, les inventaires seraient synchronisés comme suit :
 
 | Produit | SKU | Inventaire disponible |
 | --- | --- | --- |
-| Mon ensemble | B999 | 1 |
+| Mon pack | B999 | 1 |
 | Produit A | X123 | 5 |
 | Produit B | Y456 | 4 |
 
-Comme Mon ensemble a une quantité dans l'ensemble de 3 pour le produit B, et que le produit B n'a que 4 d'inventaire disponible, l'inventaire disponible de Mon ensemble est défini à 1.
+Comme Mon pack a une quantité dans le pack de 3 pour le produit B, et que le produit B n'a que 4 d'inventaire disponible, l'inventaire disponible de Mon pack est défini à 1.

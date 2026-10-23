@@ -1,5 +1,5 @@
 ---
-description: "Consultez les métachamps de l'espace de noms expiration_dates : allocations, délais d'utilisation, ensembles et prochaine date d'expiration de vos variantes."
+description: "Consultez les métachamps de l'espace de noms expiration_dates : allocations, délais d'utilisation, packs et prochaine date d'expiration de vos variantes."
 sidebar_position: 18
 ---
 
@@ -28,7 +28,7 @@ Les métachamps suivants sont disponibles :
 | `use_within.use_within_value` | La portion numérique des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `30`. |
 | `use_within.use_within_unit` | La portion d'unité de temps des données de délai d'utilisation. Par exemple, si `30 days` a été attribué, ceci contiendra `days`. |
 | `use_within.use_within_value_in_days` | La valeur du délai d'utilisation en jours. Par exemple, si `6 months` a été attribué, ceci contiendra `180`. Nous utilisons 30 jours par mois : 6 \* 30 = 180. |
-| `bundled_inventory` | Un tableau des produits qui composent l'ensemble ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un ensemble. |
+| `bundled_inventory` | Un tableau des produits qui composent le pack ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un pack. |
 | `bundled_inventory[N].title` | Le titre du produit regroupé |
 | `bundled_inventory[N].allocations` | Un tableau des dates d'expiration et des quantités attribuées à la variante. Reportez-vous à la documentation de `allocations[N]`. |
 | `soonest_expiring` | Représentation sous forme de chaîne du lot d'inventaire qui expire le plus tôt. Utile si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps. Le format de date peut être défini sur <Link path="/settings#inventory">la page des paramètres</Link>.   
