@@ -101,7 +101,7 @@ Con el [editor de temas de Shopify](https://help.shopify.com/en/manual/onine-sto
 (personalización del tema) puedes agregar etiquetas
 [como una sección o un bloque](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
 a una plantilla de producto, o conectarlas a una sección o bloque existente
-[a través de un metafield](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+[a través de un metacampo](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
 (fuente dinámica).
 
 ## Agregar una etiqueta como bloque
@@ -121,7 +121,7 @@ a una plantilla de producto, o conectarlas a una sección o bloque existente
 
 Las etiquetas de los productos ahora se mostrarán en tu sitio.
 
-## Agregar una etiqueta mediante un metafield
+## Agregar una etiqueta mediante un metacampo
 
 Esto solo funciona si la sección o el bloque de destino admite fuentes dinámicas.
 
@@ -808,9 +808,9 @@ Source: https://help.screenstaring.com/es/docs/itsgot/structured-data
 
 Si tu suscripción incluye las funciones del plan Premium, cada producto tendrá
 [información nutricional de Schema.org](https://schema.org/NutritionInformation) agregada como
-[metafields](https://help.shopify.com/en/manual/metafields) de variante.
-Si el producto no tiene variantes, se agregará como un metafield en la variante predeterminada.
-Esto te permite agregar datos nutricionales estructurados a tu sitio mostrando el o los metafields correspondientes en tu tema.
+[metacampos](https://help.shopify.com/en/manual/metafields) de variante.
+Si el producto no tiene variantes, se agregará como un metacampo en la variante predeterminada.
+Esto te permite agregar datos nutricionales estructurados a tu sitio mostrando el o los metacampos correspondientes en tu tema.
 
 El siguiente ejemplo muestra los datos nutricionales de cada variante como datos estructurados JSON-LD. Esto funciona incluso si el producto no tiene variantes:
 
@@ -2072,19 +2072,19 @@ Compartir inventario entre tiendas depende de SKUs o códigos de barras únicos 
 
 ---
 
-## Metafields de datos de vencimiento
+## Metacampos de datos de vencimiento
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-metafields
 
 Consulta también: ***[Notificaciones, impresión de pedidos y documentos de empaque](https://help.screenstaring.com/es/docs/product-expiration-dates/notifications-and-packing-slip)***
 
-La aplicación Product Expiration Dates agrega metafields a la(s) variante(s) de un producto bajo el namespace `expiration_dates`. Si el producto no tiene variantes, se usa la variante predeterminada.
+La aplicación Product Expiration Dates agrega metacampos a la(s) variante(s) de un producto bajo el namespace `expiration_dates`. Si el producto no tiene variantes, se usa la variante predeterminada.
 
-**No agregues definiciones de metafields en el administrador de Shopify usando el namespace `expiration_dates` con ninguna de las claves que se muestran a continuación.** Esto no es necesario y evita que la aplicación funcione correctamente. Los metafields establecidos por la aplicación son de solo lectura y no se pueden establecer desde el administrador de Shopify.
+**No agregues definiciones de metacampos en el administrador de Shopify usando el namespace `expiration_dates` con ninguna de las claves que se muestran a continuación.** Esto no es necesario y evita que la aplicación funcione correctamente. Los metacampos establecidos por la aplicación son de solo lectura y no se pueden establecer desde el administrador de Shopify.
 
-Si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields (y no admiten metafields JSON), consulta la clave `soonest_expiring`.
+Si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metacampos (y no admiten metacampos JSON), consulta la clave `soonest_expiring`.
 
-Los siguientes metafields están disponibles:
+Los siguientes metacampos están disponibles:
 
 | Clave | Descripción |
 | --- | --- |
@@ -2100,7 +2100,7 @@ Los siguientes metafields están disponibles:
 | `bundled_inventory` | Un array de los productos que forman parte del paquete y sus datos de vencimiento/números de lote. Solo se establece si el producto es un paquete. |
 | `bundled_inventory[N].title` | El título del producto del paquete |
 | `bundled_inventory[N].allocations` | Un array de fechas de vencimiento y cantidades asignadas a la variante. Consulta la documentación de `allocations[N]`. |
-| `soonest_expiring` | Representación en string del lote de inventario que vence primero. Útil si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metafields. El formato de la fecha se puede establecer en la página de configuración.
+| `soonest_expiring` | Representación en string del lote de inventario que vence primero. Útil si necesitas exportar fechas de vencimiento a aplicaciones externas que solo admiten la integración mediante metacampos. El formato de la fecha se puede establecer en la página de configuración.
  ***Solo disponible con el Plan Premium*** |
 
 ---
@@ -2109,7 +2109,7 @@ Los siguientes metafields están disponibles:
 
 Source: https://help.screenstaring.com/es/docs/product-expiration-dates/expiration-data-orders
 
-Los datos de vencimiento asignados a los pedidos se pueden poner a disposición de sistemas externos como una propiedad del pedido. Se usa una propiedad del pedido porque Shopify no admite metafields para las líneas de pedido. Para activar esta propiedad, marca "Crear un atributo de pedido para los lotes de inventario de un pedido" en la pestaña Pedidos de la página de configuración.
+Los datos de vencimiento asignados a los pedidos se pueden poner a disposición de sistemas externos como una propiedad del pedido. Se usa una propiedad del pedido porque Shopify no admite metacampos para las líneas de pedido. Para activar esta propiedad, marca "Crear un atributo de pedido para los lotes de inventario de un pedido" en la pestaña Pedidos de la página de configuración.
 
 Los pedidos realizados antes de activar esta opción no contendrán la propiedad.
 
