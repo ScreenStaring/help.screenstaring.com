@@ -814,56 +814,55 @@ Em seguida, adicione isso ao template Liquid do produto (ou similar):
 
 ---
 
-## Usando Dados Estruturados para Melhorar o SEO
+## Usando Dados Estruturados para Melhorar o SEO e as AIO
 
 Source: https://help.screenstaring.com/pt/docs/itsgot/structured-data
 
-Se sua assinatura incluir os recursos do plano Premium, cada produto terá
-[informações nutricionais do Schema.org](https://schema.org/NutritionInformation) adicionadas como
-[metafields](https://help.shopify.com/en/manual/metafields) de variante.
-Se o produto não tiver variantes, será adicionado como um metafield na variante padrão.
-Isso permite adicionar dados nutricionais estruturados ao seu site exibindo o(s) metafield(s) apropriado(s) no seu tema.
+Os dados estruturados fornecem informações de contexto dos produtos às páginas da sua loja para que os mecanismos de busca e os assistentes de IA possam entender instantaneamente detalhes importantes como preços, estoque e atributos dos produtos.
+Isso ajuda as plataformas de busca a exibirem Rich Snippets atraentes em seus resultados e a citarem seus produtos com precisão nas respostas de IA, aumentando a visibilidade na busca e as taxas de cliques.
 
-O exemplo a seguir exibe os dados nutricionais de cada variante como dados estruturados JSON-LD. Isso funciona mesmo se o produto não tiver variantes:
+O It's Got pode exibir dados nutricionais como parte dos dados estruturados dos seus produtos. Se você estiver usando nosso recurso de avaliações de produtos, os dados das avaliações também serão exibidos.
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script type="application/ld+json">
-     {{ variant.metafields.itsgot.schema-org | json }}
-    </script>
-  {% endif %}
-{% endfor %}
-```
+## Shopify
 
-Se você precisar adicionar informações adicionais aos dados estruturados antes que sejam exibidos, pode usar o exemplo a seguir como guia.
-Aqui adicionamos [dados de oferta](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
-descrevendo o preço de cada variante. O exemplo usa uma combinação de código Liquid e JavaScript. Usamos JavaScript em vez de
-Liquid puro porque o JavaScript facilita a atualização da estrutura de informações nutricionais:
+Os usuários do Shopify devem ativar a incorporação do app *Dados Estruturados para SEO* no tema. Uma vez ativada, os dados estruturados de produtos e variantes do aplicativo serão exibidos automaticamente nas páginas de produto.
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script>
-      (function() {
-        var schema = {{ variant.metafields.itsgot.schema-org | json }};
-        schema.offers = {
-          '@type': 'Offer',
-          price: {{ variant.price | json }},
-          priceCurrency: {{ shop.currency | json }},
-          sku: {{ variant.sku | json }},
-          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
-        };
+### Identificadores de Produto
 
-        var script = document.createElement('script');
-        script.setAttribute('type', 'application/ld+json');
-        script.textContent = JSON.stringify(schema);
-        document.body.appendChild(script);
-      })();
-    </script>
-  {% endif %}
-{% endfor %}
-```
+Os identificadores são a forma como os trechos de dados estruturados são associados uns aos outros.
+Se o seu tema do Shopify contiver dados estruturados de produtos existentes, as informações nutricionais e/ou as informações de avaliações geradas pelo aplicativo deverão ser vinculadas a eles automaticamente.
+Se não, você deve definir o identificador a ser usado.
+
+Você pode usar o [Teste de resultados aprimorados](https://search.google.com/test/rich-results) do Google para determinar se precisa especificar explicitamente um identificador:
+
+1. Acesse o [Teste de resultados aprimorados](https://search.google.com/test/rich-results)
+1. Insira a URL da página de um produto
+1. Clique em "Testar URL"
+
+Se você vir seu produto listado mais de uma vez:
+
+Você terá que [configurar o identificador do produto no aplicativo](#setting-a-default-product-identifier).
+
+### Configurando um Identificador de Produto Padrão
+
+Só é necessário configurar um identificador de produto se você não estiver usando o [identificador de produto/variante padrão do Shopify](#product-identifiers).
+
+Para configurar um identificador de produto no aplicativo, primeiro você deve descobrir qual identificador seu tema está usando atualmente:
+
+1. Acesse o [Teste de resultados aprimorados do Google](https://search.google.com/test/rich-results)
+1. Insira a URL da página de um produto
+1. Clique em "Testar URL"
+1. Na página de resultados, clique no nome do produto. Se você não vir o nome do seu produto, talvez precise primeiro clicar em "Trechos de produto"
+1. Abaixo do nome do produto, encontre a entrada "id":
+
+1. Aqui, seu identificador é `#product-ID`, onde `ID` é o ID do produto do Shopify. Você pode ignorar a parte do domínio (`https://example.com`).
+1. Vá para a seção Dados Estruturados da página de configurações
+1. No campo *Identificador do produto*, insira: `#product-{{product_id}}`
+1. Clique em "Salvar"
+
+Agora, os dados estruturados gerados pelo aplicativo corresponderão à saída existente do seu tema.
+
+Para variantes, você pode repetir estas etapas, mas, neste caso, não deve usar a primeira entrada "id" no Teste de resultados aprimorados. Use a que está em "hasVariant":
 
 ---
 

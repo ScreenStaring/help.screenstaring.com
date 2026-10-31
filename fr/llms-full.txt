@@ -801,56 +801,55 @@ Ajoutez ensuite ceci au modèle Liquid du produit (ou équivalent) :
 
 ---
 
-## Utiliser des données structurées pour améliorer le SEO
+## Utiliser des données structurées pour améliorer le SEO et les AIO
 
 Source: https://help.screenstaring.com/fr/docs/itsgot/structured-data
 
-Si votre abonnement comprend les fonctionnalités du forfait Premium, chaque produit se verra ajouter des
-[informations nutritionnelles Schema.org](https://schema.org/NutritionInformation) sous forme de
-[métachamps](https://help.shopify.com/en/manual/metafields) de variante.
-Si le produit n'a pas de variante, elles seront ajoutées comme métachamp sur la variante par défaut.
-Cela vous permet d'ajouter des données nutritionnelles structurées à votre site en affichant le ou les métachamps appropriés dans votre thème.
+Les données structurées fournissent des informations contextuelles sur vos produits aux pages de votre boutique afin que les moteurs de recherche et les assistants IA puissent comprendre instantanément des détails clés comme les prix, les stocks et les attributs des produits.
+Cela aide les plateformes de recherche à afficher des Rich Snippets accrocheurs dans leurs résultats et à citer précisément vos produits dans les réponses de l'IA, ce qui améliore la visibilité dans les recherches et les taux de clics.
 
-L'exemple suivant affiche les données nutritionnelles de chaque variante sous forme de données structurées JSON-LD. Cela fonctionne même si le produit n'a aucune variante :
+It's Got peut afficher les données nutritionnelles dans le cadre des données structurées de vos produits. Si vous utilisez notre fonctionnalité d'avis produits, les données des avis seront également affichées.
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script type="application/ld+json">
-     {{ variant.metafields.itsgot.schema-org | json }}
-    </script>
-  {% endif %}
-{% endfor %}
-```
+## Shopify
 
-Si vous devez ajouter des informations supplémentaires aux données structurées avant leur affichage, vous pouvez vous inspirer de l'exemple suivant.
-Ici, nous ajoutons des [données d'offre](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
-décrivant le prix de chaque variante. L'exemple combine du code Liquid et du code JavaScript. Nous utilisons JavaScript plutôt que du Liquid pur
-car JavaScript facilite la mise à jour de la structure des informations nutritionnelles :
+Les utilisateurs de Shopify doivent activer l'intégration de l'application *Données structurées pour le SEO* dans leur thème. Une fois activée, les données structurées de produits et de variantes de l'application s'afficheront automatiquement sur les pages produit.
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script>
-      (function() {
-        var schema = {{ variant.metafields.itsgot.schema-org | json }};
-        schema.offers = {
-          '@type': 'Offer',
-          price: {{ variant.price | json }},
-          priceCurrency: {{ shop.currency | json }},
-          sku: {{ variant.sku | json }},
-          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
-        };
+### Identifiants de produit
 
-        var script = document.createElement('script');
-        script.setAttribute('type', 'application/ld+json');
-        script.textContent = JSON.stringify(schema);
-        document.body.appendChild(script);
-      })();
-    </script>
-  {% endif %}
-{% endfor %}
-```
+Les identifiants permettent d'associer les extraits de données structurées entre eux.
+Si votre thème Shopify contient déjà des données structurées de produits, les informations nutritionnelles et/ou les informations d'avis générées par l'application devraient y être liées automatiquement.
+Si ce n'est pas le cas, vous devez définir l'identifiant à utiliser.
+
+Vous pouvez utiliser le [Test des résultats enrichis](https://search.google.com/test/rich-results) de Google pour déterminer si vous devez spécifier explicitement un identifiant :
+
+1. Accédez au [Test des résultats enrichis](https://search.google.com/test/rich-results)
+1. Saisissez l'URL de la page d'un produit
+1. Cliquez sur « Tester l'URL »
+
+Si votre produit apparaît plusieurs fois dans la liste :
+
+Vous devrez [configurer l'identifiant du produit dans l'application](#setting-a-default-product-identifier).
+
+### Définir un identifiant de produit par défaut
+
+Il n'est nécessaire de définir un identifiant de produit que si vous n'utilisez pas l'[identifiant de produit/variante par défaut de Shopify](#product-identifiers).
+
+Pour définir un identifiant de produit dans l'application, vous devez d'abord déterminer quel identifiant votre thème utilise actuellement :
+
+1. Accédez au [Test des résultats enrichis de Google](https://search.google.com/test/rich-results)
+1. Saisissez l'URL de la page d'un produit
+1. Cliquez sur « Tester l'URL »
+1. Sur la page de résultats, cliquez sur le nom du produit. Si vous ne voyez pas le nom de votre produit, vous devrez peut-être d'abord cliquer sur « Extraits de produit »
+1. Sous le nom du produit, recherchez l'entrée « id » :
+
+1. Ici, votre identifiant est `#product-ID`, où `ID` est l'ID du produit Shopify. Vous pouvez ignorer la partie domaine (`https://example.com`).
+1. Accédez à la section Données structurées de la page des paramètres
+1. Dans le champ *Identifiant du produit*, saisissez : `#product-{{product_id}}`
+1. Cliquez sur « Enregistrer »
+
+Les données structurées générées par l'application correspondront désormais à la sortie existante de votre thème.
+
+Pour les variantes, vous pouvez répéter ces étapes, mais dans ce cas, vous ne devez pas utiliser la première entrée « id » du Test des résultats enrichis. Vous devez utiliser celle qui se trouve sous « hasVariant » :
 
 ---
 
