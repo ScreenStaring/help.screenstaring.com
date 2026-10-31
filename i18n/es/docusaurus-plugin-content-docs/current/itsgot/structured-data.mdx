@@ -1,56 +1,65 @@
 ---
-description: Agrega información nutricional de Schema.org como metacampos de variante y muestra datos estructurados JSON-LD en tus productos para mejorar el SEO.
+description: Agrega información nutricional de Schema.org como metacampos de variante de Shopify y muestra datos estructurados JSON-LD en las páginas de producto para mejorar el SEO.
 sidebar_position: 8
 ---
 
 import Link from '@site/src/components/ItsGot/Link';
+import StructuredDataAppEmbedLink from '@site/src/components/ItsGot/StructuredDataAppEmbedLink';
 
-# Usar datos estructurados para mejorar el SEO
+# Usar datos estructurados para mejorar el SEO y las AIO
 
+Los datos estructurados proporcionan información de contexto de los productos a las páginas de tu tienda para que los motores de búsqueda y los asistentes de IA puedan entender al instante detalles clave como precios, existencias y atributos de los productos.
+Esto ayuda a que las plataformas de búsqueda muestren Rich Snippets llamativos en sus resultados y citen con precisión tus productos en las respuestas de IA, lo que aumenta la visibilidad en las búsquedas y la tasa de clics.
 
-Si tu suscripción incluye las <Link path="/app/plans">funciones del plan Premium</Link>, cada producto tendrá
-[información nutricional de Schema.org](https://schema.org/NutritionInformation) agregada como
-[metacampos](https://help.shopify.com/en/manual/metafields) de variante.
-Si el producto no tiene variantes, se agregará como un metacampo en la variante predeterminada.
-Esto te permite agregar datos nutricionales estructurados a tu sitio mostrando el o los metacampos correspondientes en tu tema.
+It's Got puede mostrar los datos nutricionales como parte de los datos estructurados de tus productos. Si usas nuestra función de reseñas de productos, los datos de las reseñas también se mostrarán.
 
-El siguiente ejemplo muestra los datos nutricionales de cada variante como datos estructurados JSON-LD. Esto funciona incluso si el producto no tiene variantes:
+## Shopify
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script type="application/ld+json">
-     {{ variant.metafields.itsgot.schema-org | json }}
-    </script>
-  {% endif %}
-{% endfor %}
-```
+Los usuarios de Shopify deben <StructuredDataAppEmbedLink>activar la incrustación de aplicación *Datos estructurados para SEO*</StructuredDataAppEmbedLink> en su tema. Una vez activada, los datos estructurados de productos y variantes de la aplicación se mostrarán automáticamente en las páginas de producto.
 
-Si necesitas agregar información adicional a los datos estructurados antes de que se muestren, puedes usar el siguiente ejemplo como guía.
-Aquí agregamos [datos de oferta](https://developers.google.com/search/docs/advanced/structured-data/product?hl=en#offer)
-que describen el precio de cada variante. El ejemplo usa una combinación de código Liquid y JavaScript. Usamos JavaScript en lugar de
-Liquid puro porque JavaScript facilita la actualización de la estructura de la información nutricional:
+### Identificadores de producto {/* #product-identifiers */}
 
-```liquid
-{% for variant in product.variants %}
-  {% if variant.metafields.itsgot.schema-org %}
-    <script>
-      (function() {
-        var schema = {{ variant.metafields.itsgot.schema-org | json }};
-        schema.offers = {
-          '@type': 'Offer',
-          price: {{ variant.price | json }},
-          priceCurrency: {{ shop.currency | json }},
-          sku: {{ variant.sku | json }},
-          availability: "https://schema.org/{% if variant.available %}InStock{% else %}SoldOut{% endif %}",
-        };
+Los identificadores son la forma en que los fragmentos de datos estructurados se asocian entre sí.
+Si tu tema de Shopify contiene datos estructurados de productos existentes, la información nutricional y/o la información de reseñas que muestra la aplicación deberían vincularse a ellos automáticamente.
+Si no es así, debes definir el identificador a usar.
 
-        var script = document.createElement('script');
-        script.setAttribute('type', 'application/ld+json');
-        script.textContent = JSON.stringify(schema);
-        document.body.appendChild(script);
-      })();
-    </script>
-  {% endif %}
-{% endfor %}
-```
+Puedes usar la [Prueba de resultados enriquecidos](https://search.google.com/test/rich-results) de Google para determinar si necesitas especificar explícitamente un identificador:
+
+1. Ve a la [Prueba de resultados enriquecidos](https://search.google.com/test/rich-results)
+1. Introduce la URL de la página de un producto
+1. Haz clic en "Probar URL"
+
+Si ves tu producto listado más de una vez:
+
+<div>
+  <img src="/itsgot/images/rich-text-results-different-id.jpg" width="700" alt="Prueba de resultados enriquecidos de Google con identificadores JSON-LD diferentes"/>
+</div>
+
+Tendrás que [configurar el identificador del producto en la aplicación](#setting-a-default-product-identifier).
+
+### Configurar un identificador de producto predeterminado {/* #setting-a-default-product-identifier */}
+
+Solo es necesario configurar un identificador de producto si no usas el [identificador de producto/variante predeterminado de Shopify](#product-identifiers).
+
+Para configurar un identificador de producto en la aplicación, primero debes averiguar qué identificador está usando actualmente tu tema:
+
+1. Ve a la [Prueba de resultados enriquecidos de Google](https://search.google.com/test/rich-results)
+1. Introduce la URL de la página de un producto
+1. Haz clic en "Probar URL"
+1. En la página de resultados, haz clic en el nombre del producto. Si no ves el nombre de tu producto, es posible que primero tengas que hacer clic en "Fragmentos de producto"
+1. Debajo del nombre del producto, busca la entrada "id":
+   <div>
+     <img src="/itsgot/images/rich-text-results-id.jpg" width="700" alt="Identificador JSON-LD en la Prueba de resultados enriquecidos de Google"/>
+   </div>
+1. Aquí tu identificador es `#product-ID`, donde `ID` es el ID de producto de Shopify. Puedes ignorar la parte del dominio (`https://example.com`).
+1. Ve a la sección Datos estructurados de la <Link path="/settings/edit#structured_data">página de configuración</Link>
+1. En el campo *Identificador del producto*, introduce: `#product-{{product_id}}`
+1. Haz clic en "Guardar"
+
+Ahora los datos estructurados que genera la aplicación coincidirán con la salida existente de tu tema.
+
+Para las variantes puedes repetir estos pasos, aunque en este caso no debes usar la primera entrada "id" de la Prueba de resultados enriquecidos. Debes usar la que está debajo de "hasVariant":
+
+<div>
+  <img src="/itsgot/images/rich-text-results-variant-id.jpg" width="700" alt="Identificador JSON-LD de variante en la Prueba de resultados enriquecidos de Google"/>
+</div>
