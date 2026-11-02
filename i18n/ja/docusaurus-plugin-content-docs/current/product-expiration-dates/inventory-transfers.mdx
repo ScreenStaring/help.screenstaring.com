@@ -1,0 +1,18 @@
+---
+description: 在庫の移動時にもバッチデータを正確に維持：Shopifyでの在庫移動（振替）により、有効期限が最も近いバッチが移動元ロケーションから移動先ロケーションへ自動的に移動します。
+sidebar_position: 10
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 在庫振替
+
+***在庫振替機能は<Link path="/charges/recurring/new">PremiumおよびPlatinumプラン</Link>でのみご利用いただけます***
+
+[Shopifyの在庫振替（移動）](https://help.shopify.com/ja/manual/products/inventory/transfers)のサポートを有効にする手順：
+
+-   <Link path="/settings#inventory">設定ページの「在庫」タブ</Link>に移動します
+-   「Shopifyでの在庫振替が行われた際に、在庫バッチを移動する」にチェックを入れます
+-   「更新」をクリックします
+
+これで、Shopifyで在庫振替が行われた際に、振替された数量分の在庫バッチが移動元ロケーションから移動先ロケーションへ移動するようになります。数量の移動は、有効期限が最も近い在庫バッチから順に行われます。別のアルゴリズムが必要な場合は、サポートにお問い合わせください。

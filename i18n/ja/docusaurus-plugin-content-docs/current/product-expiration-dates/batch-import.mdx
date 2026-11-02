@@ -1,0 +1,18 @@
+---
+description: CSVファイルを使用して有効期限と数量を一括インポートします。必須の列はSKU、有効期限、数量、およびロケーション名で、日付はYYYY-MM-DD形式を使用します。
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 有効期限データの一括インポート
+
+一括インポート用CSVファイルを使用して、複数の有効期限と数量をまとめてインポートできます。サンプルファイルは[こちら](/product-expiration-dates/images/product-expiration-dates-import-template.csv)からダウンロードできます。
+
+「SKU」、「Expiration Date（有効期限）」、「Quantity（数量）」、「Location Name（ロケーション名）」の各列は必須です。**有効期限は必ず `YYYY-MM-DD` 形式で指定してください。**「SKU」の代わりに「バーコード」を使用する場合は、一括インポートページで「行をバーコードで識別（Identify rows by Barcode）」を選択してください。
+
+「Allocate Quantities to Orders When（注文への数量割り当てタイミング）」列の詳細については、[商品への有効期限データの追加](/docs/product-expiration-dates/adding-expiration-data)をご覧ください。
+
+CSVファイルはUTF-8エンコーディングを使用し、フィールド区切り文字としてカンマ（","）を使用する必要があります。
+
+準備が整ったら、<Link path="/import">インポートページ</Link>からファイルをアップロードしてください。

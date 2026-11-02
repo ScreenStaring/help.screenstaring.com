@@ -1,0 +1,39 @@
+---
+description: 注文明細品目に割り当てられた有効期限とバッチ番号をShopifyの注文属性として公開。プロパティのフォーマットとLiquidでの解析例を含みます。
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 注文に割り当てられた有効期限データ
+
+注文に割り当てられた有効期限データは、注文プロパティ（属性）として外部システムに公開できます。Shopifyが注文明細品目のメタフィールドをサポートしていないため、注文プロパティが使用されます。このプロパティを有効にするには、<Link path="/settings#orders~product_defaults">設定ページの「注文」タブ</Link>で「注文の在庫バッチに対して注文属性を作成する」にチェックを入れます。
+
+このオプションを有効にする前に行われた注文には、このプロパティは含まれません。
+
+## 注文プロパティのフォーマット
+
+有効にすると、有効期限データを含む注文に `Expiration Dates SKU` という名前の注文属性が追加されます。`SKU` の部分は商品のSKUの値に置き換えられます。属性の値は `BATCH 1|BATCH 2|BATCH 3` という形式になります。
+
+例えば、SKUが `123` の商品に単一のバッチが割り当てられている場合、`Expiration Dates 123` という名前の属性が作成され、その値は `2024-01-01,1,B123` のようになります。ここでは、`2024-01-01` が割り当てられた有効期限、`1` が割り当てられた数量、`B123` がバッチ番号です。
+
+注文明細に複数のバッチがある場合、それらも含まれます。例えば、SKU `123` に2つのバッチが割り当てられている場合、値は `2024-01-01,1,B123|2024-11-21,2,X999` のようになります。ここでは、`2024-01-01` が2つのうちの1つ目の有効期限、`1` がその割り当て数量、`B123` がそのバッチ番号です。`2024-11-21` がもう1つの有効期限、`2` がその割り当て数量、`X999` がそのバッチ番号です。
+
+バッチ番号（またはその他の値）が存在しない場合、その値は省略されます。バッチ番号がない複数バッチの例は `2024-01-01,1,|2024-11-21,2,` のようになります。
+
+## プロパティ値の解析（パース）
+
+値の解析は、[Shopify Admin API](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order) 経由で注文の属性を取得することにより、任意の言語で行うことができます。Liquidを使用した例を以下に示します：
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    Expires: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_quantity}})
+    Batch {{ expires_batch }}
+{% endfor %}
+```

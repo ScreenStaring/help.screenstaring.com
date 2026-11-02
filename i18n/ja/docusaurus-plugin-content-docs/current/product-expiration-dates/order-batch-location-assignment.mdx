@@ -1,0 +1,29 @@
+---
+description: 注文への在庫バッチの割り当て方法を選択：全ロケーション対象のFEFOまたはFIFO、Shopify注文ルーティングルール、または特定のフルフィルメントロケーション。
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# 注文への在庫バッチのロケーション割り当て
+
+Product Expiration Datesアプリでは、在庫バッチを注文に割り当てるタイミングを「注文が行われたとき」または「注文明細がフルフィルメントされたとき」のいずれかに設定できます。[商品への有効期限データの追加](/docs/product-expiration-dates/adding-expiration-data)をご覧ください。
+
+デフォルトでは、すべてのロケーションを対象に、商品の最も有効期限が近い在庫バッチが注文明細に割り当てられます（FEFO: 先入先出管理戦略）。入ってきた注文にロケーションが割り当てられている場合（通常は[Shopify POS注文](/docs/product-expiration-dates/pos-integration)など）、そのロケーションが使用されます。
+
+在庫管理戦略は、<Link path="/settings#inventory">設定ページの「在庫」タブ</Link>で先入先出（FIFO）に変更できます。
+
+## Shopify注文ルーティングルール
+
+***Shopify注文ルーティングルールのサポートは<Link path="/charges/recurring/new">Proプラン</Link>以上でのみご利用いただけます***
+
+Shopifyの注文ルーティングルールによって決定されたロケーションから在庫バッチを割り当てるには、<Link path="/settings#inventory">設定ページの「在庫」タブ</Link>で「Shopifyの注文ルーティングに基づいて在庫バッチを割り当てる」を選択します。Shopify注文ルーティングは、<ShopifyLink href={(shopify) => shopify.toString() + '/settings/shipping/order_routing'}>Shopify管理画面</ShopifyLink>で設定できます。
+
+## 特定のロケーションから在庫バッチを割り当てる {/* #order-placed-allocation-location */}
+
+**[優先フルフィルメントロケーション](https://help.shopify.com/ja/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority)を使用している場合は、この設定を行わないでください。**
+
+商品の[「在庫バッチを割り当てるタイミング」](/docs/product-expiration-dates/adding-expiration-data)設定で「注文が行われたとき」を使用しており、Shopifyに複数のロケーションがあるものの**フルフィルメントは1か所からしか行わない**場合は、<Link path="/settings#inventory">「このロケーションから在庫バッチを割り当てる」項目</Link>をShopifyのデフォルトロケーションに合わせて設定する必要があります。これを設定すると、ロケーションが指定されていない注文が入った場合、Product Expiration Datesアプリはこのロケーションからのみ最も期限の近い有効期限を割り当てます。設定されていない場合、アプリは全ロケーションから最も期限の近い有効期限を割り当てます。
+
+なお、Shopifyはストアのデフォルトロケーションをサードパーティアプリと共有しないため、明示的に設定する必要があります。

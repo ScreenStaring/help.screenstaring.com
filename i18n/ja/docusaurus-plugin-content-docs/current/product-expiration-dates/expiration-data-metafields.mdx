@@ -1,0 +1,34 @@
+---
+description: expiration_dates名前空間の下に追加される有効期限メタフィールドのリファレンス。割り当て、使用期限、バンドル、最短有効期限を網羅しています。
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 有効期限データのメタフィールド
+
+関連ドキュメント：***[通知、注文印刷、および納品書](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+Product Expiration Datesアプリは、商品のバリエーションに `expiration_dates` 名前空間のメタフィールドを追加します。商品にバリエーションがない場合は、デフォルトのバリエーションが使用されます。
+
+**Shopify管理画面で、以下のキーを使用して `expiration_dates` 名前空間のメタフィールド定義を追加しないでください。** これは不要であり、アプリが正常に動作しなくなる原因となります。アプリによって設定されるメタフィールドは読み取り専用であり、Shopify管理画面から設定することはできません。
+
+メタフィールド連携のみをサポートしている外部アプリケーション（JSONメタフィールドをサポートしていないもの）に有効期限を出力する必要がある場合は、`soonest_expiring` キーを参照してください。
+
+利用可能なメタフィールドは以下のとおりです：
+
+| キー | 説明 |
+| --- | --- |
+| `allocations` | バリエーションに割り当てられた有効期限と数量の配列。配列は有効期限が近い順（昇順）に並べ替えられているため、`allocations[0]` は最も期限が近いデータを返します。 |
+| `allocations[N].time` | 有効期限。フォーマットは `YYYY-MM-DDT00:00` です（例: `2025-01-22T00:00`）。現在、時刻は常に `00:00` です。この値は [Liquidの `date` フィルター](https://shopify.dev/api/liquid/filters#date) を使用して整形できます。 |
+| `allocations[N].quantity` | 残りの在庫数量。 |
+| `allocations[N].batch_number` | 割り当てられたバッチ番号。 |
+| `allocations[N].location_id` | 割り当てられたロケーションのShopify ID。 |
+| `use_within` | 使用期限（開封後）の情報を含むオブジェクト。 |
+| `use_within.use_within_value` | 使用期限データの数値部分。例えば「30 days」が割り当てられている場合、ここには `30` が入ります。 |
+| `use_within.use_within_unit` | 使用期限データの時間単位部分。例えば「30 days」が割り当てられている場合、ここには `days` が入ります。 |
+| `use_within.use_within_value_in_days` | 日数換算の使用期限の値。例えば「6 months」が設定されている場合、ここには `180` が入ります（1か月あたり30日として計算: 6 \* 30 = 180）。 |
+| `bundled_inventory` | バンドルに含まれる商品とその有効期限データ/バッチ番号の配列。商品がバンドルの場合にのみ設定されます。 |
+| `bundled_inventory[N].title` | バンドル商品のタイトル。 |
+| `bundled_inventory[N].allocations` | バリエーションに割り当てられた有効期限と数量の配列。`allocations[N]` のドキュメントを参照してください。 |
+| `soonest_expiring` | 最も有効期限が近い在庫バッチの文字列表現。メタフィールド連携のみをサポートする外部アプリに有効期限を出力する必要がある場合に役立ちます。日付形式は<Link path="/settings#inventory">設定ページ</Link>で設定できます。  <br/>***<Link path="/charges/recurring/new">Premiumプラン</Link>でのみご利用いただけます*** |

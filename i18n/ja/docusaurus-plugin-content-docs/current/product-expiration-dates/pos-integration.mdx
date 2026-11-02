@@ -1,0 +1,32 @@
+---
+description: Shopify POSタイルを使用して実店舗での販売時に在庫バッチを割り当て。会計時にPOSロケーションの在庫からバッチを選択できます。
+sidebar_position: 13
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Shopify POS（販売時点情報管理）連携
+
+***Shopify POS連携は<Link path="/charges/recurring/new">Platinumプラン</Link>でのみご利用いただけます***
+
+Shopify POS連携を使用すると、Shopify POS内から直接注文に在庫バッチを割り当てることができます。インストールするには、POSホーム画面にタイルとしてProduct Expiration Datesアプリを追加します：
+
+1.  POSホーム画面で「タイルを追加」をタップし、「アプリ」を選択します：
+    
+    <img src="/product-expiration-dates/shopify/images/pos-tile-step-1.jpg" height="500" alt="アプリをタイルとして追加" />
+    
+2.  アプリ一覧から「SS: Product Expiration Dates」を選択します：
+    
+    <img src="/product-expiration-dates/shopify/images/pos-tile-step-2.jpg" height="500" alt="Product Expiration Datesアプリを探す" />
+    
+3.  「Assign expiration data to products」の横にある「追加」をクリックします：
+    
+    <img src="/product-expiration-dates/shopify/images/pos-tile-step-3.jpg" height="500" alt="Product Expiration Datesアプリを追加" />
+    
+4.  これにより、ホーム画面に「SS: Product Expiration Dates」タイルが表示されます：
+    
+    <img src="/product-expiration-dates/shopify/images/pos-tile-step-4.jpg" height="500" alt="タイルを保存" />
+    
+5.  「保存」をタップします
+
+これで、カートに商品が入っているときに「SS: Product Expiration Dates」タイルをタップして、在庫バッチを割り当てることができるようになります。表示されるバッチは、そのPOSのロケーションの在庫にあるものになります。

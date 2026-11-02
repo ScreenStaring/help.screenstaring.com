@@ -1,0 +1,237 @@
+---
+description: "Product Expiration Dates APIを使用してプログラムで在庫バッチを管理：SKU、バーコード、またはバリエーションIDによって有効期限と数量を照会・設定します。"
+sidebar_position: 20
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# API連携
+
+***API連携は<Link path="/charges/recurring/new">Platinumプラン</Link>でのみご利用いただけます***
+
+Product Expiration Datesアプリは、プログラムから在庫バッチを管理できるAPIを提供しています。
+
+APIリクエストは、ストアのAPIキーを使用して認証されます。APIキーは設定ページの<Link path="/settings">「一般」タブ</Link>で確認できます。各リクエストの `X-API-Key` ヘッダーにAPIキーを含めてください。
+
+リクエストには、商品またはバリエーションの識別子を指定する必要があります。これには `sku`、`barcode`、`variant_id`、またはProduct Expiration DatesアプリのIDを使用できます。
+
+## ベースURL
+
+すべてのAPIエンドポイントは以下を基準としています：`https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+商品またはバリエーションの在庫バッチを取得します。SKU、バーコード、またはShopifyバリエーションIDで検索できます。
+
+**クエリパラメーター：**
+
+-   `sku` - バリエーションのSKU（省略可能）
+-   `barcode` - バリエーションのバーコード（省略可能）
+-   `variant_id` - ShopifyバリエーションID。商品にバリエーションがない場合はデフォルトのバリエーションIDを使用（省略可能）
+-   `external_location_id` - ShopifyロケーションIDで結果を絞り込み（省略可能）
+
+**curlによるリクエスト例：**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**レスポンス (200 OK)：**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+在庫バッチを作成または更新します。更新は、SKU/バーコードと以下のいずれかの組み合わせに基づいて行われます：a) 有効期限とロケーション、または b) バッチ番号とロケーション。それ以外の場合は、新しいバッチが作成されます。
+
+**リクエストパラメーター：**
+
+-   `sku` - バリエーションのSKU（省略可能）
+-   `barcode` - バリエーションのバーコード（省略可能）
+-   `variant_id` - ShopifyバリエーションID。商品にバリエーションがない場合はデフォルトのバリエーションIDを使用（省略可能）
+-   `expires` - 有効期限、**YYYY-MM-DD形式必須**（必須）
+-   `quantity` - 利用可能数量（必須）
+-   `batch_number` - バッチ番号（省略可能）
+-   `external_location_id` - ShopifyロケーションID（`location_id` を指定しない場合は必須）
+-   `location_id` - Product Expiration DatesアプリのロケーションID（`external_location_id` を指定しない場合は必須）
+-   `inventory_batch_assignment_event` - 在庫バッチを注文に割り当てるタイミング。商品作成時のみ有効。`"order_placed"`（注文時）または `"order_item_fulfilled"`（フルフィルメント時）のいずれか。[在庫プッシュ](/docs/product-expiration-dates/inventory-push)を使用している場合は常に `"order_placed"` になります。
+-   `invoice_number` - 請求書番号（省略可能）
+-   `lot_number` - ロット番号（省略可能）
+-   `manufactured_at` - 製造日、**YYYY-MM-DD形式必須**（省略可能）
+-   `received_at` - 入荷日、**YYYY-MM-DD形式必須**（省略可能）
+-   `comments` - 自由記述のメモ（省略可能）
+-   `batch_unit_cost` - バッチ単価（省略可能）
+
+**curlによるリクエスト例：**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**レスポンス (200 OK)：**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+既存の在庫バッチを更新します。
+
+**URLパラメーター：**
+
+-   `:id` - 在庫バッチのProduct Expiration DatesアプリID（必須）
+
+**リクエストパラメーター：**
+
+-   `expires` - 有効期限、**YYYY-MM-DD形式必須**（省略可能）
+-   `quantity` - 利用可能数量（省略可能）
+-   `external_location_id` - ShopifyロケーションID（省略可能）
+-   `location_id` - Product Expiration DatesアプリのロケーションID（省略可能）
+-   `batch_number` - バッチ番号（省略可能）
+-   `invoice_number` - 請求書番号（省略可能）
+-   `lot_number` - ロット番号（省略可能）
+-   `manufactured_at` - 製造日、**YYYY-MM-DD形式必須**（省略可能）
+-   `received_at` - 入荷日、**YYYY-MM-DD形式必須**（省略可能）
+-   `comments` - 自由記述のメモ（省略可能）
+-   `batch_unit_cost` - バッチ単価（省略可能）
+
+**curlによるリクエスト例：**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**レスポンス (200 OK)：**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+IDを指定して在庫バッチを削除します。
+
+**URLパラメーター：**
+
+-   `:id` - 在庫バッチのProduct Expiration DatesアプリID
+
+**curlによるリクエスト例：**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**レスポンス (200 OK)：**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## エラーレスポンス
+
+APIは適切なHTTPステータスコードとエラーメッセージを返します：
+
+| ステータスコード | 説明 | レスポンス例 |
+| --- | --- | --- |
+| `400` | 不正なリクエスト (Bad Request) - 必須パラメーターの不足または無効 | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | 認証エラー (Unauthorized) - APIキーが無効または未指定 | `{"errors": ["Shop not found"]}` |
+| `403` | アクセス禁止 (Forbidden) - 現在のプランではAPIアクセスが許可されていません | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | 未検出 (Not Found) - 商品、バリエーション、またはロケーションが見つかりません | `{"errors": ["Record not found"]}` |
+| `422` | 処理不能エンティティ (Unprocessable Entity) - バリデーションエラー | `{"errors": ["Quantity must be greater than 0"]}` |
