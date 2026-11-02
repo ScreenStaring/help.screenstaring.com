@@ -1744,19 +1744,23 @@ Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/order-ba
 
 L'application Product Expiration Dates vous permet de configurer le moment où les lots d'inventaire sont attribués à une commande : soit lorsque la commande est passée, soit lorsqu'une ligne de commande est traitée. Voir [Ajouter des données d'expiration aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data).
 
-Par défaut, le lot d'inventaire d'un produit qui expire le plus tôt, tous emplacements confondus, est attribué à la ligne de commande (stratégie de gestion FEFO : premier expiré, premier sorti). Si la commande entrante a un emplacement attribué (généralement les [commandes Shopify Point of Sale (POS)](https://help.screenstaring.com/fr/docs/product-expiration-dates/pos-integration)), cet emplacement sera utilisé. Vous pouvez changer votre stratégie de gestion pour PEPS (premier entré, premier sorti) dans l'onglet Inventory de la page des paramètres.
+Par défaut, le lot d'inventaire d'un produit qui expire le plus tôt, tous emplacements confondus, est attribué à la ligne de commande (stratégie de gestion FEFO : premier expiré, premier sorti). Si la commande entrante a un emplacement attribué (généralement les [commandes Shopify Point of Sale (POS)](https://help.screenstaring.com/fr/docs/product-expiration-dates/pos-integration)), cet emplacement sera utilisé.
+
+Vous pouvez changer votre stratégie de gestion des stocks pour PEPS (premier entré, premier sorti) dans l'onglet Inventory de la page des paramètres.
 
 ## Règles de routage des commandes Shopify
 
 ***La prise en charge des règles de routage des commandes Shopify n'est disponible qu'avec le forfait Pro***
 
-Pour attribuer un lot d'inventaire provenant d'un emplacement déterminé par les règles de routage des commandes Shopify, sélectionnez "Assign inventory batches based on Shopify Order Routing" dans l'onglet Inventory de la page des paramètres. Le routage des commandes Shopify peut être configuré dans l'admin Shopify ici
+Pour attribuer un lot d'inventaire provenant d'un emplacement déterminé par les règles de routage des commandes Shopify, sélectionnez "Assign inventory batches based on Shopify Order Routing" dans l'onglet Inventory de la page des paramètres. Le routage des commandes Shopify peut être configuré dans  shopify.toString() + '/settings/shipping/order_routing'}>l'admin Shopify.
 
 ## Attribuer les lots d'inventaire d'un emplacement spécifique
 
 **Ne définissez pas ceci si vous utilisez des [emplacements de traitement priorisés](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
 
-Si vous utilisez "order placed" pour le paramètre ["Assign inventory batches when"](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) d'un produit et que vous avez plusieurs emplacements dans Shopify **mais que vous ne traitez les commandes qu'à partir d'un seul**, vous devez définir "Assign inventory batches from this location" pour qu'il corresponde à votre emplacement par défaut dans Shopify (Shopify ne le partage pas avec les applications tierces, il doit donc être défini explicitement). Lorsque ceci est défini et qu'une commande est passée sans emplacement, l'application Product Expiration Dates n'attribuera que la date d'expiration la plus proche provenant de cet emplacement. Si ce n'est pas défini, l'application attribuera la date d'expiration la plus proche parmi tous les emplacements.
+Si vous utilisez "order placed" pour le paramètre ["Assign inventory batches when"](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) d'un produit et que vous avez plusieurs emplacements dans Shopify **mais que vous ne traitez les commandes qu'à partir d'un seul**, vous devez définir le champ "Assign inventory batches from this location" pour qu'il corresponde à votre emplacement par défaut dans Shopify. Lorsque ceci est défini et qu'une commande est passée sans emplacement, l'application Product Expiration Dates n'attribuera que la date d'expiration la plus proche provenant de cet emplacement. Si ce n'est pas défini, l'application attribuera la date d'expiration la plus proche parmi tous les emplacements.
+
+Notez que Shopify ne partage pas l'emplacement par défaut d'une boutique avec les applications tierces, il doit donc être défini explicitement.
 
 ---
 

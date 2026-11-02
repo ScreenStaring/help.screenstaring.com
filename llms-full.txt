@@ -1764,21 +1764,25 @@ Custom format names can be used but they do not work with Shopify theme integrat
 
 Source: https://help.screenstaring.com/docs/product-expiration-dates/order-batch-location-assignment
 
-The Product Expiration Dates app allows you to configure when inventory batches are assigned to an order: either when the order is placed or, when an order line is fulfilled. See [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data).
+The Product Expiration Dates app allows you to configure when inventory batches are assigned to an order: either when the order is placed or when an order line is fulfilled. See [Adding Expiration Data to Products](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data).
 
-By default a product's soonest expiring inventory batch from across all locations is assigned to the order line (FEFO: First Expired, First Out management strategy) If the incoming order has a location assigned (typically [Shopify Point of Sale (POS) orders](https://help.screenstaring.com/docs/product-expiration-dates/pos-integration)), that location will be used. You can change your management strategy to First In, First Out (FIFO) management strategy on the settings' page Inventory tab.
+By default a product's soonest expiring inventory batch across all locations is assigned to the order line (FEFO: First Expired, First Out management strategy). If the incoming order has a location assigned &mdash; typically [Shopify Point of Sale (POS) orders](https://help.screenstaring.com/docs/product-expiration-dates/pos-integration)&mdash; that location will be used.
+
+You can change your inventory management strategy to First In, First Out (FIFO) on the Settings page's Inventory tab.
 
 ## Shopify Order Routing Rules
 
 ***Support for Shopify Order Routing Rules is only available under the Pro Plan***
 
-To assign an inventory batch from a location determined by Shopify Order Routing rules select "Assign inventory batches based on Shopify Order Routing" from the Settings page's Inventory tab. Shopify Order Routing can be configured in the Shopify Admin here
+To assign an inventory batch from a location determined by Shopify Order Routing rules, select "Assign inventory batches based on Shopify Order Routing" from the Settings page's Inventory tab. Shopify Order Routing can be configured in  shopify.toString() + '/settings/shipping/order_routing'}>the Shopify Admin.
 
 ## Assign Inventory Batches from a Specific Location
 
 **Do not set this if you use [prioritized fulfillment locations](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
 
-If you're using "order placed" for a Product's ["Assign inventory batches when"](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) setting and have multiple locations in Shopify **but only fulfill from one**, you must set "Assign inventory batches from this location" to match your default location in Shopify (Shopify does not share this with 3rd-party apps so it must be explicitly set). When this is set and an order is placed without a location the Product Expiration Dates app will only allocate the soonest expirting expiration date from this location. If this is not set the app will allocate the soonest expiring expiration date across all locations.
+If you're using "order placed" for a Product's ["Assign inventory batches when"](https://help.screenstaring.com/docs/product-expiration-dates/adding-expiration-data) setting and have multiple locations in Shopify **but only fulfill from one**, you must set the "Assign inventory batches from this location" field to match your default location in Shopify. When this is set and an order is placed without a location the Product Expiration Dates app will only allocate the soonest expiring expiration date from this location. If this is not set the app will allocate the soonest expiring expiration date across all locations.
+
+Note that Shopify does not share a store's default location with 3rd-party apps so it must be explicitly set.
 
 ---
 
