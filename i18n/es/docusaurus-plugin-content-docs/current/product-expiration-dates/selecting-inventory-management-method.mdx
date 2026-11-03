@@ -1,0 +1,47 @@
+---
+description: "Elige cómo Product Expiration Dates asigna los lotes de inventario a los pedidos: FEFO, FIFO o un método personalizado de gestión de inventario."
+sidebar_position: 0.5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Seleccionar tu método de gestión de inventario
+
+El método de gestión de inventario determina cómo se asignan los lotes de inventario a los pedidos. Puedes seleccionar tu método de gestión de inventario en el campo «Método de gestión de inventario» de <Link path="/settings/edit#inventory">la pestaña Inventario de la página de configuración</Link>.
+
+De forma predeterminada, la aplicación utiliza Primero en caducar, primero en salir (FEFO), pero admite varios métodos.
+
+## Primero en caducar, primero en salir (FEFO)
+
+Los artículos con las fechas de caducidad o de consumo preferente más próximas se priorizan para su venta o uso, independientemente de cuándo se recibieron.
+
+Ideal para: productos perecederos, productos farmacéuticos, alimentos y cualquier inventario con restricciones estrictas de caducidad donde la vida útil sea el riesgo principal.
+
+### Ejemplo
+
+- Lote A: Recibido el 2026-01-10, Caduca el 2026-12-15
+- Lote B: Recibido el 2026-02-05, Caduca el 2026-05-20
+- Lote C: Recibido el 2026-03-01, Caduca el 2027-07-10
+
+Con FEFO, el Lote B (caduca el 2026-05-20) se selecciona primero porque tiene la fecha de caducidad más próxima.
+
+## Primero en entrar, primero en salir (FIFO)
+
+El inventario más antiguo (el recibido primero) se vende o se utiliza primero. Esto se basa en el principio de que los artículos recibidos antes deben salir del almacén antes que las existencias más recientes.
+
+Ideal para: productos no perecederos, mercancías con riesgo de obsolescencia gradual y operaciones en las que mantener un flujo cronológico simplifica el seguimiento y reduce el riesgo de inventario obsoleto.
+
+### Ejemplo
+
+- Lote A: Recibido el 2026-01-10, Caduca el 2026-06-15
+- Lote B: Recibido el 2026-02-05, Caduca el 2028-05-20
+- Lote C: Recibido el 2026-03-01, Caduca el 2027-07-10
+
+Con FIFO, el Lote A (recibido el 2026-01-10) se selecciona primero porque tiene la fecha de recepción más antigua.
+
+## Personalizada
+
+Un método personalizado de gestión de inventario aplica tus reglas comerciales para determinar cómo se asignan los lotes de inventario a los pedidos.
+Puede combinar FIFO y FEFO, o basarse en una lógica totalmente diferente.
+
+Para utilizar un método personalizado, [contacta a soporte](https://screenstaring.com/#contact).
