@@ -1,0 +1,39 @@
+---
+description: Stellen Sie den Bestellpositionen zugewiesene Ablaufdaten und Chargennummern als Shopify-Bestellattribut bereit, einschließlich Formatbeschreibung und Liquid-Parsing-Beispiel.
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Einer Bestellung zugewiesene Ablaufdaten
+
+Einer Bestellung zugewiesene Ablaufdaten können externen Systemen als Bestelleigenschaft (Order Property) zur Verfügung gestellt werden. Eine Bestelleigenschaft wird verwendet, da Shopify keine Metafelder für einzelne Bestellpositionen (Line Items) unterstützt. Um diese Eigenschaft zu aktivieren, wählen Sie „Erstellen Sie einen Eintrag unter „Zusätzliche Angaben“ zur Bestellung mit den Lagerchargen der Bestellung“ auf der Registerkarte „Bestellungen“ auf <Link path="/settings#orders~product_defaults">der Einstellungsseite</Link>.
+
+Bestellungen, die vor der Aktivierung dieser Option aufgegeben wurden, enthalten diese Eigenschaft nicht.
+
+## Format der Bestelleigenschaft
+
+Sobald die Option aktiviert ist, werden Bestellungen, die Ablaufdaten enthalten, Bestellattribute namens `Expiration Dates SKU` hinzugefügt. `SKU` wird durch den SKU-Wert des jeweiligen Produkts ersetzt. Der Wert des Attributs folgt dem Format: `CHARGE 1|CHARGE 2|CHARGE 3`.
+
+Wenn Sie beispielsweise ein Produkt mit der SKU 123 haben, dem eine einzelne Charge zugewiesen ist, erhalten Sie ein Attribut namens `Expiration Dates 123` mit dem Wert: `2024-01-01,1,B123`. Hierbei ist `2024-01-01` das zugewiesene Ablaufdatum, `1` die zugewiesene Menge und `B123` die Chargennummer.
+
+Wenn der Bestellposition mehrere Chargen zugewiesen sind, werden alle aufgeführt. Wurden der SKU 123 beispielsweise zwei Chargen zugewiesen, lautet der Wert: `2024-01-01,1,B123|2024-11-21,2,X999`. Hierbei ist `2024-01-01` das erste zugewiesene Ablaufdatum mit einer Menge von `1` und der Chargennummer `B123`. `2024-11-21` ist das zweite zugewiesene Ablaufdatum mit einer Menge von `2` und der Chargennummer `X999`.
+
+Falls keine Chargennummer (oder ein anderer Wert) vorhanden ist, wird dieser ausgelassen. Hier ist das Beispiel mit mehreren Chargen ohne Chargennummer: `2024-01-01,1,|2024-11-21,2,`
+
+## Parsen des Eigenschaftswerts
+
+Das Parsen des Werts kann in jeder Programmiersprache erfolgen, indem die Attribute der Bestellung über die [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order) abgerufen werden. Hier ist ein Beispiel mit Liquid:
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    MHD: {{ expires_date | date: "%d/%m/%Y" }} ({{expires_qty}})
+    Charge {{ expires_batch }}
+{% endfor %}
+```

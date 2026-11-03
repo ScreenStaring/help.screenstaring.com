@@ -1,0 +1,18 @@
+---
+description: Ablaufdaten und Mengen per CSV-Datei im Stapel importieren. Erforderliche Spalten sind SKU, Ablaufdatum, Menge und Standort; Datumsangaben im Format JJJJ-MM-TT.
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Ablaufdaten per Stapelimport importieren
+
+Mehrere Ablaufdaten und Mengen können mithilfe unserer CSV-Vorlage für den Stapelimport importiert werden. Eine Beispieldatei finden Sie [hier](/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+
+Die Spalten „SKU“, „Expiration Date“, „Quantity“ und „Location Name“ sind Pflichtfelder. **Ablaufdaten müssen im Format `JJJJ-MM-TT` (z. B. `2026-12-31`) angegeben werden.** Um „Barcode“ anstelle von „SKU“ zu verwenden, wählen Sie auf der Stapelimportseite die Option „Identifizieren Sie Zeilen anhand von Barcode“.
+
+Weitere Informationen zur Spalte „Allocate Quantities to Orders When“ finden Sie unter [Ablaufdaten zu Produkten hinzufügen](/docs/product-expiration-dates/adding-expiration-data).
+
+Die CSV-Datei muss UTF-8-kodiert sein und das Komma-Zeichen („,“) als Trennzeichen verwenden.
+
+Sobald Ihre Datei fertiggestellt ist, laden Sie sie über <Link path="/import">die Importseite</Link> hoch.

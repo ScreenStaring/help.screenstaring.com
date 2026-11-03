@@ -1,0 +1,29 @@
+---
+description: "Legen Sie fest, wie Bestandschargen Bestellungen zugewiesen werden: FEFO oder FIFO über Standorte hinweg, Shopify-Auftragsweiterleitungsregeln oder ein bestimmter Ausführungsstandort."
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# Standortzuweisung von Bestandschargen für Bestellungen
+
+Mit der Product Expiration Dates App können Sie konfigurieren, wann Bestandschargen einer Bestellung zugewiesen werden: entweder wenn die Bestellung aufgegeben wird oder wenn eine Bestellposition ausgeführt wird. Siehe [Ablaufdaten zu Produkten hinzufügen](/docs/product-expiration-dates/adding-expiration-data).
+
+Standardmäßig wird einer Bestellposition die über alle Standorte hinweg am frühesten ablaufende Bestandscharge zugewiesen (FEFO: First Expired, First Out). Wenn der eingehenden Bestellung ein Standort zugeordnet ist &mdash; was typischerweise bei [Shopify Point of Sale (POS) Bestellungen](/docs/product-expiration-dates/pos-integration) der Fall ist &mdash;, wird dieser Standort verwendet.
+
+Sie können Ihr Verfahren zur Bestandsverwaltung auf der <Link path="/settings#inventory">Registerkarte „Bestand“ der Einstellungsseite</Link> auf „First In, First Out“ (FIFO) umstellen.
+
+## Shopify-Auftragsweiterleitungsregeln (Order Routing)
+
+***Die Unterstützung für Shopify-Auftragsweiterleitungsregeln ist nur im <Link path="/charges/recurring/new">Pro-Tarif</Link> verfügbar***
+
+Um eine Bestandscharge von einem Standort zuzuweisen, der durch Shopify-Auftragsweiterleitungsregeln festgelegt wird, wählen Sie „Lagerchargen anhand der Shopify-Auftragszuordnung zuweisen“ auf der <Link path="/settings#inventory">Registerkarte „Bestand“ der Einstellungsseite</Link>. Die Auftragsweiterleitung kann im <ShopifyLink href={(shopify) => shopify.toString() + '/settings/shipping/order_routing'}>Shopify-Adminbereich</ShopifyLink> eingerichtet werden.
+
+## Bestandschargen von einem bestimmten Standort zuweisen {/* #order-placed-allocation-location */}
+
+**Aktivieren Sie dies nicht, wenn Sie [priorisierte Ausführungsstandorte](https://help.shopify.com/de/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority) verwenden.**
+
+Wenn Sie für die Einstellung [„Lagerstapel zuweisen, wenn“](/docs/product-expiration-dates/adding-expiration-data) eines Produkts die Option „Die Bestellung wurde aufgegeben“ verwenden und mehrere Standorte in Shopify haben, **die Ausführung jedoch nur von einem einzigen Standort aus abwickeln**, müssen Sie das Feld <Link path="/settings#inventory">„Lagerchargen von diesem Standort zuweisen“</Link> so einstellen, dass es Ihrem Standardstandort in Shopify entspricht. Wenn diese Option festgelegt ist und eine Bestellung ohne Standort eingeht, weist die Product Expiration Dates App nur das am frühesten ablaufende Datum dieses Standorts zu. Ist die Option nicht festgelegt, weist die App das früheste Ablaufdatum über alle Standorte hinweg zu.
+
+Beachten Sie, dass Shopify den Standardstandort eines Shops nicht für Drittanbieter-Apps freigibt, sodass er explizit angegeben werden muss.

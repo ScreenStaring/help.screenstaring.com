@@ -1,0 +1,34 @@
+---
+description: Referenz für unter dem Namespace expiration_dates erstellte Metafelder für Ablaufdaten, einschließlich Zuweisungen, Werten für den Verbrauch nach dem Öffnen, Bundles und frühestem MHD.
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Metafelder für Ablaufdaten
+
+Siehe auch: ***[Benachrichtigungen, Bestelldruck und Lieferscheine](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+Die Product Expiration Dates App legt Metafelder für die Variante(n) eines Produkts unter dem Namespace `expiration_dates` an. Wenn das Produkt keine Varianten hat, wird die Standardvariante verwendet.
+
+**Legen Sie im Shopify-Adminbereich keine Metafeld-Definitionen unter dem Namespace `expiration_dates` mit einem der nachfolgenden Schlüssel an.** Dies ist nicht erforderlich und beeinträchtigt die korrekte Funktion der App. Von der App gesetzte Metafelder sind schreibgeschützt und können nicht über den Shopify-Adminbereich bearbeitet werden.
+
+Wenn Sie Ablaufdaten in externe Anwendungen exportieren müssen, die nur einfache Metafeld-Integrationen unterstützen (und keine JSON-Metafelder verarbeiten können), beachten Sie den Schlüssel `soonest_expiring`.
+
+Folgende Metafelder stehen zur Verfügung:
+
+| Schlüssel | Beschreibung |
+| --- | --- |
+| `allocations` | Ein Array von Ablaufdaten und Mengen, die der Variante zugewiesen sind. Das Array ist nach Ablaufdatum sortiert (vom frühesten zum spätesten), sodass `allocations[0]` die Daten für das früheste MHD zurückgibt. |
+| `allocations[N].time` | Das Ablaufdatum. Das Format ist `JJJJ-MM-THT00:00`, z. B. `2025-01-22T00:00`. Derzeit ist die Uhrzeit immer `00:00`. Dieser Wert kann mit dem [Liquid `date`-Filter](https://shopify.dev/api/liquid/filters#date) formatiert werden. |
+| `allocations[N].quantity` | Die verbleibende Bestandsmenge |
+| `allocations[N].batch_number` | Die zugewiesene Chargennummer |
+| `allocations[N].location_id` | Die Shopify-ID des zugewiesenen Standorts |
+| `use_within` | Ein Objekt mit Angaben zum Verbrauch nach dem Öffnen („Verbrauch innerhalb von“) |
+| `use_within.use_within_value` | Der numerische Teil der Verbrauchsangabe. Wurde beispielsweise `30 Tage` angegeben, enthält dieses Feld `30`. |
+| `use_within.use_within_unit` | Die Zeiteinheit der Verbrauchsangabe. Wurde beispielsweise `30 Tage` angegeben, enthält dieses Feld `days`. |
+| `use_within.use_within_value_in_days` | Der Wert für den Verbrauchszeitraum in Tagen. Wurde beispielsweise `6 Monate` angegeben, enthält dieses Feld `180`. Wir rechnen mit 30 Tagen pro Monat: 6 \* 30 = 180. |
+| `bundled_inventory` | Ein Array der im Bundle enthaltenen Produkte mit ihren Ablaufdaten und Chargennummern. Nur gesetzt, wenn das Produkt ein Bundle ist. |
+| `bundled_inventory[N].title` | Der Titel des im Bundle enthaltenen Produkts |
+| `bundled_inventory[N].allocations` | Ein Array der der Variante zugewiesenen Ablaufdaten und Mengen. Siehe Dokumentation zu `allocations[N]`. |
+| `soonest_expiring` | Zeichenkettendarstellung der am frühesten ablaufenden Bestandscharge. Nützlich für den Export von Ablaufdaten in Drittanbieter-Anwendungen, die nur einfache Metafeld-Integrationen unterstützen. Das Datumsformat kann auf <Link path="/settings#inventory">der Einstellungsseite</Link> festgelegt werden.   <br />***Nur im <Link path="/charges/recurring/new">Premium-Tarif</Link> verfügbar*** |

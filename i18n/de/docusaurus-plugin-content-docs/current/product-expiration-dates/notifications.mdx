@@ -1,0 +1,31 @@
+---
+description: Richten Sie E-Mail-Benachrichtigungen vor Ablauf von Produkten ein. Wählen Sie eine globale Tagesanzahl oder konfigurieren Sie Benachrichtigungen nach Kollektion oder Produkttyp.
+sidebar_position: 5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# E-Mail-Benachrichtigungen
+
+E-Mail-Benachrichtigungen können so eingerichtet werden, dass sie vor Erreichen des Produktablaufdatums versendet werden. Sie können global für alle in die App eingegebenen Ablaufdaten, nach Kollektion eines Produkts oder nach dem Produkttyp konfiguriert werden.
+
+## Aktivieren
+
+1.  Gehen Sie in den Einstellungen der App auf <Link path="/settings#email_notifications">E-Mail-Benachrichtigungen</Link>
+2.  Geben Sie im Feld „Benachrichtigungen senden an“ die E-Mail-Adresse ein, an die die Benachrichtigungen gesendet werden sollen. Mehrere E-Mail-Adressen können durch ein Komma getrennt werden.
+3.  Geben Sie im Feld „Wie viele Tage vor Ablauf der Haltbarkeitsdauer eines Produkts möchten Sie benachrichtigt werden?“ die Anzahl der Tage ein.  
+    Wenn ein Produkt beispielsweise ein Ablaufdatum am 15. Januar hat und 10 eingegeben wird, erhalten Sie ab dem 5. Januar Benachrichtigungen für dieses Produkt.
+4.  Klicken Sie zum Speichern auf die Schaltfläche <kbd>Aktualisierung</kbd>
+
+Benachrichtigungen werden einmal täglich versendet. Wenn sich keine Produkte innerhalb des Ablaufzeitraums befinden, wird keine Benachrichtigung versendet.
+
+Wenn Sie Benachrichtigungen lieber basierend auf der Kollektion oder dem Produkttyp eines Produkts erhalten möchten, können Sie das Feld für die globale Tagesanzahl leer lassen und die Tage stattdessen im Abschnitt „Nach Kollektion“ oder „Nach Produkttyp“ für die jeweilige Kollektion bzw. den Produkttyp hinzufügen. In diesen Feldern werden nur Werte für Produkte angezeigt, die in der App erfasst wurden.
+
+## Deaktivieren
+
+1.  Gehen Sie in den Einstellungen der App auf <Link path="/settings#email_notifications">E-Mail-Benachrichtigungen</Link>
+2.  Löschen Sie den Wert im Feld „Wie viele Tage vor Ablauf der Haltbarkeitsdauer eines Produkts möchten Sie benachrichtigt werden?“.
+3.  Falls Sie Benachrichtigungen nach Kollektion oder Produkttyp eingerichtet haben, löschen Sie diese durch Klicken auf das rote <kbd>X</kbd> neben den jeweiligen Einstellungen.
+4.  Klicken Sie zum Speichern auf die Schaltfläche <kbd>Aktualisierung</kbd>
+
+Es werden nun keine Benachrichtigungen mehr versendet.

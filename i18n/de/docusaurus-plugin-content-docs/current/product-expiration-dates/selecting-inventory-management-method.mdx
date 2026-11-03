@@ -1,0 +1,47 @@
+---
+description: Wählen Sie, wie Product Expiration Dates Bestandschargen zu Bestellungen zuweist — FEFO, FIFO oder ein benutzerdefiniertes Verfahren zur Bestandsverwaltung.
+sidebar_position: 0.5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Auswahl Ihres Verfahrens zur Bestandsverwaltung
+
+Das Verfahren zur Bestandsverwaltung bestimmt, wie Bestandschargen zu Bestellungen zugewiesen werden. Sie können Ihr Verfahren zur Bestandsverwaltung im Feld „Verfahren zur Bestandsverwaltung“ auf <Link path="/settings/edit#inventory">der Registerkarte „Bestand“ der Einstellungsseite</Link> auswählen.
+
+Standardmäßig verwendet die App „First Expired, First Out“ (FEFO), es werden jedoch mehrere Methoden unterstützt.
+
+## „First Expired, First Out“ (FEFO)
+
+Artikel mit dem frühesten Ablaufdatum bzw. Mindesthaltbarkeitsdatum (MHD) werden für den Verkauf oder die Verwendung priorisiert, unabhängig davon, wann sie eingegangen sind.
+
+Am besten geeignet für: Verderbliche Waren, Pharmazeutika, Lebensmittel und alle Bestände mit strengen Ablaufbeschränkungen, bei denen die Haltbarkeit das Hauptrisiko darstellt.
+
+### Beispiel
+
+- Charge A: Eingegangen am 2026-01-10, MHD 2026-12-15
+- Charge B: Eingegangen am 2026-02-05, MHD 2026-05-20
+- Charge C: Eingegangen am 2026-03-01, MHD 2027-07-10
+
+Unter FEFO wird Charge B (MHD 2026-05-20) zuerst ausgewählt, da sie das früheste Ablaufdatum aufweist.
+
+## „First In, First Out“ (FIFO)
+
+Der älteste Bestand (zuerst eingegangen) wird zuerst verkauft oder verwendet. Dies basiert auf der Annahme, dass früher eingegangene Artikel das Lager vor neueren Beständen verlassen sollten.
+
+Am besten geeignet für: Nicht verderbliche Waren, Produkte mit schrittweisem Veralterungsrisiko und Betriebsabläufe, bei denen die Beibehaltung einer chronologischen Reihenfolge die Nachverfolgung vereinfacht und das Risiko überlagerter Bestände verringert.
+
+### Beispiel
+
+- Charge A: Eingegangen am 2026-01-10, MHD 2026-06-15
+- Charge B: Eingegangen am 2026-02-05, MHD 2028-05-20
+- Charge C: Eingegangen am 2026-03-01, MHD 2027-07-10
+
+Unter FIFO wird Charge A (Eingegangen am 2026-01-10) zuerst ausgewählt, da sie das früheste Eingangsdatum aufweist.
+
+## Benutzerdefiniert
+
+Ein benutzerdefiniertes Verfahren zur Bestandsverwaltung verwendet Ihre eigenen Geschäftsregeln, um zu bestimmen, wie Bestandschargen zu Bestellungen zugewiesen werden.
+Es kann eine Mischung aus FIFO, FEFO oder etwas völlig Eigenes sein.
+
+Um ein benutzerdefiniertes Verfahren zu nutzen, [wenden Sie sich an den Support](https://screenstaring.com/#contact).

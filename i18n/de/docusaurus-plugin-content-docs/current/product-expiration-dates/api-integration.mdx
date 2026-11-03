@@ -1,0 +1,237 @@
+---
+description: "Verwalten Sie Bestandschargen programmatisch über die Product Expiration Dates API: Abfrage oder Festlegung von Ablaufdaten und Mengen nach SKU, Barcode oder Varianten-ID."
+sidebar_position: 20
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# API-Integration
+
+***Die API-Integration ist nur im <Link path="/charges/recurring/new">Platinum-Tarif</Link> verfügbar***
+
+Die Product Expiration Dates App bietet eine API, mit der Bestandschargen programmatisch verwaltet werden können.
+
+API-Anfragen werden über den API-Schlüssel Ihres Shops authentifiziert. Sie finden Ihren API-Schlüssel auf der <Link path="/settings">Registerkarte „Allgemeines“ der Einstellungsseite</Link>. Übergeben Sie Ihren API-Schlüssel bei jeder Anfrage im Header `X-API-Key`.
+
+Bei Anfragen muss eine Produkt- oder Variantenkennung angegeben werden: `sku`, `barcode`, `variant_id` oder die ID der Product Expiration Dates App.
+
+## Basis-URL
+
+Alle API-Endpunkte beziehen sich auf: `https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+Bestandschargen für ein Produkt oder eine Variante abrufen. Sie können nach SKU, Barcode oder Shopify-Varianten-ID filtern.
+
+**Abfrageparameter (Query Parameters):**
+
+-   `sku` - Die SKU der Variante (optional)
+-   `barcode` - Der Barcode der Variante (optional)
+-   `variant_id` - Shopify-Varianten-ID; falls ein Produkt keine Varianten hat, verwenden Sie die ID der Standardvariante (optional)
+-   `external_location_id` - Ergebnisse nach Shopify-Standort-ID filtern (optional)
+
+**Beispiel mit curl:**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**Antwort (200 OK):**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+Erstellen oder Aktualisieren einer Bestandscharge. Aktualisierungen erfolgen anhand von SKU/Barcode in Kombination mit entweder: a) Ablaufdatum und Standort oder b) Chargennummer und Standort. Andernfalls wird eine neue Charge angelegt.
+
+**Anfrageparameter (Request Parameters):**
+
+-   `sku` - Die SKU der Variante (optional)
+-   `barcode` - Der Barcode der Variante (optional)
+-   `variant_id` - Shopify-Varianten-ID; falls ein Produkt keine Varianten hat, verwenden Sie die ID der Standardvariante (optional)
+-   `expires` - Ablaufdatum, **muss im Format JJJJ-MM-TT vorliegen** (erforderlich)
+-   `quantity` - Verfügbare Menge (erforderlich)
+-   `batch_number` - Chargennummer (optional)
+-   `external_location_id` - Die Shopify-Standort-ID (erforderlich, falls `location_id` nicht angegeben ist)
+-   `location_id` - ID der Product Expiration Dates App für den Standort (erforderlich, falls `external_location_id` nicht angegeben ist)
+-   `inventory_batch_assignment_event` - Wann Bestandschargen Bestellungen zugewiesen werden. Nur beim Erstellen eines Produkts gültig. Entweder `"order_placed"` oder `"order_item_fulfilled"`. Wenn Sie die [Bestandsübermittlung (Inventory Push)](/docs/product-expiration-dates/inventory-push) nutzen, ist dies immer `"order_placed"`.
+-   `invoice_number` - Rechnungsnummer (optional)
+-   `lot_number` - Losnummer (optional)
+-   `manufactured_at` - Herstellungsdatum, **muss im Format JJJJ-MM-TT vorliegen** (optional)
+-   `received_at` - Eingangsdatum, **muss im Format JJJJ-MM-TT vorliegen** (optional)
+-   `comments` - Freitext-Notizen (optional)
+-   `batch_unit_cost` - Stückkosten der Charge (optional)
+
+**Beispiel mit curl:**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**Antwort (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+Aktualisieren einer bestehenden Bestandscharge.
+
+**URL-Parameter:**
+
+-   `:id` - Die ID der Product Expiration Dates App für die Bestandscharge (erforderlich)
+
+**Anfrageparameter (Request Parameters):**
+
+-   `expires` - Ablaufdatum, **muss im Format JJJJ-MM-TT vorliegen** (optional)
+-   `quantity` - Verfügbare Menge (optional)
+-   `external_location_id` - Die Shopify-Standort-ID (optional)
+-   `location_id` - Standort-ID in der Product Expiration Dates App (optional)
+-   `batch_number` - Chargennummer (optional)
+-   `invoice_number` - Rechnungsnummer (optional)
+-   `lot_number` - Losnummer (optional)
+-   `manufactured_at` - Herstellungsdatum, **muss im Format JJJJ-MM-TT vorliegen** (optional)
+-   `received_at` - Eingangsdatum, **muss im Format JJJJ-MM-TT vorliegen** (optional)
+-   `comments` - Freitext-Notizen (optional)
+-   `batch_unit_cost` - Stückkosten der Charge (optional)
+
+**Beispiel mit curl:**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**Antwort (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+Löschen einer Bestandscharge anhand ihrer ID.
+
+**URL-Parameter:**
+
+-   `:id` - Die ID der Product Expiration Dates App für die Bestandscharge
+
+**Beispiel mit curl:**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**Antwort (200 OK):**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## Fehlerantworten
+
+Die API gibt entsprechende HTTP-Statuscodes und Fehlermeldungen zurück:
+
+| Statuscode | Beschreibung | Beispielantwort |
+| --- | --- | --- |
+| `400` | Bad Request - Fehlende oder ungültige Parameter | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | Unauthorized - Ungültiger oder fehlender API-Schlüssel | `{"errors": ["Shop not found"]}` |
+| `403` | Forbidden - Tarif erlaubt keinen API-Zugriff | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | Not Found - Produkt, Variante oder Standort nicht gefunden | `{"errors": ["Record not found"]}` |
+| `422` | Unprocessable Entity - Validierungsfehler | `{"errors": ["Quantity must be greater than 0"]}` |
