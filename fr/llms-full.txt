@@ -1250,8 +1250,9 @@ L'[application Product Expiration Dates](https://apps.shopify.com/expiration-dat
 
 Pour les produits alimentaires, la DLC indique la date au-delà de laquelle un produit ne doit plus être consommé, tandis que la DDM indique la date jusqu'à laquelle le produit conserve ses qualités spécifiques dans des conditions de conservation appropriées.
 
-Les informations relatives aux dates de péremption peuvent être affichées aux clients de différentes manières. L'application prend en charge plusieurs méthodes de gestion des stocks, notamment FEFO (premier expiré, premier sorti), PEPS (premier entré, premier sorti) et des méthodes personnalisées.
+Les informations relatives aux dates de péremption peuvent être affichées aux clients de différentes manières. L'application prend en charge plusieurs méthodes de gestion des stocks, notamment le premier expiré, premier sorti (FEFO), le premier entré, premier sorti (FIFO) et des méthodes personnalisées.
 
+- [Sélectionner votre méthode de gestion de l'inventaire](https://help.screenstaring.com/fr/docs/product-expiration-dates/selecting-inventory-management-method)
 - [Ajouter les données de péremption aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data)
 - [Importer des données de péremption en masse](https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import)
 - [Modifier les formats de date et d'heure](https://help.screenstaring.com/fr/docs/product-expiration-dates/date-format)
@@ -1275,6 +1276,51 @@ Les informations relatives aux dates de péremption peuvent être affichées aux
 
 ---
 
+## Sélectionner votre méthode de gestion de l'inventaire
+
+Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/selecting-inventory-management-method
+
+La méthode de gestion de l'inventaire détermine la façon dont les lots d'inventaire sont attribués aux commandes. Vous pouvez sélectionner votre méthode de gestion de l'inventaire dans le champ « Méthode de gestion de l'inventaire » de l'onglet Inventaire de la page des paramètres.
+
+Par défaut, l'application utilise la méthode Premier expiré, premier sorti (FEFO), mais plusieurs méthodes sont prises en charge.
+
+## Premier expiré, premier sorti (FEFO)
+
+Les articles dont les dates d'expiration ou de péremption sont les plus proches sont traités en priorité pour la vente ou l'utilisation, quelle que soit leur date de réception.
+
+Idéal pour : Les denrées périssables, les produits pharmaceutiques, les produits alimentaires et tout stock soumis à des contraintes de péremption strictes où la durée de conservation constitue le risque principal.
+
+### Exemple
+
+- Lot A : Reçu le 2026-01-10, Expire le 2026-12-15
+- Lot B : Reçu le 2026-02-05, Expire le 2026-05-20
+- Lot C : Reçu le 2026-03-01, Expire le 2027-07-10
+
+Selon la méthode FEFO, le Lot B (expire le 2026-05-20) est sélectionné en premier car il présente la date d'expiration la plus proche.
+
+## Premier entré, premier sorti (FIFO)
+
+Le stock le plus ancien (reçu en premier) est vendu ou utilisé en premier. Cela repose sur le principe que les articles reçus plus tôt doivent quitter l'entrepôt avant le stock plus récent.
+
+Idéal pour : Les produits non périssables, les marchandises présentant un risque d'obsolescence progressive et les opérations où le maintien d'un flux chronologique simplifie le suivi et réduit le risque de vieillissement des stocks.
+
+### Exemple
+
+- Lot A : Reçu le 2026-01-10, Expire le 2026-06-15
+- Lot B : Reçu le 2026-02-05, Expire le 2028-05-20
+- Lot C : Reçu le 2026-03-01, Expire le 2027-07-10
+
+Selon la méthode FIFO, le Lot A (reçu le 2026-01-10) est sélectionné en premier car il présente la date de réception la plus ancienne.
+
+## Personnalisée
+
+Une méthode de gestion de l'inventaire personnalisée applique vos règles métier pour déterminer comment les lots d'inventaire sont attribués aux commandes.
+Elle peut combiner FIFO et FEFO, ou reposer sur une logique totalement différente.
+
+Pour utiliser une méthode personnalisée, [contactez l'assistance](https://screenstaring.com/#contact).
+
+---
+
 ## Ajouter les données de péremption aux produits
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data/
@@ -1292,15 +1338,15 @@ Vous pouvez regarder une vidéo de présentation [ici](https://youtu.be/vjLB_v1O
 Les lots de stock constituent le principal ensemble de données de péremption. Les informations renseignées sont attribuées aux commandes, utilisées pour envoyer des notifications relatives aux dates de péremption et déterminer à quel moment le prix d'un produit doit être réduit.
 Vous pouvez également [afficher les informations relatives aux lots de stock sur votre site](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages) afin d'indiquer aux clients la date de péremption et/ou la durée de conservation après ouverture recommandée des produits.
 
-Avant de créer des lots, assurez-vous de [sélectionner votre méthode de gestion des stocks](https://help.screenstaring.com/fr/docs/product-expiration-dates/selecting-inventory-management-method)
+Avant de créer des lots, assurez-vous de [sélectionner votre méthode de gestion de l'inventaire](https://help.screenstaring.com/fr/docs/product-expiration-dates/selecting-inventory-management-method)
 
-Lorsque vous créez des lots de stock, vous devez d'abord déterminer à quel moment leurs données doivent être attribuées aux commandes : au moment où la commande est passée ou lorsque les articles de la commande sont traités. Pour cela, consultez l'option « Assign inventory batches when » ci-dessous.
+Lorsque vous créez des lots de stock, vous devez d'abord déterminer à quel moment leurs données doivent être attribuées aux commandes : au moment où la commande est passée ou lorsque les articles de la commande sont traités. Pour cela, consultez l'option « Affecter les lots d'inventaire lorsque » ci-dessous.
 
-Sur la page d'ajout d'un produit (*Add Product*), l'onglet *Inventory Batches* vous permet de saisir la plupart des données de péremption. Les options disponibles dépendent de votre abonnement. Les champs les plus couramment utilisés sont les suivants.
+Sur la page d'ajout d'un produit, l'onglet Lots d'inventaire vous permet de saisir la plupart des données de péremption. Les options disponibles dépendent de votre abonnement. Les champs les plus couramment utilisés sont les suivants.
 
 ### Quand attribuer les lots de stock
 
-Le champ « Assign inventory batches when » détermine à quel moment un lot de stock est attribué à une commande : lorsque la commande est passée ou lorsqu'un article de la commande est traité. Par défaut, l'attribution se fait au moment où la commande est passée. Par exemple, si vous utilisez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), le lot dont la date de péremption est la plus proche sera attribué aux nouvelles commandes. Pour configurer l'emplacement choisi lors de cette attribution, consultez la documentation [Associer les emplacements des lots de stock aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
+Le champ « Affecter les lots d'inventaire lorsque » détermine à quel moment un lot de stock est attribué à une commande : lorsque la commande est passée (« La commande est passée ») ou lorsqu'un article de la commande est traité (« L'article de ligne est traité »). Par défaut, l'attribution se fait au moment où la commande est passée. Par exemple, si vous utilisez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), le lot dont la date de péremption est la plus proche sera attribué aux nouvelles commandes. Pour configurer l'emplacement choisi lors de cette attribution, consultez la documentation [Associer les emplacements des lots de stock aux commandes](https://help.screenstaring.com/fr/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Expires, Batch, Quantity et Location
 
@@ -1318,9 +1364,9 @@ Par exemple, le produit A dispose d'un stock de 10 unités dans Shopify, à l'em
 
 ### Numéros de facture, numéros de lot, dates de réception, dates de fabrication, notes, etc.
 
-Des données supplémentaires peuvent être associées à chaque lot de stock. Vous pouvez renseigner des valeurs pour ces champs en activant leur affichage dans l'onglet *Batches*, en cliquant sur l'icône d'engrenage :
+Des données supplémentaires peuvent être associées à chaque lot de stock. Vous pouvez renseigner des valeurs pour ces champs en activant leur affichage dans l'onglet Lots, en cliquant sur l'icône d'engrenage :
 
-Sélectionnez le ou les champs souhaités, puis cliquez sur le bouton Save.
+Sélectionnez le ou les champs souhaités, puis cliquez sur le bouton Enregistrer.
 
 ### Quantité disponible et quantité en stock
 
@@ -1332,13 +1378,13 @@ Consultez la documentation [Associer les emplacements des lots de stock aux comm
 
 ### Que se passe-t-il ensuite ?
 
-Supposons que vous utilisiez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), que vous ayez saisi les données des lots de stock d'un produit et sélectionné « Order is placed » dans l'option « Assign inventory batches when ».
+Supposons que vous utilisiez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), que vous ayez saisi les données des lots de stock d'un produit et sélectionné « La commande est passée » dans l'option « Affecter les lots d'inventaire lorsque ».
 
 Lorsqu'une commande est passée pour ce produit, l'application attribue le lot dont la date de péremption est la plus proche parmi ceux associés à l'emplacement attribué à la commande, pour les commandes passées en magasin. Si aucun emplacement n'est attribué à la commande, l'application sélectionne le lot dont la date de péremption est la plus proche parmi les lots renseignés.
 
 Lorsqu'un article d'une commande est remis en stock, remboursé ou fait l'objet d'une autre opération entraînant la libération de son lot, le lot concerné est de nouveau disponible pour être attribué à une commande ultérieure.
 
-Vous pouvez consulter le lot de stock attribué à une commande sur la page Orders de l'application.
+Vous pouvez consulter le lot de stock attribué à une commande sur la page Commandes de l'application.
 
 Vous pouvez également [afficher les informations de péremption sur votre site](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages) ou [les ajouter à vos notifications et à vos bordereaux d'expédition](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip).
 
@@ -1352,12 +1398,12 @@ Par exemple, un lot de stock peut avoir une date de péremption au 1er juillet 2
 
 ***Les réductions sur les produits sont disponibles à partir du forfait Premium.***
 
-Nous vous recommandons d'utiliser les [ensembles de règles (*Rulesets*)](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) pour configurer les réductions sur les produits.
-Cette fonctionnalité vous permet de créer des réductions progressives en plusieurs étapes, contrairement aux anciennes réductions (« old style ») configurées dans les paramètres ou dans l'onglet *Discounts*.
+Nous vous recommandons d'utiliser les [ensembles de règles](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) pour configurer les réductions sur les produits.
+Cette fonctionnalité vous permet de créer des réductions progressives en plusieurs étapes, contrairement aux anciennes réductions configurées dans les paramètres ou dans l'onglet « Remises ».
 
-Vous pouvez également définir des réductions propres à chaque produit dans l'onglet *Discounts*. Lorsqu'un lot de stock approche de sa date de péremption, le prix du produit est réduit du pourcentage indiqué.
+Vous pouvez également définir des réductions propres à chaque produit dans l'onglet « Remises ». Lorsqu'un lot de stock approche de sa date de péremption, le prix du produit est réduit du pourcentage indiqué.
 
-Vous pouvez définir les valeurs par défaut de ces champs sur la page *Discount Settings*, dans la section Product Defaults. Lorsque vous ajoutez de nouveaux produits à l'application, les valeurs définies dans cette section sont automatiquement utilisées pour remplir les champs de l'onglet *Discounts*.
+Vous pouvez définir les valeurs par défaut de ces champs sur la page des paramètres de remise, dans la section Valeurs par défaut du produit. Lorsque vous ajoutez de nouveaux produits à l'application, les valeurs définies dans cette section sont automatiquement utilisées pour remplir les champs de l'onglet « Remises ».
 
 Pour configurer des réductions globales applicables à tous les produits, consultez la documentation [Proposer des réductions sur les produits proches de leur date de péremption](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts).
 
@@ -1367,19 +1413,19 @@ Pour configurer des réductions globales applicables à tous les produits, consu
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data/batch-unit-cost
 
-Le champ « Cost per item » de Shopify ne stocke qu'un seul coût par variante. Le mettre à jour peut effacer la distinction entre des livraisons achetées à des prix différents.
+Le champ « Coût par article » (« Cost per item ») de Shopify ne stocke qu'un seul coût par variante. Le mettre à jour peut effacer la distinction entre des livraisons achetées à des prix différents.
 L'application Product Expiration Dates permet de saisir un coût par lot, ce qui permet aux utilisateurs de suivre précisément l'historique des coûts des livraisons.
 
-Vous pouvez renseigner une valeur pour chaque livraison via le champ « Batch unit cost » :
+Vous pouvez renseigner une valeur pour chaque livraison via le champ « Coût unitaire du lot » :
 
 1. Accédez à la page des lots de stock
-1. Dans l'onglet *Batches*, cliquez sur l'icône d'engrenage :
+1. Dans l'onglet Lots, cliquez sur l'icône d'engrenage :
 
 1. Un menu présentant des champs supplémentaires s'affiche
-1. Sélectionnez « Batch unit cost »
-1. Cliquez sur Save
+1. Sélectionnez « Coût unitaire du lot »
+1. Cliquez sur Enregistrer
 
-Le champ « Batch unit cost » s'affiche désormais chaque fois que vous ajoutez des lots.
+Le champ « Coût unitaire du lot » s'affiche désormais chaque fois que vous ajoutez des lots.
 
 Vous pouvez également afficher le coût unitaire des lots sur la page d'accueil des lots de stock en suivant les mêmes étapes.
 
@@ -1398,7 +1444,7 @@ Pour téléverser un document :
 
 1. Accédez à la page des lots de stock dans l'application
 1. Trouvez le produit dont vous souhaitez téléverser des documents vers les lots
-1. Dans l'onglet *Batches*, trouvez le lot cible
+1. Dans l'onglet Lots, trouvez le lot cible
 1. Cliquez sur « Afficher » > « Documents »
 1. Sélectionnez « Choisir un fichier » et choisissez les documents à téléverser
 
@@ -1408,7 +1454,7 @@ Les documents sélectionnés sont désormais associés au lot.
 
 Pour afficher les documents associés aux lots attribués à une ligne de commande :
 
-1. Accédez à la page Orders dans l'application
+1. Accédez à la page Commandes dans l'application
 1. Trouvez la commande dont vous souhaitez afficher les documents téléversés
 1. Cliquez sur la commande et trouvez la ligne de commande souhaitée
 1. Cliquez sur « Actions » > « Afficher les documents »
@@ -1420,11 +1466,11 @@ Pour afficher les documents associés aux lots attribués à une ligne de comman
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/batch-import
 
-Vous pouvez importer plusieurs dates de péremption et les quantités correspondantes à l'aide de notre fichier CSV d'importation des lots de stock. Un modèle est disponible [ici](https://help.screenstaring.com/fr/product-expiration-dates/images/product-expiration-dates-import-template.csv).
+Vous pouvez importer en masse des dates de péremption, des numéros de lot et des quantités de stock à l'aide d'une feuille de calcul CSV. Un modèle est disponible [ici](https://help.screenstaring.com/fr/product-expiration-dates/images/product-expiration-dates-import-template.csv).
 
 Les colonnes « SKU », « Expiration Date », « Quantity » et « Location Name » sont obligatoires. **Les dates de péremption doivent être au format `YYYY-MM-DD` (année-mois-jour).**
 
-Pour utiliser le code-barres à la place du SKU, sélectionnez l'option « Identify rows by Barcode » sur la page d'importation des lots de stock.
+Pour utiliser le code-barres à la place du SKU, sélectionnez l'option « Code-barres » pour « Identifier les lignes par » sur la page d'import par lots.
 
 Pour en savoir plus sur la colonne « Allocate Quantities to Orders When », consultez la documentation [Ajouter les données de péremption aux produits](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data).
 
@@ -1438,7 +1484,7 @@ Une fois le fichier prêt, importez-le depuis la page d'importation.
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/date-format
 
-Le format des dates affichées dans l'application dépend de votre paramètre régional. Vous pouvez modifier ce paramètre dans l'onglet General de la page des paramètres.
+Le format des dates affichées dans l'application dépend de votre paramètre régional. Vous pouvez modifier ce paramètre dans l'onglet Général de la page des paramètres.
 
 Par défaut, l'application utilise le paramètre régional fourni par Shopify. La modification de ce paramètre ne change pas les dates de péremption enregistrées pour les lots de stock. Elle modifie uniquement le format dans lequel ces dates sont affichées.
 
@@ -1450,7 +1496,7 @@ Vous pouvez configurer le format des dates affichées sur votre boutique en lign
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/removing-expiring-batches
 
-La suppression des lots d'inventaire selon leur date d'expiration peut se faire en sélectionnant "Remove expiring inventory from Shopify" dans l'onglet Inventory de la page des paramètres ou dans le cadre d'un [Ruleset](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) avec une action Remove Inventor Batch.
+La suppression des lots d'inventaire selon leur date d'expiration peut se faire en sélectionnant « Supprimer de Shopify l'inventaire arrivant à expiration » dans l'onglet Inventaire de la page des paramètres ou dans le cadre d'un [ensemble de règles](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets) avec une action Supprimer le lot d'inventaire.
 
 ---
 
@@ -1462,22 +1508,22 @@ Les notifications par e-mail peuvent être configurées pour être envoyées ava
 
 ## Activer
 
-1.  Dans les paramètres de l'application, allez dans email notifications
-2.  Dans le champ "Send notifications", saisissez l'adresse e-mail où vous souhaitez recevoir les notifications. Plusieurs adresses e-mail peuvent être séparées par une virgule.
-3.  Dans le champ "How many days before a product expires would you like to be notified?", saisissez le nombre de jours avant l'expiration d'un produit pour lequel vous souhaitez être notifié.
+1.  Dans les paramètres de l'application, allez dans l'onglet Notifications par e-mail
+2.  Dans le champ « Envoyer les notifications à », saisissez l'adresse e-mail où vous souhaitez recevoir les notifications. Plusieurs adresses e-mail peuvent être séparées par une virgule.
+3.  Dans le champ « Combien de jours avant l'expiration d'un produit souhaitez-vous être notifié ? », saisissez le nombre de jours avant l'expiration d'un produit pour lequel vous souhaitez être notifié.
  Par exemple, si un produit a une date d'expiration au 15 janvier et que 10 est saisi, vous recevrez une notification pour ce produit à partir du 5 janvier.
-4.  Cliquez sur le bouton Update pour enregistrer
+4.  Cliquez sur le bouton Mettre à jour pour enregistrer
 
 Les notifications sont envoyées une fois par jour. Si aucun produit ne se trouve dans votre fenêtre d'expiration, aucune notification ne sera envoyée.
 
-Si vous préférez recevoir des notifications en fonction de la collection ou du type de produit d'un produit, vous pouvez omettre de saisir une valeur dans "How many days before a product expires would you like to be notified or for the product to be discounted?" et plutôt ajouter les jours à la collection ou au type de produit donné dans la section "By Collection" ou "By Product Type". Ces champs n'afficheront de valeurs que pour les produits qui ont été saisis dans l'application.
+Si vous préférez recevoir des notifications en fonction de la collection ou du type de produit d'un produit, vous pouvez omettre de saisir une valeur dans « Combien de jours avant l'expiration d'un produit souhaitez-vous être notifié ? » et plutôt ajouter les jours à la collection ou au type de produit donné dans la section « Par collection » ou « Par type de produit ». Ces champs n'afficheront de valeurs que pour les produits qui ont été saisis dans l'application.
 
 ## Désactiver
 
-1.  Dans les paramètres de l'application, allez dans email notifications
-2.  Dans le champ "How many days before a product expires would you like to be notified?", supprimez la valeur.
+1.  Dans les paramètres de l'application, allez dans l'onglet Notifications par e-mail
+2.  Dans le champ « Combien de jours avant l'expiration d'un produit souhaitez-vous être notifié ? », supprimez la valeur.
 3.  Si vous avez des notifications de collection ou de type de produit, vous devez les supprimer en appuyant sur le bouton X rouge à côté des paramètres de la notification
-4.  Cliquez sur le bouton Update pour enregistrer
+4.  Cliquez sur le bouton Mettre à jour pour enregistrer
 
 Les notifications ne seront plus envoyées.
 
@@ -1487,54 +1533,52 @@ Les notifications ne seront plus envoyées.
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages
 
-Il est possible d'accéder aux données d'expiration de votre site et/ou de les afficher. Cela comprend les dates d'expiration, leurs quantités et les données de délai d'utilisation. La façon la plus simple d'afficher ces informations est d'utiliser notre intégration avec [l'éditeur de thème Shopify](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor), qui permet d'ajouter les données d'expiration [sous forme de section ou de bloc](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
+Il est possible d'accéder aux données d'expiration de votre site et/ou de les afficher. Cela comprend les dates d'expiration, leurs quantités et les données de délai d'utilisation. La façon la plus simple d'afficher ces informations est d'utiliser notre intégration avec [l'éditeur de thèmes Shopify](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor), qui permet d'ajouter les données d'expiration [sous forme de section ou de bloc](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks).
 
-1.   shopify.themes()}>Allez dans vos thèmes dans l'admin Shopify
-2.  Trouvez le thème que vous souhaitez mettre à jour et cliquez sur "Edit theme"
-3.  Dans l'éditeur de thème, sélectionnez le modèle auquel vous souhaitez ajouter les données d'expiration :
+1.  Ouvrez votre thème dans l'éditeur de thèmes
+1.  Dans l'éditeur de thèmes, sélectionnez le modèle auquel vous souhaitez ajouter les données d'expiration :
 
-4.  Sélectionnez l'emplacement souhaité dans le modèle. Cela peut se faire en plaçant le curseur sur la zone d'insertion souhaitée :
+1.  Sélectionnez l'emplacement souhaité dans le modèle. Cela peut se faire en plaçant le curseur sur la zone d'insertion souhaitée :
 
-5.  Cliquez sur le bouton d'ajout de bloc et sélectionnez Expiration Data dans la section Apps :
+1.  Cliquez sur le bouton d'ajout de bloc et sélectionnez « Expiration Data » dans la section Applications :
 
-6.  Cela ajoutera un bloc Expiration Data au modèle sélectionné :
+1.  Cela ajoutera un bloc « Expiration Data » au modèle sélectionné :
 
-7.  Cliquez sur le bloc Expiration Data pour accéder à des options de configuration supplémentaires. Pour les produits avec plusieurs variantes, les données d'expiration de la variante sélectionnée seront affichées. Plusieurs blocs peuvent être ajoutés pour répondre à différents cas d'usage. Par exemple, vous pouvez ajouter 1 bloc pour afficher les dates d'expiration, et un autre pour afficher les données de délai d'utilisation.
-8.  Cliquez sur Save
+1.  Cliquez sur le bloc « Expiration Data » pour accéder à des options de configuration supplémentaires. Pour les produits avec plusieurs variantes, les données d'expiration de la variante sélectionnée seront affichées. Plusieurs blocs peuvent être ajoutés pour répondre à différents cas d'usage. Par exemple, vous pouvez ajouter 1 bloc pour afficher les dates d'expiration, et un autre pour afficher les données de délai d'utilisation.
+1.  Cliquez sur Enregistrer
 
-## Ajouter notre snippet à votre thème
+## Ajouter notre extrait de code à votre thème
 
-**L'ajout des données d'expiration doit se faire via [notre intégration de thème Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages). Ajouter le snippet explicitement n'est nécessaire que dans des cas particuliers.**
+**L'ajout des données d'expiration doit se faire via [notre intégration de thème Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages). Ajouter l'extrait de code explicitement n'est nécessaire que dans des cas particuliers.**
 
-1.   shopify.toString()}>Allez dans l'admin Shopify
+1.   shopify.toString()}>Accédez à l'interface administrateur Shopify
 2.  [Ouvrez l'éditeur de code de votre thème](https://shopify.dev/docs/storefronts/themes/tools/code-editor#accessing-the-code-editor)
 3.  [Ajoutez un nouveau fichier de thème](https://shopify.dev/docs/storefronts/themes/tools/code-editor#adding-theme-files)
-    -   Cliquez sur le répertoire "snippets"
-    -   Cliquez sur "Add new snippet"
+    -   Cliquez sur le dossier « snippets »
+    -   Cliquez sur « Add new snippet » (« Ajouter un extrait »)
     -   Comme nom de fichier, utilisez `ss-product-expiration-dates`
-    -   Cliquez sur "Done"
+    -   Cliquez sur « Done » (« Terminé »)
 4.  Cela ouvrira un nouvel onglet vide dans l'éditeur nommé `snippets/ss-product-expiration-dates.liquid`
 5.  Copiez le code de [notre snippet Liquid](https://help.screenstaring.com/fr/product-expiration-dates/images/ss-product-expiration-dates.txt) et collez-le dans l'onglet
-6.  Cliquez sur Save
+6.  Cliquez sur Enregistrer
 
 ## Afficher les données d'expiration
 
-Une fois que vous avez [ajouté notre snippet à votre thème](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet), l'étape suivante consiste à le rendre à l'endroit où vous voulez que les données d'expiration soient affichées. Cela peut se faire depuis l'admin Shopify, via la page de personnalisation du thème.
+Une fois que vous avez [ajouté notre extrait de code à votre thème](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages#adding-liquid-snippet), l'étape suivante consiste à le rendre à l'endroit où vous voulez que les données d'expiration soient affichées. Cela peut se faire depuis l'interface administrateur Shopify, via l'éditeur de thèmes.
 
-1.   shopify.themes()}>Allez dans vos thèmes dans l'admin Shopify
-2.  Trouvez le thème que vous souhaitez mettre à jour et cliquez sur "Edit theme"
-3.  Dans l'éditeur de thème, sélectionnez "Products" puis "Default product" (ou le modèle souhaité)
-4.  Dans la section Template, cliquez sur "Add block"
-5.  Sélectionnez "Custom liquid" ou, s'il n'est pas disponible, "HTML" (notez que le bloc "HTML" doit prendre en charge Liquid)
+1.  Ouvrez votre thème dans l'éditeur de thèmes
+1.  Dans l'éditeur de thèmes, sélectionnez « Produits » (« Products ») puis « Produit par défaut » (« Default product », ou le modèle souhaité)
+1.  Dans la section Modèle, cliquez sur « Ajouter un bloc » (« Add block »)
+1.  Sélectionnez « Liquid personnalisé » (« Custom liquid ») ou, s'il n'est pas disponible, « HTML » (notez que le bloc « HTML » doit prendre en charge Liquid)
 
--   Si votre thème n'a ni l'option "Custom liquid" ni l'option "HTML", vous devez rendre le snippet dans votre thème manuellement
+-   Si votre thème n'a ni l'option « Custom liquid » ni l'option « HTML », vous devez insérer l'extrait dans votre thème manuellement
 -   Cela peut se faire via [l'éditeur de code du thème](https://shopify.dev/docs/themes/tools/code-editor)
--   Si vous avez besoin d'aide, veuillez [contacter le support](https://screenstaring.com/#contact)
+-   Si vous avez besoin d'aide, veuillez [contacter l'assistance](https://screenstaring.com/#contact)
 
-7.  Une fois sélectionné, vous pouvez déplacer le bloc Custom Liquid à l'endroit où vous voulez que les données d'expiration soient affichées
-8.  Cliquez sur le bloc Custom Liquid que vous venez d'ajouter
-9.  Dans le champ "Custom liquid" (ou similaire), collez le code de rendu souhaité, voir Expiration Data Display Options pour des exemples
-10.  Cliquez sur Save
+1.  Une fois sélectionné, vous pouvez déplacer le bloc Liquid personnalisé à l'endroit où vous voulez que les données d'expiration soient affichées
+1.  Cliquez sur le bloc Liquid personnalisé que vous venez d'ajouter
+1.  Dans le champ « Liquid personnalisé » (« Custom liquid » ou similaire), collez le code de rendu souhaité (voir les options d'affichage des données d'expiration pour des exemples)
+1.  Cliquez sur Enregistrer
 
 ## Afficher les dates d'expiration selon la langue/région de l'utilisateur
 
@@ -1548,13 +1592,12 @@ Vous pouvez utiliser le code suivant pour vérifier la langue et/ou la région s
 
 ```liquid
 {% assign locale = request.locale.iso_code %}
-{% assign lang = locale | split: "-" | first %}
-{% if lang == "es" %}
+{% if locale == "es" %}
   {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
-{% elsif lang == "de" %}
+{% elsif locale == "de" %}
   {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
 {% else %}
-  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
+  {% render "ss-product-expiration-dates", product: product %}
 {% endif %}
 ```
 
@@ -1564,15 +1607,10 @@ Si vous voulez afficher du texte en fonction de la langue **et** du pays de l'ut
 
 ```liquid
 {% assign locale = request.locale.iso_code %}
-{% assign lang = locale | split: "-" | first %}
 {% if locale == "es-ES" %}
- {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
-{% elsif lang == "es" %}
+  {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%Y/%m/%d" %}
+{% elsif locale contains "es-" %}
   {% render "ss-product-expiration-dates", product: product, prefix: "Consúmase antes de:", format: "%d/%m/%Y" %}
-{% elsif lang == "de" %}
-  {% render "ss-product-expiration-dates", product: product, prefix: "Mindestens haltbar bis:", format: "%d.%m.%Y" %}
-{% else %}
-  {% render "ss-product-expiration-dates", product: product, prefix: "Best by:", format: "%B %d, %Y" %}
 {% endif %}
 ```
 
@@ -1582,81 +1620,81 @@ Si vous voulez afficher du texte en fonction de la langue **et** du pays de l'ut
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts
 
-Les produits peuvent être réduits lorsqu'ils contiennent un lot d'inventaire dans une fenêtre d'expiration. Il y a deux façons de configurer les réductions : 1) [la méthode héritée](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#legacy-discounts) 2) [les règles](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets). Les règles sont la méthode privilégiée et permettent de configurer des réductions à plusieurs phases. Par exemple, réduire un produit de 10 % 100 jours avant l'expiration, puis le réduire de 30 % 5 jours avant l'expiration.
+Les produits peuvent être réduits lorsqu'ils contiennent un lot d'inventaire dans une fenêtre d'expiration. Il y a deux façons de configurer les réductions : 1) [la méthode héritée](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#legacy-discounts) 2) [les ensembles de règles](https://help.screenstaring.com/fr/docs/product-expiration-dates/discounts#rulesets). Les ensembles de règles sont la méthode privilégiée et permettent de configurer des réductions à plusieurs phases. Par exemple, réduire un produit de 10 % 100 jours avant l'expiration, puis le réduire de 30 % 5 jours avant l'expiration.
 
 Voir la documentation ci-dessous pour chaque type.
 
-## Règles d'automatisation des stocks
+## Ensembles de règles
 
-***Les règles ne sont disponibles qu'avec le forfait Platinum***
+***Les ensembles de règles ne sont disponibles qu'avec le forfait Platinum***
 
-Les règles permettent de définir un ensemble de critères à appliquer à un produit, et d'exécuter des actions lorsque les critères correspondent. Elles ne servent pas uniquement aux réductions : elles peuvent aussi être utilisées pour ajouter ou retirer des étiquettes, modifier le titre d'un produit, et plus encore ! Regardons un exemple. Disons que vous voulez réduire un produit selon les critères suivants :
+Les ensembles de règles permettent de définir un ensemble de critères à appliquer à un produit, et d'exécuter des actions lorsque les critères correspondent. Les ensembles de règles ne servent pas uniquement aux réductions : ils peuvent aussi être utilisés pour ajouter ou retirer des balises, modifier le titre d'un produit, et plus encore ! Regardons un exemple. Disons que vous voulez réduire un produit selon les critères suivants :
 
 -   100 jours avant l'expiration : réduire de 10 %
 -   14 jours avant l'expiration : réduire de 30 %
 -   Le jour de l'expiration : réduire de 50 %
 -   5 jours après l'expiration : supprimer les lots expirés
 
-Cela peut être réalisé en créant une seule règle avec 4 règles. Chaque règle contiendra les critères souhaités (100 jours avant, 14 jours avant, etc...) et les actions (réduire de 10 %, réduire de 30 % etc...). Lorsque les critères d'une règle correspondent, les actions qui lui sont associées seront exécutées.
+Cela peut être réalisé en créant un seul ensemble de règles avec 4 règles. Chaque règle contiendra les critères souhaités (100 jours avant, 14 jours avant, etc.) et les actions (réduire de 10 %, réduire de 30 %, etc.). Lorsque les critères d'une règle correspondent, les actions qui lui sont associées seront exécutées.
 
-**Note :** les pourcentages de réduction sont basés sur le prix du produit au moment où la réduction est appliquée. Si vous voulez les baser sur le prix d'origine, avant réduction, vous devez ajouter une action "Remove Discount" à côté de l'action "Add Discount" à chaque phase.
+**Note :** les pourcentages de réduction sont basés sur le prix du produit au moment où la réduction est appliquée. Si vous voulez les baser sur le prix d'origine, avant réduction, vous devez ajouter une action « Supprimer la remise » à côté de l'action « Ajouter une remise » à chaque phase.
 
 ### 100 jours avant l'expiration : réduire de 10 %
 
-1.  Allez sur la page des règles
-2.  Cliquez sur "Add ruleset"
-3.  Depuis la page New Inventory Ruleset, vous pouvez donner un nom à la règle
-4.  Cliquez sur Save
-5.  Cela vous amènera sur la page de la nouvelle règle où les règles de réduction peuvent être ajoutées
-6.  Cliquez sur "Add rule"
-7.  Dans le champ Criteria, sélectionnez "Before an Inventory Batch Expires"
-8.  Dans le champ "Days before expiration", saisissez 100
-9.  Ci-dessous, dans la section Actions, sélectionnez "Add Discount"
-10.  Dans le champ "Discount percentage", saisissez 10. Pour définir le prix de comparaison sur Shopify au prix d'avant la réduction, cochez "Use regular price as compare at price"
-11.  Cliquez sur Save
-12.  Maintenant elle ne contient qu'une seule règle, nous devons en ajouter 3 de plus
+1.  Allez sur la page des ensembles de règles
+2.  Cliquez sur « Ajouter un ensemble de règles »
+3.  Depuis la page Nouvel ensemble de règles d'inventaire, vous pouvez donner un titre à l'ensemble de règles
+4.  Cliquez sur Enregistrer
+5.  Cela vous mènera à la page du nouvel ensemble de règles où les règles de réduction peuvent être ajoutées
+6.  Cliquez sur « Ajouter une règle »
+7.  Dans le champ Critères, sélectionnez « Avant l'expiration d'un lot d'inventaire »
+8.  Dans le champ « Jours avant l'expiration », saisissez 100
+9.  Ci-dessous, dans la section Actions, sélectionnez « Ajouter une remise »
+10.  Dans le champ « Pourcentage de remise », saisissez 10. Pour définir le prix de comparaison sur Shopify au prix d'avant la réduction, cochez « Utiliser le prix normal comme prix de comparaison »
+11.  Cliquez sur Enregistrer
+12.  Maintenant l'ensemble de règles ne contient qu'une seule règle, nous devons en ajouter 3 de plus
 
 ### 14 jours avant l'expiration : réduire de 30 %
 
-1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
-2.  Dans le champ Criteria, sélectionnez "Before an Inventory Batch Expires"
-3.  Dans le champ "Days before expiration", saisissez 14
-4.  Dans la section Actions, sélectionnez "Add Discount"
-5.  Dans le champ "Discount percentage", saisissez 30
-6.  Cliquez sur Save
-7.  Maintenant elle contient 2 règles, nous devons en ajouter 2 de plus
+1.  Depuis la page Modifier l'ensemble de règles, cliquez sur « Ajouter une règle »
+2.  Dans le champ Critères, sélectionnez « Avant l'expiration d'un lot d'inventaire »
+3.  Dans le champ « Jours avant l'expiration », saisissez 14
+4.  Dans la section Actions, sélectionnez « Ajouter une remise »
+5.  Dans le champ « Pourcentage de remise », saisissez 30
+6.  Cliquez sur Enregistrer
+7.  Maintenant l'ensemble de règles contient 2 règles, nous devons en ajouter 2 de plus
 
 ### Le jour de l'expiration : réduire de 50 %
 
-1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
-2.  Dans le champ Criteria, sélectionnez "After an Inventory Batch Expires"
-3.  Dans le champ "Days after expiration", saisissez 0. Cela définit les critères au jour où le produit expire
-4.  Dans la section Actions, sélectionnez "Add Discount"
-5.  Dans le champ "Discount percentage", saisissez 50
-6.  Cliquez sur Save
-7.  Elle contient 3 règles, encore 1 !
+1.  Depuis la page Modifier l'ensemble de règles, cliquez sur « Ajouter une règle »
+2.  Dans le champ Critères, sélectionnez « Après l'expiration d'un lot d'inventaire »
+3.  Dans le champ « Jours après l'expiration », saisissez 0. Cela définit les critères au jour où le produit expire
+4.  Dans la section Actions, sélectionnez « Ajouter une remise »
+5.  Dans le champ « Pourcentage de remise », saisissez 50
+6.  Cliquez sur Enregistrer
+7.  L'ensemble de règles contient 3 règles, encore 1 !
 
 ### 5 jours après l'expiration : supprimer les lots expirés
 
-1.  Depuis la page Edit Ruleset, cliquez sur "Add rule"
-2.  Dans le champ Criteria, sélectionnez "After an Inventory Batch Expires"
-3.  Dans le champ "Days after expiration", saisissez 5. Cela définit les critères au jour où le produit expire
-4.  Dans la section Actions, sélectionnez "Remove Inventory Batch"
-5.  Cliquez sur Save
+1.  Depuis la page Modifier l'ensemble de règles, cliquez sur « Ajouter une règle »
+2.  Dans le champ Critères, sélectionnez « Après l'expiration d'un lot d'inventaire »
+3.  Dans le champ « Jours après l'expiration », saisissez 5. Cela définit les critères à 5 jours après l'expiration du produit
+4.  Dans la section Actions, sélectionnez « Supprimer le lot d'inventaire »
+5.  Cliquez sur Enregistrer
 
-La règle obtenue devrait ressembler à ceci :
+L'ensemble de règles obtenu devrait ressembler à ceci :
 
-Cette règle s'appliquera à tous les produits de votre boutique. Vous pouvez la limiter à des produits ou des variantes spécifiques en sélectionnant le critère "With Matching Product" lors de la création d'une règle. Si les quantités du lot arrivant à expiration sont vendues, la règle sera annulée et le produit/la variante restauré au prix au moment où la règle 1 a correspondu.
+Cet ensemble de règles s'appliquera à tous les produits de votre boutique. Vous pouvez le limiter à des produits ou des variantes spécifiques en sélectionnant le critère « Avec un produit correspondant » lors de la création d'une règle. Si les quantités du lot arrivant à expiration sont vendues, l'ensemble de règles sera annulé et le produit/la variante restauré au prix au moment où la règle 1 a correspondu.
 
-À moins que l'option "Apply retroactively" ne soit sélectionnée (voir ci-dessous), **les règles doivent correspondre dans l'ordre où elles sont définies.** Par exemple, la règle 3 ne correspondra pas tant que les règles 1 et 2 n'auront pas correspondu.
+À moins que l'option « Appliquer rétroactivement » ne soit sélectionnée (voir ci-dessous), **les règles d'un ensemble de règles doivent correspondre dans l'ordre où elles sont définies.** Par exemple, la règle 3 ne correspondra pas tant que les règles 1 et 2 n'auront pas correspondu.
 
 ## Correspondance rétroactive
 
-Normalement, une règle ne peut commencer à s'appliquer à un lot d'inventaire qu'en faisant correspondre sa première règle. Si un lot a déjà dépassé le moment de cette règle —par exemple si la règle a été créée après l'ajout du lot— elle ne s'y appliquera jamais.
+Normalement, un ensemble de règles ne peut commencer à s'appliquer à un lot d'inventaire qu'en faisant correspondre sa première règle. Si un lot a déjà dépassé le moment de cette règle — par exemple si l'ensemble de règles a été créé après l'ajout du lot — l'ensemble de règles ne s'y appliquera jamais.
 
-La sélection de l'option "Apply retroactively" permet à un lot de rejoindre les règles à celle qui correspond à sa date actuelle, et applique les actions de toutes les règles précédentes en même temps. Avec les règles de l'exemple ci-dessus, un produit à 10 jours de l'expiration verra les règles 1 et 2 et leurs actions associées appliquées en une seule passe. Un lot expiré depuis 2 jours verra les règles 1, 2 et 3 appliquées, même si les règles 1 et 2 ne correspondent plus d'elles-mêmes.
+La sélection de l'option « Appliquer rétroactivement » permet à un lot de rejoindre l'ensemble de règles à la règle qui correspond à sa date actuelle, et applique les actions de toutes les règles précédentes en même temps. Avec l'ensemble de règles de l'exemple ci-dessus, un produit à 10 jours de l'expiration verra les règles 1 et 2 et leurs actions associées appliquées en une seule passe. Un lot expiré depuis 2 jours verra les règles 1, 2 et 3 appliquées, même si les règles 1 et 2 ne correspondent plus d'elles-mêmes.
 
-Après ces correspondances initiales, les règles seront appliquées normalement, c'est-à-dire comme elles le seraient si "Apply retroactively" n'était pas sélectionné.
+Après ces correspondances initiales, les règles seront appliquées normalement, c'est-à-dire comme elles le seraient si « Appliquer rétroactivement » n'était pas sélectionné.
 
 ## Méthode de réduction héritée
 
@@ -1664,54 +1702,54 @@ Après ces correspondances initiales, les règles seront appliquées normalement
 
 Les réductions héritées peuvent être configurées par collection d'un produit, par type de produit, ou sur le produit lui-même. Lorsqu'une réduction est active, elle durera jusqu'à ce que toutes les quantités arrivant à expiration soient vendues ou jusqu'à ce que les dates d'expiration applicables soient modifiées de sorte qu'elles ne soient plus dans la fenêtre de réduction configurée.
 
-**Par défaut, la réduction sera appliquée à toutes les quantités disponibles.** Par exemple, si vous avez 10 produits et que seulement 3 arrivent à expiration, offrir une réduction permettra quand même à l'utilisateur d'acheter les **10** au prix réduit. Cela est dû au fonctionnement des prix des produits chez Shopify. Si vous souhaitez offrir une réduction uniquement pour la quantité arrivant à expiration, il existe plusieurs options. Veuillez [contacter le support](https://screenstaring.com/#contact) pour discuter des options et déterminer ce qui conviendra le mieux à votre boutique.
+**Par défaut, la réduction sera appliquée à toutes les quantités disponibles.** Par exemple, si vous avez 10 produits et que seulement 3 arrivent à expiration, offrir une réduction permettra quand même à l'utilisateur d'acheter les **10** au prix réduit. Cela est dû au fonctionnement des prix des produits chez Shopify. Si vous souhaitez offrir une réduction uniquement pour la quantité arrivant à expiration, il existe plusieurs options. Veuillez [contacter l'assistance](https://screenstaring.com/#contact) pour discuter des options et déterminer ce qui conviendra le mieux à votre boutique.
 
 L'affichage de la réduction ou du prix restauré sur votre site peut prendre plusieurs minutes.
 
 ## Activer par produit
 
 1.  Pour le produit que vous voulez réduire, [saisissez ses dates d'expiration](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) dans l'application
-2.  Sur la page du produit dans l'application, cliquez sur l'onglet "Discounts"
-3.  Dans l'onglet "Discounts", cochez "Offer a discount when an inventory batch is within its expiration window"
-4.  Dans le champ "Discount percentage", saisissez le pourcentage de réduction à appliquer au prix normal du produit.
+2.  Sur la page du produit dans l'application, cliquez sur l'onglet « Remises »
+3.  Dans l'onglet « Remises », cochez « Proposer une remise lorsqu'un lot d'inventaire entre dans sa fenêtre d'expiration »
+4.  Dans le champ « Pourcentage de remise », saisissez le pourcentage de réduction à appliquer au prix normal du produit.
  Par exemple, si un produit a un prix de 50 et que 10 est saisi, le produit sera vendu au prix de 45 lorsque la réduction est active.
-5.  Dans le champ "Discount days before expiration", saisissez le nombre de jours avant l'expiration d'un produit à partir duquel vous voulez activer la réduction.
+5.  Dans le champ « Jours de remise avant l'expiration », saisissez le nombre de jours avant l'expiration d'un produit à partir duquel vous voulez activer la réduction.
  Par exemple, si un produit a une date d'expiration au 15 janvier et que 10 est saisi, le produit sera réduit à partir du 5 janvier.
-6.  Cliquez sur le bouton Save
+6.  Cliquez sur le bouton Enregistrer
 
 ## Activer par collection
 
 1.  Pour le produit que vous voulez réduire, [saisissez ses dates d'expiration](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) dans l'application
-2.  Sur la page du produit dans l'application, cliquez sur l'onglet "Discounts"
-3.  Dans l'onglet "Discounts", cochez "Offer a discount when an inventory batch is within its expiration window"
-4.  Dans le champ "Discount percentage", saisissez le pourcentage de réduction à appliquer au prix normal du produit.
+2.  Sur la page du produit dans l'application, cliquez sur l'onglet « Remises »
+3.  Dans l'onglet « Remises », cochez « Proposer une remise lorsqu'un lot d'inventaire entre dans sa fenêtre d'expiration »
+4.  Dans le champ « Pourcentage de remise », saisissez le pourcentage de réduction à appliquer au prix normal du produit.
  Par exemple, si un produit a un prix de 50 et que 10 est saisi, le produit sera vendu au prix de 45 lorsque la réduction est active.
-5.  Ne saisissez pas de valeur dans le champ "Discount days before expiration". Elle sera saisie dans une étape ultérieure lors de la configuration de la collection
-6.  Cliquez sur le bouton Save
-7.  Dans les paramètres de l'application, allez dans discounts
-8.  Allez dans la section "By Collection"
-9.  Dans le champ "Title", sélectionnez la collection pour laquelle vous voulez configurer la réduction
-10.  Dans le champ "Days before expiration", saisissez le nombre de jours avant l'expiration des produits de la collection. Cela déterminera quand activer la réduction.
+5.  Ne saisissez pas de valeur dans le champ « Jours de remise avant l'expiration ». Elle sera saisie dans une étape ultérieure lors de la configuration de la collection
+6.  Cliquez sur le bouton Enregistrer
+7.  Dans les paramètres de l'application, allez dans l'onglet Remises
+8.  Allez dans la section « Par collection »
+9.  Dans le champ « Titre », sélectionnez la collection pour laquelle vous voulez configurer la réduction
+10.  Dans le champ « Jours avant l'expiration », saisissez le nombre de jours avant l'expiration des produits de la collection. Cela déterminera quand activer la réduction.
  Par exemple, si un produit a une date d'expiration au 15 janvier et que 10 est saisi, le produit sera réduit à partir du 5 janvier.
-11.  Pour ajouter une autre collection, cliquez sur le lien "Add more"
-12.  Cliquez sur le bouton Update
+11.  Pour ajouter une autre collection, cliquez sur le lien « En ajouter »
+12.  Cliquez sur le bouton Mettre à jour
 
 ## Activer par type de produit
 
 1.  Pour le produit que vous voulez réduire, [saisissez ses dates d'expiration](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) dans l'application
-2.  Sur la page du produit dans l'application, cliquez sur l'onglet "Discounts"
-3.  Dans l'onglet "Discounts", cochez "Offer a discount when an inventory batch is within its expiration window"
-4.  Dans le champ "Discount percentage", saisissez le pourcentage de réduction à appliquer au prix normal du produit.
+2.  Sur la page du produit dans l'application, cliquez sur l'onglet « Remises »
+3.  Dans l'onglet « Remises », cochez « Proposer une remise lorsqu'un lot d'inventaire entre dans sa fenêtre d'expiration »
+4.  Dans le champ « Pourcentage de remise », saisissez le pourcentage de réduction à appliquer au prix normal du produit.
  Par exemple, si un produit a un prix de 50 et que 10 est saisi, le produit sera vendu au prix de 45 lorsque la réduction est active.
-5.  Ne saisissez pas de valeur dans le champ "Discount days before expiration". Elle sera saisie dans une étape ultérieure lors de la configuration du type de produit
-6.  Cliquez sur le bouton Save
-7.  Dans les paramètres de l'application, allez dans discounts
-8.  Allez dans la section "By Product Type"
-9.  Dans le champ "Title", sélectionnez le type de produit pour lequel vous voulez configurer la réduction. Seuls les types de produit des produits qui ont été saisis dans l'application sont affichés.
-10.  Dans le champ "Days before expiration", saisissez le nombre de jours avant l'expiration des produits ayant ce type de produit. Cela déterminera quand activer la réduction.
+5.  Ne saisissez pas de valeur dans le champ « Jours de remise avant l'expiration ». Elle sera saisie dans une étape ultérieure lors de la configuration du type de produit
+6.  Cliquez sur le bouton Enregistrer
+7.  Dans les paramètres de l'application, allez dans l'onglet Remises
+8.  Allez dans la section « Par type de produit »
+9.  Dans le champ « Titre », sélectionnez le type de produit pour lequel vous voulez configurer la réduction. Seuls les types de produit des produits qui ont été saisis dans l'application sont affichés.
+10.  Dans le champ « Jours avant l'expiration », saisissez le nombre de jours avant l'expiration des produits ayant ce type de produit. Cela déterminera quand activer la réduction.
  Par exemple, si un produit a une date d'expiration au 15 janvier et que 10 est saisi, le produit sera réduit à partir du 5 janvier.
-11.  Pour ajouter un autre type de produit, cliquez sur le lien "Add more"
-12.  Cliquez sur le bouton Update
+11.  Pour ajouter un autre type de produit, cliquez sur le lien « En ajouter »
+12.  Cliquez sur le bouton Mettre à jour
 
 ---
 
@@ -1719,9 +1757,9 @@ L'affichage de la réduction ou du prix restauré sur votre site peut prendre pl
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/localizing-dates
 
-Le format de la date d'expiration peut être modifié pour correspondre au pays sélectionné par l'utilisateur. Cela dépend des formats de date définis dans [l'éditeur de contenu du thème](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/language/change-wording#overview-of-the-language-editor) de l'admin Shopify.
+Le format de la date d'expiration peut être modifié pour correspondre au pays sélectionné par l'utilisateur. Cela dépend des formats de date définis dans [l'éditeur de contenu du thème](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/language/change-wording#overview-of-the-language-editor) de l'interface administrateur Shopify.
 
-Si vous utilisez [notre intégration de thème Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages), cela peut se faire en sélectionnant "Custom" dans le champ "Date format" et en saisissant un nom de format de date compatible avec les paramètres régionaux de Shopify. Par exemple, si le format que vous souhaitez utiliser se nomme `abbreviated_date`, vous configureriez ce qui suit :
+Si vous utilisez [notre intégration de thème Shopify](https://help.screenstaring.com/fr/docs/product-expiration-dates/shopify-pages), cela peut se faire en sélectionnant « Custom » dans le champ « Date format » et en saisissant un nom de format de date compatible avec les paramètres régionaux de Shopify. Par exemple, si le format que vous souhaitez utiliser se nomme `abbreviated_date`, vous configureriez ce qui suit :
 
 Shopify limite la liste des noms de format de date utilisables aux suivants :
 
@@ -1746,19 +1784,19 @@ L'application Product Expiration Dates vous permet de configurer le moment où l
 
 Par défaut, le lot d'inventaire d'un produit qui expire le plus tôt, tous emplacements confondus, est attribué à la ligne de commande (stratégie de gestion FEFO : premier expiré, premier sorti). Si la commande entrante a un emplacement attribué (généralement les [commandes Shopify Point of Sale (POS)](https://help.screenstaring.com/fr/docs/product-expiration-dates/pos-integration)), cet emplacement sera utilisé.
 
-Vous pouvez changer votre stratégie de gestion des stocks pour PEPS (premier entré, premier sorti) dans l'onglet Inventory de la page des paramètres.
+Vous pouvez changer votre méthode de gestion de l'inventaire pour le premier entré, premier sorti (FIFO) dans l'onglet Inventaire de la page des paramètres.
 
 ## Règles de routage des commandes Shopify
 
 ***La prise en charge des règles de routage des commandes Shopify n'est disponible qu'avec le forfait Pro***
 
-Pour attribuer un lot d'inventaire provenant d'un emplacement déterminé par les règles de routage des commandes Shopify, sélectionnez "Assign inventory batches based on Shopify Order Routing" dans l'onglet Inventory de la page des paramètres. Le routage des commandes Shopify peut être configuré dans  shopify.toString() + '/settings/shipping/order_routing'}>l'admin Shopify.
+Pour attribuer un lot d'inventaire provenant d'un emplacement déterminé par les règles de routage des commandes Shopify, sélectionnez « Affecter les lots d'inventaire en fonction du routage des commandes Shopify » dans l'onglet Inventaire de la page des paramètres. Le routage des commandes Shopify peut être configuré dans  shopify.toString() + '/settings/shipping/order_routing'}>l'interface administrateur Shopify.
 
 ## Attribuer les lots d'inventaire d'un emplacement spécifique
 
-**Ne définissez pas ceci si vous utilisez des [emplacements de traitement priorisés](https://help.shopify.com/en/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
+**Ne définissez pas ceci si vous utilisez des [emplacements de traitement priorisés](https://help.shopify.com/fr/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority).**
 
-Si vous utilisez "order placed" pour le paramètre ["Assign inventory batches when"](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) d'un produit et que vous avez plusieurs emplacements dans Shopify **mais que vous ne traitez les commandes qu'à partir d'un seul**, vous devez définir le champ "Assign inventory batches from this location" pour qu'il corresponde à votre emplacement par défaut dans Shopify. Lorsque ceci est défini et qu'une commande est passée sans emplacement, l'application Product Expiration Dates n'attribuera que la date d'expiration la plus proche provenant de cet emplacement. Si ce n'est pas défini, l'application attribuera la date d'expiration la plus proche parmi tous les emplacements.
+Si vous utilisez « La commande est passée » pour le paramètre [« Affecter les lots d'inventaire lorsque »](https://help.screenstaring.com/fr/docs/product-expiration-dates/adding-expiration-data) d'un produit et que vous avez plusieurs emplacements dans Shopify **mais que vous ne traitez les commandes qu'à partir d'un seul**, vous devez définir le champ « Affecter les lots d'inventaire depuis cet emplacement » pour qu'il corresponde à votre emplacement par défaut dans Shopify. Lorsque ce champ est défini et qu'une commande est passée sans emplacement, l'application Product Expiration Dates n'attribuera que la date d'expiration la plus proche provenant de cet emplacement. Si ce champ n'est pas défini, l'application attribuera la date d'expiration la plus proche parmi tous les emplacements.
 
 Notez que Shopify ne partage pas l'emplacement par défaut d'une boutique avec les applications tierces, il doit donc être défini explicitement.
 
@@ -1770,13 +1808,13 @@ Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/inventor
 
 ***La prise en charge des transferts de stock n'est disponible qu'avec les forfaits Premium et Platinum***
 
-Pour activer la prise en charge des [transferts de stock Shopify](https://help.shopify.com/en/manual/products/inventory/inventory-transfers) :
+Pour activer la prise en charge des [transferts de stock Shopify](https://help.shopify.com/fr/manual/products/inventory/inventory-transfers) :
 
--   Allez dans l'onglet Inventory de la page des paramètres
--   Cochez "Move inventory batches when Shopify inventory transfers occur"
--   Cliquez sur "Update"
+-   Allez dans l'onglet Inventaire de la page des paramètres
+-   Cochez « Déplacer les lots d'inventaire lors des transferts d'inventaire Shopify »
+-   Cliquez sur « Mettre à jour »
 
-Maintenant, lorsqu'un transfert de stock se produit dans Shopify, les lots d'inventaire correspondant à la quantité transférée seront déplacés de l'emplacement source du transfert vers son emplacement de destination. Les quantités sont déplacées en commençant par le lot d'inventaire qui expire le plus tôt. Si vous avez besoin d'un algorithme différent, contactez le support.
+Maintenant, lorsqu'un transfert de stock se produit dans Shopify, les lots d'inventaire correspondant à la quantité transférée seront déplacés de l'emplacement source du transfert vers son emplacement de destination. Les quantités sont déplacées en commençant par le lot d'inventaire qui expire le plus tôt. Si vous avez besoin d'un algorithme différent, contactez l'assistance.
 
 ---
 
@@ -1803,15 +1841,15 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 
 1.  Assurez-vous d'être abonné au forfait Pro ou supérieur
 2.  Visitez la page des paramètres
-3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez "Set bundle quantity based on component availability"
-5.  Cliquez sur le bouton Update pour enregistrer vos paramètres
+3.  Sélectionnez « Pousser vers Shopify les modifications de quantités de lots effectuées dans l'application »
+4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez « Définir la quantité des ensembles en fonction de la disponibilité des composants »
+5.  Cliquez sur le bouton Mettre à jour pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
 
-## Quantités disponibles et en main
+## Quantités disponibles et en stock
 
-Par défaut, Inventory Push définit la quantité disponible dans Shopify. Si vous êtes abonné au forfait Premium, vous pouvez le configurer pour définir plutôt les quantités en main. Cela peut se faire dans l'onglet Inventory de la page des paramètres en sélectionnant "Set on hand quantity instead of available quantity".
+Par défaut, Inventory Push définit la quantité disponible dans Shopify. Si vous êtes abonné au forfait Premium, vous pouvez le configurer pour définir plutôt les quantités en stock. Cela peut se faire dans l'onglet Inventaire de la page des paramètres en sélectionnant « Définir la quantité en stock au lieu de la quantité disponible ».
 
 ## Attribution des lots d'inventaire
 
@@ -1825,7 +1863,7 @@ Lorsque inventory push est activé pour un produit avec des variantes, toute var
 
 ## Emplacements
 
-Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans "Unconfigured locations to ignore" dans l'onglet Inventory de la page des paramètres. Cette option n'est affichée que lorsque inventory push est activé.
+Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans « Emplacements non configurés à ignorer » dans l'onglet Inventaire de la page des paramètres. Cette option n'est affichée que lorsque inventory push est activé.
 
 ## Packs
 
@@ -1875,7 +1913,7 @@ Cela vous permet d'ajouter les dates d'expiration et les numéros de lot à :
 -   [Application Multi-Label Barcodes](https://apps.shopify.com/multi-label-barcodes)
 -   Et plus encore !
 
-Pour commencer, vous devez activer les notes de commande depuis la page des paramètres en sélectionnant "Create an order 'additional details' entry for 3rd-party app integration". Une fois activé, générez un extrait de code ci-dessous pour votre intégration.
+Pour commencer, vous devez activer les notes de commande dans l'onglet Commandes de la page des paramètres en sélectionnant « Créer une entrée « détails supplémentaires » de la commande pour l'intégration d'applications tierces ». Une fois l'option activée, générez un extrait de code ci-dessous pour votre intégration.
 
 ## Extrait de code
 
@@ -1975,25 +2013,25 @@ S'il y a plusieurs attributions pour une ligne de commande, chaque attribution s
 
 ---
 
-## Intégration avec Shopify Point of Sale (POS)
+## Intégration de Shopify PDV (Point de vente)
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/pos-integration
 
-***L'intégration avec Shopify POS n'est disponible qu'avec le forfait Platinum***
+***L'intégration de Shopify PDV n'est disponible qu'avec le forfait Platinum***
 
-Notre intégration avec Shopify POS permet d'attribuer des lots d'inventaire aux commandes depuis Shopify POS. Pour l'installer, ajoutez l'application Product Expiration Dates comme tuile sur l'écran d'accueil du POS :
+Notre intégration avec Shopify PDV permet d'attribuer des lots d'inventaire aux commandes directement depuis Shopify PDV. Pour l'installer, ajoutez l'application Product Expiration Dates comme vignette sur l'écran d'accueil du PDV :
 
-1.  Depuis l'écran d'accueil du POS, touchez "Add tile" et sélectionnez "App" :
+1.  Depuis l'écran d'accueil du PDV, appuyez sur « Add tile » (« Ajouter une vignette ») et sélectionnez « App » (« Application ») :
 
-2.  Dans la liste des applications, sélectionnez "SS: Product Expiration Dates" :
+2.  Dans la liste des applications, sélectionnez « SS: Product Expiration Dates » :
 
-3.  À côté de "Assign expiration data to products", cliquez sur "Add" :
+3.  À côté de « Assign expiration data to products », cliquez sur « Add » (« Ajouter ») :
 
-4.  Cela affichera la tuile "SS: Product Expiration Dates" sur la page d'accueil :
+4.  Cela affichera la vignette « SS: Product Expiration Dates » sur la page d'accueil :
 
-5.  Touchez "Save"
+5.  Appuyez sur « Save » (« Enregistrer »)
 
-Maintenant, lorsque des articles sont dans le panier, vous pouvez toucher la tuile "SS: Product Expiration Dates" et attribuer des lots d'inventaire. Les lots affichés seront ceux de l'emplacement du POS.
+Maintenant, lorsque des articles sont dans le panier, vous pouvez appuyer sur la vignette « SS: Product Expiration Dates » et attribuer des lots d'inventaire. Les lots affichés seront ceux de l'emplacement du PDV.
 
 ---
 
@@ -2001,7 +2039,7 @@ Maintenant, lorsque des articles sont dans le panier, vous pouvez toucher la tui
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/barcode-scanner
 
-Améliorez l'efficacité de la réception d'inventaire et de l'attribution des lots d'inventaire en scannant le code-barres d'un produit plutôt qu'en devant le rechercher en saisissant son nom, son SKU ou son code-barres.
+Améliorez l'efficacité de la réception des stocks et de l'attribution des lots d'inventaire en scannant le code-barres d'un produit au lieu de devoir le rechercher en saisissant son nom, son SKU ou son code-barres.
 Pour commencer, installez [l'application Barcode Scanner](https://apps.shopify.com/barcode-scanner-1?utm_source=screenstaring-documention&utm_medium=web&utm_campaign=app-link).
 L'application Barcode Scanner doit être utilisée depuis [l'application Shopify Mobile](https://www.shopify.com/mobile).
 
@@ -2011,29 +2049,29 @@ L'application Barcode Scanner doit être utilisée depuis [l'application Shopify
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/viewing-order-expiry-dates-and-batch-numbers
 
-Il existe plusieurs façons de consulter les numéros de lot et les dates d'expiration attribués à une commande depuis [la page de la commande dans l'admin Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order).
+Il existe plusieurs façons de consulter les numéros de lot et les dates d'expiration attribués à une commande depuis [la page de la commande dans l'interface administrateur Shopify](https://help.shopify.com/fr/manual/orders/manage-orders#view-an-order).
 
-## Bloc de l'admin
+## Bloc de l'administrateur
 
 Pour ajouter le bloc Expiration Dates à la page des commandes :
 
-1.  Ouvrez votre commande dans [l'admin Shopify](https://help.shopify.com/en/manual/orders/manage-orders#view-an-order)
-2.  Sur la page de la commande, faites défiler vers le bas et sélectionnez "Add block"
+1.  Ouvrez votre commande dans [l'interface administrateur Shopify](https://help.shopify.com/fr/manual/orders/manage-orders#view-an-order)
+2.  Sur la page de la commande, faites défiler vers le bas et sélectionnez « Ajouter un bloc » (« Add block »)
 
-3.  Sélectionnez "Expiration Dates" dans le menu qui s'affiche
+3.  Sélectionnez « Expiration Dates » dans le menu qui s'affiche
 4.  Cela affichera les dates d'expiration attribuées aux lignes de la commande, s'il y en a. Notez que seules les commandes **après** le 11 septembre 2026 auront leurs dates affichées :
 
 5.  Pour que le bloc apparaisse toujours sur la page de la commande, cliquez sur l'icône d'épingle :
 
-## Section Additional Details
+## Section Détails supplémentaires (« Additional Details »)
 
-Les numéros de lot peuvent être ajoutés à la page des commandes dans la section Additional Details :
+Les numéros de lot peuvent être ajoutés à la page des commandes dans la section Détails supplémentaires :
 
-1.  Dans les paramètres de l'application, allez dans l'onglet Orders
-1.  Sélectionnez "Create an order "additional details" entry with an order's inventory batches"
-1.  Cliquez sur le bouton Update pour enregistrer
+1.  Dans les paramètres de l'application, allez dans l'onglet Commandes
+1.  Sélectionnez « Créer une entrée « détails supplémentaires » de commande avec les lots d'inventaire d'une commande »
+1.  Cliquez sur le bouton Mettre à jour pour enregistrer
 
-Les lots d'inventaire des nouvelles commandes seront maintenant ajoutés à la section Additional Details de la commande dans l'admin Shopify :
+Les lots d'inventaire des nouvelles commandes seront maintenant ajoutés à la section Détails supplémentaires (« Additional Details ») de la commande dans l'interface administrateur Shopify :
 
 Les informations suivantes sont incluses :
 
@@ -2045,9 +2083,9 @@ Les informations suivantes sont incluses :
 
 Pour ouvrir la page d'une commande dans l'application :
 
-1.  Ouvrez votre commande dans l'admin Shopify
-2.  Sur la page de la commande, sélectionnez "More actions"
-3.  Sélectionnez "Expiration Dates"
+1.  Ouvrez votre commande dans l'interface administrateur Shopify
+2.  Sur la page de la commande, sélectionnez « Autres actions » (« More actions »)
+3.  Sélectionnez « Expiration Dates »
 
 ---
 
@@ -2074,7 +2112,7 @@ Si un produit est supprimé dans Shopify mais qu'il a des commandes auxquelles d
 
 ## Partager l'inventaire entre plusieurs boutiques
 
-Le partage de l'inventaire entre boutiques repose sur des SKU ou des codes-barres uniques pour l'attribution des lots d'inventaire. Si des doublons existent dans l'application, vous pouvez désactiver le produit non désiré pour éviter qu'il soit traité. Cela peut se faire en cliquant sur le bouton Disable sur la page du produit dans l'application.
+Le partage de l'inventaire entre boutiques repose sur des SKU ou des codes-barres uniques pour l'attribution des lots d'inventaire. Si des doublons existent dans l'application, vous pouvez désactiver le produit non désiré pour éviter qu'il soit traité. Cela peut se faire en cliquant sur le bouton Désactiver sur la page du produit dans l'application.
 
 ---
 
@@ -2084,9 +2122,9 @@ Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/expirati
 
 Voir aussi : ***[Notifications, impression de commandes et bordereaux d'expédition](https://help.screenstaring.com/fr/docs/product-expiration-dates/notifications-and-packing-slip)***
 
-L'application Product Expiration Dates ajoute des métachamps aux variante(s) d'un produit sous l'espace de noms `expiration_dates`. Si le produit n'a pas de variantes, la variante par défaut est utilisée.
+L'application Product Expiration Dates ajoute des métachamps aux variantes d'un produit sous l'espace de noms `expiration_dates`. Si le produit n'a pas de variantes, la variante par défaut est utilisée.
 
-**N'ajoutez pas de définitions de métachamps dans l'admin Shopify en utilisant l'espace de noms `expiration_dates` avec l'une des clés ci-dessous.** Cela n'est pas nécessaire et empêche l'application de fonctionner correctement. Les métachamps définis par l'application sont en lecture seule et ne peuvent pas être définis via l'admin Shopify.
+**N'ajoutez pas de définitions de métachamps dans l'interface administrateur Shopify en utilisant l'espace de noms `expiration_dates` avec l'une des clés ci-dessous.** Cela n'est pas nécessaire et empêche l'application de fonctionner correctement. Les métachamps définis par l'application sont en lecture seule et ne peuvent pas être définis via l'interface administrateur Shopify.
 
 Si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps (et ne prennent pas en charge les métachamps JSON), voir la clé `soonest_expiring`.
 
@@ -2106,7 +2144,7 @@ Les métachamps suivants sont disponibles :
 | `bundled_inventory` | Un tableau des produits qui composent le pack ainsi que leurs données d'expiration/numéros de lot. Défini uniquement si le produit est un pack. |
 | `bundled_inventory[N].title` | Le titre du produit regroupé |
 | `bundled_inventory[N].allocations` | Un tableau des dates d'expiration et des quantités attribuées à la variante. Reportez-vous à la documentation de `allocations[N]`. |
-| `soonest_expiring` | Représentation sous forme de chaîne du lot d'inventaire qui expire le plus tôt. Utile si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps. Le format de date peut être défini sur la page des paramètres.
+| `soonest_expiring` | Représentation sous forme de chaîne du lot d'inventaire qui expire le plus tôt. Utile si vous devez exporter les dates d'expiration vers des applications externes qui ne prennent en charge que l'intégration par métachamps. Le format de date peut être défini dans l'onglet Inventaire de la page des paramètres.
  ***Disponible uniquement avec le forfait Premium*** |
 
 ---
@@ -2115,7 +2153,7 @@ Les métachamps suivants sont disponibles :
 
 Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/expiration-data-orders
 
-Les données d'expiration attribuées aux commandes peuvent être mises à la disposition de systèmes externes sous forme de propriété de commande. Une propriété de commande est utilisée parce que Shopify ne prend pas en charge les métachamps pour les lignes de commande. Pour activer cette propriété, cochez "Create an order attribute for an order's inventory batches" dans l'onglet Orders de la page des paramètres.
+Les données d'expiration attribuées aux commandes peuvent être mises à la disposition de systèmes externes sous forme de propriété de commande. Une propriété de commande est utilisée parce que Shopify ne prend pas en charge les métachamps pour les lignes de commande. Pour activer cette propriété, cochez « Créer une entrée « détails supplémentaires » de commande avec les lots d'inventaire d'une commande » dans l'onglet Commandes de la page des paramètres.
 
 Les commandes passées avant l'activation de cette option ne contiendront pas la propriété.
 
@@ -2156,7 +2194,7 @@ Source: https://help.screenstaring.com/fr/docs/product-expiration-dates/api-inte
 
 L'application Product Expiration Dates fournit une API qui permet de gérer les lots d'inventaire par programmation.
 
-Les requêtes API sont authentifiées à l'aide de la clé API de votre boutique. Vous trouverez votre clé API dans l'onglet General de la page des paramètres. Incluez votre clé API dans l'en-tête `X-API-Key` de chaque requête.
+Les requêtes API sont authentifiées à l'aide de la clé API de votre boutique. Vous trouverez votre clé API dans l'onglet Général de la page des paramètres. Incluez votre clé API dans l'en-tête `X-API-Key` de chaque requête.
 
 Les requêtes vous demandent de préciser un identifiant de produit ou de variante. Cela peut être : `sku`, `barcode`, `variant_id` ou l'ID de l'application Product Expiration Dates.
 
@@ -2238,7 +2276,7 @@ Crée ou met à jour un lot d'inventaire. Les mises à jour sont basées sur le 
 -   `location_id` - L'ID de l'application Product Expiration Dates (obligatoire si `external_location_id` n'est pas fourni)
 -   `inventory_batch_assignment_event` - Quand attribuer les lots d'inventaire aux commandes. Valide uniquement lors de la création d'un produit. Soit `"order_placed"`, soit `"order_item_fulfilled"`. Si vous utilisez [Inventory Push](https://help.screenstaring.com/fr/docs/product-expiration-dates/inventory-push), ce sera toujours `"order_placed"`.
 -   `invoice_number` - Numéro de facture (facultatif)
--   `lot_number` - Numéro de lot (facultatif)
+-   `lot_number` - Numéro de lot fabricant (facultatif)
 -   `manufactured_at` - Date de fabrication, **doit être au format YYYY-MM-DD** (facultatif)
 -   `received_at` - Date de réception, **doit être au format YYYY-MM-DD** (facultatif)
 -   `comments` - Notes libres (facultatif)
@@ -2295,7 +2333,7 @@ Met à jour un lot d'inventaire existant
 -   `location_id` - L'ID d'emplacement de l'application Product Expiration Dates (facultatif)
 -   `batch_number` - Numéro de lot (facultatif)
 -   `invoice_number` - Numéro de facture (facultatif)
--   `lot_number` - Numéro de lot (facultatif)
+-   `lot_number` - Numéro de lot fabricant (facultatif)
 -   `manufactured_at` - Date de fabrication, **doit être au format YYYY-MM-DD** (facultatif)
 -   `received_at` - Date de réception, **doit être au format YYYY-MM-DD** (facultatif)
 -   `comments` - Notes libres (facultatif)

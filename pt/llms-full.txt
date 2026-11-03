@@ -1285,6 +1285,51 @@ As informações de validade podem ser apresentadas aos consumidores de diversas
 
 ---
 
+## Selecionando seu Método de Gerenciamento de Estoque
+
+Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/selecting-inventory-management-method
+
+O método de gerenciamento de estoque determina como os lotes de estoque são atribuídos aos pedidos. Você pode selecionar seu método de gerenciamento de estoque no campo "Inventory management method" na aba Inventory da página de configurações.
+
+Por padrão, o aplicativo usa First Expired, First Out (FEFO), mas oferece suporte a vários métodos.
+
+## First Expired, First Out (FEFO)
+
+Itens com as datas de validade ou de consumo mais próximas são priorizados para venda ou uso, independentemente de quando foram recebidos.
+
+Ideal para: produtos perecíveis, produtos farmacêuticos, alimentos e qualquer estoque com restrições rigorosas de validade em que o prazo de validade é o risco principal.
+
+### Exemplo
+
+- Lote A: Recebido em 2026-01-10, Vence em 2026-12-15
+- Lote B: Recebido em 2026-02-05, Vence em 2026-05-20
+- Lote C: Recebido em 2026-03-01, Vence em 2027-07-10
+
+No FEFO, o Lote B (vence em 2026-05-20) é selecionado primeiro por ter a data de validade mais próxima.
+
+## First In, First Out (FIFO)
+
+O estoque mais antigo (recebido primeiro) é vendido ou usado primeiro. Isso pressupõe que os itens recebidos anteriormente devem sair do armazém antes do estoque mais recente.
+
+Ideal para: produtos não perecíveis, produtos com risco gradual de obsolescência e operações em que manter o fluxo cronológico simplifica o rastreamento e reduz a chance de envelhecimento do estoque.
+
+### Exemplo
+
+- Lote A: Recebido em 2026-01-10, Vence em 2026-06-15
+- Lote B: Recebido em 2026-02-05, Vence em 2028-05-20
+- Lote C: Recebido em 2026-03-01, Vence em 2027-07-10
+
+No FIFO, o Lote A (recebido em 2026-01-10) é selecionado primeiro por ter a data de recebimento mais antiga.
+
+## Custom
+
+Um método personalizado de gerenciamento de estoque usa as regras do seu negócio para determinar como os lotes de estoque são atribuídos aos pedidos.
+Ele pode usar uma combinação de FIFO, FEFO ou algo totalmente diferente.
+
+Para usar um método personalizado, [contate o suporte](https://screenstaring.com/#contact).
+
+---
+
 ## Adicionando Dados de Validade aos Produtos
 
 Source: https://help.screenstaring.com/pt/docs/product-expiration-dates/adding-expiration-data/

@@ -1289,10 +1289,10 @@ Best for: Perishable goods, pharmaceuticals, food products, and any inventory wi
 ### Example
 
 - Batch A: Received 2026-01-10, Expires 2026-12-15
-- Batch B: Received 2026-02-05, Expires 2028-05-20
+- Batch B: Received 2026-02-05, Expires 2026-05-20
 - Batch C: Received 2026-03-01, Expires 2027-07-10
 
-Under FEFO, Batch B (expires 2028-05-20) is selected first because it has the earliest expiration date.
+Under FEFO, Batch B (expires 2026-05-20) is selected first because it has the earliest expiration date.
 
 ## First In, First Out (FIFO)
 

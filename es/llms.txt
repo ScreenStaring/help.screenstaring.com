@@ -39,6 +39,7 @@
 ## Product Expiration Dates
 
 - [Guía del usuario de Product Expiration Dates](https://help.screenstaring.com/es/docs/product-expiration-dates/): Cómo usar la aplicación Product Expiration Dates para Shopify.
+- [Seleccionar tu método de gestión de inventario](https://help.screenstaring.com/es/docs/product-expiration-dates/selecting-inventory-management-method): Elige cómo Product Expiration Dates asigna los lotes de inventario a los pedidos: FEFO, FIFO o un método personalizado de gestión de inventario.
 - [Agregar datos de vencimiento a los productos](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data/): Agrega datos de vencimiento a tus productos de Shopify: lotes, fechas de vencimiento, cantidades, números de lote, ubicaciones y descuentos.
 - [Seguimiento del costo unitario de un lote](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data/batch-unit-cost): Seguimiento del costo unitario de un lote: ingresa un costo por lote de inventario para evitar problemas con el único campo de costo por artículo de Shopify
 - [Subir documentos a un lote](https://help.screenstaring.com/es/docs/product-expiration-dates/adding-expiration-data/uploading-documents-to-a-batch): Cómo subir documentos a un lote de inventario: vincula certificados de análisis (COAs), certificaciones orgánicas, datos de vida útil y hojas de seguridad/normativas a un lote de inventario subiendo PDF, imágenes y otros archivos
