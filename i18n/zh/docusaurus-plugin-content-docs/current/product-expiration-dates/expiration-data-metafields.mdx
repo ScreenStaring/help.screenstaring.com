@@ -1,0 +1,34 @@
+---
+description: 在 expiration_dates 命名空间下添加的到期日元字段参考指南，涵盖批次分配、开封后使用期限数值、捆绑产品及最早到期批次。
+sidebar_position: 18
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 到期数据元字段
+
+另请参阅：***[通知、订单打印与装箱单](/docs/product-expiration-dates/notifications-and-packing-slip)***
+
+Product Expiration Dates 应用会在 `expiration_dates` 命名空间下为产品的多属性添加元字段。如果产品没有多属性，则使用默认多属性。
+
+**请勿在 Shopify 后台中使用 `expiration_dates` 命名空间及下列任何键添加元字段定义。** 这样做毫无必要，反而会导致应用无法正常工作。应用设置的元字段均为只读状态，无法通过 Shopify 后台直接修改。
+
+如果您需要将到期日导出到仅支持元字段集成（且不支持 JSON 元字段）的外部应用，请参阅 `soonest_expiring` 键。
+
+系统提供以下元字段：
+
+| 键 | 说明 |
+| --- | --- |
+| `allocations` | 分配给该多属性的到期日和数量数组。数组按到期日从早到晚升序排列，因此 `allocations[0]` 将返回最早到期批次的数据。 |
+| `allocations[N].time` | 到期日。格式为：`YYYY-MM-DDT00:00`。例如：`2025-01-22T00:00`。目前时间部分始终为 `00:00`。该数值可以使用 [Liquid `date` 过滤器](https://shopify.dev/api/liquid/filters#date) 进行格式化。 |
+| `allocations[N].quantity` | 剩余库存数量。 |
+| `allocations[N].batch_number` | 分配的批次号。 |
+| `allocations[N].location_id` | 分配的地点的 Shopify ID。 |
+| `use_within` | 包含开封后使用期限信息的对象。 |
+| `use_within.use_within_value` | 开封后使用期限数据的数值部分。例如，若设置为 `30 天`，此处将包含 `30`。 |
+| `use_within.use_within_unit` | 开封后使用期限数据的时间单位部分。例如，若设置为 `30 天`，此处将包含 `days`。 |
+| `use_within.use_within_value_in_days` | 折算为天数的开封后使用期限数值。例如，若设置为 `6 个月`，此处将包含 `180`。按每月 30 天计算：6 \* 30 = 180。 |
+| `bundled_inventory` | 包含捆绑内各产品及其到期数据/批次号的数组。仅当该产品为捆绑产品时才会设置。 |
+| `bundled_inventory[N].title` | 捆绑内产品的标题。 |
+| `bundled_inventory[N].allocations` | 分配给该多属性的到期日和数量数组。请参阅 `allocations[N]` 的文档说明。 |
+| `soonest_expiring` | 最早到期库存批次的字符串形式。若需将到期日导出至仅支持元字段集成的外部应用程序，此字段尤为实用。日期格式可在<Link path="/settings#inventory">设置页面</Link>上配置。<br />***仅在<Link path="/charges/recurring/new">高级版套餐</Link>下提供*** |

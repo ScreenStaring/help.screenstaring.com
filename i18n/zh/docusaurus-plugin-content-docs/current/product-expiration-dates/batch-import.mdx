@@ -1,0 +1,18 @@
+---
+description: 通过 CSV 文件批量导入到期日和数量。必填列为 SKU、到期日、数量和地点；日期格式需为 YYYY-MM-DD。
+sidebar_position: 2
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 批量导入到期数据
+
+您可以使用我们的批量导入 CSV 模版一次性导入多个到期日和库存数量。示例文件可点击[此处](/product-expiration-dates/images/product-expiration-dates-import-template.csv)下载。
+
+“SKU”、“Expiration Date”（到期日）、“Quantity”（数量）和“Location Name”（地点名称）列为必填项。**到期日必须采用 `YYYY-MM-DD` 格式。**如果您希望使用“条码”而非“SKU”，可在批量导入页面中的“数据行识别依据”选项中选择“条码”。
+
+有关“Allocate Quantities to Orders When”（分配库存批次的时机）列的详细说明，请参阅[为产品添加到期数据](/docs/product-expiration-dates/adding-expiration-data)。
+
+CSV 文件必须采用 UTF-8 编码，并使用英文半角逗号（`,`）作为字段分隔符。
+
+文件准备就绪后，即可通过<Link path="/import">批量导入页面</Link>进行上传。

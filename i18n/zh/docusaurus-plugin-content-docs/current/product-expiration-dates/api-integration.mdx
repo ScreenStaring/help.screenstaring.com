@@ -1,0 +1,237 @@
+---
+description: 通过 Product Expiration Dates API 以编程方式管理库存批次：按 SKU、条码或多属性 ID 查询或设置到期日及数量。
+sidebar_position: 20
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# API 集成
+
+***API 集成仅在<Link path="/charges/recurring/new">白金版套餐</Link>下提供***
+
+Product Expiration Dates 应用提供了 REST API，允许您以编程方式自动化管理库存批次。
+
+所有 API 请求均使用您店铺的 API 密钥进行身份验证。您可以在<Link path="/settings">设置页面的“常规”选项卡</Link>中找到您的 API 密钥。在发送每个请求时，请在 `X-API-Key` 请求标头中附带该密钥。
+
+请求必须指定产品或多属性的唯一标识符。可使用的标识符包括：`sku`、`barcode`、`variant_id`，或 Product Expiration Dates 应用内部的产品 ID。
+
+## 基础 URL
+
+所有 API 端点均基于：`https://apps.screenstaring.com/ed`
+
+### GET `/api/inventories/expiration_dates`
+
+获取指定产品或多属性的库存批次。您可以通过 SKU、条码或 Shopify 多属性 ID 进行查询。
+
+**查询参数：**
+
+-   `sku` - 多属性的 SKU（选填）
+-   `barcode` - 多属性的条码（选填）
+-   `variant_id` - Shopify 多属性 ID；如果产品没有多属性，请使用默认多属性的 ID（选填）
+-   `external_location_id` - 按 Shopify 地点 ID 筛选结果（选填）
+
+**使用 curl 的请求示例：**
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates?sku=PRODUCT-SKU
+```
+
+**响应结果（200 OK）：**
+
+```json
+[
+  {
+    "id": 1,
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  },
+  {
+    "id": 2,
+    "expires": "2027-01-15",
+    "quantity": 20,
+    "batch_number": "BATCH-002",
+    "location": {
+      "id": 10,
+      "external_id": "123456",
+      "name": "Main Warehouse"
+    },
+    "inventory": {
+      "id": 789,
+      "sku": "PRODUCT-SKU",
+      "variant_id": "456789",
+      "product_id": "123456"
+    }
+  }
+]
+```
+
+### POST `/api/inventories/expiration_dates`
+
+创建或更新库存批次。系统会根据 SKU/条码结合以下任一条件进行匹配更新：a) 到期日与地点，或 b) 批次号与地点。如果不匹配任何现有批次，则会创建新批次。
+
+**请求体参数：**
+
+-   `sku` - 多属性的 SKU（选填）
+-   `barcode` - 多属性的条码（选填）
+-   `variant_id` - Shopify 多属性 ID；如果产品没有多属性，请使用默认多属性的 ID（选填）
+-   `expires` - 到期日，**必须采用 YYYY-MM-DD 格式**（必填）
+-   `quantity` - 可用数量（必填）
+-   `batch_number` - 批次号（选填）
+-   `external_location_id` - Shopify 地点 ID（若未提供 `location_id` 则必填）
+-   `location_id` - Product Expiration Dates 应用内部地点 ID（若未提供 `external_location_id` 则必填）
+-   `inventory_batch_assignment_event` - 何时向订单分配库存批次。仅在创建产品时有效。可选值为 `"order_placed"`（订单创建时）或 `"order_item_fulfilled"`（订单商品发货时）。如果您启用了[库存推送](/docs/product-expiration-dates/inventory-push)，该值将始终为 `"order_placed"`。
+-   `invoice_number` - 发票号（选填）
+-   `lot_number` - 批号（选填）
+-   `manufactured_at` - 生产日期，**必须采用 YYYY-MM-DD 格式**（选填）
+-   `received_at` - 入库日期，**必须采用 YYYY-MM-DD 格式**（选填）
+-   `comments` - 备注说明（选填）
+-   `batch_unit_cost` - 批次单位成本（选填）
+
+**使用 curl 的请求示例：**
+
+```bash
+curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+    "sku": "PRODUCT-SKU",
+    "expires": "2026-12-31",
+    "quantity": 10,
+    "batch_number": "BATCH-001",
+    "id": "9876",
+    "external_location_id": "123456"
+  }' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates"
+```
+
+**响应结果（200 OK）：**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": "9876",
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### PATCH `/api/inventories/expiration_dates/:id`
+
+更新已有的库存批次。
+
+**URL 路径参数：**
+
+-   `:id` - 库存批次在 Product Expiration Dates 应用内部的 ID（必填）
+
+**请求体参数：**
+
+-   `expires` - 到期日，**必须采用 YYYY-MM-DD 格式**（选填）
+-   `quantity` - 可用数量（选填）
+-   `external_location_id` - Shopify 地点 ID（选填）
+-   `location_id` - Product Expiration Dates 应用内部地点 ID（选填）
+-   `batch_number` - 批次号（选填）
+-   `invoice_number` - 发票号（选填）
+-   `lot_number` - 批号（选填）
+-   `manufactured_at` - 生产日期，**必须采用 YYYY-MM-DD 格式**（选填）
+-   `received_at` - 入库日期，**必须采用 YYYY-MM-DD 格式**（选填）
+-   `comments` - 备注说明（选填）
+-   `batch_unit_cost` - 批次单位成本（选填）
+
+**使用 curl 的请求示例：**
+
+```bash
+curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002"
+}' "https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1"
+```
+
+**响应结果（200 OK）：**
+
+```json
+{
+  "id": 1,
+  "expires": "2027-01-15",
+  "quantity": 20,
+  "batch_number": "BATCH-002",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+### DELETE `/api/inventories/expiration_dates/:id`
+
+通过库存批次 ID 删除指定的批次记录。
+
+**URL 路径参数：**
+
+-   `:id` - 库存批次在 Product Expiration Dates 应用内部的 ID（必填）
+
+**使用 curl 的请求示例：**
+
+```bash
+curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventories/expiration_dates/1
+```
+
+**响应结果（200 OK）：**
+
+```json
+{
+  "id": 1,
+  "expires": "2026-12-31",
+  "quantity": 10,
+  "batch_number": "BATCH-001",
+  "location": {
+    "id": 10,
+    "external_id": "123456",
+    "name": "Main Warehouse"
+  },
+  "inventory": {
+    "id": 789,
+    "sku": "PRODUCT-SKU",
+    "variant_id": "456789",
+    "product_id": "123456"
+  }
+}
+```
+
+## 错误响应
+
+API 会返回相应的标准 HTTP 状态码和错误提示信息：
+
+| 状态码 | 说明 | 示例响应 |
+| --- | --- | --- |
+| `400` | 错误请求 (Bad Request) - 缺少参数或参数无效 | `{"errors": ["param is missing or the value is empty: id"]}` |
+| `401` | 未授权 (Unauthorized) - API 密钥无效或缺失 | `{"errors": ["Shop not found"]}` |
+| `403` | 禁止访问 (Forbidden) - 您当前的套餐不支持 API 访问 | `{"errors": ["API access not available for your subscription"]}` |
+| `404` | 未找到 (Not Found) - 未找到对应的产品、多属性或地点 | `{"errors": ["Record not found"]}` |
+| `422` | 无法处理的实体 (Unprocessable Entity) - 字段验证错误 | `{"errors": ["Quantity must be greater than 0"]}` |

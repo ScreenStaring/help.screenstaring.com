@@ -1,0 +1,39 @@
+---
+description: 将分配给订单明细项的到期日和批次号以 Shopify 订单属性形式公开，包含属性格式及 Liquid 解析示例。
+sidebar_position: 19
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# 分配给订单的到期数据
+
+分配给订单的到期数据可以作为订单属性公开给外部系统。由于 Shopify 不支持订单明细项级别的元字段，因此采用订单属性来实现。如需启用此属性，请在<Link path="/settings#orders~product_defaults">设置页面</Link>的“订单”选项卡中，勾选“创建包含订单库存批次的订单‘其他详细信息’条目”。
+
+在此选项启用之前创建的订单将不包含此属性。
+
+## 订单属性格式
+
+启用后，包含到期数据的订单中将自动添加名为 `Expiration Dates SKU` 的订单属性。其中 `SKU` 将替换为对应产品的实际 SKU 值。属性值的格式如下：`BATCH 1|BATCH 2|BATCH 3`。
+
+例如，如果您有一款 SKU 为 123 的产品，且为其分配了单个批次，则会生成一个名为 `Expiration Dates 123` 的属性，其值为：`2024-01-01,1,B123`。其中 `2024-01-01` 为分配的到期日，`1` 为分配的数量，`B123` 为批次号。
+
+如果该订单明细行分配了多个批次，它们都将被包含在内。例如，若 SKU 123 分配了 2 个批次，则其值为：`2024-01-01,1,B123|2024-11-21,2,X999`。其中 `2024-01-01` 是两个到期日之一，`1` 是其分配数量，`B123` 是其批次号；`2024-11-21` 是另一个到期日，`2` 是其分配数量，`X999` 是其批次号。
+
+如果批次号（或任何数值）为空，该值将被省略。以下是没有批次号的多批次示例：`2024-01-01,1,|2024-11-21,2,`
+
+## 解析属性值
+
+您可以使用任何编程语言通过 [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql/unstable/queries/order) 获取订单属性并进行解析。以下是使用 Liquid 模版语言的解析示例：
+
+```liquid
+{% assign batches = order.attributes["Expiration Dates 123"] | split: "|" %}
+{% for batch in batches %}
+    {% assign batch_data = batch | split: "," %}
+    {% assign expires_date = batch_data[0] %}
+    {% assign expires_qty = batch_data[1] %}
+    {% assign expires_batch = batch_data[2] %}
+
+    到期日：{{ expires_date | date: "%d/%m/%Y" }} ({{ expires_qty }})
+    批次号：{{ expires_batch }}
+{% endfor %}
+```

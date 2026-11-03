@@ -1,0 +1,29 @@
+---
+description: 选择向订单分配库存批次的方式：跨地点的 FEFO 或 FIFO、Shopify 订单转单规则，或指定特定发货地点。
+sidebar_position: 9
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyLink from '@site/src/components/ShopifyLink';
+
+# 订单库存批次的地点分配
+
+Product Expiration Dates 应用允许您自定义库存批次分配给订单的时间节点：既可以在客户下单创建订单时分配，也可以在订单明细项发货时分配。请参阅[为产品添加到期数据](/docs/product-expiration-dates/adding-expiration-data)。
+
+默认情况下，系统会在所有地点中将该产品最早到期的库存批次分配给订单明细项（即 FEFO：先到期先出管理策略）。如果传入的订单已指定地点（通常为 [Shopify POS（销售点）订单](/docs/product-expiration-dates/pos-integration)），则直接使用该指定地点。
+
+您可以在<Link path="/settings#inventory">设置页面的“库存”选项卡</Link>中，将库存管理策略修改为“先进先出”(FIFO)。
+
+## Shopify 订单转单规则
+
+***Shopify 订单转单规则支持仅在<Link path="/charges/recurring/new">专业版套餐</Link>及以上版本提供***
+
+如需根据 Shopify 订单转单规则所确定的地点来分配库存批次，请在<Link path="/settings#inventory">设置页面的“库存”选项卡</Link>中，勾选“根据 Shopify 订单转单规则分配库存批次”。Shopify 订单转单可在 <ShopifyLink href={(shopify) => shopify.toString() + '/settings/shipping/order_routing'}>Shopify 后台</ShopifyLink>中进行配置。
+
+## 从特定地点分配库存批次 {/* #order-placed-allocation-location */}
+
+**如果您正在使用[发货地点优先级](https://help.shopify.com/zh-CN/manual/locations/setting-up-your-location-fulfillments#set-locations-for-order-fulfillment-priority)，请勿配置此项。**
+
+如果您在产品的[“分配库存批次的时机”](/docs/product-expiration-dates/adding-expiration-data)设置中选择了“订单创建时”，且在 Shopify 中拥有多个地点**但仅从其中一个地点发货**，则必须将<Link path="/settings#inventory">“从此地点分配库存批次”字段</Link>设置为与您在 Shopify 中的默认发货地点一致。配置此项后，当产生未指定地点的订单时，Product Expiration Dates 应用将仅从该指定地点分配最早到期的批次。若未配置此项，应用将在所有地点之间分配最早到期的批次。
+
+请注意，Shopify 不会直接向第三方应用共享店铺的默认地点信息，因此必须在此显式手动设置。
