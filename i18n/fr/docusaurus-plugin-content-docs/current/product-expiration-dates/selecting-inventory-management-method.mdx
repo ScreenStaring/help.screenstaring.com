@@ -1,0 +1,47 @@
+---
+description: "Choisissez comment Product Expiration Dates attribue les lots d'inventaire aux commandes : FEFO, FIFO ou une méthode de gestion personnalisée."
+sidebar_position: 0.5
+---
+
+import Link from '@site/src/components/ProductExpirationDates/Link';
+
+# Sélectionner votre méthode de gestion de l'inventaire
+
+La méthode de gestion de l'inventaire détermine la façon dont les lots d'inventaire sont attribués aux commandes. Vous pouvez sélectionner votre méthode de gestion de l'inventaire dans le champ « Méthode de gestion de l'inventaire » de <Link path="/settings/edit#inventory">l'onglet Inventaire de la page des paramètres</Link>.
+
+Par défaut, l'application utilise la méthode Premier expiré, premier sorti (FEFO), mais plusieurs méthodes sont prises en charge.
+
+## Premier expiré, premier sorti (FEFO)
+
+Les articles dont les dates d'expiration ou de péremption sont les plus proches sont traités en priorité pour la vente ou l'utilisation, quelle que soit leur date de réception.
+
+Idéal pour : Les denrées périssables, les produits pharmaceutiques, les produits alimentaires et tout stock soumis à des contraintes de péremption strictes où la durée de conservation constitue le risque principal.
+
+### Exemple
+
+- Lot A : Reçu le 2026-01-10, Expire le 2026-12-15
+- Lot B : Reçu le 2026-02-05, Expire le 2028-05-20
+- Lot C : Reçu le 2026-03-01, Expire le 2027-07-10
+
+Selon la méthode FEFO, le Lot B (expire le 2028-05-20) est sélectionné en premier car il présente la date d'expiration la plus proche.
+
+## Premier entré, premier sorti (FIFO)
+
+Le stock le plus ancien (reçu en premier) est vendu ou utilisé en premier. Cela repose sur le principe que les articles reçus plus tôt doivent quitter l'entrepôt avant le stock plus récent.
+
+Idéal pour : Les produits non périssables, les marchandises présentant un risque d'obsolescence progressive et les opérations où le maintien d'un flux chronologique simplifie le suivi et réduit le risque de vieillissement des stocks.
+
+### Exemple
+
+- Lot A : Reçu le 2026-01-10, Expire le 2026-06-15
+- Lot B : Reçu le 2026-02-05, Expire le 2028-05-20
+- Lot C : Reçu le 2026-03-01, Expire le 2027-07-10
+
+Selon la méthode FIFO, le Lot A (reçu le 2026-01-10) est sélectionné en premier car il présente la date de réception la plus ancienne.
+
+## Personnalisée
+
+Une méthode de gestion de l'inventaire personnalisée applique vos règles métier pour déterminer comment les lots d'inventaire sont attribués aux commandes.
+Elle peut combiner FIFO et FEFO, ou reposer sur une logique totalement différente.
+
+Pour utiliser une méthode personnalisée, [contactez l'assistance](https://screenstaring.com/#contact).

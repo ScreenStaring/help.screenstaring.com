@@ -26,15 +26,15 @@ Ces valeurs seront transmises à Shopify et vous verrez une quantité **disponib
 
 1.  Assurez-vous d'être abonné au <Link path="/charges/recurring/new">forfait Pro</Link> ou supérieur
 2.  Visitez la <Link path="/settings#inventory">page des paramètres</Link>
-3.  Sélectionnez "Push edits made to inventory batch quantities to Shopify"
-4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez "Set bundle quantity based on component availability"
-5.  Cliquez sur le bouton <kbd>Update</kbd> pour enregistrer vos paramètres
+3.  Sélectionnez « Pousser vers Shopify les modifications de quantités de lots effectuées dans l'application »
+4.  Si vous ne souhaitez pas [synchroniser les packs](#bundles), décochez « Définir la quantité des ensembles en fonction de la disponibilité des composants »
+5.  Cliquez sur le bouton <kbd>Mettre à jour</kbd> pour enregistrer vos paramètres
 
 Pour transmettre l'inventaire à Shopify, les dates d'expiration doivent avoir un emplacement défini.
 
-## Quantités disponibles et en main
+## Quantités disponibles et en stock
 
-Par défaut, Inventory Push définit la quantité disponible dans Shopify. Si vous êtes abonné au <Link path="/charges/recurring/new">forfait Premium</Link>, vous pouvez le configurer pour définir plutôt les quantités en main. Cela peut se faire dans l'onglet Inventory de <Link path="/settings#inventory">la page des paramètres</Link> en sélectionnant "Set on hand quantity instead of available quantity".
+Par défaut, Inventory Push définit la quantité disponible dans Shopify. Si vous êtes abonné au <Link path="/charges/recurring/new">forfait Premium</Link>, vous pouvez le configurer pour définir plutôt les quantités en stock. Cela peut se faire dans l'onglet Inventaire de <Link path="/settings#inventory">la page des paramètres</Link> en sélectionnant « Définir la quantité en stock au lieu de la quantité disponible ».
 
 ## Attribution des lots d'inventaire {/* #inventory-syncing-inventory-batch-assignment */}
 
@@ -48,7 +48,7 @@ Lorsque inventory push est activé pour un produit avec des variantes, toute var
 
 ## Emplacements
 
-Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans "Unconfigured locations to ignore" dans l'onglet Inventory de <Link path="/settings#inventory">la page des paramètres</Link>. Cette option n'est affichée que lorsque inventory push est activé.
+Si un produit n'a aucun lot d'inventaire à un emplacement, il sera considéré comme en rupture de stock et sa quantité à cet emplacement sera définie à 0. Pour éviter cela, sélectionnez l'emplacement dans « Emplacements non configurés à ignorer » dans l'onglet Inventaire de <Link path="/settings#inventory">la page des paramètres</Link>. Cette option n'est affichée que lorsque inventory push est activé.
 
 ## Packs {/* #bundles */}
 

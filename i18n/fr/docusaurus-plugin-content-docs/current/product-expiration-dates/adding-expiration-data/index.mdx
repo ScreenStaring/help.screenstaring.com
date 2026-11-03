@@ -21,16 +21,16 @@ Les lots de stock constituent le principal ensemble de données de péremption. 
 Vous pouvez également [afficher les informations relatives aux lots de stock sur votre site](/docs/product-expiration-dates/shopify-pages) afin d'indiquer aux clients la date de péremption et/ou la durée de conservation après ouverture recommandée des produits.
 
 :::info
-Avant de créer des lots, assurez-vous de [sélectionner votre méthode de gestion des stocks](/docs/product-expiration-dates/selecting-inventory-management-method)
+Avant de créer des lots, assurez-vous de [sélectionner votre méthode de gestion de l'inventaire](/docs/product-expiration-dates/selecting-inventory-management-method)
 :::
 
-Lorsque vous créez des lots de stock, vous devez d'abord déterminer à quel moment leurs données doivent être attribuées aux commandes : au moment où la commande est passée ou lorsque les articles de la commande sont traités. Pour cela, consultez l'option « Assign inventory batches when » ci-dessous.
+Lorsque vous créez des lots de stock, vous devez d'abord déterminer à quel moment leurs données doivent être attribuées aux commandes : au moment où la commande est passée ou lorsque les articles de la commande sont traités. Pour cela, consultez l'option « Affecter les lots d'inventaire lorsque » ci-dessous.
 
-Sur la page d'ajout d'un produit (*Add Product*), l'onglet *Inventory Batches* vous permet de saisir la plupart des données de péremption. Les options disponibles dépendent de <Link path="/charges/recurring/new">votre abonnement</Link>. Les champs les plus couramment utilisés sont les suivants.
+Sur la page d'ajout d'un produit, l'onglet Lots d'inventaire vous permet de saisir la plupart des données de péremption. Les options disponibles dépendent de <Link path="/charges/recurring/new">votre abonnement</Link>. Les champs les plus couramment utilisés sont les suivants.
 
 ### Quand attribuer les lots de stock
 
-Le champ « Assign inventory batches when » détermine à quel moment un lot de stock est attribué à une commande : lorsque la commande est passée ou lorsqu'un article de la commande est traité. Par défaut, l'attribution se fait au moment où la commande est passée. Par exemple, si vous utilisez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), <Link path="/settings#inventory">le lot dont la date de péremption est la plus proche sera attribué aux nouvelles commandes</Link>. Pour configurer l'emplacement choisi lors de cette attribution, consultez la documentation [Associer les emplacements des lots de stock aux commandes](/docs/product-expiration-dates/order-batch-location-assignment).
+Le champ « Affecter les lots d'inventaire lorsque » détermine à quel moment un lot de stock est attribué à une commande : lorsque la commande est passée (« La commande est passée ») ou lorsqu'un article de la commande est traité (« L'article de ligne est traité »). Par défaut, l'attribution se fait au moment où la commande est passée. Par exemple, si vous utilisez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), <Link path="/settings#inventory">le lot dont la date de péremption est la plus proche sera attribué aux nouvelles commandes</Link>. Pour configurer l'emplacement choisi lors de cette attribution, consultez la documentation [Associer les emplacements des lots de stock aux commandes](/docs/product-expiration-dates/order-batch-location-assignment).
 
 ### Expires, Batch, Quantity et Location
 
@@ -50,11 +50,11 @@ Par exemple, le produit A dispose d'un stock de 10 unités dans Shopify, à l'em
 
 ### Numéros de facture, numéros de lot, dates de réception, dates de fabrication, notes, etc. {/* #lot-number-etc-assignment */}
 
-Des données supplémentaires peuvent être associées à chaque lot de stock. Vous pouvez renseigner des valeurs pour ces champs en activant leur affichage dans l'onglet *Batches*, en cliquant sur l'icône d'engrenage :
+Des données supplémentaires peuvent être associées à chaque lot de stock. Vous pouvez renseigner des valeurs pour ces champs en activant leur affichage dans l'onglet Lots, en cliquant sur l'icône d'engrenage :
 
 <img src="/product-expiration-dates/images/inventory-batch-column-config.jpg" height="247" alt="Sélection des colonnes à afficher pour les lots de stock" />
 
-Sélectionnez le ou les champs souhaités, puis cliquez sur le bouton <kbd>Save</kbd>.
+Sélectionnez le ou les champs souhaités, puis cliquez sur le bouton <kbd>Enregistrer</kbd>.
 
 ### Quantité disponible et quantité en stock
 
@@ -66,13 +66,13 @@ Consultez la documentation [Associer les emplacements des lots de stock aux comm
 
 ### Que se passe-t-il ensuite ?
 
-Supposons que vous utilisiez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), que vous ayez saisi les données des lots de stock d'un produit et sélectionné « Order is placed » dans l'option « Assign inventory batches when ».
+Supposons que vous utilisiez la méthode de gestion des stocks FEFO (premier expiré, premier sorti), que vous ayez saisi les données des lots de stock d'un produit et sélectionné « La commande est passée » dans l'option « Affecter les lots d'inventaire lorsque ».
 
 Lorsqu'une commande est passée pour ce produit, l'application attribue le lot dont la date de péremption est la plus proche parmi ceux associés à l'emplacement attribué à la commande, pour les commandes passées en magasin. Si aucun emplacement n'est attribué à la commande, l'application sélectionne le lot dont la date de péremption est la plus proche parmi les lots renseignés.
 
 Lorsqu'un article d'une commande est remis en stock, remboursé ou fait l'objet d'une autre opération entraînant la libération de son lot, le lot concerné est de nouveau disponible pour être attribué à une commande ultérieure.
 
-Vous pouvez consulter le lot de stock attribué à une commande sur <Link path="/order_line_items">la page Orders de l'application</Link>.
+Vous pouvez consulter le lot de stock attribué à une commande sur <Link path="/order_line_items">la page Commandes de l'application</Link>.
 
 Vous pouvez également [afficher les informations de péremption sur votre site](/docs/product-expiration-dates/shopify-pages) ou [les ajouter à vos notifications et à vos bordereaux d'expédition](/docs/product-expiration-dates/notifications-and-packing-slip).
 
@@ -87,12 +87,12 @@ Par exemple, un lot de stock peut avoir une date de péremption au 1er juillet 2
 ***Les réductions sur les produits sont disponibles à partir du <Link path="/charges/recurring/new">forfait Premium</Link>.***
 
 :::info
-Nous vous recommandons d'utiliser les [ensembles de règles (*Rulesets*)](/docs/product-expiration-dates/discounts#rulesets) pour configurer les réductions sur les produits.
-Cette fonctionnalité vous permet de créer des réductions progressives en plusieurs étapes, contrairement aux anciennes réductions (« old style ») configurées dans les paramètres ou dans l'onglet *Discounts*.
+Nous vous recommandons d'utiliser les [ensembles de règles](/docs/product-expiration-dates/discounts#rulesets) pour configurer les réductions sur les produits.
+Cette fonctionnalité vous permet de créer des réductions progressives en plusieurs étapes, contrairement aux anciennes réductions configurées dans les paramètres ou dans l'onglet « Remises ».
 :::
 
-Vous pouvez également définir des réductions propres à chaque produit dans l'onglet *Discounts*. Lorsqu'un lot de stock approche de sa date de péremption, le prix du produit est réduit du pourcentage indiqué.
+Vous pouvez également définir des réductions propres à chaque produit dans l'onglet « Remises ». Lorsqu'un lot de stock approche de sa date de péremption, le prix du produit est réduit du pourcentage indiqué.
 
-Vous pouvez définir les valeurs par défaut de ces champs sur la page *Discount Settings*, dans la section <Link path="/settings#discounts~product_defaults">Product Defaults</Link>. Lorsque vous ajoutez de nouveaux produits à l'application, les valeurs définies dans cette section sont automatiquement utilisées pour remplir les champs de l'onglet *Discounts*.
+Vous pouvez définir les valeurs par défaut de ces champs sur la page des paramètres de remise, dans la section <Link path="/settings#discounts~product_defaults">Valeurs par défaut du produit</Link>. Lorsque vous ajoutez de nouveaux produits à l'application, les valeurs définies dans cette section sont automatiquement utilisées pour remplir les champs de l'onglet « Remises ».
 
 Pour configurer des réductions globales applicables à tous les produits, consultez la documentation [Proposer des réductions sur les produits proches de leur date de péremption](/docs/product-expiration-dates/discounts).
