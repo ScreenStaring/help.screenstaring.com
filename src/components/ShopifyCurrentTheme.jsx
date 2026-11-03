@@ -1,4 +1,4 @@
-import ShopifyLink from './ShopifyLink';
+import ShopifyLink from '@theme/ShopifyAdminLink';
 
 // Renders children as a link to the viewer's current theme in the Shopify
 // Admin's theme editor. Falls back to plain text when no shop is known (see

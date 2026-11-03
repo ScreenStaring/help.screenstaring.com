@@ -1,4 +1,4 @@
-import ShopifyLink from '../ShopifyLink';
+import ShopifyLink from '@theme/ShopifyAdminLink';
 
 // Renders children as a link to enable the Structured Data for SEO app embed
 // in the viewer's theme editor. Falls back to plain text when no shop is

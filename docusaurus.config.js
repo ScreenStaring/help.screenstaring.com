@@ -31,8 +31,6 @@ const config = {
   organizationName: 'ScreenStaring',
   projectName: 'help.screenstaring.com',
 
-  clientModules: ['./src/clientModules/shop.js'],
-
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -73,7 +71,11 @@ const config = {
   // Per-page schemas come from src/components/DocJsonLd via the swizzled
   // DocItem/Layout. Generates llms.txt and llms-full.txt for each locale,
   // see plugins/llms-txt.
-  plugins: ['./plugins/json-ld', './plugins/llms-txt'],
+  plugins: [
+    'docusaurus-plugin-shopify-admin-link',
+    './plugins/json-ld',
+    './plugins/llms-txt',
+  ],
 
   presets: [
     [
