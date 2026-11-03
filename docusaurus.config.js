@@ -40,7 +40,7 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'pt', 'fr', 'es', 'ja', 'de', 'zh'].sort(),
+    locales: ['de', 'en', 'es', 'fr', 'ja', 'pt', 'zh'],
     localeConfigs: {
       pt: {
         label: 'Português',
