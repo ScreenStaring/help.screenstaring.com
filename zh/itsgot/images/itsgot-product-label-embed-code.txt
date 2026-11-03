@@ -1,0 +1,45 @@
+{% comment %}
+Code for Nutrtion Facts app by ScreenStaring.
+For support email us at help@screenstaring.com
+
+Add this file to your theme's snippets directory as itsgot-product-label-embed-code.liquid
+Using it will render the app's embed snippet. In most cases you do not want to use it directly.
+Instead use the itsgot-product-label.liquid snippet. See the user's guide for more information.
+
+Usage:
+
+{% render "itsgot-product-label-embed-code", user: user_id, label: label_id, variant: variant.id, variant_selected: variant.selected, data: label.data[variant_id] %}
+{% endcomment %}
+
+<div data-itsgot-user="{{ user }}"
+     {%- if product_id -%}
+       data-itsgot-product="{{ product_id }}"
+     {%- elsif label %}
+       data-itsgot-label="{{ label }}"
+     {%- endif %}
+
+     {%- if label_number -%}
+       data-itsgot-label-number="{{ label_number }}"
+     {%- endif %}
+
+     {%- if min_screen_width -%}
+       data-itsgot-min-screen-width="{{ min_screen_width }}"
+     {%- endif %}
+
+     {%- if max_screen_width -%}
+       data-itsgot-max-screen-width="{{ max_screen_width }}"
+     {%- endif %}
+
+     {%- if locale -%}
+       data-itsgot-locale="{{ locale }}"
+     {%- endif %}
+
+     {%- if variant -%}
+       data-itsgot-external-variant-id="{{ variant }}"
+       {% unless variant_selected %}class="itsgot-label-hidden"{% endunless %}
+     {%- endif %}
+
+     {%- for entry in data -%}
+       data-itsgot-{{ entry[0] | replace: "_", "-" }}="{{ entry[1] | escape_once }}"
+     {% endfor -%}
+></div>
