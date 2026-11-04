@@ -51,9 +51,9 @@ const LOCALES = {
     fullTextSummary:
       'Toutes les pages de documentation dans un seul fichier, pour les assistants IA et la lecture hors ligne.',
   },
-  pt: {
-    prefix: '/pt',
-    docsDir: 'i18n/pt/docusaurus-plugin-content-docs/current',
+  'pt-BR': {
+    prefix: '/pt-BR',
+    docsDir: 'i18n/pt-BR/docusaurus-plugin-content-docs/current',
     description:
       "Documentação e suporte para os aplicativos Shopify da ScreenStaring: It's Got (rótulos nutricionais) e Product Expiration Dates (datas de validade, números de lote e controle de estoque perecível).",
     otherLanguagesTitle: 'Outros idiomas',
@@ -61,6 +61,17 @@ const LOCALES = {
     fullTextLink: 'Texto completo da documentação',
     fullTextSummary:
       'Todas as páginas da documentação em um único arquivo, para assistentes de IA e leitura offline.',
+  },
+  'pt-PT': {
+    prefix: '/pt-PT',
+    docsDir: 'i18n/pt-PT/docusaurus-plugin-content-docs/current',
+    description:
+      "Documentação e apoio para as aplicações Shopify da ScreenStaring: It's Got (rótulos nutricionais) e Product Expiration Dates (prazos de validade, números de lote e controlo de inventário perecível).",
+    otherLanguagesTitle: 'Outros idiomas',
+    supportTitle: 'Apoio',
+    fullTextLink: 'Texto integral da documentação',
+    fullTextSummary:
+      'Todas as páginas de documentação num único ficheiro, para assistentes de IA e leitura offline.',
   },
   es: {
     prefix: '/es',
@@ -71,11 +82,17 @@ const LOCALES = {
     supportTitle: 'Soporte',
     fullTextLink: 'Texto completo de la documentación',
     fullTextSummary:
-      'Todas las páginas de documentación en un solo archivo, para asistentes de IA y lectura sin conexión.',
+      'Todas as páginas de documentación en un solo archivo, para asistentes de IA y lectura sin conexión.',
   },
 };
 
-const LOCALE_NAMES = {en: 'English', es: 'Español', fr: 'Français', pt: 'Português'};
+const LOCALE_NAMES = {
+  en: 'English',
+  es: 'Español',
+  fr: 'Français',
+  'pt-BR': 'Português (Brasil)',
+  'pt-PT': 'Português (Portugal)',
+};
 
 // --- Markdown / front matter helpers -----------------------------------------
 

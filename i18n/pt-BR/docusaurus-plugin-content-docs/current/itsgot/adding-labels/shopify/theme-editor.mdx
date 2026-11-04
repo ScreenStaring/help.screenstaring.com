@@ -1,0 +1,79 @@
+---
+description: "Adicione rótulos nutricionais a um modelo de produto da Shopify no editor de temas, como bloco de app ou por fonte dinâmica de metafield, sem código."
+sidebar_position: 1
+---
+
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
+
+# Editor de Temas da Shopify
+
+Usando o [editor de temas da Shopify](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)
+(personalização do tema), você pode adicionar rótulos
+[como uma seção ou bloco](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)
+a um modelo de produto ou conectá-los a uma seção ou bloco existente
+[por meio de um metafield](https://help.shopify.com/pt-BR/manual/custom-data/metafields/displaying-metafields-on-your-online-store#theme-editor-metafields)
+(fonte dinâmica).
+
+## Adicionar Rótulo Como um Bloco
+
+1. <ShopifyCurrentTheme>Abra seu tema</ShopifyCurrentTheme> no editor de temas
+1. No editor de temas, selecione o modelo de produto ao qual você gostaria de adicionar os rótulos:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-select-template.jpg" width="500" alt="Selecione o modelo de produto" />
+
+1. Selecione o local desejado dentro do modelo de produto. Isso pode ser feito passando o cursor sobre a área de inserção desejada:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-button.jpg" height="500" alt="Botão adicionar bloco" />
+
+1. Clique no botão de adicionar bloco e selecione *Nutrition Facts* na seção *Apps*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-add-block-app.jpg" height="500" alt="Botão do bloco de app Nutrition Facts" />
+
+1. Isso adicionará um bloco de *Nutrition Facts* ao modelo selecionado:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-block-added.jpg" height="500" alt="Configurar bloco de app Nutrition Facts" />
+
+1. Clique no bloco de *Nutrition Facts* para acessar opções de configuração adicionais
+1. Clique em <kbd>Salvar</kbd>
+
+Os rótulos dos produtos agora serão exibidos em seu site.
+
+## Adicionar Rótulo via Metafield
+
+Isso só funciona se a seção ou o bloco de destino for compatível com fontes dinâmicas.
+
+1. <ShopifyCurrentTheme>Abra seu tema</ShopifyCurrentTheme> no editor de temas
+1. No editor de temas, encontre a seção ou o bloco ao qual você deseja adicionar os rótulos e clique nele. Neste exemplo, adicionamos a um bloco de *Texto*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-select-block.jpg" width="500" alt="Seleção de seção ou bloco" />
+
+1. Nas configurações do bloco de *Texto*, clique no botão <kbd>Conectar fonte dinâmica</kbd>:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-button.jpg" width="500" alt="Botão de fonte dinâmica" />
+
+1. Certifique-se de que as fontes do modelo de produto estejam selecionadas:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-heading.jpg" width="500" alt="Seção de fontes dinâmicas" />
+
+   Se não estiverem selecionadas, clique no título selecionado atualmente e altere a fonte para o modelo de produto
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-categories.jpg" width="500" alt="Categorias de fontes dinâmicas" />
+
+1. Na lista de fontes dinâmicas, pesquise e escolha *Nutrition Facts app label embed code*:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code.jpg" width="500" alt="Fonte dinâmica do rótulo de Nutrition Facts" />
+
+1. Depois de selecionada, você a verá como fonte no campo associado:
+
+   <img src="/itsgot/shopify/images/nf-theme-editor-dynamic-source-label-embed-code-selected.jpg" width="500" alt="Rótulo de Nutrition Facts selecionado" />
+
+1. Clique em <kbd>Salvar</kbd>
+
+Os rótulos dos produtos agora serão exibidos em seu site.
+
+## Em Outro Local
+
+Se você quiser adicionar rótulos a um local fora do modelo de produto ou em qualquer outro lugar do seu site, tente uma das seguintes opções:
+
+- [Snippet Liquid](/docs/itsgot/adding-labels/shopify/liquid-snippet)
+- [Código de incorporação do rótulo](/docs/itsgot/adding-labels/embed-code)
