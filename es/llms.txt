@@ -67,9 +67,10 @@
 
 - [English](https://help.screenstaring.com/llms.txt)
 - [Français](https://help.screenstaring.com/fr/llms.txt)
-- [Português](https://help.screenstaring.com/pt/llms.txt)
+- [Português (Brasil)](https://help.screenstaring.com/pt-BR/llms.txt)
+- [Português (Portugal)](https://help.screenstaring.com/pt-PT/llms.txt)
 
 ## Soporte
 
 - [Soporte](https://screenstaring.com/#contact)
-- [Texto completo de la documentación](https://help.screenstaring.com/es/llms-full.txt): Todas las páginas de documentación en un solo archivo, para asistentes de IA y lectura sin conexión.
+- [Texto completo de la documentación](https://help.screenstaring.com/es/llms-full.txt): Todas as páginas de documentación en un solo archivo, para asistentes de IA y lectura sin conexión.

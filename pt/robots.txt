@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://help.screenstaring.com/sitemap.xml
-Sitemap: https://help.screenstaring.com/fr/sitemap.xml
-Sitemap: https://help.screenstaring.com/pt/sitemap.xml
-Sitemap: https://help.screenstaring.com/es/sitemap.xml

@@ -67,7 +67,8 @@
 
 - [English](https://help.screenstaring.com/llms.txt)
 - [Español](https://help.screenstaring.com/es/llms.txt)
-- [Português](https://help.screenstaring.com/pt/llms.txt)
+- [Português (Brasil)](https://help.screenstaring.com/pt-BR/llms.txt)
+- [Português (Portugal)](https://help.screenstaring.com/pt-PT/llms.txt)
 
 ## Assistance
 
