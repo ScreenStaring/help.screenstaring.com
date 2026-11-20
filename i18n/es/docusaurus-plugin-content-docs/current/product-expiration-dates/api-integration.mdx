@@ -53,6 +53,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -70,6 +71,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -104,6 +106,7 @@ Crea o actualiza un lote de inventario. Las actualizaciones se basan en el SKU o
 ```bash
 curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "expires": "2026-12-31",
     "quantity": 10,
     "batch_number": "BATCH-001",
@@ -128,6 +131,7 @@ curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -182,6 +186,7 @@ curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -218,6 +223,7 @@ curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/ap
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -233,5 +239,5 @@ La API devuelve los códigos de estado HTTP y los mensajes de error correspondie
 | `400` | Bad Request - Faltan parámetros o no son válidos | `{"errors": ["param is missing or the value is empty: id"]}` |
 | `401` | Unauthorized - Clave de API no válida o faltante | `{"errors": ["Shop not found"]}` |
 | `403` | Forbidden - El plan no permite el acceso a la API | `{"errors": ["API access not available for your subscription"]}` |
-| `404` | Not Found - Producto, variante o ubicación no encontrados | `{"errors": ["Record not found"]}` |
+| `404` | Not Found - Producto, variante, ubicación o lote de inventario no encontrados | `{"errors": ["Inventory batch not found"]}` |
 | `422` | Unprocessable Entity - Errores de validación | `{"errors": ["Quantity must be greater than 0"]}` |

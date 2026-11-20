@@ -53,6 +53,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -70,6 +71,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -104,6 +106,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
 ```bash
 curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "expires": "2026-12-31",
     "quantity": 10,
     "batch_number": "BATCH-001",
@@ -128,6 +131,7 @@ curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -182,6 +186,7 @@ curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -218,6 +223,7 @@ curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/ap
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -233,5 +239,5 @@ APIは適切なHTTPステータスコードとエラーメッセージを返し�
 | `400` | 不正なリクエスト (Bad Request) - 必須パラメーターの不足または無効 | `{"errors": ["param is missing or the value is empty: id"]}` |
 | `401` | 認証エラー (Unauthorized) - APIキーが無効または未指定 | `{"errors": ["Shop not found"]}` |
 | `403` | アクセス禁止 (Forbidden) - 現在のプランではAPIアクセスが許可されていません | `{"errors": ["API access not available for your subscription"]}` |
-| `404` | 未検出 (Not Found) - 商品、バリエーション、またはロケーションが見つかりません | `{"errors": ["Record not found"]}` |
+| `404` | 未検出 (Not Found) - 商品、バリエーション、ロケーション、または在庫バッチが見つかりません | `{"errors": ["Inventory batch not found"]}` |
 | `422` | 処理不能エンティティ (Unprocessable Entity) - バリデーションエラー | `{"errors": ["Quantity must be greater than 0"]}` |

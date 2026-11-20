@@ -53,6 +53,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -70,6 +71,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
     "inventory": {
       "id": 789,
       "sku": "PRODUCT-SKU",
+      "barcode": "0123456789012",
       "variant_id": "456789",
       "product_id": "123456"
     }
@@ -104,6 +106,7 @@ curl -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/api/inventor
 ```bash
 curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d '{
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "expires": "2026-12-31",
     "quantity": 10,
     "batch_number": "BATCH-001",
@@ -128,6 +131,7 @@ curl -X POST -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -d
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -182,6 +186,7 @@ curl -X PATCH -H "X-API-Key: YOUR_API_KEY" -H "Content-Type: application/json" -
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -218,6 +223,7 @@ curl -X DELETE -H "X-API-Key: YOUR_API_KEY" https://apps.screenstaring.com/ed/ap
   "inventory": {
     "id": 789,
     "sku": "PRODUCT-SKU",
+    "barcode": "0123456789012",
     "variant_id": "456789",
     "product_id": "123456"
   }
@@ -233,5 +239,5 @@ API 会返回相应的标准 HTTP 状态码和错误提示信息：
 | `400` | 错误请求 (Bad Request) - 缺少参数或参数无效 | `{"errors": ["param is missing or the value is empty: id"]}` |
 | `401` | 未授权 (Unauthorized) - API 密钥无效或缺失 | `{"errors": ["Shop not found"]}` |
 | `403` | 禁止访问 (Forbidden) - 您当前的套餐不支持 API 访问 | `{"errors": ["API access not available for your subscription"]}` |
-| `404` | 未找到 (Not Found) - 未找到对应的产品、多属性或地点 | `{"errors": ["Record not found"]}` |
+| `404` | 未找到 (Not Found) - 未找到对应的产品、多属性、地点或库存批次 | `{"errors": ["Inventory batch not found"]}` |
 | `422` | 无法处理的实体 (Unprocessable Entity) - 字段验证错误 | `{"errors": ["Quantity must be greater than 0"]}` |
