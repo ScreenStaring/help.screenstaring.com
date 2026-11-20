@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Téléverser des documents vers un lot
 
@@ -21,6 +22,39 @@ Pour téléverser un document :
 1. Sélectionnez « Choisir un fichier » et choisissez les documents à téléverser
 
 Les documents sélectionnés sont désormais associés au lot.
+
+## Ajouter des documents de lot aux pages de produits
+
+Les documents de lot peuvent être ajoutés aux pages de produits et mis à la disposition des utilisateurs via notre intégration avec [l'éditeur de thèmes Shopify](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Cela permet d'ajouter [une section ou un bloc](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) qui offre aux utilisateurs la possibilité de consulter les documents de lot disponibles pour le produit donné.
+
+Seuls les documents avec une visibilité publique sont affichés. La visibilité publique peut être définie lors de la consultation des documents d'un lot dans l'application en sélectionnant « Public » dans le champ « Visibilité ».
+
+Les documents associés à des lots qui ne sont plus disponibles à l'achat ne seront pas affichés.
+
+Pour ajouter des documents de lot à vos pages de produits :
+
+1.  <ShopifyCurrentTheme>Ouvrez votre thème</ShopifyCurrentTheme> dans l'éditeur de thèmes Shopify
+1.  Dans l'éditeur de thèmes, sélectionnez le modèle de produit :
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Sélectionner un modèle de thème" />
+
+1.  Sélectionnez l'emplacement d'affichage souhaité dans le modèle de produit. Cela peut être fait en survolant avec votre curseur la zone d'insertion souhaitée :
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Bouton d'ajout de bloc" />
+
+1.  Cliquez sur le bouton d'ajout de bloc et sélectionnez Documents des lots d'inventaire dans la section Applications :
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="Bouton d'ajout du bloc de l'application Expiration Dates" />
+
+1.  Cela ajoutera un bloc Documents des lots d'inventaire au modèle de produit :
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="Bloc de l'application Expiration Dates ajouté" />
+
+1.  Cliquez sur le bloc pour accéder à ses options de configuration. Notez qu'une description de document peut être ajoutée via le champ « Description » lors de la consultation des documents d'un lot dans l'application.
+
+1.  Cliquez sur <kbd>Enregistrer</kbd>
+
+Les utilisateurs pourront désormais consulter les documents associés aux lots de stock actuels du produit.
 
 ## Afficher les documents de lot d'une ligne de commande
 

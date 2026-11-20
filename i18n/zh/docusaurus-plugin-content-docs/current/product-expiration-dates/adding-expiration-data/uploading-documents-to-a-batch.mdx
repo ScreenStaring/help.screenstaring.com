@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # 为批次上传文档
 
@@ -21,6 +22,39 @@ import Link from '@site/src/components/ProductExpirationDates/Link';
 1. 点击“选择文件”并选取要上传的文档
 
 所选文档现已成功关联至该批次。
+
+## 向产品页面添加批次文档
+
+通过我们的 [Shopify 模版编辑器](https://help.shopify.com/zh-CN/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)集成，可以将批次文档添加到产品页面并供用户访问。您可以借此添加[分区或分块](https://help.shopify.com/zh-CN/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)，以便用户查看指定产品可用的批次文档。
+
+仅展示具有公开可见性的文档。在应用中查看批次文档时，可以通过在“可见性”字段中选择“公开”来设置公开可见性。
+
+与不再可供购买的批次关联的文档将不会显示。
+
+向产品页面添加批次文档的步骤如下：
+
+1.  在 Shopify 模版编辑器中<ShopifyCurrentTheme>打开您的模版</ShopifyCurrentTheme>
+1.  在模版编辑器中选择产品模版：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="选择模版" />
+
+1.  在产品模版中选择期望的展示位置。将鼠标悬停在目标插入区域即可：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="添加分块按钮" />
+
+1.  点击“添加分块”按钮，并在“应用”区域中选择“库存批次文档”：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="添加 Expiration Dates 应用分块按钮" />
+
+1.  这将在产品模版中添加一个库存批次文档分块：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="已添加 Expiration Dates 应用分块" />
+
+1.  点击该分块可访问其配置选项。请注意，在应用中查看批次文档时，可以通过“描述”字段添加文档描述。
+
+1.  点击 <kbd>保存</kbd>
+
+用户现在将能够查看与产品当前库存批次关联的文档。
 
 ## 查看订单明细项关联的批次文档
 

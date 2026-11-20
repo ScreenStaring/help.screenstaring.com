@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Hochladen von Dokumenten zu einer Charge
 
@@ -21,6 +22,39 @@ So laden Sie ein Dokument hoch:
 1. Wählen Sie „Datei auswählen“ und wählen Sie die hochzuladenden Dokumente aus
 
 Die ausgewählten Dokumente sind nun mit der Charge verknüpft.
+
+## Hinzufügen von Chargendokumenten zu Produktseiten
+
+Chargendokumente können zu Produktseiten hinzugefügt und Benutzern über unsere Integration für den [Shopify-Theme-Editor](https://help.shopify.com/de/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) zugänglich gemacht werden. Dadurch können Sie [einen Abschnitt oder Block](https://help.shopify.com/de/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) hinzufügen, mit dem Benutzer die verfügbaren Chargendokumente für das jeweilige Produkt anzeigen können.
+
+Es werden nur Dokumente mit öffentlicher Sichtbarkeit angezeigt. Die öffentliche Sichtbarkeit kann beim Anzeigen der Dokumente einer Charge in der App festgelegt werden, indem im Feld „Sichtbarkeit“ die Option „Öffentlich“ ausgewählt wird.
+
+Dokumente, die Chargen zugeordnet sind, die nicht mehr zum Verkauf stehen, werden nicht angezeigt.
+
+So fügen Sie Chargendokumente zu Ihren Produktseiten hinzu:
+
+1.  <ShopifyCurrentTheme>Öffnen Sie Ihr Theme</ShopifyCurrentTheme> im Shopify-Theme-Editor
+1.  Wählen Sie im Theme-Editor die Produktvorlage aus:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Theme-Vorlage auswählen" />
+
+1.  Wählen Sie die gewünschte Anzeigestelle innerhalb der Produktvorlage aus. Bewegen Sie dazu den Mauszeiger über den gewünschten Einfügebereich:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Schaltfläche zum Hinzufügen eines Blocks" />
+
+1.  Klicken Sie auf „Block hinzufügen“ und wählen Sie im Bereich „Apps“ den Eintrag „Bestandschargen-Dokumente“:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="App-Block für Ablaufdaten hinzufügen" />
+
+1.  Dadurch wird der Produktvorlage ein Block für Bestandschargen-Dokumente hinzugefügt:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="App-Block für Ablaufdaten hinzugefügt" />
+
+1.  Klicken Sie auf den Block, um seine Konfigurationsoptionen aufzurufen. Beachten Sie, dass beim Anzeigen der Dokumente einer Charge in der App über das Feld „Beschreibung“ eine Dokumentbeschreibung hinzugefügt werden kann.
+
+1.  Klicken Sie auf <kbd>Speichern</kbd>
+
+Benutzer können nun Dokumente anzeigen, die der/den aktuellen Bestandscharge(n) des Produkts zugeordnet sind.
 
 ## Anzeigen von Chargendokumenten einer Bestellposition
 

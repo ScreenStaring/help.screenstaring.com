@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Enviando Documentos para um Lote
 
@@ -21,6 +22,39 @@ Para enviar um documento:
 1. Selecione "Escolher arquivo" e selecione os documentos a enviar
 
 Os documentos selecionados agora estão associados ao lote.
+
+## Adicionando Documentos de Lote às Páginas de Produtos
+
+Documentos de lote podem ser adicionados às páginas de produtos e disponibilizados aos usuários por meio da nossa integração com o [editor de temas da Shopify](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Isso permite adicionar [uma seção ou bloco](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) que oferece aos usuários a capacidade de visualizar os documentos de lote disponíveis para o produto em questão.
+
+Apenas documentos com visibilidade pública são exibidos. A visibilidade pública pode ser definida ao visualizar os documentos de um lote no aplicativo, selecionando "Público" no campo "Visibilidade".
+
+Documentos associados a lotes que não estão mais disponíveis para compra não serão exibidos.
+
+Para adicionar documentos de lote às páginas de seus produtos:
+
+1.  <ShopifyCurrentTheme>Abra seu tema</ShopifyCurrentTheme> no editor de temas da Shopify
+1.  No editor de temas, selecione o modelo de produto:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Selecionar o template do tema" />
+
+1.  Selecione o local de exibição desejado dentro do modelo de produto. Isso pode ser feito passando o cursor sobre a área de inserção desejada:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Botão adicionar bloco" />
+
+1.  Clique no botão de adicionar bloco e selecione Inventory Batch Documents na seção Apps:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="Botão adicionar bloco do aplicativo Expiration Dates" />
+
+1.  Isso adicionará um bloco Inventory Batch Documents ao modelo de produto:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="Bloco do aplicativo Expiration Dates adicionado" />
+
+1.  Clique no bloco para acessar suas opções de configuração. Observe que uma descrição do documento pode ser adicionada por meio do campo "Descrição" ao visualizar os documentos de um lote no aplicativo.
+
+1.  Clique em <kbd>Salvar</kbd>
+
+Os usuários agora poderão visualizar os documentos associados ao(s) lote(s) de estoque atual(is) do produto.
 
 ## Visualizando os Documentos de Lote de um Item do Pedido
 

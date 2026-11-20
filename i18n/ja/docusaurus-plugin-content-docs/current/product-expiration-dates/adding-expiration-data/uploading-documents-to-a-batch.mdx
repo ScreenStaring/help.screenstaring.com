@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # バッチへのドキュメントのアップロード
 
@@ -21,6 +22,39 @@ PDF、画像などのファイルをアップロードすることで、分析�
 1. 「ファイルを選択」をクリックし、アップロードするドキュメントを選択します
 
 これで、選択したドキュメントがバッチに関連付けられます。
+
+## 商品ページへのバッチドキュメントの追加
+
+[Shopifyテーマエディタ](https://help.shopify.com/ja/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor)連携機能を使用することで、商品ページにバッチドキュメントを追加し、ユーザーがアクセスできるようにすることができます。これにより、該当商品で利用可能なバッチドキュメントをユーザーが閲覧できるようにする[セクションまたはブロック](https://help.shopify.com/ja/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks)を追加できます。
+
+公開設定が「公開」になっているドキュメントのみが表示されます。公開設定は、アプリでバッチのドキュメントを表示している際に、「公開設定」フィールドから「公開」を選択することで設定できます。
+
+購入できなくなったバッチに関連付けられているドキュメントは表示されません。
+
+商品ページにバッチドキュメントを追加する手順：
+
+1.  Shopifyテーマエディタで<ShopifyCurrentTheme>テーマを開きます</ShopifyCurrentTheme>
+1.  テーマエディタで商品テンプレートを選択します：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="テーマテンプレートを選択" />
+
+1.  商品テンプレート内で希望の表示場所を選択します。挿入したいエリアにカーソルを合わせることで選択できます：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="ブロック追加ボタン" />
+
+1.  ブロック追加ボタンをクリックし、「アプリ」セクションから「在庫バッチのドキュメント」を選択します：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="Expiration Datesアプリブロック追加ボタン" />
+
+1.  これにより、商品テンプレートに「在庫バッチのドキュメント」ブロックが追加されます：
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="Expiration Datesアプリブロック追加完了" />
+
+1.  ブロックをクリックして設定オプションを開きます。アプリでバッチのドキュメントを表示している際に、「説明」フィールドからドキュメントの説明を追加できる点にご注意ください。
+
+1.  <kbd>保存</kbd>をクリックします
+
+これで、ユーザーは商品の現在の在庫バッチに関連付けられたドキュメントを閲覧できるようになります。
 
 ## 注文明細のバッチドキュメントの確認
 
