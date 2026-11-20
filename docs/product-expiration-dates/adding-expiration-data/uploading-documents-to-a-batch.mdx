@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 import Link from '@site/src/components/ProductExpirationDates/Link';
+import ShopifyCurrentTheme from '@site/src/components/ShopifyCurrentTheme';
 
 # Uploading Documents to a Batch
 
@@ -21,6 +22,39 @@ To upload a document:
 1. Select "Choose file" and select the documents to upload
 
 The selected documents are now associated with the batch.
+
+## Adding Batch Documents to Product Pages
+
+Batch documents can be added to product pages and made accessible to users via our [Shopify theme editor](https://help.shopify.com/en/manual/onine-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor) integration. This allows one to add [a section or block](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) that gives users the ability to view available batch documents for the given product.
+
+Only documents with public visibility are shown. Public visibility can be set when viewing a batch's documents in the app by selecting "Public" from the "Visibility" field.
+
+Documents associated with batches that are no longer available for purchase will not be shown.
+
+To add batch documents to your product pages:
+
+1.  <ShopifyCurrentTheme>Open your theme</ShopifyCurrentTheme> in the Shopify theme editor
+1.  In the theme editor select the product template:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-select-template.jpg" height="500" alt="Select theme template" />
+
+1.  Select the desired display location within the product template. This can be done by hovering your cursor over the desired insertion area:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-block-button.jpg" height="500" alt="Add block button" />
+
+1.  Click on the add block button and select Inventory Batch Documents from the Apps section:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-add-documents-block.jpg" height="500" alt="Add Expiration Dates app block button" />
+
+1.  This will add an Inventory Batches Document block to the product template:
+
+    <img src="/product-expiration-dates/shopify/images/theme-editor-documents-block-added.jpg" height="500" alt="Expiration Dates app block added" />
+
+1.  Click on the block to access its configuration options. Note that a document description can be added via the "Description" field when viewing a batch's documents in the app.
+
+1.  Click <kbd>Save</kbd>
+
+Users will now be able to view documents associated with the product's current inventory batch(es).
 
 ## Viewing an Order Line Item's Batch Documents
 
