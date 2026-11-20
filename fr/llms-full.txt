@@ -1450,6 +1450,31 @@ Pour téléverser un document :
 
 Les documents sélectionnés sont désormais associés au lot.
 
+## Ajouter des documents de lot aux pages de produits
+
+Les documents de lot peuvent être ajoutés aux pages de produits et mis à la disposition des utilisateurs via notre intégration avec [l'éditeur de thèmes Shopify](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Cela permet d'ajouter [une section ou un bloc](https://help.shopify.com/fr/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) qui offre aux utilisateurs la possibilité de consulter les documents de lot disponibles pour le produit donné.
+
+Seuls les documents avec une visibilité publique sont affichés. La visibilité publique peut être définie lors de la consultation des documents d'un lot dans l'application en sélectionnant « Public » dans le champ « Visibilité ».
+
+Les documents associés à des lots qui ne sont plus disponibles à l'achat ne seront pas affichés.
+
+Pour ajouter des documents de lot à vos pages de produits :
+
+1.  Ouvrez votre thème dans l'éditeur de thèmes Shopify
+1.  Dans l'éditeur de thèmes, sélectionnez le modèle de produit :
+
+1.  Sélectionnez l'emplacement d'affichage souhaité dans le modèle de produit. Cela peut être fait en survolant avec votre curseur la zone d'insertion souhaitée :
+
+1.  Cliquez sur le bouton d'ajout de bloc et sélectionnez Documents des lots d'inventaire dans la section Applications :
+
+1.  Cela ajoutera un bloc Documents des lots d'inventaire au modèle de produit :
+
+1.  Cliquez sur le bloc pour accéder à ses options de configuration. Notez qu'une description de document peut être ajoutée via le champ « Description » lors de la consultation des documents d'un lot dans l'application.
+
+1.  Cliquez sur Enregistrer
+
+Les utilisateurs pourront désormais consulter les documents associés aux lots de stock actuels du produit.
+
 ## Afficher les documents de lot d'une ligne de commande
 
 Pour afficher les documents associés aux lots attribués à une ligne de commande :

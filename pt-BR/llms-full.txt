@@ -1430,6 +1430,31 @@ Para enviar um documento:
 
 Os documentos selecionados agora estão associados ao lote.
 
+## Adicionando Documentos de Lote às Páginas de Produtos
+
+Documentos de lote podem ser adicionados às páginas de produtos e disponibilizados aos usuários por meio da nossa integração com o [editor de temas da Shopify](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Isso permite adicionar [uma seção ou bloco](https://help.shopify.com/pt-BR/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) que oferece aos usuários a capacidade de visualizar os documentos de lote disponíveis para o produto em questão.
+
+Apenas documentos com visibilidade pública são exibidos. A visibilidade pública pode ser definida ao visualizar os documentos de um lote no aplicativo, selecionando "Público" no campo "Visibilidade".
+
+Documentos associados a lotes que não estão mais disponíveis para compra não serão exibidos.
+
+Para adicionar documentos de lote às páginas de seus produtos:
+
+1.  Abra seu tema no editor de temas da Shopify
+1.  No editor de temas, selecione o modelo de produto:
+
+1.  Selecione o local de exibição desejado dentro do modelo de produto. Isso pode ser feito passando o cursor sobre a área de inserção desejada:
+
+1.  Clique no botão de adicionar bloco e selecione Inventory Batch Documents na seção Apps:
+
+1.  Isso adicionará um bloco Inventory Batch Documents ao modelo de produto:
+
+1.  Clique no bloco para acessar suas opções de configuração. Observe que uma descrição do documento pode ser adicionada por meio do campo "Descrição" ao visualizar os documentos de um lote no aplicativo.
+
+1.  Clique em Salvar
+
+Os usuários agora poderão visualizar os documentos associados ao(s) lote(s) de estoque atual(is) do produto.
+
 ## Visualizando os Documentos de Lote de um Item do Pedido
 
 Para visualizar os documentos associados aos lotes atribuídos a um item do pedido:

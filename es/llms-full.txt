@@ -1444,6 +1444,31 @@ Para subir un documento:
 
 Los documentos seleccionados quedan ahora asociados al lote.
 
+## Agregar documentos de lote a las páginas de productos
+
+Los documentos de lote se pueden agregar a las páginas de productos y poner a disposición de los usuarios mediante nuestra integración con el [editor de temas de Shopify](https://help.shopify.com/es/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Esto permite agregar [una sección o un bloque](https://help.shopify.com/es/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) que brinda a los usuarios la posibilidad de ver los documentos de lote disponibles para el producto dado.
+
+Solo se muestran los documentos con visibilidad pública. La visibilidad pública se puede configurar al ver los documentos de un lote en la aplicación seleccionando «Público» en el campo «Visibilidad».
+
+Los documentos asociados con lotes que ya no están disponibles para la compra no se mostrarán.
+
+Para agregar documentos de lote a tus páginas de productos:
+
+1.  Abre tu tema en el editor de temas de Shopify
+1.  En el editor de temas, selecciona la plantilla de producto:
+
+1.  Selecciona la ubicación de visualización deseada dentro de la plantilla de producto. Puedes hacerlo pasando el cursor sobre el área de inserción deseada:
+
+1.  Haz clic en el botón de agregar bloque y selecciona Documentos de lotes de inventario en la sección Aplicaciones:
+
+1.  Esto agregará un bloque Documentos de lotes de inventario a la plantilla de producto:
+
+1.  Haz clic en el bloque para acceder a sus opciones de configuración. Ten en cuenta que se puede agregar una descripción del documento a través del campo «Descripción» al ver los documentos de un lote en la aplicación.
+
+1.  Haz clic en Guardar
+
+Los usuarios ahora podrán ver los documentos asociados con los lotes de inventario actuales del producto.
+
 ## Ver los documentos de lote de un artículo del pedido
 
 Para ver los documentos asociados a los lotes asignados a un artículo del pedido:

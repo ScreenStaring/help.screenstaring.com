@@ -1430,6 +1430,31 @@ Para enviar um documento:
 
 Os documentos selecionados agora estão associados ao lote.
 
+## Adicionar Documentos de Lote às Páginas de Produtos
+
+Os documentos de lote podem ser adicionados às páginas de produtos e disponibilizados aos utilizadores através da nossa integração com o [editor de temas da Shopify](https://help.shopify.com/pt-PT/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#access-the-theme-editor). Isto permite adicionar [uma secção ou bloco](https://help.shopify.com/pt-PT/manual/online-store/themes/customizing-themes/theme-editor/using-the-theme-editor#sections-and-blocks) que concede aos utilizadores a capacidade de visualizar os documentos de lote disponíveis para o produto em questão.
+
+Apenas são apresentados documentos com visibilidade pública. A visibilidade pública pode ser definida ao visualizar os documentos de um lote na aplicação, selecionando "Público" no campo "Visibilidade".
+
+Os documentos associados a lotes que já não estejam disponíveis para compra não serão apresentados.
+
+Para adicionar documentos de lote às páginas de produtos:
+
+1.  Abra o seu tema no editor de temas da Shopify
+1.  No editor de temas, selecione o modelo de produto:
+
+1.  Selecione a localização de apresentação pretendida dentro do modelo de produto. Pode fazê-lo passando o cursor sobre a área de inserção pretendida:
+
+1.  Clique no botão de adicionar bloco e selecione Inventory Batch Documents na secção Aplicações:
+
+1.  Isto adicionará um bloco Inventory Batch Documents ao modelo de produto:
+
+1.  Clique no bloco para aceder às suas opções de configuração. Tenha em atenção que uma descrição do documento pode ser adicionada através do campo "Descrição" ao visualizar os documentos de um lote na aplicação.
+
+1.  Clique em Guardar
+
+Os utilizadores poderão agora visualizar os documentos associados ao(s) lote(s) de estoque atual(is) do produto.
+
 ## Visualizando os Documentos de Lote de um Item do Pedido
 
 Para visualizar os documentos associados aos lotes atribuídos a um item do pedido:
